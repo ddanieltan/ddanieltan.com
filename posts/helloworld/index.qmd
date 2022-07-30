@@ -14,7 +14,7 @@ I have started and abandoned more blogs than I can remember, so I always start a
 Here's to another shot at this. Wish me luck!
 ```{r}
 #| echo: false
-#| fig-cap: "Hello to a new world with Quarto logo overlaid"
+#| fig-cap: "My visualisation of Hello world + Quarto logo"
 knitr::include_graphics("quartoWorld.png")
 ```
 

@@ -9,7 +9,7 @@ freeze: true
 ## General
 toc: true
 toc-title: On this page
-toc-location: right
+toc-location: left
 anchor-sections: true	
 title-block-banner: false
 lang: en

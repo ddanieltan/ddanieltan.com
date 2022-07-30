@@ -1,5 +1,6 @@
 # Data files
 .DS_Store
 
-
+# Quarto Related
 /.quarto/
+.Rhistory
