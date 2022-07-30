@@ -1,0 +1,17 @@
+---
+title: "🤔"
+subtitle: "My blog on data science, experimentation and learning"
+listing:
+  contents: posts
+  date-format: long
+  sort: "date desc"
+  type: default
+  categories: true
+  fields: [image, date, title, subtitle, description]
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+---
+
+

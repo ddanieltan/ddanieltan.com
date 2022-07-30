@@ -1,0 +1,30 @@
+project:
+  type: website
+
+website:
+  title: "ddanieltan.com"
+  twitter-card: true
+  open-graph: true
+  feed: true
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        aria-label: github
+        href: https://github.com/ddanieltan
+      - icon: linkedin
+        aria-label: linkedin
+        href: https://www.linkedin.com/in/ddanieltan/
+  page-footer: 
+    left: "The reward for good work is more work - Tom Sachs" 
+format:
+  html:
+    theme: 
+      - litera
+      - custom.scss
+    smooth-scroll: true
+    code-tools:
+      source: true
+
+
+

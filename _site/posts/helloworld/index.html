@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Tan">
+<meta name="dcterms.date" content="2022-07-15">
+<meta name="description" content="A new hope">
+
+<title>ddanieltan.com - Hello world</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<meta property="og:title" content="ddanieltan.com - Hello world">
+<meta property="og:description" content="A new hope">
+<meta property="og:image" content="quartoWorld.png">
+<meta property="og:site-name" content="ddanieltan.com">
+<meta name="twitter:title" content="ddanieltan.com - Hello world">
+<meta name="twitter:description" content="A new hope">
+<meta name="twitter:image" content="quartoWorld.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ddanieltan.com</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">Daniel Tan</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ddanieltan"><i class="bi bi-github" role="img" aria-label="github">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ddanieltan/"><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#welcome-to-my-blog" id="toc-welcome-to-my-blog" class="nav-link active" data-scroll-target="#welcome-to-my-blog">Welcome to my blog</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#jumpstarting-this-blog" id="toc-jumpstarting-this-blog" class="nav-link" data-scroll-target="#jumpstarting-this-blog">Jumpstarting this blog</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Hello world</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">quarto</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A new hope
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Tan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 15, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="welcome-to-my-blog" class="level1">
+<h1>Welcome to my blog</h1>
+<p>I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable part of my professional and personal life. So really, it is a disservice to myself that I have not made the deliberate effort to set aside time to practice writing.</p>
+<p>I have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.</p>
+<p>Here’s to another shot at this. Wish me luck!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quartoWorld.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Hello to a new world with Quarto logo overlaid</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="quarto" class="level1 page-columns page-full">
+<h1>Quarto</h1>
+<p>One reason why I got tempted to start a blog again is <a href="https://quarto.org/">Quarto</a>! Quarto is the shiny, new publishing framework (from <del>RStudio</del><a href="https://posit.co/">Posit</a>) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine and promises to be programming language agnostic. My first couple of hours playing with Quarto was a real treat, and I appreciated the vision of having a single framework where a Data Scientist could use any language to publish content in any format.</p>
+<p>You can see my unbridled enthusiasm here.</p>
+<p align="center">
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6943566445809152000" height="726" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
+</iframe>
+</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>…along with my “this-is-a-huge-moment-in-history” hyperbole</p>
+</div></div></section>
+<section id="jumpstarting-this-blog" class="level1">
+<h1>Jumpstarting this blog</h1>
+<p>These were the best resources I found online to help me jump start this blog.</p>
+<section id="official-quarto-documentation-website-and-repos" class="level4">
+<h4 class="anchored" data-anchor-id="official-quarto-documentation-website-and-repos">1. Official Quarto Documentation (<a href="https://quarto.org/">website</a> and <a href="https://github.com/quarto-dev">repos</a>)</h4>
+<p>The official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the <a href="https://quarto.org/docs/websites/">website page</a>, <a href="https://quarto.org/docs/publishing/">publishing page</a> and thumbing through their <a href="https://quarto.org/docs/gallery/">gallery</a> for inspiration.</p>
+</section>
+<section id="danielle-navarros-porting-a-distill-blog-to-quarto-blog-and-repo" class="level4">
+<h4 class="anchored" data-anchor-id="danielle-navarros-porting-a-distill-blog-to-quarto-blog-and-repo">2. Danielle Navarro’s “Porting a Distill Blog to Quarto” (<a href="https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/">blog</a> and <a href="https://github.com/djnavarro/quarto-blog">repo</a>)</h4>
+<p>Danielle’s blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.</p>
+</section>
+<section id="the-small-but-growing-collection-of-quarto-content-online" class="level4">
+<h4 class="anchored" data-anchor-id="the-small-but-growing-collection-of-quarto-content-online">3. The small but growing collection of Quarto content online</h4>
+<p>At the time of writing, we do not have a large collection Quarto-specific content online. Nevertheless, you can still find some helpful gems from <a href="https://www.youtube.com/results?search_query=quarto+blog">Youtube videos</a>, <a href="https://github.com/quarto-dev/quarto-cli/discussions">Github discussions</a> or <a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/">websites</a> that had a helpful tip or two that I could use for my blog.</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {Hello World},
+  date = {2022-07-15},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Daniel Tan. 2022. <span>“Hello World.”</span> July 15, 2022.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Hello world"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">description:</span><span class="co"> "A new hope"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="an">date:</span><span class="co"> "2022-07-15"</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="an">image:</span><span class="co"> "quartoWorld.png"</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="an">categories:</span><span class="co"> [quarto]</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">---</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu"># Welcome to my blog</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>I started this blog to have a place on the internet where I can practice and publish my writing. </span>
+<span id="cb1-10"><a href="#cb1-10"></a>Writing has been a very remarkable part of my professional and personal life. So really, it is a disservice to myself that I have not made the deliberate effort to set aside time to practice writing. </span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>I have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>Here's to another shot at this. Wish me luck!</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="in">```{r}</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co">#| fig-cap: "Hello to a new world with Quarto logo overlaid"</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"quartoWorld.png"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="in">```</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="fu"># Quarto</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>One reason why I got tempted to start a blog again is <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>! Quarto is the shiny, new publishing framework (from ~~RStudio~~<span class="co">[</span><span class="ot">Posit</span><span class="co">](https://posit.co/)</span>) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine and promises to be programming language agnostic. My first couple of hours playing with Quarto was a real treat, and I appreciated the vision of having a single framework where a Data Scientist could use any language to publish content in any format.</span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a>You can see my unbridled enthusiasm here.</span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="kw">&lt;p</span> <span class="er">align</span><span class="ot">=</span><span class="st">"center"</span><span class="kw">&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="kw">&lt;iframe</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://www.linkedin.com/embed/feed/update/urn:li:share:6943566445809152000"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"726"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"504"</span> <span class="er">frameborder</span><span class="ot">=</span><span class="st">"0"</span> <span class="er">allowfullscreen</span><span class="ot">=</span><span class="st">""</span> <span class="er">title</span><span class="ot">=</span><span class="st">"Embedded post"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a></span>
+<span id="cb1-32"><a href="#cb1-32"></a>:::{.column-margin}</span>
+<span id="cb1-33"><a href="#cb1-33"></a>...along with my "this-is-a-huge-moment-in-history" hyperbole </span>
+<span id="cb1-34"><a href="#cb1-34"></a>:::</span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="fu"># Jumpstarting this blog</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>These were the best resources I found online to help me jump start this blog.</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">#### 1. Official Quarto Documentation ([website](https://quarto.org/) and [repos](https://github.com/quarto-dev))</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a>The official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the <span class="co">[</span><span class="ot">website page</span><span class="co">](https://quarto.org/docs/websites/)</span>, <span class="co">[</span><span class="ot">publishing page</span><span class="co">](https://quarto.org/docs/publishing/)</span> and thumbing through their <span class="co">[</span><span class="ot">gallery</span><span class="co">](https://quarto.org/docs/gallery/)</span> for inspiration. </span>
+<span id="cb1-41"><a href="#cb1-41"></a></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="fu">#### 2. Danielle Navarro's “Porting a Distill Blog to Quarto” ([blog](https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/) and [repo](https://github.com/djnavarro/quarto-blog))</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>Danielle's blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.</span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="fu">#### 3. The small but growing collection of Quarto content online</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>At the time of writing, we do not have a large collection Quarto-specific content online. Nevertheless, you can still find some helpful gems from <span class="co">[</span><span class="ot">Youtube videos</span><span class="co">](https://www.youtube.com/results?search_query=quarto+blog)</span>, <span class="co">[</span><span class="ot">Github discussions</span><span class="co">](https://github.com/quarto-dev/quarto-cli/discussions)</span> or <span class="co">[</span><span class="ot">websites</span><span class="co">](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/)</span> that had a helpful tip or two that I could use for my blog.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">The reward for good work is more work - Tom Sachs</div>   
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

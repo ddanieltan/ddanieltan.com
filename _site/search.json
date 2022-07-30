@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "posts/helloworld/index.html",
+    "href": "posts/helloworld/index.html",
+    "title": "Hello world",
+    "section": "",
+    "text": "Quarto\nOne reason why I got tempted to start a blog again is Quarto! Quarto is the shiny, new publishing framework (from RStudioPosit) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine and promises to be programming language agnostic. My first couple of hours playing with Quarto was a real treat, and I appreciated the vision of having a single framework where a Data Scientist could use any language to publish content in any format.\nYou can see my unbridled enthusiasm here.\n\n\n\n\n\n\n…along with my “this-is-a-huge-moment-in-history” hyperbole\n\n\nJumpstarting this blog\nThese were the best resources I found online to help me jump start this blog.\n\n1. Official Quarto Documentation (website and repos)\nThe official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the website page, publishing page and thumbing through their gallery for inspiration.\n\n\n2. Danielle Navarro’s “Porting a Distill Blog to Quarto” (blog and repo)\nDanielle’s blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.\n\n\n3. The small but growing collection of Quarto content online\nAt the time of writing, we do not have a large collection Quarto-specific content online. Nevertheless, you can still find some helpful gems from Youtube videos, Github discussions or websites that had a helpful tip or two that I could use for my blog.\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  title = {Hello World},\n  date = {2022-07-15},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “Hello World.” July 15, 2022."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\n\n\nCode\nmpg %>% \n  group_by(model) %>% \n  summarise(n = n())\n\n\n# A tibble: 38 × 2\n   model                  n\n   <chr>              <int>\n 1 4runner 4wd            6\n 2 a4                     7\n 3 a4 quattro             8\n 4 a6 quattro             3\n 5 altima                 6\n 6 c1500 suburban 2wd     5\n 7 camry                  7\n 8 camry solara           7\n 9 caravan 2wd           11\n10 civic                  9\n# … with 28 more rows\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  title = {Post {With} {Code}},\n  date = {2022-07-18},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “Post With Code.” July 18, 2022."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "🤔",
+    "section": "",
+    "text": "This is my description now\n\n\n\n\n\n\nJuly 18, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Daniel Tan",
+    "section": "",
+    "text": "I currently work on Experimentation @Apple. Previously, I worked on Personalisation @OCBC AI Labs and on the metasearch auction @TripAdvisor.\nOcassionally, I teach data science workshops @General Assembly and @Vertical Institute."
+  }
+]
