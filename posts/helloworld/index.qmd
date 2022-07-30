@@ -6,8 +6,7 @@ image: "quartoWorld.png"
 categories: [quarto]
 ---
 # Welcome to my blog
-I started this blog to have a place on the internet where I can practice and publish my writing. 
-Writing has been a very remarkable part of my professional and personal life. So really, it is a disservice to myself that I have not made the deliberate effort to set aside time to practice writing. 
+I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable tool for both my professional and personal life. It helps me to organise my thoughts, maximise my impact and reflect on my learnings. Yet, I have consistently not prioritised writing and it is a disservice to myself that I have not made set aside time for deliberate practice. 
 
 I have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.
 
@@ -19,9 +18,9 @@ knitr::include_graphics("quartoWorld.png")
 ```
 
 # Quarto
-One reason why I got tempted to start a blog again is [Quarto](https://quarto.org/)! Quarto is the shiny, new publishing framework (from ~~RStudio~~[Posit](https://posit.co/)) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine. Quarto allows you to write technical content in either Python, R or Julia, and have that content flexibly published as a pdf report, website or presentation. My first couple of hours playing with Quarto was a real treat!
+One reason why I got tempted to start a blog again is [Quarto](https://quarto.org/)! Quarto is the shiny, new publishing framework (from ~~RStudio~~[Posit](https://posit.co/)) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine. Quarto feels purpose built for the entire data community, supporting all the major Data Science languages (Python, R, Julia, Javascript), and supporting a wide spectrum of output formats (pdf reports, websites, presentations and more).  
 
-You can see my unbridled enthusiasm here.
+You can see my unbridled enthusiasm after first learning about Quarto here.
 
 <p align="center">
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6943566445809152000" height="726" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
@@ -41,4 +40,4 @@ The official docs are extensive and well-written. Specific to building a blog, I
 Danielle's blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.
 
 #### 3. The small but growing collection of Quarto content online
-At the time of writing, we do not have a large collection Quarto-specific content online. Nevertheless, you can still find some helpful gems from [Youtube videos](https://www.youtube.com/results?search_query=quarto+blog), [Github discussions](https://github.com/quarto-dev/quarto-cli/discussions) or [websites](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/) that had a helpful tip or two that I could use for my blog.
+At the time of writing, I did not find a large collection of Quarto-specific content online. Nevertheless, I did find some helpful gems from [Youtube videos](https://www.youtube.com/results?search_query=quarto+blog), [Github discussions](https://github.com/quarto-dev/quarto-cli/discussions) or [websites](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/) that had a helpful tip or two that I could use for my blog.
