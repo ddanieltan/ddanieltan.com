@@ -19,7 +19,7 @@ knitr::include_graphics("quartoWorld.png")
 ```
 
 # Quarto
-One reason why I got tempted to start a blog again is [Quarto](https://quarto.org/)! Quarto is the shiny, new publishing framework (from ~~RStudio~~[Posit](https://posit.co/)) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine and promises to be programming language agnostic. My first couple of hours playing with Quarto was a real treat, and I appreciated the vision of having a single framework where a Data Scientist could use any language to publish content in any format.
+One reason why I got tempted to start a blog again is [Quarto](https://quarto.org/)! Quarto is the shiny, new publishing framework (from ~~RStudio~~[Posit](https://posit.co/)) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine. Quarto allows you to write technical content in either Python, R or Julia, and have that content flexibly published as a pdf report, website or presentation. My first couple of hours playing with Quarto was a real treat!
 
 You can see my unbridled enthusiasm here.
 
@@ -35,7 +35,7 @@ You can see my unbridled enthusiasm here.
 These were the best resources I found online to help me jump start this blog.
 
 #### 1. Official Quarto Documentation ([website](https://quarto.org/) and [repos](https://github.com/quarto-dev))
-The official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the [website page](https://quarto.org/docs/websites/), [publishing page](https://quarto.org/docs/publishing/) and thumbing through their [gallery](https://quarto.org/docs/gallery/) for inspiration. 
+The official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the [website page](https://quarto.org/docs/websites/), [publishing page](https://quarto.org/docs/publishing/) or thumbing through their [gallery](https://quarto.org/docs/gallery/) for inspiration. 
 
 #### 2. Danielle Navarro's “Porting a Distill Blog to Quarto” ([blog](https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/) and [repo](https://github.com/djnavarro/quarto-blog))
 Danielle's blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.
