@@ -1,0 +1,65 @@
+---
+title: "Explainers: Inverse Transform Theorem"
+description: "A #SomE2 submission"
+date: "2022-08-08"
+#image: "image.jpg"
+categories: [explainers, R, simulation]
+---
+:::{.callout-note}
+This post is my submission to 2022's Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. 
+
+You can learn more about #SoME2 from [Grant Sanderson's(3B1B) video](https://youtu.be/hZuYICAEN9Y).
+:::
+
+```{r}
+#| message: false
+library(tidyverse)
+set.seed(sum(utf8ToInt("SoME2")))
+```
+# Worlds at our fingertips
+Modern day computers are pretty amazing simulation machines.
+
+Here's an example. Say that I am a [Bottle Flipping](https://www.wikihow.com/Do-the-Water-Bottle-Flipping-Challenge) enthusiast and I am eager to simulate 100 bottle flips. TheAnd, if you could not bring yourself to actually flip a bottle 100 times, we could instead can instruct the computer to provide 100 random variates generated from a binomial distribution.
+```{r}
+totalFlips = 100
+prob = 0.2 # Took me 5 tries to flip the bottle once
+rbinom(totalFlips, 1, prob) # 1 represents a successful flip
+```
+:::{.column-margin}
+Yes, 🙄 I know bottle flipping was a trend way back in [2016](https://www.quora.com/What-are-the-origins-of-bottle-flipping-How-did-its-popularity-spread). I needed a success/failure example and it was either this of "coin flips" which I could not bring myself to use
+:::
+
+Or, say I'm a sports fan and my football team scores an average of 1 goal per game. I could simulate the goals scored over 100 games by calling for 100 random variates from a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution).
+```{r}
+totalGames=100
+avgGoalsPerGame = 1
+rpois(totalGames,avgGoalsPerGame)
+```
+
+From models using a single distribution to ones using complex combinations, the ability to generate random variates to simulate almost any scenario we can think of is stunning. 
+
+# How random variates are generated
+But, how do computers even produce these random variates? Surely, there can't be a specialised function for every one of the infinite distributions! It turns out that computers have a very simple solution in the form of two ingredients - a pseudorandom uniform generator and the inverse transform theorem. 
+
+A pseudoranom uniform generator is an algorithm that produces random variates from a $Unif~(0,1)$ distribution, producing random numbers between 0 and 1. Essentially, we rely on this generator to capture the "randomness" quality.
+
+:::{.column-margin}
+There is an entire family of pseudorandom number generators, and I'll 
+:::
+
+
+There's an How do computers provide random variates for these multitude of distributions? Certainly, we can't expect a dedicated pseudorandom algorithm for every distribution imaginable. Well, it turns out that the rosetta stone of random variate generation starts from a pseudorandom generator for the uniform distribution.
+
+The Uniform distribution is a distribution where 
+
+:::{.column-margin}
+We will talk more about the uniform distribution in a future post.
+:::
+
+# Inverse Transform Theorem
+
+Show Nasty derivation
+
+How can something so simple be universally applied to every possible distribution?
+
+# Visual connection
