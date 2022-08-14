@@ -3,6 +3,8 @@ project:
 
 website:
   title: "ddanieltan.com"
+  site-url: https://www.ddanieltan.com
+  repo-url: https://github.com/ddanieltan/ddanieltan.com
   twitter-card: true
   open-graph: true
   feed: true
@@ -23,8 +25,8 @@ format:
       - litera
       - custom.scss
     smooth-scroll: true
-    code-tools:
-      source: true
+    # code-tools:
+      # source: true
 
 
 
