@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.ddanieltan.com/index.html</loc>
-    <lastmod>2022-08-13T02:06:44.950Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/post-with-code/index.html</loc>
-    <lastmod>2022-07-30T15:03:08.104Z</lastmod>
+    <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
+    <lastmod>2022-08-16T07:28:40.045Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/some2/index.html</loc>
-    <lastmod>2022-08-13T02:06:44.335Z</lastmod>
+    <lastmod>2022-08-16T07:28:40.758Z</lastmod>
   </url>
   <url>
-    <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
-    <lastmod>2022-08-08T15:09:52.808Z</lastmod>
+    <loc>https://www.ddanieltan.com/index.html</loc>
+    <lastmod>2022-08-16T07:28:41.374Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/about.html</loc>
-    <lastmod>2022-08-08T15:10:10.321Z</lastmod>
+    <lastmod>2022-08-16T07:28:41.695Z</lastmod>
   </url>
 </urlset>
