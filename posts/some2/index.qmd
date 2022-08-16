@@ -89,7 +89,7 @@ knitr::include_graphics("inverse.png")
 So putting all the pieces together, this is how random variates are generated:
 
 - The $Unif(0,1)$ distribution produces a random uniform between 0 and 1
-- And we can imagine that uniform on the Y axis of a CDF for your distribution of interest because it is also bounded between 0 and 1
+- And we can imagine that uniform on the Y axis of a CDF for your distribution of interest
 - The inverse function $F^{-1}(x)$ transforms this uniform to a value on the X axis
 - Which in turn becomes a random variate from your distribution of interest
 
