@@ -125,15 +125,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <meta property="og:title" content="ddanieltan.com - Explainers: Inverse Transform Theorem">
 <meta property="og:description" content="A #SoME2 submission">
-<meta property="og:image" content="https://www.ddanieltan.com/posts/some2/inverse.png">
+<meta property="og:image" content="https://www.ddanieltan.com/posts/some2/midjourney.png">
 <meta property="og:site-name" content="ddanieltan.com">
-<meta property="og:image:height" content="1185">
-<meta property="og:image:width" content="1763">
+<meta property="og:image:height" content="512">
+<meta property="og:image:width" content="512">
 <meta name="twitter:title" content="ddanieltan.com - Explainers: Inverse Transform Theorem">
 <meta name="twitter:description" content="A #SoME2 submission">
-<meta name="twitter:image" content="https://www.ddanieltan.com/posts/some2/inverse.png">
-<meta name="twitter:image-height" content="1185">
-<meta name="twitter:image-width" content="1763">
+<meta name="twitter:image" content="https://www.ddanieltan.com/posts/some2/midjourney.png">
+<meta name="twitter:image-height" content="512">
+<meta name="twitter:image-width" content="512">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -241,7 +241,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post is my submission to 2022’s Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. I thoroughly enjoyed learning from the submissions from SoME1, and thought to scrape my spare time together this year to submit something for SoME2.</p>
+<p>This post is my submission to 2022’s Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. I thoroughly enjoyed learning from the <a href="https://www.youtube.com/playlist?list=PLnQX-jgAF5pTkwtUuVpqS5tuWmJ-6ZM-Z">submissions from SoME1</a>, and thought to scrape my spare time together this year to submit something for SoME2.</p>
 <p>You can learn more about #SoME2 from <a href="https://youtu.be/hZuYICAEN9Y">Grant Sanderson’s(3B1B) video</a>.</p>
 </div>
 </div>
@@ -296,15 +296,15 @@ Note
 <section id="inverse-transform-theorem" class="level1">
 <h1>Inverse Transform Theorem</h1>
 <p>The Inverse Transform Theorem is the backbone behind <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling">Inverse Transform Sampling</a>, and is how a uniform distribution is transformed to a diverse range of other distributions.</p>
-<p>The challenge, however, is how to make sense of the Inverse Transform Theorem. On first learning, I found this theorem deceptively and I struggled to grasp the key ideas behind it. Here is the theorem explained:</p>
+<p>My biggest challenge when I first encountered this theorem was to grasp the key idea behind its simplicity. Here is the theorem:</p>
 <blockquote class="blockquote">
 <p>Let <span class="math inline">\(X\)</span> be a continuous random variable with c.d.f <span class="math inline">\(F(x)\)</span>. Then <span class="math inline">\(F(X) \sim Unif(0,1)\)</span>.</p>
 </blockquote>
-<p>And, here’s the equally perplexing proof:</p>
+<p>And, here’s the equally perplexing simple proof:</p>
 <blockquote class="blockquote">
 <p>Let <span class="math inline">\(Y = F(X)\)</span> and suppose that <span class="math inline">\(Y\)</span> has a c.d.f <span class="math inline">\(G(y)\)</span>, then <span class="math display">\[G(y) = P(Y \leq y) = P(F(Y) \leq y) \]</span> <span class="math display">\[ = P(X \leq F^{-1}(y)) = F(F^{-1}(y)) = y\]</span></p>
 </blockquote>
-<p>Let me explain the mechanics of the theorem. This theorem simply states that given we have a cumulative density function of a continuous random variable, the inverse of the CDF function will produce a Uniform disteribution. While the mechanics is rather straightforward, I had so many questions about why this works:</p>
+<p>Let me explain the mechanics of the theorem. This theorem simply states that given we have a cumulative density function of a continuous random variable, the inverse of the CDF function will produce a Uniform distribution. While the usage of the theorem reads like a straight forward recipe, I had so many questions about why the theorem works:</p>
 <ul>
 <li>Why is the theorem and proof so simple?</li>
 <li>How could this theorem be universally true for any distribution?</li>
@@ -313,7 +313,7 @@ Note
 </section>
 <section id="visual-connection" class="level1">
 <h1>Visual connection</h1>
-<p>And what I see as a recurring theme amongst SoME submissions, is that for many mathematical concepts that appear hard to understand in written form, we can achieve some clarity expressing the ideas in visual form. Certainly, this is what I experienced as I sought to better understand this theorem.</p>
+<p>And what I see as a recurring theme amongst SoME submissions, is that for many mathematical concepts that appear hard to understand in written form, we can achieve some clarity by expressing the ideas in visual form. Here is my go at it.</p>
 <p>Here are a number of cumulative density functions for an assortment of distributions.</p>
 <div class="cell">
 <details open="">
@@ -344,17 +344,27 @@ Note
 </div>
 </div>
 </div>
-<p>So putting all the pieces together:</p>
+<p>So putting all the pieces together, this is how random variates are generated:</p>
 <ul>
-<li>The <span class="math inline">\(Unif(0,1)\)</span> distribution produces a random number between 0 and 1</li>
-<li>Imagine that number on the Y axis of a CDF for your distribution of interest</li>
-<li>The inverse function <span class="math inline">\(F^{-1}(x)\)</span> transforms this number to a value on the X axis</li>
+<li>The <span class="math inline">\(Unif(0,1)\)</span> distribution produces a random uniform between 0 and 1</li>
+<li>And we can imagine that uniform on the Y axis of a CDF for your distribution of interest</li>
+<li>The inverse function <span class="math inline">\(F^{-1}(x)\)</span> transforms this uniform to a value on the X axis</li>
 <li>Which in turn becomes a random variate from your distribution of interest</li>
 </ul>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>The Inverse Transform Theorem is a remarkable piece of math that links the uniform distribution to just about any other distribution we could think of. It’s a crucial piece in the machinery of modern machines that enable us to run simulations, and I hope this post helps to share the visual a-ha intuition I experienced when I was learning about this topic.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="midjourney.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.midjourney.com/home/">Midjourney</a> AI Art with the prompt of ‘Inverse Transform Theorem’</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

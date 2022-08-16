@@ -2,7 +2,7 @@
 title: "Explainers: Inverse Transform Theorem"
 description: "A #SoME2 submission"
 date: "2022-08-08"
-image: "inverse.png"
+image: "midjourney.png"
 categories: [explainers, R, simulation, randomness]
 ---
 :::{.callout-note}
@@ -95,3 +95,9 @@ So putting all the pieces together, this is how random variates are generated:
 
 # Conclusion
 The Inverse Transform Theorem is a remarkable piece of math that links the uniform distribution to just about any other distribution we could think of. It's a crucial piece in the machinery of modern machines that enable us to run simulations, and I hope this post helps to share the visual a-ha intuition I experienced when I was learning about this topic.
+```{r}
+#| echo: false
+#| fig-cap: "[Midjourney](https://www.midjourney.com/home/) AI Art with the prompt of 'Inverse Transform Theorem'"
+knitr::include_graphics("midjourney.png")
+```
+
