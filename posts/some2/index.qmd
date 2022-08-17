@@ -77,7 +77,7 @@ ggplot() + xlim(-5, 5) +
   geom_function(fun = exponential, colour="purple") +
   labs(title="CDFs from an assortment of distributions")
 ```
-Despite coming in every imaginable shape and size, CDFs for any function have 1 similarity. Their output (y-axis) will always be bound between 0 and 1. This makes a lot of sense when we consider that the CDF is characterised for being a _monotonic increasing_ function. Another way to think about this is to intuit that the CDF graphs the probability of $P(X<x)$ which will always return a probability as an output, which will be bounded between 0 and 1. This property is very useful when we match it back to the $Unif(0,1)$ distribution. A uniform distribution produces random variates similarly bound between 0 and 1.
+Despite coming in every imaginable shape and size, CDFs for any function have 1 similarity. Their output (y-axis) will always be bound between 0 and 1. This makes a lot of sense when we consider that the CDF is characterised for being a _monotonic increasing_ function. The CDF graphs the probability of $P(X<x)$, given that the output is a probability, the Y axis will always be bounded between 0 and 1. This property is very useful when we match it back to the $Unif(0,1)$ distribution. A uniform distribution produces random variates similarly bound between 0 and 1.
 
 The last piece of the puzzle is to understand that just as a function $F(x)$ can be visually described as a transformation mapping values from the X axis to values on the Y axis, and the inverse of that said function $F^{-1}(x)$ is simply the inverse transformation mapping values from the Y axis to the X axis.
 ```{r}
@@ -86,12 +86,11 @@ The last piece of the puzzle is to understand that just as a function $F(x)$ can
 knitr::include_graphics("inverse.png")
 ```
 
-So putting all the pieces together, this is how random variates are generated:
-
+So putting all the pieces together, this is how the Inverse Transform Theorem is put into action:
 - The $Unif(0,1)$ distribution produces a random uniform between 0 and 1
-- And we can imagine that uniform on the Y axis of a CDF for your distribution of interest
-- The inverse function $F^{-1}(x)$ transforms this uniform to a value on the X axis
-- Which in turn becomes a random variate from your distribution of interest
+- This is akin to picking a random point on the Y axis of a CDF for your distribution of interest
+- The inverse function $F^{-1}(x)$ maps the random uniform on the Y axis to a value on the X axis
+- And this X axis value in turn becomes a random variate from your distribution of interest
 
 # Conclusion
 The Inverse Transform Theorem is a remarkable piece of math that links the uniform distribution to just about any other distribution we could think of. It's a crucial piece in the machinery of modern machines that enable us to run simulations, and I hope this post helps to share the visual a-ha intuition I experienced when I was learning about this topic.
