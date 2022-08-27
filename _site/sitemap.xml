@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
-    <lastmod>2022-08-22T02:09:51.606Z</lastmod>
+    <lastmod>2022-08-27T13:17:58.231Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/some2/index.html</loc>
@@ -10,10 +10,14 @@
   </url>
   <url>
     <loc>https://www.ddanieltan.com/index.html</loc>
-    <lastmod>2022-08-22T02:09:53.204Z</lastmod>
+    <lastmod>2022-08-27T15:03:07.703Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/about.html</loc>
     <lastmod>2022-08-22T02:09:53.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/stow/index.html</loc>
+    <lastmod>2022-08-27T15:03:07.044Z</lastmod>
   </url>
 </urlset>

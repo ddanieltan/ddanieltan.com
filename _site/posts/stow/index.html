@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Tan">
+<meta name="dcterms.date" content="2022-08-27">
+<meta name="description" content="A simple system to keep chaos at bay">
+
+<title>ddanieltan.com - How I sync my config files with Stow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BQGXLNCBHY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<meta property="og:title" content="ddanieltan.com - How I sync my config files with Stow">
+<meta property="og:description" content="A simple system to keep chaos at bay">
+<meta property="og:image" content="https://www.ddanieltan.com/posts/stow/organized.png">
+<meta property="og:site-name" content="ddanieltan.com">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+<meta name="twitter:title" content="ddanieltan.com - How I sync my config files with Stow">
+<meta name="twitter:description" content="A simple system to keep chaos at bay">
+<meta name="twitter:image" content="https://www.ddanieltan.com/posts/stow/organized.png">
+<meta name="twitter:image-height" content="1024">
+<meta name="twitter:image-width" content="1024">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ddanieltan.com</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">Daniel Tan</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ddanieltan"><i class="bi bi-github" role="img" aria-label="github">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ddanieltan/"><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#an-organisational-nightmare" id="toc-an-organisational-nightmare" class="nav-link active" data-scroll-target="#an-organisational-nightmare">An organisational nightmare</a></li>
+  <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link" data-scroll-target="#the-big-picture">The Big Picture</a></li>
+  <li><a href="#syncing-a-config-file-for-the-1st-time" id="toc-syncing-a-config-file-for-the-1st-time" class="nav-link" data-scroll-target="#syncing-a-config-file-for-the-1st-time">Syncing a config file for the 1st time</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">How I sync my config files with Stow</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">tooling</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A simple system to keep chaos at bay
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Tan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 27, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="an-organisational-nightmare" class="level1">
+<h1>An organisational nightmare</h1>
+<p>I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="organized.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://openai.com/dall-e-2/">DallE2</a> art with prompt: ‘Keeping things organized across multiple machines, digital art’</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As this is a common problem that plagues many programmer, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
+</p>
+— David Robinson (<span class="citation" data-cites="drob">@drob</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>I find myself bringing up Stow pretty often in conversations so I wanted to take <span class="citation" data-cites="drob">@drob</span>’s advice. However, as there are <a href="https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/">many</a> <a href="https://alexpearce.me/2016/02/managing-dotfiles-with-stow/">excellent</a> <a href="https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html">blogs</a> that already do a great job of explain what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy towards creating a straight-forward how-to recipe. I can imagine that for someone going through the frustration of sync-ing config files, a simple how-to is the 1st thing you would be looking for.</p>
+</section>
+<section id="the-big-picture" class="level1">
+<h1>The Big Picture</h1>
+<p>Here’s the big picture of how a Stow-enabled config synchronisation system is setup.</p>
+<ol type="1">
+<li><p>You will need a <code>dotfiles</code> version controlled repository. The simplest approach here would be a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">Github repository</a></p></li>
+<li><p>In <code>dotfiles</code>, you will create separate folders for each application’s config file you wish to keep in-sync. What you name these folders is totally up to you, but conventionally most name the folder after the application</p></li>
+</ol>
+<p>For example, a simple <code>dotfiles</code> repo might look like this.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">.</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">├──</span> aliases</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">├──</span> kitty</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">└──</span> nvim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, my intention is to sync my shell aliases, terminal configs (<a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>) and editor configs (<a href="https://neovim.io/">NeoVim</a>), so I create a separate folder for each.</p>
+<ol start="3" type="1">
+<li><p>Within each folder, you can create the config files that we want to be kept in-sync</p></li>
+<li><p>Using Stow, you can then create a symlink of these config files which would be placed in the right locations on your file system for the respective applications to read from</p></li>
+<li><p>Once this is set up, the day-to-day usage of this system is incredibly simple. Any time you make make edits to your config files on 1 machine, you simply need to commit and push the changes made in your <code>dotfiles</code> repo. Your config files are symlink-ed to the files in your <code>dotfiles</code> repo, and any edit you make will be updated. Next time you hop into a different machine, just pull down the latest changes in the <code>dotfiles</code> repo and all your configs will be updated</p></li>
+</ol>
+<p>Steps 3 and 4 are the tricky bits and I provide a more detailed example of them below.</p>
+</section>
+<section id="syncing-a-config-file-for-the-1st-time" class="level1 page-columns page-full">
+<h1>Syncing a config file for the 1st time</h1>
+<p>Here’s an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g.&nbsp;the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a> terminal. To configure this terminal, you would edit a config file <code>kitty.conf</code> whose default location is <code>~/.config/kitty/kitty.conf</code>. Here’s what you would do:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Yes, I see the irony in using Kitty because it is a GPU-accelerated application whose primary function is to print out text…</p>
+</div></div><ol type="1">
+<li><p>We start from machine A. Firstly, you will need to delete the existing <code>kitty.conf</code> file</p></li>
+<li><p>In your <code>dotfiles</code> repo, within the <code>kitty</code> folder, create a new <code>kitty.conf</code> file but make sure this file is in the exact same folder structure of the default config location. I.e. your new config file should sit in the <code>dotfiles</code> repo like this</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">.</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">├──</span> aliases</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">├──</span> kitty</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">│&nbsp;&nbsp;</span> └── .config</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">│&nbsp;&nbsp;</span>     └── kitty</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">│&nbsp;&nbsp;</span>         └── kitty.conf</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">└──</span> nvim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><p>Fill up <code>kitty.conf</code> with your desired settings</p></li>
+<li><p>Navigate back up to the <code>dotfiles</code> repo and run <code>stow kitty</code>. This command will create a symlink of the contents of the kitty folder, which will create a <code>kitty.conf</code> in the <code>~/.config/kitty/kitty.conf</code> location</p></li>
+<li><p>We are done setting up on Machine A. Commit and push the changes to your <code>dotfiles</code> repo</p></li>
+<li><p>Finally, log into to Machine B. Pull down the changes and because we have not ran stow before, you will need to run <code>stow kitty</code> here too to create the symlinks.</p></li>
+</ol>
+<p>Stow is something you only need to run the 1st time you add a config file. You do not have to run <code>stow</code> for any subsequent edits.</p>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+<p>This config sync system is pretty sweet but it is not without some limitations. Here’s a couple for you to be aware of.</p>
+<p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
+<p>Additionally, there are some situations where you do not want config files sync-ed.&nbsp;For example, I don’t use this system to sync my shell configs because those sometimes contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<blockquote class="blockquote">
+<p>“Life truly begins when you put your house in order.” - Marie Kondo</p>
+</blockquote>
+<p>Couldn’t have phrased it better myself! Stow is a great tool to keep your config files sync-ed, do give it a try.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {How {I} Sync My Config Files with {Stow}},
+  date = {2022-08-27},
+  url = {https://www.ddanieltan.com/posts/stow},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Daniel Tan. 2022. <span>“How I Sync My Config Files with Stow.”</span>
+August 27, 2022. <a href="https://www.ddanieltan.com/posts/stow">https://www.ddanieltan.com/posts/stow</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">The reward for good work is more work - Tom Sachs</div>   
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
