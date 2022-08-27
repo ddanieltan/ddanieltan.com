@@ -14,7 +14,7 @@ I have one machine for work, one machine for personal stuff and a bunch of serve
 knitr::include_graphics("organized.png")
 ```
 
-As this is a common problem that plagues many programmer, it is unsurprising that there is a clever piece of software written to solve this problem - [Stow](https://www.gnu.org/software/stow/). Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without. 
+As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - [Stow](https://www.gnu.org/software/stow/). Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post</p>&mdash; David Robinson (@drob) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -24,9 +24,9 @@ However, as there are [many](https://dr563105.github.io/blog/manage-dotfiles-wit
 # The Big Picture
 Here's the big picture of how a Stow-enabled config synchronisation system is setup.
 
-1. You will need a `dotfiles` version controlled repository. The simplest approach here would be a [Github repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+1. You will need a `dotfiles` version controlled repository. The simplest approach here would be to create a [Github repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
 
-2. In `dotfiles`, you will create separate folders for each application's config file you wish to keep in-sync. What you name these folders is totally up to you, but conventionally most name the folder after the application 
+2. In `dotfiles`, you will create separate folders for each application's config file you wish to keep in-sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application 
 
 For example, a simple `dotfiles` repo might look like this.
 ```bash
@@ -81,9 +81,9 @@ This config sync system is pretty sweet but it is not without some limitations. 
 
 Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.
 
-Additionally, there are some situations where you do not want config files sync-ed. For example, I don't use this system to sync my shell configs because those sometimes contain sensitive environment variables or have settings unique to the type of hardware the software is running on.
+Additionally, there are some situations where you do not want config files sync-ed. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.
 
-# Conclusion
+# Conclusions
 > “Life truly begins when you put your house in order.”
 > - Marie Kondo
 
