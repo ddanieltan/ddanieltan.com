@@ -190,7 +190,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
   <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link" data-scroll-target="#the-big-picture">The Big Picture</a></li>
   <li><a href="#syncing-a-config-file-for-the-1st-time" id="toc-syncing-a-config-file-for-the-1st-time" class="nav-link" data-scroll-target="#syncing-a-config-file-for-the-1st-time">Syncing a config file for the 1st time</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
 </nav>
 </nav>
@@ -249,7 +249,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>As this is a common problem that plagues many programmer, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
+<p>As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
 <blockquote class="twitter-tweet blockquote">
 <p lang="en" dir="ltr">
 When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
@@ -257,21 +257,21 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 — David Robinson (<span class="citation" data-cites="drob">@drob</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a>
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>I find myself bringing up Stow pretty often in conversations so I wanted to take <span class="citation" data-cites="drob">@drob</span>’s advice. However, as there are <a href="https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/">many</a> <a href="https://alexpearce.me/2016/02/managing-dotfiles-with-stow/">excellent</a> <a href="https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html">blogs</a> that already do a great job of explain what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy towards creating a straight-forward how-to recipe. I can imagine that for someone going through the frustration of sync-ing config files, a simple how-to is the 1st thing you would be looking for.</p>
+<p>I find myself bringing up Stow pretty often in conversations so I wanted to take <span class="citation" data-cites="drob">@drob</span>’s advice. However, as there are <a href="https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/">many</a> <a href="https://alexpearce.me/2016/02/managing-dotfiles-with-stow/">excellent</a> <a href="https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html">blogs</a> that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe.</p>
 </section>
 <section id="the-big-picture" class="level1">
 <h1>The Big Picture</h1>
-<p>Here’s the big picture of how a Stow-enabled config synchronisation system is setup.</p>
+<p>Here is the big picture of how a Stow-enabled config synchronisation system is set up.</p>
 <ol type="1">
-<li><p>You will need a <code>dotfiles</code> version controlled repository. The simplest approach here would be a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">Github repository</a></p></li>
-<li><p>In <code>dotfiles</code>, you will create separate folders for each application’s config file you wish to keep in-sync. What you name these folders is totally up to you, but conventionally most name the folder after the application</p></li>
+<li><p>You will need a <code>dotfiles</code> version-controlled repository. The simplest approach here would be to create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">Github repository</a></p></li>
+<li><p>In <code>dotfiles</code>, you will create separate folders for each application’s config file you wish to keep in sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application</p></li>
 </ol>
 <p>For example, a simple <code>dotfiles</code> repo might look like this.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">.</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="ex">├──</span> aliases</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="ex">├──</span> kitty</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="ex">└──</span> nvim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Here, my intention is to sync my shell aliases, terminal configs (<a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>) and editor configs (<a href="https://neovim.io/">NeoVim</a>), so I create a separate folder for each.</p>
+<p>Here, I intend to sync my shell aliases, terminal configs (<a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>) and editor configs (<a href="https://neovim.io/">NeoVim</a>), so I create a separate folder for each.</p>
 <ol start="3" type="1">
 <li><p>Within each folder, you can create the config files that we want to be kept in-sync</p></li>
 <li><p>Using Stow, you can then create a symlink of these config files which would be placed in the right locations on your file system for the respective applications to read from</p></li>
@@ -281,37 +281,37 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 </section>
 <section id="syncing-a-config-file-for-the-1st-time" class="level1 page-columns page-full">
 <h1>Syncing a config file for the 1st time</h1>
-<p>Here’s an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g.&nbsp;the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a> terminal. To configure this terminal, you would edit a config file <code>kitty.conf</code> whose default location is <code>~/.config/kitty/kitty.conf</code>. Here’s what you would do:</p>
+<p>Here is an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g.&nbsp;the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a> terminal. To configure this terminal, you would edit a config file <code>kitty.conf</code> whose default location is <code>~/.config/kitty/kitty.conf</code>. Here is what you would do:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Yes, I see the irony in using Kitty because it is a GPU-accelerated application whose primary function is to print out text…</p>
 </div></div><ol type="1">
 <li><p>We start from machine A. Firstly, you will need to delete the existing <code>kitty.conf</code> file</p></li>
-<li><p>In your <code>dotfiles</code> repo, within the <code>kitty</code> folder, create a new <code>kitty.conf</code> file but make sure this file is in the exact same folder structure of the default config location. I.e. your new config file should sit in the <code>dotfiles</code> repo like this</p></li>
+<li><p>In your <code>dotfiles</code> repo, within the <code>kitty</code> folder, create a new <code>kitty.conf</code> file but make sure this file is in the same folder structure of the default config location. I.e. your new config file should sit in the <code>dotfiles</code> repo like this</p></li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">.</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="ex">├──</span> aliases</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="ex">├──</span> kitty</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">│&nbsp;&nbsp;</span> └── .config</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">│&nbsp;&nbsp;</span>     └── kitty</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">│&nbsp;&nbsp;</span>         └── kitty.conf</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">│</span>   └── .config</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">│</span>       └── kitty</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">│</span>           └── kitty.conf</span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="ex">└──</span> nvim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><p>Fill up <code>kitty.conf</code> with your desired settings</p></li>
 <li><p>Navigate back up to the <code>dotfiles</code> repo and run <code>stow kitty</code>. This command will create a symlink of the contents of the kitty folder, which will create a <code>kitty.conf</code> in the <code>~/.config/kitty/kitty.conf</code> location</p></li>
 <li><p>We are done setting up on Machine A. Commit and push the changes to your <code>dotfiles</code> repo</p></li>
-<li><p>Finally, log into to Machine B. Pull down the changes and because we have not ran stow before, you will need to run <code>stow kitty</code> here too to create the symlinks.</p></li>
+<li><p>Finally, log into Machine B. Pull down the changes and because we have not run stow in this machine, you will need to run <code>stow kitty</code> here too to create the symlinks.</p></li>
 </ol>
 <p>Stow is something you only need to run the 1st time you add a config file. You do not have to run <code>stow</code> for any subsequent edits.</p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
-<p>This config sync system is pretty sweet but it is not without some limitations. Here’s a couple for you to be aware of.</p>
+<p>This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.</p>
 <p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
-<p>Additionally, there are some situations where you do not want config files sync-ed.&nbsp;For example, I don’t use this system to sync my shell configs because those sometimes contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
+<p>Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
 </section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
 <blockquote class="blockquote">
 <p>“Life truly begins when you put your house in order.” - Marie Kondo</p>
 </blockquote>

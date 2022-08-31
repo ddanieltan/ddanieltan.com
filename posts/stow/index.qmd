@@ -19,14 +19,14 @@ As this is a common problem that plagues many programmers, it is unsurprising th
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post</p>&mdash; David Robinson (@drob) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I find myself bringing up Stow pretty often in conversations so I wanted to take @drob's advice.
-However, as there are [many](https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/) [excellent](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) [blogs](https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html) that already do a great job of explain what Stow is, I think I can't add much value to that conversation. Instead, I'm going to shift my energy towards creating a straight-forward how-to recipe. I can imagine that for someone going through the frustration of sync-ing config files, a simple how-to is the 1st thing you would be looking for.
+However, as there are [many](https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/) [excellent](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) [blogs](https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html) that already do a great job explaining what Stow is, I think I can't add much value to that conversation. Instead, I'm going to shift my energy toward creating a straightforward how-to recipe. 
 
 # The Big Picture
-Here's the big picture of how a Stow-enabled config synchronisation system is setup.
+Here is the big picture of how a Stow-enabled config synchronisation system is set up.
 
-1. You will need a `dotfiles` version controlled repository. The simplest approach here would be to create a [Github repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+1. You will need a `dotfiles` version-controlled repository. The simplest approach here would be to create a [Github repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
 
-2. In `dotfiles`, you will create separate folders for each application's config file you wish to keep in-sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application 
+2. In `dotfiles`, you will create separate folders for each application's config file you wish to keep in sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application 
 
 For example, a simple `dotfiles` repo might look like this.
 ```bash
@@ -35,7 +35,7 @@ For example, a simple `dotfiles` repo might look like this.
 ├── kitty
 └── nvim
 ```
-Here, my intention is to sync my shell aliases, terminal configs ([Kitty](https://sw.kovidgoyal.net/kitty/)) and editor configs ([NeoVim](https://neovim.io/)), so I create a separate folder for each.
+Here, I intend to sync my shell aliases, terminal configs ([Kitty](https://sw.kovidgoyal.net/kitty/)) and editor configs ([NeoVim](https://neovim.io/)), so I create a separate folder for each.
 
 3. Within each folder, you can create the config files that we want to be kept in-sync
 
@@ -46,7 +46,7 @@ Here, my intention is to sync my shell aliases, terminal configs ([Kitty](https:
 Steps 3 and 4 are the tricky bits and I provide a more detailed example of them below.
 
 # Syncing a config file for the 1st time
-Here's an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g. the [Kitty](https://sw.kovidgoyal.net/kitty/) terminal. To configure this terminal, you would edit a config file `kitty.conf` whose default location is `~/.config/kitty/kitty.conf`. Here's what you would do:
+Here is an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g. the [Kitty](https://sw.kovidgoyal.net/kitty/) terminal. To configure this terminal, you would edit a config file `kitty.conf` whose default location is `~/.config/kitty/kitty.conf`. Here is what you would do:
 
 :::{.column-margin}
 Yes, I see the irony in using Kitty because it is a GPU-accelerated application whose primary function is to print out text...
@@ -54,14 +54,14 @@ Yes, I see the irony in using Kitty because it is a GPU-accelerated application 
 
 1. We start from machine A. Firstly, you will need to delete the existing `kitty.conf` file
 
-2. In your `dotfiles` repo, within the `kitty` folder, create a new `kitty.conf` file but make sure this file is in the exact same folder structure of the default config location. I.e. your new config file should sit in the `dotfiles` repo like this
+2. In your `dotfiles` repo, within the `kitty` folder, create a new `kitty.conf` file but make sure this file is in the same folder structure of the default config location. I.e. your new config file should sit in the `dotfiles` repo like this
 ```bash
 .
 ├── aliases
 ├── kitty
-│   └── .config
-│       └── kitty
-│           └── kitty.conf
+│   └── .config
+│       └── kitty
+│           └── kitty.conf
 └── nvim
 ```
 
@@ -71,17 +71,17 @@ Yes, I see the irony in using Kitty because it is a GPU-accelerated application 
 
 5. We are done setting up on Machine A. Commit and push the changes to your `dotfiles` repo
 
-6. Finally, log into to Machine B. Pull down the changes and because we have not ran stow before, you will need to run `stow kitty` here too to create the symlinks.
+6. Finally, log into Machine B. Pull down the changes and because we have not run stow in this machine, you will need to run `stow kitty` here too to create the symlinks.
 
 Stow is something you only need to run the 1st time you add a config file. You do not have to run `stow` for any subsequent edits.
 
 # Limitations
 
-This config sync system is pretty sweet but it is not without some limitations. Here's a couple for you to be aware of.
+This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.
 
 Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.
 
-Additionally, there are some situations where you do not want config files sync-ed. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.
+Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.
 
 # Conclusions
 > “Life truly begins when you put your house in order.”

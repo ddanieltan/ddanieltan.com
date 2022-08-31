@@ -341,7 +341,7 @@ Note
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Despite coming in every imaginable shape and size, CDFs for any function have 1 similarity. Their output (y-axis) will always be bound between 0 and 1. This makes a lot of sense when we consider that the CDF is characterised for being a <em>monotonic increasing</em> function. Another way to think about this is to intuit that the CDF graphs the probability of <span class="math inline">\(P(X&lt;x)\)</span> which will always return a probability as an output, which will be bounded between 0 and 1. This property is very useful when we match it back to the <span class="math inline">\(Unif(0,1)\)</span> distribution. A uniform distribution produces random variates similarly bound between 0 and 1.</p>
+<p>Despite coming in every imaginable shape and size, CDFs for any function have 1 similarity. Their output (y-axis) will always be bound between 0 and 1. This makes a lot of sense when we consider that the CDF is characterised for being a <em>monotonic increasing</em> function. The CDF graphs the probability of <span class="math inline">\(P(X&lt;x)\)</span>, given that the output is a probability, the Y axis will always be bounded between 0 and 1. This property is very useful when we match it back to the <span class="math inline">\(Unif(0,1)\)</span> distribution. A uniform distribution produces random variates similarly bound between 0 and 1.</p>
 <p>The last piece of the puzzle is to understand that just as a function <span class="math inline">\(F(x)\)</span> can be visually described as a transformation mapping values from the X axis to values on the Y axis, and the inverse of that said function <span class="math inline">\(F^{-1}(x)\)</span> is simply the inverse transformation mapping values from the Y axis to the X axis.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -353,13 +353,7 @@ Note
 </div>
 </div>
 </div>
-<p>So putting all the pieces together, this is how random variates are generated:</p>
-<ul>
-<li>The <span class="math inline">\(Unif(0,1)\)</span> distribution produces a random uniform between 0 and 1</li>
-<li>And we can imagine that uniform on the Y axis of a CDF for your distribution of interest</li>
-<li>The inverse function <span class="math inline">\(F^{-1}(x)\)</span> transforms this uniform to a value on the X axis</li>
-<li>Which in turn becomes a random variate from your distribution of interest</li>
-</ul>
+<p>So putting all the pieces together, this is how the Inverse Transform Theorem is put into action: - The <span class="math inline">\(Unif(0,1)\)</span> distribution produces a random uniform between 0 and 1 - This is akin to picking a random point on the Y axis of a CDF for your distribution of interest - The inverse function <span class="math inline">\(F^{-1}(x)\)</span> maps the random uniform on the Y axis to a value on the X axis - And this X axis value in turn becomes a random variate from your distribution of interest</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
