@@ -87,9 +87,13 @@ knitr::include_graphics("inverse.png")
 ```
 
 So putting all the pieces together, this is how the Inverse Transform Theorem is put into action:
+
 - The $Unif(0,1)$ distribution produces a random uniform between 0 and 1
+
 - This is akin to picking a random point on the Y axis of a CDF for your distribution of interest
+
 - The inverse function $F^{-1}(x)$ maps the random uniform on the Y axis to a value on the X axis
+
 - And this X axis value in turn becomes a random variate from your distribution of interest
 
 # Conclusion
