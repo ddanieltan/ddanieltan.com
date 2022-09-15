@@ -1,5 +1,6 @@
 project:
   type: website
+  post-render: randomizeFooterQuote.py
 
 website:
   title: "ddanieltan.com"
@@ -17,9 +18,7 @@ website:
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/ddanieltan/
-  page-footer:
-    left: "The reward for good work is more work - Tom Sachs" 
-    
+  page-footer: "Reading furnishes the mind only with materials of knowledge. It is thinking that makes what we read ours - John Locke"
   google-analytics: "G-BQGXLNCBHY"
 format:
   html:
