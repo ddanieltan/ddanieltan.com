@@ -88,3 +88,10 @@ Additionally, there are some situations where you do not want config files synce
 > - Marie Kondo
 
 Couldn't have phrased it better myself! Stow is a great tool to keep your config files sync-ed, do give it a try.
+
+## Last Updated {.appendix}
+```{r}
+#| echo: false
+today <- Sys.Date()
+format(today, format="%d %B %Y")
+```

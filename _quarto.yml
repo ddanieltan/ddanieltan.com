@@ -17,8 +17,9 @@ website:
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/ddanieltan/
-  page-footer: 
+  page-footer:
     left: "The reward for good work is more work - Tom Sachs" 
+    
   google-analytics: "G-BQGXLNCBHY"
 format:
   html:

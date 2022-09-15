@@ -86,3 +86,10 @@ I still have a good couple of months until the end of 2022. I would like to acco
 - Build a Scala application which serves more users than just myself
 - Attempt this year's [Advent of Code](https://adventofcode.com/) in Scala
 - Write a recap blog post at the end of the year reflecting what I liked/disliked about Scala
+
+## Last Updated {.appendix}
+```{r}
+#| echo: false
+today <- Sys.Date()
+format(today, format="%d %B %Y")
+```

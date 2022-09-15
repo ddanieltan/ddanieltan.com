@@ -104,3 +104,9 @@ The Inverse Transform Theorem is a remarkable piece of math that links the unifo
 knitr::include_graphics("midjourney.png")
 ```
 
+## Last Updated {.appendix}
+```{r}
+#| echo: false
+today <- Sys.Date()
+format(today, format="%d %B %Y")
+```
