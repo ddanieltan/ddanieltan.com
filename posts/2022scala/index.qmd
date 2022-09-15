@@ -1,6 +1,6 @@
 ---
 title: "2022: My Year of Scala"
-description: ""
+description: "How I added a new tool to my toolbox"
 date: "2022-09-15"
 categories: [scala,learning]
 image: scalaLogo.png
