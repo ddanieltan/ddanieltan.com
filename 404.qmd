@@ -1,0 +1,5 @@
+---
+title: "404 Page Not Found!"
+---
+
+![DallE2 with prompt "dogs of different breeds happily running around with 404 text, cartoon style"](404.png)
