@@ -2,6 +2,7 @@
 title: "🤔"
 subtitle: "My blog on data science, experimentation and learning"
 listing:
+  feed: true
   contents: posts
   date-format: long
   sort: "date desc"
