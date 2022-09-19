@@ -17,7 +17,7 @@ quotes = [
     "There is no such thing as informational overload, just bad design. If something is cluttered or confusing, fix your design - Edward Tufte",
     "You don't understand anything until you learn it more than one way - Marvin Minsky",
     "Somewhere, something incredible is waiting to be known - Carl Sagan",
-    "I am convinced the best learning takes place when the leaner takes charge - Seymour Papert",
+    "I am convinced the best learning takes place when the learner takes charge - Seymour Papert",
     "We must never make experiments to confirm our ideas, but simply to control them - Claude Bernard",
     "If your experiment needs statistics, you ought to have done a better experiment - Ernest Rutherford",
     "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible - Richard Feynman",
