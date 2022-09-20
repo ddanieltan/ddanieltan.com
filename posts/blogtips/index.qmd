@@ -65,7 +65,7 @@ Last but not least, let's not forget that some potential readers might land on a
 ![DallE2 with prompt "dogs of different breeds happily running around with 404 text, cartoon style"](/../404.png)
 
 # Conclusion
-And there you go, hope you found a tip or two you can use. Let's go make your personal slice of the internet your own 💪.
+And there you go, hope you found a tip or two you can use. Let's go make your personal slice of the internet your own 💪!
 
 ## Last Updated {.appendix}
 ```{r}
