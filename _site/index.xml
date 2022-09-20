@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ddanieltan.com</title>
+<link>https://www.ddanieltan.com/index.html</link>
+<atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.0.37</generator>
+<lastBuildDate>Mon, 19 Sep 2022 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>How to add some personality to your Quarto Blog</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/blogtips/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="start-from-the-basics" class="level1">
+<h1>Start from the basics</h1>
+<p>The <a href="https://quarto.org/docs/websites/website-blog.html">basic Quarto blog</a> covers a lot of ground. Here is a detailed walkthrough of how to build a blog with Quarto conducted by Rstudio/Posit, the makers of Quarto. Just following this alone will get you started with a perfectly beautiful and functional blog. <iframe width="560" height="315" src="https://www.youtube.com/embed/CVcvXfRyfE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p>However, your blog is also your personal slice out on the internet, and if you can add just a tad bit of your personality into the content, it makes it more enjoyable for your readers. Here are my favourite tips.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While it is fun to add these bells and whistles, do not lose focus on the most important part of your blog - the content.</p>
+</div>
+</div>
+</section>
+<section id="enrich-your-appendices" class="level1">
+<h1>1. Enrich your Appendices</h1>
+<p>An important facet that Quarto supports is <a href="https://quarto.org/docs/authoring/title-blocks.html">Scholarly Writing</a>. With a few simple flags in your <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/posts/_metadata.yml">_metadata.yml</a> file, you can easily configure each blog post to neatly organize your footnotes, references, license and citation information in an appendix section at the bottom of your post.</p>
+<p>This <a href="https://quarto.org/docs/authoring/appendices.html">appendix section</a> is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a <code>Last Updated</code> section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1">## Last Updated {.appendix}</span>
+<span id="cb1-2">```{r}</span>
+<span id="cb1-3">#| echo: false</span>
+<span id="cb1-4">today &lt;- Sys.Date()</span>
+<span id="cb1-5">format(today, format="%d %B %Y")</span>
+<span id="cb1-6">```</span></code></pre></div>
+<p>If you like to do more than just log a post’s last update, I recommend checking out <a href="https://blog.djnavarro.net/">Danielle Navarro’s</a> <a href="https://github.com/djnavarro/quarto-blog">source code</a> for her quarto blog for a more impressive appendix.</p>
+</section>
+<section id="make-custom-css-tweaks" class="level1">
+<h1>2. Make custom CSS tweaks</h1>
+<p>The default Quarto blog comes ready with many Bootstrap themes from the <a href="https://bootswatch.com/">Bootswatch project</a>. I found that a really efficient way to tackle styling for your blog is to start with one of these ready-made themes (I chose Litera) and then add on custom css to make small tweaks. I am consistently surprised how some seemingly small css tweaks can create a dramatic effect on your overall site.</p>
+<p>I took this the <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss">SCSS snippet</a> from this <a href="https://youtu.be/ErRX8plZpQE">RappA’s youtube video</a>. This block of css helps to perfectly align the elements in my navbar with the margin that my content body is framed. I cannot express in words how much joy this tiny tweak brings me.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-xxl</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-xl</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-lg</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-md</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-sm</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-fluid</span> {</span>
+<span id="cb2-2">  <span class="kw" style="color: #003B4F;">max-width</span>: <span class="dv" style="color: #AD0000;">1145</span><span class="dt" style="color: #AD0000;">px</span><span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-3">  <span class="kw" style="color: #003B4F;">margin</span>: <span class="dv" style="color: #AD0000;">0</span> <span class="bu" style="color: null;">auto</span><span class="op" style="color: #5E5E5E;">;</span></span></code></pre></div>
+<iframe src="https://giphy.com/embed/l4FB1R0Cz0gFo1YQw" width="480" height="360" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-8-l4FB1R0Cz0gFo1YQw">Source: GIPHY</a>
+</p>
+</section>
+<section id="sneak-in-easter-eggs-in-your-page-footer" class="level1 page-columns page-full">
+<h1>3. Sneak in Easter Eggs in your page footer</h1>
+<p>Page footers are generally reserved for important business-y messages. The usual suspects are either copyrights, licenses or “lovingly built with”s. I wanted my blog to be slightly different. I like to reward any reader who has read my posts all the way to the end with a nice easter egg in the form of 1 of my favourite quotes!</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Scroll down right now and find your easter-egg quote! Thank you for reading my post in its entirety 😊</p>
+</div></div><p>To keep this experience fresh, I ensure a random quote is chosen from my list of favourites every time I re-render a page. The mechanism that makes this possible is Quarto’s <a href="https://quarto.org/docs/projects/scripts.html#pre-and-post-render">pre and post render hooks</a>. Using this feature, you can specify quarto to run a Typescript, Python, R or Lua script either pre-render or post-render.</p>
+<p>I chose to configure a post-render script. You can see the specifics of how this is implemented (and also sneak a peek at the full list of my favourite quotes) by taking a look at my post-render python script: <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/randomizeFooterQuote.py">randomizeFooterQuotes.py</a>.</p>
+</section>
+<section id="create-a-custom-404-page" class="level1">
+<h1>4. Create a custom 404 page</h1>
+<p>Last but not least, let’s not forget that some potential readers might land on a missing page, or use a url with a small typo. No reason to let them be greeted with a humdrum, run-of-the-mill 404 page! Quarto allows you to easily <a href="https://quarto.org/docs/websites/website-navigation.html#pages-404">customize your 404 page</a>. For <a href="https://www.ddanieltan.com/404.html">my 404 page</a>, I chose this simple image I created with Dall-E2.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/../404.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">DallE2 with prompt “dogs of different breeds happily running around with 404 text, cartoon style”</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>And there you go, hope you found a tip or two you can use. Let’s go make your personal slice of the internet your own 💪.</p>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "20 September 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {How to Add Some Personality to Your {Quarto} {Blog}},
+  date = {2022-09-20},
+  url = {https://www.ddanieltan.com/posts/blogtips},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“How to Add Some Personality to Your Quarto
+Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/blogtips">https://www.ddanieltan.com/posts/blogtips</a>.
+</div></div></section></div> ]]></description>
+  <category>quarto</category>
+  <guid>https://www.ddanieltan.com/posts/blogtips/index.html</guid>
+  <pubDate>Mon, 19 Sep 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/../404.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>2022: My Year of Scala</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/2022scala/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="my-year-of" class="level1 page-columns page-full">
+<h1>My Year of …</h1>
+<p>Neil Gaiman, <a href="https://en.wikipedia.org/wiki/Neil_Gaiman_bibliography">illustrious author</a> and <a href="https://www.buzzfeed.com/amphtml/jarrylee/neil-gaiman-wins-twitter">everlasting source of wit</a>, has a really cool mental exercise to help him complete his projects.</p>
+<blockquote class="blockquote">
+<p>You don’t have to write. You have permission to not write, but you don’t have permission to do anything else.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>I would go down to my lovely little gazebo at the bottom of the garden, sit down, and I’m absolutely allowed not to do anything. I’m allowed to sit at my desk, I’m allowed to stare out at the world, I’m allowed to do anything I like, as long as it isn’t anything. Not allowed to do a crossword, not allowed to read a book, not allowed to phone a friend, not allowed to make a clay model of something. All I’m allowed to do is absolutely nothing, or write.</p>
+</blockquote>
+<p>For a couple of years now, I have adapted a version of this exercise to help me complete my learning projects. Every year I make the grand announcement that this will be the year of X. Where X is a learning topic or a new programming language that I wish to focus on.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>I declared this my year of Scala all the way back in Jan, but I only started this blog in July, which is why this post is published in September 😅.</p>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/2022scala/https:/media.giphy.com/media/YkKPc5T8mFSdqg8yTa/giphy.gif" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">🎉 2022 year is my year of Scala! 🎉</figcaption><p></p>
+</figure>
+</div>
+<p>Inspired by Neil’s rules, my rules for this year are:</p>
+<ul>
+<li>For every project that requires coding, I am going to try and use Scala</li>
+<li>But, I give myself permission to not use Scala if it is just not the right option for my use case</li>
+<li>However, I do not have permission to try out any other shiny new programming language I might be tempted by</li>
+</ul>
+</section>
+<section id="what-is-scala" class="level1">
+<h1>What is Scala?</h1>
+<p><a href="https://www.scala-lang.org/">Scala</a> is a programming language that is probably most famous for consistently showing up as one of the “Top Paying Technologies” in <a href="https://insights.stackoverflow.com/survey">StackOverflow’s annual survey</a> 🤑🤑🤑. In Data Science, Scala is famous for being the language used to build the <a href="https://spark.apache.org/">Apache Spark</a> engine, which makes Scala essentially the core language that “Enterprise Big Data<sup>TM</sup>” is run on.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb1-1"><span class="co" style="color: #5E5E5E;">// Illustrating Scala's legible syntax</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;">// and method chaining pattern</span></span>
+<span id="cb1-3"><span class="kw" style="color: #003B4F;">val</span> inputs <span class="op" style="color: #5E5E5E;">=</span> <span class="ex" style="color: null;">Vector</span><span class="op" style="color: #5E5E5E;">(</span><span class="dv" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">4</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">6</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">7</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">8</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-4">inputs</span>
+<span id="cb1-5">    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">map</span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=&gt;</span> x <span class="op" style="color: #5E5E5E;">+</span> <span class="dv" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-6">    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">filter</span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=&gt;</span> x <span class="op" style="color: #5E5E5E;">%</span> <span class="dv" style="color: #AD0000;">2</span> <span class="op" style="color: #5E5E5E;">==</span> <span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-7">    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">slice</span><span class="op" style="color: #5E5E5E;">(</span><span class="dv" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">6</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;">//res1: Vector[Int] = Vector(6, 8)</span></span></code></pre></div>
+<p>My 1-liner description of Scala (with the caveat that I am pretty much still a beginner) is that Scala feels like <strong>a language designed for modelling and manipulating data</strong>.</p>
+<p>I enjoy Scala’s</p>
+<ul>
+<li>legible and easy-to-read syntax</li>
+<li>encouraged design pattern of running an immutable data source through chains of transformations (which should be familiar to fans of <a href="https://tomaugspurger.github.io/method-chaining.html">Python’s method chaining</a> or <a href="https://style.tidyverse.org/pipes.html">R’s pipe</a>)</li>
+<li>ability to give me a <a href="https://www.lihaoyi.com/post/FromFirstPrinciplesWhyScala.html">dynamic language experience with the safety of a compiled language</a></li>
+<li>power/scalability out-of-the-box thanks to piggy-backing on the highly optimized JVM</li>
+<li>unique features such as <a href="https://docs.scala-lang.org/tour/case-classes.html">Case Classes</a>, <a href="https://docs.scala-lang.org/overviews/core/implicit-classes.html">Implicits</a> etc. that gives the language that extra bit of black magic to set it apart</li>
+</ul>
+</section>
+<section id="why-scala" class="level1 page-columns page-full">
+<h1>Why Scala?</h1>
+<p>The main reason is that I recently joined a team where our main codebase is in Scala. This gives me a practical incentive, as well as, the opportunity to be surrounded by knowledgable colleagues who I can pester with my questions.</p>
+<p>The secondary reason is curiosity. Scala is designed to support both the object-oriented paradigm and the functional programming paradigm. Through Scala, I hope to dip my toes into the great ocean that is <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Fingers crossed that one day, I’ll be able to explain what a <a href="https://www.youtube.com/watch?v=CMm98RkCgPg">monad</a> is.</p>
+</div></div></section>
+<section id="how-has-the-year-gone-so-far" class="level1">
+<h1>How has the year gone so far?</h1>
+<p>Pretty good! I have not burnt out and I have found opportunities to use Scala in my projects for work, school and play. So far I have used Scala to:</p>
+<ol type="1">
+<li><p>Write applications to improve my tooling for work</p></li>
+<li><p>Build random number generators for a module for school</p></li>
+<li><p>Create a rudimentary (and incomplete) <a href="https://github.com/ddanieltan/scalaBlog">blog engine</a></p></li>
+<li><p>Inch my way through the excellent <a href="https://www.handsonscala.com/">Hands-on Scala</a> book</p></li>
+<li><p>Automate small scripting tasks (although I’m still not convinced Scala is my 1st choice as a scripting language)</p></li>
+<li><p>Build a simple website without writing 1 line of javascript (😲!!) thanks to <a href="https://www.scala-js.org/">Scala.js</a></p></li>
+</ol>
+<p>Additionally, I have also found small ways to engage with the small but fascinating community. For example, I enjoyed learning a little history behind Scala by asking the Reddit community <a href="https://www.reddit.com/r/scala/comments/smq3t2/whats_the_story_behind_scalas_logo/">What’s the story behind Scala’s logo?</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/2022scala/scalaLogo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">My rendition of Scala’s logo. What does this look like to you?</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="ending-the-year-strong" class="level1">
+<h1>Ending the year strong</h1>
+<p>I still have a good couple of months until the end of 2022. I would like to accomplish the following before the end of this year:</p>
+<ul>
+<li>Build a Scala application which serves more users than just myself</li>
+<li>Attempt this year’s <a href="https://adventofcode.com/">Advent of Code</a> in Scala</li>
+<li>Write a recap blog post at the end of the year reflecting what I liked/disliked about Scala</li>
+</ul>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "15 September 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {2022: {My} {Year} of {Scala}},
+  date = {2022-09-15},
+  url = {https://www.ddanieltan.com/posts/2022scala},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“2022: My Year of Scala.”</span> September 15,
+2022. <a href="https://www.ddanieltan.com/posts/2022scala">https://www.ddanieltan.com/posts/2022scala</a>.
+</div></div></section></div> ]]></description>
+  <category>scala</category>
+  <category>learning</category>
+  <guid>https://www.ddanieltan.com/posts/2022scala/index.html</guid>
+  <pubDate>Wed, 14 Sep 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/2022scala/scalaLogo.png" medium="image" type="image/png" height="193" width="144"/>
+</item>
+<item>
+  <title>How I sync my config files with Stow</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/stow/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="an-organisational-nightmare" class="level1">
+<h1>An organisational nightmare</h1>
+<p>I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/stow/organized.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://openai.com/dall-e-2/">DallE2</a> art with prompt: ‘Keeping things organized across multiple machines, digital art’</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
+</p>
+— David Robinson (<span class="citation" data-cites="drob">@drob</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>I find myself bringing up Stow pretty often in conversations so I wanted to take <span class="citation" data-cites="drob">@drob</span>’s advice. However, as there are <a href="https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/">many</a> <a href="https://alexpearce.me/2016/02/managing-dotfiles-with-stow/">excellent</a> <a href="https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html">blogs</a> that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe.</p>
+</section>
+<section id="the-big-picture" class="level1">
+<h1>The Big Picture</h1>
+<p>Here is the big picture of how a Stow-enabled config synchronisation system is set up.</p>
+<ol type="1">
+<li><p>You will need a <code>dotfiles</code> version-controlled repository. The simplest approach here would be to create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">Github repository</a></p></li>
+<li><p>In <code>dotfiles</code>, you will create separate folders for each application’s config file you wish to keep in sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application</p></li>
+</ol>
+<p>For example, a simple <code>dotfiles</code> repo might look like this.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="bu" style="color: null;">.</span></span>
+<span id="cb1-2"><span class="ex" style="color: null;">├──</span> aliases</span>
+<span id="cb1-3"><span class="ex" style="color: null;">├──</span> kitty</span>
+<span id="cb1-4"><span class="ex" style="color: null;">└──</span> nvim</span></code></pre></div>
+<p>Here, I intend to sync my shell aliases, terminal configs (<a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>) and editor configs (<a href="https://neovim.io/">NeoVim</a>), so I create a separate folder for each.</p>
+<ol start="3" type="1">
+<li><p>Within each folder, you can create the config files that we want to be kept in-sync</p></li>
+<li><p>Using Stow, you can then create a symlink of these config files which would be placed in the right locations on your file system for the respective applications to read from</p></li>
+<li><p>Once this is set up, the day-to-day usage of this system is incredibly simple. Any time you make make edits to your config files on 1 machine, you simply need to commit and push the changes made in your <code>dotfiles</code> repo. Your config files are symlink-ed to the files in your <code>dotfiles</code> repo, and any edit you make will be updated. Next time you hop into a different machine, just pull down the latest changes in the <code>dotfiles</code> repo and all your configs will be updated</p></li>
+</ol>
+<p>Steps 3 and 4 are the tricky bits and I provide a more detailed example of them below.</p>
+</section>
+<section id="syncing-a-config-file-for-the-1st-time" class="level1 page-columns page-full">
+<h1>Syncing a config file for the 1st time</h1>
+<p>Here is an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g.&nbsp;the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a> terminal. To configure this terminal, you would edit a config file <code>kitty.conf</code> whose default location is <code>~/.config/kitty/kitty.conf</code>. Here is what you would do:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Yes, I see the irony in using Kitty because it is a GPU-accelerated application whose primary function is to print out text…</p>
+</div></div><ol type="1">
+<li><p>We start from machine A. Firstly, you will need to delete the existing <code>kitty.conf</code> file</p></li>
+<li><p>In your <code>dotfiles</code> repo, within the <code>kitty</code> folder, create a new <code>kitty.conf</code> file but make sure this file is in the same folder structure of the default config location. I.e. your new config file should sit in the <code>dotfiles</code> repo like this</p></li>
+</ol>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="bu" style="color: null;">.</span></span>
+<span id="cb2-2"><span class="ex" style="color: null;">├──</span> aliases</span>
+<span id="cb2-3"><span class="ex" style="color: null;">├──</span> kitty</span>
+<span id="cb2-4"><span class="ex" style="color: null;">│</span>   └── .config</span>
+<span id="cb2-5"><span class="ex" style="color: null;">│</span>       └── kitty</span>
+<span id="cb2-6"><span class="ex" style="color: null;">│</span>           └── kitty.conf</span>
+<span id="cb2-7"><span class="ex" style="color: null;">└──</span> nvim</span></code></pre></div>
+<ol start="3" type="1">
+<li><p>Fill up <code>kitty.conf</code> with your desired settings</p></li>
+<li><p>Navigate back up to the <code>dotfiles</code> repo and run <code>stow kitty</code>. This command will create a symlink of the contents of the kitty folder, which will create a <code>kitty.conf</code> in the <code>~/.config/kitty/kitty.conf</code> location</p></li>
+<li><p>We are done setting up on Machine A. Commit and push the changes to your <code>dotfiles</code> repo</p></li>
+<li><p>Finally, log into Machine B. Pull down the changes and because we have not run stow in this machine, you will need to run <code>stow kitty</code> here too to create the symlinks.</p></li>
+</ol>
+<p>Stow is something you only need to run the 1st time you add a config file. You do not have to run <code>stow</code> for any subsequent edits.</p>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+<p>This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.</p>
+<p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
+<p>Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
+</section>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
+<blockquote class="blockquote">
+<p>“Life truly begins when you put your house in order.” - Marie Kondo</p>
+</blockquote>
+<p>Couldn’t have phrased it better myself! Stow is a great tool to keep your config files sync-ed, do give it a try.</p>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "15 September 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {How {I} Sync My Config Files with {Stow}},
+  date = {2022-08-27},
+  url = {https://www.ddanieltan.com/posts/stow},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“How I Sync My Config Files with Stow.”</span>
+August 27, 2022. <a href="https://www.ddanieltan.com/posts/stow">https://www.ddanieltan.com/posts/stow</a>.
+</div></div></section></div> ]]></description>
+  <category>tooling</category>
+  <guid>https://www.ddanieltan.com/posts/stow/index.html</guid>
+  <pubDate>Fri, 26 Aug 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/stow/organized.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>Explainers: Inverse Transform Theorem</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/some2/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is my submission to 2022’s Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. I thoroughly enjoyed learning from the <a href="https://www.youtube.com/playlist?list=PLnQX-jgAF5pTkwtUuVpqS5tuWmJ-6ZM-Z">submissions from SoME1</a>, and thought to scrape my spare time together this year to submit something for SoME2.</p>
+<p>You can learn more about #SoME2 from <a href="https://youtu.be/hZuYICAEN9Y">Grant Sanderson’s(3B1B) video</a>.</p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">set.seed</span>(<span class="fu" style="color: #4758AB;">sum</span>(<span class="fu" style="color: #4758AB;">utf8ToInt</span>(<span class="st" style="color: #20794D;">"SoME2"</span>)))</span></code></pre></div>
+</details>
+</div>
+<section id="worlds-at-our-fingertips" class="level1 page-columns page-full">
+<h1>Worlds at our fingertips</h1>
+<p>Modern day computers are pretty amazing simulation machines.</p>
+<p>Here’s an example. Say that I am a <a href="https://www.wikihow.com/Do-the-Water-Bottle-Flipping-Challenge">Bottle Flipping</a> enthusiast and I am eager to simulate 100 bottle flips. To simulate flipping a bottle 100 times, I could instruct my computer to provide 100 simulations. At a technical level, I am modelling bottle flipping as a <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial distribution</a>, and for my simulation I am generating 100 random variates from that distribution.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">totalFlips <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">100</span></span>
+<span id="cb2-2">prob <span class="ot" style="color: #003B4F;">=</span> <span class="fl" style="color: #AD0000;">0.2</span> <span class="co" style="color: #5E5E5E;"># Took me 5 tries to flip the bottle once</span></span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;">rbinom</span>(totalFlips, <span class="dv" style="color: #AD0000;">1</span>, prob) <span class="co" style="color: #5E5E5E;"># 1 represents a successful flip</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 1 0 1 0 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0
+ [38] 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0
+ [75] 1 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0</code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Yes, 🙄 I know bottle flipping was a trend way back in <a href="https://www.quora.com/What-are-the-origins-of-bottle-flipping-How-did-its-popularity-spread">2016</a>. I needed a success/failure example and it was either this of “coin flips” which I could not bring myself to use</p>
+</div></div><p>Or, say I’m a sports fan and my football team scores an average of 1 goal per game. I could simulate the goals scored over 100 games, by modelling the goals scored by my team after a <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>, and once again, run my simulation by generating 100 random variates from this distribution.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">totalGames<span class="ot" style="color: #003B4F;">=</span><span class="dv" style="color: #AD0000;">100</span></span>
+<span id="cb4-2">avgGoalsPerGame <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">1</span></span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;">rpois</span>(totalGames,avgGoalsPerGame)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 0 1 2 1 2 2 0 0 1 2 2 0 1 0 1 3 2 2 1 1 2 1 1 1 1 0 4 3 1 0 0 0 2 1 0 1 0
+ [38] 0 2 2 1 0 3 1 3 0 0 0 1 1 2 2 1 2 2 0 2 2 0 0 0 1 0 0 2 1 1 2 2 0 3 0 0 0
+ [75] 0 0 0 1 1 2 1 2 0 1 3 1 2 0 0 2 2 0 2 1 0 0 2 2 1 1</code></pre>
+</div>
+</div>
+<p>You get the gist. From models using a single distribution to ones using complex combinations of distributions, our ability to generate random variates allows us to simulate almost any scenario we can think of!</p>
+</section>
+<section id="how-random-variates-are-generated" class="level1">
+<h1>How random variates are generated</h1>
+<p>But, how do computers even produce these random variates? Surely, there can’t be a specialised function for every one of the infinite distributions out in the world. It turns out that computers have a very simple solution in the form of two ingredients - a pseudorandom uniform generator and the inverse transform theorem.</p>
+<p>A pseudoranom uniform generator is an algorithm that produces random variates from a <img src="https://latex.codecogs.com/png.latex?Unif~(0,1)"> distribution, producing uniformly random numbers between 0 and 1. There are many different algorithms that can produce uniform random variates and they are judged on how well they can come close to a perfectly random generator. The assortment of different uniform generators each with their pros and cons are interesting, but that will not be the focus of today’s post. Today, I want to focus on the 2nd ingredient, the inverse transform theorem.</p>
+</section>
+<section id="inverse-transform-theorem" class="level1">
+<h1>Inverse Transform Theorem</h1>
+<p>The Inverse Transform Theorem is the backbone behind <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling">Inverse Transform Sampling</a>, and is how a uniform distribution is transformed to a diverse range of other distributions.</p>
+<p>My biggest challenge when I first encountered this theorem was to grasp the key idea behind its simplicity. Here is the theorem:</p>
+<blockquote class="blockquote">
+<p>Let <img src="https://latex.codecogs.com/png.latex?X"> be a continuous random variable with c.d.f <img src="https://latex.codecogs.com/png.latex?F(x)">. Then <img src="https://latex.codecogs.com/png.latex?F(X)%20%5Csim%20Unif(0,1)">.</p>
+</blockquote>
+<p>And, here’s the equally perplexing simple proof:</p>
+<blockquote class="blockquote">
+<p>Let <img src="https://latex.codecogs.com/png.latex?Y%20=%20F(X)"> and suppose that <img src="https://latex.codecogs.com/png.latex?Y"> has a c.d.f <img src="https://latex.codecogs.com/png.latex?G(y)">, then <img src="https://latex.codecogs.com/png.latex?G(y)%20=%20P(Y%20%5Cleq%20y)%20=%20P(F(Y)%20%5Cleq%20y)%20"> <img src="https://latex.codecogs.com/png.latex?%20=%20P(X%20%5Cleq%20F%5E%7B-1%7D(y))%20=%20F(F%5E%7B-1%7D(y))%20=%20y"></p>
+</blockquote>
+<p>Let me explain the mechanics of the theorem. This theorem simply states that given we have a cumulative density function of a continuous random variable, the inverse of the CDF function will produce a Uniform distribution. While the usage of the theorem reads like a straight forward recipe, I had so many questions about why the theorem works:</p>
+<ul>
+<li>Why is the theorem and proof so simple?</li>
+<li>How could this theorem be universally true for any distribution?</li>
+<li>Why did the theorem introduce the cumulative density function seemingly out of nowhere?</li>
+</ul>
+</section>
+<section id="visual-connection" class="level1">
+<h1>Visual connection</h1>
+<p>And what I see as a recurring theme amongst SoME submissions, is that for many mathematical concepts that appear hard to understand in written form, we can achieve some clarity by expressing the ideas in visual form. Here is my go at it.</p>
+<p>Here are a number of cumulative density functions for an assortment of distributions.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">normal <span class="ot" style="color: #003B4F;">&lt;-</span> pnorm</span>
+<span id="cb6-2">logNormal <span class="ot" style="color: #003B4F;">&lt;-</span> plnorm</span>
+<span id="cb6-3">exponential <span class="ot" style="color: #003B4F;">&lt;-</span> pexp</span>
+<span id="cb6-4"></span>
+<span id="cb6-5"><span class="fu" style="color: #4758AB;">ggplot</span>() <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">xlim</span>(<span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">5</span>, <span class="dv" style="color: #AD0000;">5</span>) <span class="sc" style="color: #5E5E5E;">+</span> </span>
+<span id="cb6-6">  <span class="fu" style="color: #4758AB;">geom_function</span>(<span class="at" style="color: #657422;">fun =</span> pnorm, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"blue"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-7">  <span class="fu" style="color: #4758AB;">geom_function</span>(<span class="at" style="color: #657422;">fun =</span> logNormal, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"brown"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-8">  <span class="fu" style="color: #4758AB;">geom_function</span>(<span class="at" style="color: #657422;">fun =</span> exponential, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"purple"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-9">  <span class="fu" style="color: #4758AB;">labs</span>(<span class="at" style="color: #657422;">title=</span><span class="st" style="color: #20794D;">"CDFs from an assortment of distributions"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://www.ddanieltan.com/posts/some2/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Despite coming in every imaginable shape and size, CDFs for any function have 1 similarity. Their output (y-axis) will always be bound between 0 and 1. This makes a lot of sense when we consider that the CDF is characterised for being a <em>monotonic increasing</em> function. The CDF graphs the probability of <img src="https://latex.codecogs.com/png.latex?P(X%3Cx)">, given that the output is a probability, the Y axis will always be bounded between 0 and 1. This property is very useful when we match it back to the <img src="https://latex.codecogs.com/png.latex?Unif(0,1)"> distribution. A uniform distribution produces random variates similarly bound between 0 and 1.</p>
+<p>The last piece of the puzzle is to understand that just as a function <img src="https://latex.codecogs.com/png.latex?F(x)"> can be visually described as a transformation mapping values from the X axis to values on the Y axis, and the inverse of that said function <img src="https://latex.codecogs.com/png.latex?F%5E%7B-1%7D(x)"> is simply the inverse transformation mapping values from the Y axis to the X axis.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/some2/inverse.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">What the inverse function means</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>So putting all the pieces together, this is how the Inverse Transform Theorem is put into action:</p>
+<ul>
+<li><p>The <img src="https://latex.codecogs.com/png.latex?Unif(0,1)"> distribution produces a random uniform between 0 and 1</p></li>
+<li><p>This is akin to picking a random point on the Y axis of a CDF for your distribution of interest</p></li>
+<li><p>The inverse function <img src="https://latex.codecogs.com/png.latex?F%5E%7B-1%7D(x)"> maps the random uniform on the Y axis to a value on the X axis</p></li>
+<li><p>And this X axis value in turn becomes a random variate from your distribution of interest</p></li>
+</ul>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The Inverse Transform Theorem is a remarkable piece of math that links the uniform distribution to just about any other distribution we could think of. It’s a crucial piece in the machinery of modern machines that enable us to run simulations, and I hope this post helps to share the visual a-ha intuition I experienced when I was learning about this topic.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/some2/midjourney.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.midjourney.com/home/">Midjourney</a> AI Art with the prompt of ‘Inverse Transform Theorem’</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {Explainers: {Inverse} {Transform} {Theorem}},
+  date = {2022-08-08},
+  url = {https://www.ddanieltan.com/posts/some2},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“Explainers: Inverse Transform Theorem.”</span>
+August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.ddanieltan.com/posts/some2</a>.
+</div></div></section></div> ]]></description>
+  <category>explainers</category>
+  <category>R</category>
+  <category>simulation</category>
+  <category>randomness</category>
+  <guid>https://www.ddanieltan.com/posts/some2/index.html</guid>
+  <pubDate>Sun, 07 Aug 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/some2/midjourney.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>Hello world</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/helloworld/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="welcome-to-my-blog" class="level1">
+<h1>Welcome to my blog</h1>
+<p>I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable tool for both my professional and personal life. It helps me to organise my thoughts, maximise my impact and reflect on my learnings. Yet, I have consistently not prioritised writing and it is a disservice to myself that I have not made set aside time for deliberate practice.</p>
+<p>I have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.</p>
+<p>Here’s to another shot at this. Wish me luck!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">My visualisation of Hello world + Quarto logo</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="quarto" class="level1 page-columns page-full">
+<h1>Quarto</h1>
+<p>One reason why I got tempted to start a blog again is <a href="https://quarto.org/">Quarto</a>! Quarto is the shiny, new publishing framework (from <del>RStudio</del><a href="https://posit.co/">Posit</a>) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine. Quarto feels purpose built for the entire data community, supporting all the major Data Science languages (Python, R, Julia, Javascript), and supporting a wide spectrum of output formats (pdf reports, websites, presentations and more).</p>
+<p>You can see my unbridled enthusiasm after first learning about Quarto here.</p>
+<p align="center">
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6943566445809152000" height="726" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
+</iframe>
+</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>…along with my “this-is-a-huge-moment-in-history” hyperbole</p>
+</div></div></section>
+<section id="jumpstarting-this-blog" class="level1">
+<h1>Jumpstarting this blog</h1>
+<p>These were the best resources I found online to help me jump start this blog.</p>
+<section id="official-quarto-documentation-website-and-repos" class="level4">
+<h4 class="anchored" data-anchor-id="official-quarto-documentation-website-and-repos">1. Official Quarto Documentation (<a href="https://quarto.org/">website</a> and <a href="https://github.com/quarto-dev">repos</a>)</h4>
+<p>The official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the <a href="https://quarto.org/docs/websites/">website page</a>, <a href="https://quarto.org/docs/publishing/">publishing page</a> or thumbing through their <a href="https://quarto.org/docs/gallery/">gallery</a> for inspiration.</p>
+</section>
+<section id="danielle-navarros-porting-a-distill-blog-to-quarto-blog-and-repo" class="level4">
+<h4 class="anchored" data-anchor-id="danielle-navarros-porting-a-distill-blog-to-quarto-blog-and-repo">2. Danielle Navarro’s “Porting a Distill Blog to Quarto” (<a href="https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/">blog</a> and <a href="https://github.com/djnavarro/quarto-blog">repo</a>)</h4>
+<p>Danielle’s blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.</p>
+</section>
+<section id="the-small-but-growing-collection-of-quarto-content-online" class="level4">
+<h4 class="anchored" data-anchor-id="the-small-but-growing-collection-of-quarto-content-online">3. The small but growing collection of Quarto content online</h4>
+<p>At the time of writing, I did not find a large collection of Quarto-specific content online. Nevertheless, I did find some helpful gems from <a href="https://www.youtube.com/results?search_query=quarto+blog">Youtube videos</a>, <a href="https://github.com/quarto-dev/quarto-cli/discussions">Github discussions</a> or <a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/">websites</a> that had a helpful tip or two that I could use for my blog.</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  title = {Hello World},
+  date = {2022-07-15},
+  url = {https://www.ddanieltan.com/posts/helloworld},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“Hello World.”</span> July 15, 2022. <a href="https://www.ddanieltan.com/posts/helloworld">https://www.ddanieltan.com/posts/helloworld</a>.
+</div></div></section></div> ]]></description>
+  <category>quarto</category>
+  <guid>https://www.ddanieltan.com/posts/helloworld/index.html</guid>
+  <pubDate>Thu, 14 Jul 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+</channel>
+</rss>

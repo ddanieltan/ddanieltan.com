@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Tan">
-<meta name="dcterms.date" content="2022-08-27">
-<meta name="description" content="A simple system to keep chaos at bay">
+<meta name="dcterms.date" content="2022-09-20">
+<meta name="description" content="A few of my favourite bells and whistles">
 
-<title>ddanieltan.com - How I sync my config files with Stow</title>
+<title>ddanieltan.com - How to add some personality to your Quarto Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,17 +131,13 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="ddanieltan.com - How I sync my config files with Stow">
-<meta property="og:description" content="A simple system to keep chaos at bay">
-<meta property="og:image" content="https://www.ddanieltan.com/posts/stow/organized.png">
+<meta property="og:title" content="ddanieltan.com - How to add some personality to your Quarto Blog">
+<meta property="og:description" content="A few of my favourite bells and whistles">
+<meta property="og:image" content="https://www.ddanieltan.com/../404.png">
 <meta property="og:site-name" content="ddanieltan.com">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="twitter:title" content="ddanieltan.com - How I sync my config files with Stow">
-<meta name="twitter:description" content="A simple system to keep chaos at bay">
-<meta name="twitter:image" content="https://www.ddanieltan.com/posts/stow/organized.png">
-<meta name="twitter:image-height" content="1024">
-<meta name="twitter:image-width" content="1024">
+<meta name="twitter:title" content="ddanieltan.com - How to add some personality to your Quarto Blog">
+<meta name="twitter:description" content="A few of my favourite bells and whistles">
+<meta name="twitter:image" content="https://www.ddanieltan.com/../404.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -186,11 +182,12 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#an-organisational-nightmare" id="toc-an-organisational-nightmare" class="nav-link active" data-scroll-target="#an-organisational-nightmare">An organisational nightmare</a></li>
-  <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link" data-scroll-target="#the-big-picture">The Big Picture</a></li>
-  <li><a href="#syncing-a-config-file-for-the-1st-time" id="toc-syncing-a-config-file-for-the-1st-time" class="nav-link" data-scroll-target="#syncing-a-config-file-for-the-1st-time">Syncing a config file for the 1st time</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a>
+  <li><a href="#start-from-the-basics" id="toc-start-from-the-basics" class="nav-link active" data-scroll-target="#start-from-the-basics">Start from the basics</a></li>
+  <li><a href="#enrich-your-appendices" id="toc-enrich-your-appendices" class="nav-link" data-scroll-target="#enrich-your-appendices">1. Enrich your Appendices</a></li>
+  <li><a href="#make-custom-css-tweaks" id="toc-make-custom-css-tweaks" class="nav-link" data-scroll-target="#make-custom-css-tweaks">2. Make custom CSS tweaks</a></li>
+  <li><a href="#sneak-in-easter-eggs-in-your-page-footer" id="toc-sneak-in-easter-eggs-in-your-page-footer" class="nav-link" data-scroll-target="#sneak-in-easter-eggs-in-your-page-footer">3. Sneak in Easter Eggs in your page footer</a></li>
+  <li><a href="#create-a-custom-404-page" id="toc-create-a-custom-404-page" class="nav-link" data-scroll-target="#create-a-custom-404-page">4. Create a custom 404 page</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
   <ul class="collapse">
   <li><a href="#last-updated" id="toc-last-updated" class="nav-link" data-scroll-target="#last-updated">Last Updated</a></li>
   </ul></li>
@@ -205,15 +202,15 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How I sync my config files with Stow</h1>
+<h1 class="title">How to add some personality to your Quarto Blog</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">tooling</div>
+    <div class="quarto-category">quarto</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A simple system to keep chaos at bay
+    A few of my favourite bells and whistles
   </div>
 </div>
 
@@ -230,7 +227,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 27, 2022</p>
+      <p class="date">September 20, 2022</p>
     </div>
   </div>
     
@@ -239,86 +236,71 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 
 </header>
 
-<section id="an-organisational-nightmare" class="level1">
-<h1>An organisational nightmare</h1>
-<p>I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="organized.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><a href="https://openai.com/dall-e-2/">DallE2</a> art with prompt: ‘Keeping things organized across multiple machines, digital art’</figcaption><p></p>
-</figure>
+<section id="start-from-the-basics" class="level1">
+<h1>Start from the basics</h1>
+<p>The <a href="https://quarto.org/docs/websites/website-blog.html">basic Quarto blog</a> covers a lot of ground. Here is a detailed walkthrough of how to build a blog with Quarto conducted by Rstudio/Posit, the makers of Quarto. Just following this alone will get you started with a perfectly beautiful and functional blog. <iframe width="560" height="315" src="https://www.youtube.com/embed/CVcvXfRyfE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p>However, your blog is also your personal slice out on the internet, and if you can add just a tad bit of your personality into the content, it makes it more enjoyable for your readers. Here are my favourite tips.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>While it is fun to add these bells and whistles, do not lose focus on the most important part of your blog - the content.</p>
 </div>
-<p>As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
+</div>
+</section>
+<section id="enrich-your-appendices" class="level1">
+<h1>1. Enrich your Appendices</h1>
+<p>An important facet that Quarto supports is <a href="https://quarto.org/docs/authoring/title-blocks.html">Scholarly Writing</a>. With a few simple flags in your <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/posts/_metadata.yml">_metadata.yml</a> file, you can easily configure each blog post to neatly organize your footnotes, references, license and citation information in an appendix section at the bottom of your post.</p>
+<p>This <a href="https://quarto.org/docs/authoring/appendices.html">appendix section</a> is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a <code>Last Updated</code> section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>## Last Updated {.appendix}</span>
+<span id="cb1-2"><a href="#cb1-2"></a>```{r}</span>
+<span id="cb1-3"><a href="#cb1-3"></a>#| echo: false</span>
+<span id="cb1-4"><a href="#cb1-4"></a>today &lt;- Sys.Date()</span>
+<span id="cb1-5"><a href="#cb1-5"></a>format(today, format="%d %B %Y")</span>
+<span id="cb1-6"><a href="#cb1-6"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you like to do more than just log a post’s last update, I recommend checking out <a href="https://blog.djnavarro.net/">Danielle Navarro’s</a> <a href="https://github.com/djnavarro/quarto-blog">source code</a> for her quarto blog for a more impressive appendix.</p>
+</section>
+<section id="make-custom-css-tweaks" class="level1">
+<h1>2. Make custom CSS tweaks</h1>
+<p>The default Quarto blog comes ready with many Bootstrap themes from the <a href="https://bootswatch.com/">Bootswatch project</a>. I found that a really efficient way to tackle styling for your blog is to start with one of these ready-made themes (I chose Litera) and then add on custom css to make small tweaks. I am consistently surprised how some seemingly small css tweaks can create a dramatic effect on your overall site.</p>
+<p>I took this the <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss">SCSS snippet</a> from this <a href="https://youtu.be/ErRX8plZpQE">RappA’s youtube video</a>. This block of css helps to perfectly align the elements in my navbar with the margin that my content body is framed. I cannot express in words how much joy this tiny tweak brings me.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container-xxl</span><span class="op">,</span> <span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container-xl</span><span class="op">,</span> <span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container-lg</span><span class="op">,</span> <span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container-md</span><span class="op">,</span> <span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container-sm</span><span class="op">,</span> <span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container</span><span class="op">,</span> <span class="fu">.navbar</span> <span class="op">&gt;</span> <span class="fu">.container-fluid</span> {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">max-width</span>: <span class="dv">1145</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<iframe src="https://giphy.com/embed/l4FB1R0Cz0gFo1YQw" width="480" height="360" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-8-l4FB1R0Cz0gFo1YQw">Source: GIPHY</a>
 </p>
-— David Robinson (<span class="citation" data-cites="drob">@drob</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>I find myself bringing up Stow pretty often in conversations so I wanted to take <span class="citation" data-cites="drob">@drob</span>’s advice. However, as there are <a href="https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/">many</a> <a href="https://alexpearce.me/2016/02/managing-dotfiles-with-stow/">excellent</a> <a href="https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html">blogs</a> that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe.</p>
 </section>
-<section id="the-big-picture" class="level1">
-<h1>The Big Picture</h1>
-<p>Here is the big picture of how a Stow-enabled config synchronisation system is set up.</p>
-<ol type="1">
-<li><p>You will need a <code>dotfiles</code> version-controlled repository. The simplest approach here would be to create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">Github repository</a></p></li>
-<li><p>In <code>dotfiles</code>, you will create separate folders for each application’s config file you wish to keep in sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application</p></li>
-</ol>
-<p>For example, a simple <code>dotfiles</code> repo might look like this.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">.</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">├──</span> aliases</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">├──</span> kitty</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">└──</span> nvim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Here, I intend to sync my shell aliases, terminal configs (<a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>) and editor configs (<a href="https://neovim.io/">NeoVim</a>), so I create a separate folder for each.</p>
-<ol start="3" type="1">
-<li><p>Within each folder, you can create the config files that we want to be kept in-sync</p></li>
-<li><p>Using Stow, you can then create a symlink of these config files which would be placed in the right locations on your file system for the respective applications to read from</p></li>
-<li><p>Once this is set up, the day-to-day usage of this system is incredibly simple. Any time you make make edits to your config files on 1 machine, you simply need to commit and push the changes made in your <code>dotfiles</code> repo. Your config files are symlink-ed to the files in your <code>dotfiles</code> repo, and any edit you make will be updated. Next time you hop into a different machine, just pull down the latest changes in the <code>dotfiles</code> repo and all your configs will be updated</p></li>
-</ol>
-<p>Steps 3 and 4 are the tricky bits and I provide a more detailed example of them below.</p>
-</section>
-<section id="syncing-a-config-file-for-the-1st-time" class="level1 page-columns page-full">
-<h1>Syncing a config file for the 1st time</h1>
-<p>Here is an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g.&nbsp;the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a> terminal. To configure this terminal, you would edit a config file <code>kitty.conf</code> whose default location is <code>~/.config/kitty/kitty.conf</code>. Here is what you would do:</p>
+<section id="sneak-in-easter-eggs-in-your-page-footer" class="level1 page-columns page-full">
+<h1>3. Sneak in Easter Eggs in your page footer</h1>
+<p>Page footers are generally reserved for important business-y messages. The usual suspects are either copyrights, licenses or “lovingly built with”s. I wanted my blog to be slightly different. I like to reward any reader who has read my posts all the way to the end with a nice easter egg in the form of 1 of my favourite quotes!</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>Yes, I see the irony in using Kitty because it is a GPU-accelerated application whose primary function is to print out text…</p>
-</div></div><ol type="1">
-<li><p>We start from machine A. Firstly, you will need to delete the existing <code>kitty.conf</code> file</p></li>
-<li><p>In your <code>dotfiles</code> repo, within the <code>kitty</code> folder, create a new <code>kitty.conf</code> file but make sure this file is in the same folder structure of the default config location. I.e. your new config file should sit in the <code>dotfiles</code> repo like this</p></li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">.</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">├──</span> aliases</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">├──</span> kitty</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">│</span>   └── .config</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">│</span>       └── kitty</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">│</span>           └── kitty.conf</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">└──</span> nvim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li><p>Fill up <code>kitty.conf</code> with your desired settings</p></li>
-<li><p>Navigate back up to the <code>dotfiles</code> repo and run <code>stow kitty</code>. This command will create a symlink of the contents of the kitty folder, which will create a <code>kitty.conf</code> in the <code>~/.config/kitty/kitty.conf</code> location</p></li>
-<li><p>We are done setting up on Machine A. Commit and push the changes to your <code>dotfiles</code> repo</p></li>
-<li><p>Finally, log into Machine B. Pull down the changes and because we have not run stow in this machine, you will need to run <code>stow kitty</code> here too to create the symlinks.</p></li>
-</ol>
-<p>Stow is something you only need to run the 1st time you add a config file. You do not have to run <code>stow</code> for any subsequent edits.</p>
+<p>Scroll down right now and find your easter-egg quote! Thank you for reading my post in its entirety 😊</p>
+</div></div><p>To keep this experience fresh, I ensure a random quote is chosen from my list of favourites every time I re-render a page. The mechanism that makes this possible is Quarto’s <a href="https://quarto.org/docs/projects/scripts.html#pre-and-post-render">pre and post render hooks</a>. Using this feature, you can specify quarto to run a Typescript, Python, R or Lua script either pre-render or post-render.</p>
+<p>I chose to configure a post-render script. You can see the specifics of how this is implemented (and also sneak a peek at the full list of my favourite quotes) by taking a look at my post-render python script: <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/randomizeFooterQuote.py">randomizeFooterQuotes.py</a>.</p>
 </section>
-<section id="limitations" class="level1">
-<h1>Limitations</h1>
-<p>This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.</p>
-<p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
-<p>Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
+<section id="create-a-custom-404-page" class="level1">
+<h1>4. Create a custom 404 page</h1>
+<p>Last but not least, let’s not forget that some potential readers might land on a missing page, or use a url with a small typo. No reason to let them be greeted with a humdrum, run-of-the-mill 404 page! Quarto allows you to easily <a href="https://quarto.org/docs/websites/website-navigation.html#pages-404">customize your 404 page</a>. For <a href="https://www.ddanieltan.com/404.html">my 404 page</a>, I chose this simple image I created with Dall-E2.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../404.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">DallE2 with prompt “dogs of different breeds happily running around with 404 text, cartoon style”</figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="conclusions" class="level1">
-<h1>Conclusions</h1>
-<blockquote class="blockquote">
-<p>“Life truly begins when you put your house in order.” - Marie Kondo</p>
-</blockquote>
-<p>Couldn’t have phrased it better myself! Stow is a great tool to keep your config files sync-ed, do give it a try.</p>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>And there you go, hope you found a tip or two you can use. Let’s go make your personal slice of the internet your own 💪.</p>
 
 </section>
 
@@ -326,21 +308,21 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "15 September 2022"</code></pre>
+<pre><code>[1] "20 September 2022"</code></pre>
 </div>
 </div>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  title = {How {I} Sync My Config Files with {Stow}},
-  date = {2022-08-27},
-  url = {https://www.ddanieltan.com/posts/stow},
+  title = {How to Add Some Personality to Your {Quarto} {Blog}},
+  date = {2022-09-20},
+  url = {https://www.ddanieltan.com/posts/blogtips},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Daniel Tan. 2022. <span>“How I Sync My Config Files with Stow.”</span>
-August 27, 2022. <a href="https://www.ddanieltan.com/posts/stow">https://www.ddanieltan.com/posts/stow</a>.
+Daniel Tan. 2022. <span>“How to Add Some Personality to Your Quarto
+Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/blogtips">https://www.ddanieltan.com/posts/blogtips</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -442,7 +424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">The statistician cannot evade the responsibility for understanding the process he applies or recommends - Ronald Fisher</div>
+      <div class="nav-footer-center">The reward for good work is more work - Tom Sach</div>
   </div>
 </footer>
 
