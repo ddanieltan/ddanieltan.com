@@ -17,7 +17,7 @@ website:
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/ddanieltan/
-  page-footer: "We are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca"
+  page-footer: "There is no such thing as informational overload, just bad design. If something is cluttered or confusing, fix your design - Edward Tufte"
   google-analytics: "G-BQGXLNCBHY"
 format:
   html:

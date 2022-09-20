@@ -38,7 +38,7 @@ If you like to do more than just log a post's last update, I recommend checking 
 # 2. Make custom CSS tweaks
 The default Quarto blog comes ready with many Bootstrap themes from the [Bootswatch project](https://bootswatch.com/). I found that a really efficient way to tackle styling for your blog is to start with one of these ready-made themes (I chose Litera) and then add on custom css to make small tweaks. I am consistently surprised how some seemingly small css tweaks can create a dramatic effect on your overall site.
 
-I took this the [SCSS snippet](https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss) from this [RappA's youtube video](https://youtu.be/ErRX8plZpQE). This block of css helps to perfectly align the elements in my navbar with the margin that my content body is framed. I cannot express in words how much joy this tiny tweak brings me.
+I took this the [SCSS snippet](https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss) from this [RappA's youtube video](https://youtu.be/ErRX8plZpQE). This block of css helps to perfectly align the elements in my navbar with the margins of my content body. I cannot express in words how much joy this tiny tweak brings me.
 
 ```css
 .navbar > .container-xxl, .navbar > .container-xl, .navbar > .container-lg, .navbar > .container-md, .navbar > .container-sm, .navbar > .container, .navbar > .container-fluid {
