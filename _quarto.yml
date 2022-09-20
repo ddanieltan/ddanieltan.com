@@ -8,7 +8,6 @@ website:
   repo-url: https://github.com/ddanieltan/ddanieltan.com
   twitter-card: true
   open-graph: true
-  feed: true
   navbar:
     right:
       - about.qmd
@@ -18,7 +17,7 @@ website:
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/ddanieltan/
-  page-footer: "There is no such thing as informational overload, just bad design. If something is cluttered or confusing, fix your design - Edward Tufte"
+  page-footer: "I am convinced the best learning takes place when the learner takes charge - Seymour Papert"
   google-analytics: "G-BQGXLNCBHY"
 format:
   html:

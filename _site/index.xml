@@ -9,7 +9,7 @@
 <link>https://www.ddanieltan.com/index.html</link>
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.0.37</generator>
+<generator>quarto-1.1.251</generator>
 <lastBuildDate>Mon, 19 Sep 2022 16:00:00 GMT</lastBuildDate>
 <item>
   <title>How to add some personality to your Quarto Blog</title>
@@ -98,6 +98,7 @@ Note
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
+  editor = {},
   title = {How to Add Some Personality to Your {Quarto} {Blog}},
   date = {2022-09-20},
   url = {https://www.ddanieltan.com/posts/blogtips},
@@ -216,6 +217,7 @@ Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/bl
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
+  editor = {},
   title = {2022: {My} {Year} of {Scala}},
   date = {2022-09-15},
   url = {https://www.ddanieltan.com/posts/2022scala},
@@ -333,6 +335,7 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
+  editor = {},
   title = {How {I} Sync My Config Files with {Stow}},
   date = {2022-08-27},
   url = {https://www.ddanieltan.com/posts/stow},
@@ -495,6 +498,7 @@ Note
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
+  editor = {},
   title = {Explainers: {Inverse} {Transform} {Theorem}},
   date = {2022-08-08},
   url = {https://www.ddanieltan.com/posts/some2},
@@ -569,6 +573,7 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
+  editor = {},
   title = {Hello World},
   date = {2022-07-15},
   url = {https://www.ddanieltan.com/posts/helloworld},
