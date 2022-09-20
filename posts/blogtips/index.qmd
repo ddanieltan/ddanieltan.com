@@ -19,7 +19,12 @@ However, your blog is also your personal slice out on the internet, and if you c
 While it is fun to add these bells and whistles, do not lose focus on the most important part of your blog - the content.
 :::
 
-# 1. Enrich your Appendices
+# 1. Create a custom 404 page
+Last but not least, let's not forget that some potential readers might land on a missing page, or use a url with a small typo. No reason to let them be greeted with a humdrum, run-of-the-mill 404 page! Quarto allows you to easily [customize your 404 page](https://quarto.org/docs/websites/website-navigation.html#pages-404). For [my 404 page](https://www.ddanieltan.com/404.html), I chose this simple image I created with Dall-E2.
+
+![DallE2 with prompt "dogs of different breeds happily running around with 404 text, cartoon style"](/../404.png)
+
+# 2. Enrich your Appendices
 An important facet that Quarto supports is [Scholarly Writing](https://quarto.org/docs/authoring/title-blocks.html). With a few simple flags in your [_metadata.yml](https://github.com/ddanieltan/ddanieltan.com/blob/main/posts/_metadata.yml) file, you can easily configure each blog post to neatly organize your footnotes, references, license and citation information in an appendix section at the bottom of your post.
 
 This [appendix section](https://quarto.org/docs/authoring/appendices.html) is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a `Last Updated` section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.
@@ -35,7 +40,7 @@ format(today, format="%d %B %Y")
 
 If you like to do more than just log a post's last update, I recommend checking out [Danielle Navarro's](https://blog.djnavarro.net/) [source code](https://github.com/djnavarro/quarto-blog) for her quarto blog for a more impressive appendix. 
 
-# 2. Make custom CSS tweaks
+# 3. Make custom CSS tweaks
 The default Quarto blog comes ready with many Bootstrap themes from the [Bootswatch project](https://bootswatch.com/). I found that a really efficient way to tackle styling for your blog is to start with one of these ready-made themes (I chose Litera) and then add on custom css to make small tweaks. I am consistently surprised how some seemingly small css tweaks can create a dramatic effect on your overall site.
 
 I took this the [SCSS snippet](https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss) from this [RappA's youtube video](https://youtu.be/ErRX8plZpQE). This block of css helps to perfectly align the elements in my navbar with the margin that my content body is framed. I cannot express in words how much joy this tiny tweak brings me.
@@ -48,7 +53,7 @@ I took this the [SCSS snippet](https://github.com/ddanieltan/ddanieltan.com/blob
 
 <iframe src="https://giphy.com/embed/l4FB1R0Cz0gFo1YQw" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-8-l4FB1R0Cz0gFo1YQw">Source: GIPHY</a></p>
 
-# 3. Sneak in Easter Eggs in your page footer
+# 4. Sneak in Easter Eggs in your page footer
 Page footers are generally reserved for important business-y messages. The usual suspects are either copyrights, licenses or "lovingly built with"s. I wanted my blog to be slightly different. I like to reward any reader who has read my posts all the way to the end with a nice easter egg in the form of 1 of my favourite quotes!
 
 :::{.column-margin}
@@ -59,10 +64,6 @@ To keep this experience fresh, I ensure a random quote is chosen from my list of
 
 I chose to configure a post-render script. You can see the specifics of how this is implemented (and also sneak a peek at the full list of my favourite quotes) by taking a look at my post-render python script: [randomizeFooterQuotes.py](https://github.com/ddanieltan/ddanieltan.com/blob/main/randomizeFooterQuote.py). 
 
-# 4. Create a custom 404 page
-Last but not least, let's not forget that some potential readers might land on a missing page, or use a url with a small typo. No reason to let them be greeted with a humdrum, run-of-the-mill 404 page! Quarto allows you to easily [customize your 404 page](https://quarto.org/docs/websites/website-navigation.html#pages-404). For [my 404 page](https://www.ddanieltan.com/404.html), I chose this simple image I created with Dall-E2.
-
-![DallE2 with prompt "dogs of different breeds happily running around with 404 text, cartoon style"](/../404.png)
 
 # Conclusion
 And there you go, hope you found a tip or two you can use. Let's go make your personal slice of the internet your own 💪.
