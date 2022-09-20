@@ -3,10 +3,7 @@ title: "How to add some personality to your Quarto Blog"
 description: "A few of my favourite bells and whistles"
 date: "2022-09-20"
 categories: ["quarto"]
-image: "/../404.png"
-website:
-  open-graph:
-    image: "/../404.png"
+image: "https://www.ddanieltan.com/404.png"
 ---
 
 # Start from the basics

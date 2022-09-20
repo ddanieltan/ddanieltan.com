@@ -91,7 +91,7 @@ Note
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "20 September 2022"</code></pre>
+<pre><code>[1] "21 September 2022"</code></pre>
 </div>
 </div>
 
@@ -111,7 +111,7 @@ Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/bl
   <category>quarto</category>
   <guid>https://www.ddanieltan.com/posts/blogtips/index.html</guid>
   <pubDate>Mon, 19 Sep 2022 16:00:00 GMT</pubDate>
-  <media:content url="https://www.ddanieltan.com/../404.png" medium="image" type="image/png"/>
+  <media:content url="https://www.ddanieltan.com/404.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>2022: My Year of Scala</title>
@@ -210,7 +210,7 @@ Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/bl
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "15 September 2022"</code></pre>
+<pre><code>[1] "21 September 2022"</code></pre>
 </div>
 </div>
 
@@ -328,7 +328,7 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "15 September 2022"</code></pre>
+<pre><code>[1] "21 September 2022"</code></pre>
 </div>
 </div>
 
@@ -493,10 +493,18 @@ Note
 </div>
 </div>
 
-
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "21 September 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
   editor = {},
   title = {Explainers: {Inverse} {Transform} {Theorem}},
@@ -566,12 +574,20 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
 <section id="the-small-but-growing-collection-of-quarto-content-online" class="level4">
 <h4 class="anchored" data-anchor-id="the-small-but-growing-collection-of-quarto-content-online">3. The small but growing collection of Quarto content online</h4>
 <p>At the time of writing, I did not find a large collection of Quarto-specific content online. Nevertheless, I did find some helpful gems from <a href="https://www.youtube.com/results?search_query=quarto+blog">Youtube videos</a>, <a href="https://github.com/quarto-dev/quarto-cli/discussions">Github discussions</a> or <a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/">websites</a> that had a helpful tip or two that I could use for my blog.</p>
-
-
-</section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+</section>
+
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "21 September 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
   editor = {},
   title = {Hello World},
