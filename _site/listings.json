@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/boogiewoogie/index.html",
       "/posts/blogtips/index.html",
       "/posts/2022scala/index.html",
       "/posts/stow/index.html",

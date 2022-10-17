@@ -10,7 +10,479 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Mon, 19 Sep 2022 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 11 Oct 2022 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Broadway Boogie Woogie</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/boogiewoogie/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="lets-boogie" class="level1 page-columns page-full">
+<h1>Let’s Boogie</h1>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" data-startfrom="12" data-source-offset="-0" style="background: #f1f3f5;"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 11;"><span id="cb1-12"><span class="fu" style="color: #4758AB;">html</span><span class="vs" style="color: #20794D;">`</span></span>
+<span id="cb1-13"><span class="vs" style="color: #20794D;">&lt;button id="update"&gt;Boogie!&lt;/button&gt;</span></span>
+<span id="cb1-14"><span class="vs" style="color: #20794D;">`</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="15" data-source-offset="-45" style="background: #f1f3f5;"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 14;"><span id="cb2-15">{</span>
+<span id="cb2-16">    <span class="kw" style="color: #003B4F;">const</span> svgRaw <span class="op" style="color: #5E5E5E;">=</span> htl<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">svg</span><span class="vs" style="color: #20794D;">`&lt;svg&gt;&lt;/svg&gt;`</span></span>
+<span id="cb2-17">    <span class="kw" style="color: #003B4F;">const</span> svg <span class="op" style="color: #5E5E5E;">=</span> d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(svgRaw)</span>
+<span id="cb2-18">    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">500</span>)</span>
+<span id="cb2-19">    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">500</span>)</span>
+<span id="cb2-20">    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"background-color"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"#e5e4f0"</span>)</span>
+<span id="cb2-21"></span>
+<span id="cb2-22">    <span class="kw" style="color: #003B4F;">function</span> <span class="fu" style="color: #4758AB;">randomData</span>() {</span>
+<span id="cb2-23">        <span class="cf" style="color: #003B4F;">return</span> <span class="bu" style="color: null;">Array</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">from</span>({<span class="dt" style="color: #AD0000;">length</span><span class="op" style="color: #5E5E5E;">:</span> <span class="dv" style="color: #AD0000;">50</span>}<span class="op" style="color: #5E5E5E;">,</span> () <span class="kw" style="color: #003B4F;">=&gt;</span> <span class="bu" style="color: null;">Math</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">floor</span>(<span class="bu" style="color: null;">Math</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">random</span>() <span class="op" style="color: #5E5E5E;">*</span> <span class="dv" style="color: #AD0000;">100</span>))</span>
+<span id="cb2-24">    }</span>
+<span id="cb2-25"></span>
+<span id="cb2-26">    <span class="kw" style="color: #003B4F;">function</span> <span class="fu" style="color: #4758AB;">colourMap</span>(num) {</span>
+<span id="cb2-27">        <span class="cf" style="color: #003B4F;">if</span> (num <span class="op" style="color: #5E5E5E;">&gt;=</span> <span class="dv" style="color: #AD0000;">0</span> <span class="op" style="color: #5E5E5E;">&amp;&amp;</span> num <span class="op" style="color: #5E5E5E;">&lt;=</span> <span class="dv" style="color: #AD0000;">65</span>) { <span class="cf" style="color: #003B4F;">return</span> <span class="st" style="color: #20794D;">"yellow"</span>}</span>
+<span id="cb2-28">        <span class="cf" style="color: #003B4F;">if</span> (num <span class="op" style="color: #5E5E5E;">&gt;=</span> <span class="dv" style="color: #AD0000;">66</span> <span class="op" style="color: #5E5E5E;">&amp;&amp;</span> num <span class="op" style="color: #5E5E5E;">&lt;=</span> <span class="dv" style="color: #AD0000;">80</span>) { <span class="cf" style="color: #003B4F;">return</span> <span class="st" style="color: #20794D;">"black"</span>}</span>
+<span id="cb2-29">        <span class="cf" style="color: #003B4F;">if</span> (num<span class="op" style="color: #5E5E5E;">&gt;=</span> <span class="dv" style="color: #AD0000;">81</span> <span class="op" style="color: #5E5E5E;">&amp;&amp;</span> num <span class="op" style="color: #5E5E5E;">&lt;=</span><span class="dv" style="color: #AD0000;">85</span>) {<span class="cf" style="color: #003B4F;">return</span> <span class="st" style="color: #20794D;">"red"</span>}</span>
+<span id="cb2-30">        <span class="cf" style="color: #003B4F;">if</span> (num<span class="op" style="color: #5E5E5E;">&gt;=</span> <span class="dv" style="color: #AD0000;">86</span> <span class="op" style="color: #5E5E5E;">&amp;&amp;</span> num <span class="op" style="color: #5E5E5E;">&lt;=</span><span class="dv" style="color: #AD0000;">100</span>) {<span class="cf" style="color: #003B4F;">return</span> <span class="st" style="color: #20794D;">"grey"</span>}</span>
+<span id="cb2-31">    }</span>
+<span id="cb2-32"></span>
+<span id="cb2-33">    <span class="kw" style="color: #003B4F;">function</span> <span class="fu" style="color: #4758AB;">horizontalStreets</span>(yPosArray) {</span>
+<span id="cb2-34">        <span class="cf" style="color: #003B4F;">for</span> (<span class="kw" style="color: #003B4F;">let</span> i<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">;</span> i<span class="op" style="color: #5E5E5E;">&lt;</span>yPosArray<span class="op" style="color: #5E5E5E;">.</span><span class="at" style="color: #657422;">length</span><span class="op" style="color: #5E5E5E;">;</span> i<span class="op" style="color: #5E5E5E;">++</span>){</span>
+<span id="cb2-35">            svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">selectAll</span>(<span class="st" style="color: #20794D;">"horizontal"</span>)</span>
+<span id="cb2-36">            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">data</span>(<span class="fu" style="color: #4758AB;">randomData</span>())</span>
+<span id="cb2-37">            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">join</span>(</span>
+<span id="cb2-38">                enter <span class="kw" style="color: #003B4F;">=&gt;</span> enter<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)</span>
+<span id="cb2-39">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"horizontal"</span>)</span>
+<span id="cb2-40">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d<span class="op" style="color: #5E5E5E;">,</span>i) {<span class="cf" style="color: #003B4F;">return</span> i<span class="op" style="color: #5E5E5E;">*</span><span class="dv" style="color: #AD0000;">10</span>})</span>
+<span id="cb2-41">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> yPosArray[i])</span>
+<span id="cb2-42">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-43">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-44">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d){<span class="cf" style="color: #003B4F;">return</span> <span class="fu" style="color: #4758AB;">colourMap</span>(d)})</span>
+<span id="cb2-45">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">on</span>(<span class="st" style="color: #20794D;">"mouseover"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d) {</span>
+<span id="cb2-46">                        d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(<span class="kw" style="color: #003B4F;">this</span>)</span>
+<span id="cb2-47">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-48">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">transition</span>()</span>
+<span id="cb2-49">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">25</span>)</span>
+<span id="cb2-50">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">25</span>)</span>
+<span id="cb2-51">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"stroke"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"black"</span>)</span>
+<span id="cb2-52">                            </span>
+<span id="cb2-53">                    })</span>
+<span id="cb2-54">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">on</span>(<span class="st" style="color: #20794D;">"mouseout"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d) {</span>
+<span id="cb2-55">                        d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(<span class="kw" style="color: #003B4F;">this</span>)</span>
+<span id="cb2-56">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">transition</span>()</span>
+<span id="cb2-57">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-58">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-59">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"stroke"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb2-60">                    })<span class="op" style="color: #5E5E5E;">,</span></span>
+<span id="cb2-61">               update <span class="kw" style="color: #003B4F;">=&gt;</span> update<span class="op" style="color: #5E5E5E;">,</span></span>
+<span id="cb2-62">               exit <span class="kw" style="color: #003B4F;">=&gt;</span> exit<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">remove</span>()</span>
+<span id="cb2-63">            )</span>
+<span id="cb2-64">        }</span>
+<span id="cb2-65">    }</span>
+<span id="cb2-66"></span>
+<span id="cb2-67">    <span class="kw" style="color: #003B4F;">function</span> <span class="fu" style="color: #4758AB;">verticalStreets</span>(xPosArray) {</span>
+<span id="cb2-68">        <span class="cf" style="color: #003B4F;">for</span> (<span class="kw" style="color: #003B4F;">let</span> i<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">;</span> i<span class="op" style="color: #5E5E5E;">&lt;</span>xPosArray<span class="op" style="color: #5E5E5E;">.</span><span class="at" style="color: #657422;">length</span><span class="op" style="color: #5E5E5E;">;</span> i<span class="op" style="color: #5E5E5E;">++</span>){</span>
+<span id="cb2-69">            svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">selectAll</span>(<span class="st" style="color: #20794D;">"vertical"</span>)</span>
+<span id="cb2-70">            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">data</span>(<span class="fu" style="color: #4758AB;">randomData</span>())</span>
+<span id="cb2-71">            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">join</span>(</span>
+<span id="cb2-72">                enter <span class="kw" style="color: #003B4F;">=&gt;</span> enter<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)</span>
+<span id="cb2-73">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"vertical"</span>)</span>
+<span id="cb2-74">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> xPosArray[i])</span>
+<span id="cb2-75">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d<span class="op" style="color: #5E5E5E;">,</span>i) {<span class="cf" style="color: #003B4F;">return</span> i<span class="op" style="color: #5E5E5E;">*</span><span class="dv" style="color: #AD0000;">10</span>})</span>
+<span id="cb2-76">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-77">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-78">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d){<span class="cf" style="color: #003B4F;">return</span> <span class="fu" style="color: #4758AB;">colourMap</span>(d)})</span>
+<span id="cb2-79">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">on</span>(<span class="st" style="color: #20794D;">"mouseover"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d) {</span>
+<span id="cb2-80">                        d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(<span class="kw" style="color: #003B4F;">this</span>)</span>
+<span id="cb2-81">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-82">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">transition</span>()</span>
+<span id="cb2-83">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">25</span>)</span>
+<span id="cb2-84">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">25</span>)</span>
+<span id="cb2-85">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"stroke"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"black"</span>)</span>
+<span id="cb2-86">                            </span>
+<span id="cb2-87">                    })</span>
+<span id="cb2-88">                    <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">on</span>(<span class="st" style="color: #20794D;">"mouseout"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>(d) {</span>
+<span id="cb2-89">                        d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(<span class="kw" style="color: #003B4F;">this</span>)</span>
+<span id="cb2-90">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">transition</span>()</span>
+<span id="cb2-91">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-92">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-93">                            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"stroke"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb2-94">                    })<span class="op" style="color: #5E5E5E;">,</span></span>
+<span id="cb2-95">               update <span class="kw" style="color: #003B4F;">=&gt;</span> update<span class="op" style="color: #5E5E5E;">,</span></span>
+<span id="cb2-96">               exit <span class="kw" style="color: #003B4F;">=&gt;</span> exit<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">remove</span>()</span>
+<span id="cb2-97">            )</span>
+<span id="cb2-98">            </span>
+<span id="cb2-99">        }</span>
+<span id="cb2-100">    }</span>
+<span id="cb2-101"></span>
+<span id="cb2-102">    <span class="kw" style="color: #003B4F;">function</span> <span class="fu" style="color: #4758AB;">moveBlock</span>(d<span class="op" style="color: #5E5E5E;">,</span> i) {</span>
+<span id="cb2-103">        d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(<span class="kw" style="color: #003B4F;">this</span>)</span>
+<span id="cb2-104">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">transition</span>()</span>
+<span id="cb2-105">            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="bu" style="color: null;">Math</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">floor</span>(<span class="bu" style="color: null;">Math</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">random</span>() <span class="op" style="color: #5E5E5E;">*</span> <span class="dv" style="color: #AD0000;">500</span>))</span>
+<span id="cb2-106">            <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="bu" style="color: null;">Math</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">floor</span>(<span class="bu" style="color: null;">Math</span><span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">random</span>() <span class="op" style="color: #5E5E5E;">*</span> <span class="dv" style="color: #AD0000;">500</span>))</span>
+<span id="cb2-107">    }</span>
+<span id="cb2-108"></span>
+<span id="cb2-109">    <span class="co" style="color: #5E5E5E;">// Initial draw</span></span>
+<span id="cb2-110">    <span class="fu" style="color: #4758AB;">horizontalStreets</span>([<span class="dv" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">50</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">120</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">150</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">220</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">250</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">280</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">340</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">440</span>])</span>
+<span id="cb2-111">    <span class="fu" style="color: #4758AB;">verticalStreets</span>([<span class="dv" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">70</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">140</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">300</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">330</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">420</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">440</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">480</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">500</span>])</span>
+<span id="cb2-112">    </span>
+<span id="cb2-113">    <span class="kw" style="color: #003B4F;">var</span> blue1 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-114">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-115">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-116">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">80</span>)</span>
+<span id="cb2-117">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-118">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-119">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"blue"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-120">    </span>
+<span id="cb2-121">    <span class="kw" style="color: #003B4F;">var</span> blue2 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-122">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-123">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-124">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">350</span>)</span>
+<span id="cb2-125">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-126">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-127">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"blue"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-128"></span>
+<span id="cb2-129">    <span class="kw" style="color: #003B4F;">var</span> blue3 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-130">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-131">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">160</span>)</span>
+<span id="cb2-132">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">260</span>)</span>
+<span id="cb2-133">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-134">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-135">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"blue"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-136">    </span>
+<span id="cb2-137">    <span class="kw" style="color: #003B4F;">var</span> blue4 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-138">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-139">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">380</span>)</span>
+<span id="cb2-140">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">160</span>)</span>
+<span id="cb2-141">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-142">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">100</span>)</span>
+<span id="cb2-143">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"blue"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-144"></span>
+<span id="cb2-145">    <span class="kw" style="color: #003B4F;">var</span> blue5 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-146">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-147">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">410</span>)</span>
+<span id="cb2-148">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">350</span>)</span>
+<span id="cb2-149">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-150">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-151">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"blue"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-152"></span>
+<span id="cb2-153">    <span class="kw" style="color: #003B4F;">var</span> red1 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-154">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-155">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">80</span>)</span>
+<span id="cb2-156">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">20</span>)</span>
+<span id="cb2-157">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">20</span>)</span>
+<span id="cb2-158">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">90</span>)</span>
+<span id="cb2-159">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"red"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-160"></span>
+<span id="cb2-161">    <span class="kw" style="color: #003B4F;">var</span> red2 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-162">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-163">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">130</span>)</span>
+<span id="cb2-164">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">20</span>)</span>
+<span id="cb2-165">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-166">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">60</span>)</span>
+<span id="cb2-167">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"red"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-168"></span>
+<span id="cb2-169">    <span class="kw" style="color: #003B4F;">var</span> red3 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-170">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-171">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">80</span>)</span>
+<span id="cb2-172">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">270</span>)</span>
+<span id="cb2-173">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">60</span>)</span>
+<span id="cb2-174">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-175">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"red"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-176">    </span>
+<span id="cb2-177">    <span class="kw" style="color: #003B4F;">var</span> red4 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-178">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-179">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">290</span>)</span>
+<span id="cb2-180">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">200</span>)</span>
+<span id="cb2-181">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">60</span>)</span>
+<span id="cb2-182">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-183">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"red"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-184"></span>
+<span id="cb2-185">    <span class="kw" style="color: #003B4F;">var</span> red5 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-186">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-187">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">340</span>)</span>
+<span id="cb2-188">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">300</span>)</span>
+<span id="cb2-189">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-190">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">70</span>)</span>
+<span id="cb2-191">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"red"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-192">    </span>
+<span id="cb2-193">    <span class="kw" style="color: #003B4F;">var</span> gray1 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-194">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-195">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">140</span>)</span>
+<span id="cb2-196">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-197">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-198">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-199">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"gray"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-200"></span>
+<span id="cb2-201">    <span class="kw" style="color: #003B4F;">var</span> gray2 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-202">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-203">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">230</span>)</span>
+<span id="cb2-204">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">110</span>)</span>
+<span id="cb2-205">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-206">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">70</span>)</span>
+<span id="cb2-207">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"gray"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-208"></span>
+<span id="cb2-209">    <span class="kw" style="color: #003B4F;">var</span> gray3 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-210">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-211">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">230</span>)</span>
+<span id="cb2-212">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">370</span>)</span>
+<span id="cb2-213">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-214">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-215">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"gray"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-216"></span>
+<span id="cb2-217">    <span class="kw" style="color: #003B4F;">var</span> gray4 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-218">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-219">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">370</span>)</span>
+<span id="cb2-220">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">310</span>)</span>
+<span id="cb2-221">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">40</span>)</span>
+<span id="cb2-222">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">20</span>)</span>
+<span id="cb2-223">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"gray"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-224"></span>
+<span id="cb2-225">    <span class="kw" style="color: #003B4F;">var</span> gray5 <span class="op" style="color: #5E5E5E;">=</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">append</span>(<span class="st" style="color: #20794D;">"rect"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">raise</span>()</span>
+<span id="cb2-226">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"class"</span><span class="op" style="color: #5E5E5E;">,</span><span class="st" style="color: #20794D;">"block"</span>)</span>
+<span id="cb2-227">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"x"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">400</span>)</span>
+<span id="cb2-228">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"y"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">20</span>)</span>
+<span id="cb2-229">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"width"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">50</span>)</span>
+<span id="cb2-230">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">attr</span>(<span class="st" style="color: #20794D;">"height"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb2-231">        <span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">style</span>(<span class="st" style="color: #20794D;">"fill"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="st" style="color: #20794D;">"gray"</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-232">   </span>
+<span id="cb2-233"></span>
+<span id="cb2-234">    <span class="co" style="color: #5E5E5E;">// Updated draws</span></span>
+<span id="cb2-235">    d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">select</span>(<span class="st" style="color: #20794D;">"#update"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">on</span>(<span class="st" style="color: #20794D;">"click"</span><span class="op" style="color: #5E5E5E;">,</span> <span class="kw" style="color: #003B4F;">function</span>() {</span>
+<span id="cb2-236">        <span class="fu" style="color: #4758AB;">horizontalStreets</span>([<span class="dv" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">50</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">120</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">150</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">220</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">250</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">280</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">340</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">440</span>])</span>
+<span id="cb2-237">        <span class="fu" style="color: #4758AB;">verticalStreets</span>([<span class="dv" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">30</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">70</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">140</span><span class="op" style="color: #5E5E5E;">,</span> <span class="dv" style="color: #AD0000;">300</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">330</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">420</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">440</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">480</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">500</span>])</span>
+<span id="cb2-238">        d3<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">selectAll</span>(<span class="st" style="color: #20794D;">".block"</span>)<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">each</span>(moveBlock)</span>
+<span id="cb2-239"></span>
+<span id="cb2-240">    })</span>
+<span id="cb2-241"></span>
+<span id="cb2-242">    <span class="kw" style="color: #003B4F;">yield</span> svg<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">node</span>()<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb2-243"></span>
+<span id="cb2-244">}</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<p>This is a piece of digital art I created. It features bright colours, straight lines and some fun interactivity.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Try clicking the “Boogie!” button</p>
+</div></div><p>You probably realize that my simple artwork is very similar to Piet Mondrian’s iconic <a href="https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie">Broadway Boogie Woogie</a>. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and its aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s <a href="https://www.moma.org/collection/works/78682">Museum of Modern Art (MOMA)</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/boogiewoogie/https:/upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Piet Mondrian’s original Broadway Boogie Woogie</figcaption><p></p>
+</figure>
+</div>
+<p>Indeed, my amateur recreation is inspired by the original Mondrian, but not directly. In fact, it’s probably more accurate to say, my art piece is a derivative of a derivative.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1">flowchart TD</span>
+<span id="cb3-2">    A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)</span>
+<span id="cb3-3">    B --&gt;|inspired| C(My Broadway Boogie Woogie)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart TD
+    A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)
+    B --&gt;|inspired| C(My Broadway Boogie Woogie)
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="tom-sachs" class="level1 page-columns page-full">
+<h1>Tom Sachs</h1>
+<p><a href="https://www.tomsachs.com/exhibitions">Tom Sachs</a> is another influential artist born of a later generation. Tom Sachs had a very special path to the world of art, working in many blue-collar jobs such as lift repairman, electrician, plumber and construction worker. As a result, he has a very special view of the relationship between working with physical materials and the art he creates. Like many, Tom Sachs was very enamoured with Mondrian’s Broadway Boogie Woogie. He liked the art piece so much, he created his own.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Tom Sachs is also credited by both <a href="https://www.youtube.com/c/Caseyneistatofficial">Casey</a> and <a href="https://www.youtube.com/c/vanneistat">Van Neistat</a> of Youtube fame as being a key inspiration for their growth as an artist.</p>
+</div></div><blockquote class="instagram-media blockquote" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+View this post on Instagram
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Tom Sachs (<span class="citation" data-cites="tomsachs">@tomsachs</span>)</a>
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</section>
+<section id="a-genuine-fake" class="level1">
+<h1>A Genuine Fake</h1>
+<p>Tom Sachs explains his thought process here in this <a href="https://youtu.be/cxLxwbm7FMA?t=2490">interview with Adam Savage</a> and in his <a href="https://youtu.be/V8aeaX6Kozw?t=282">Ted Talk</a>. Here are a few choice quotes:</p>
+<blockquote class="blockquote">
+<p>I know I spent more time and enjoyed Broadway Boogie Woogie than the person who bought it. I know I enjoyed it more because I … built one.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Creating my Broadway Boogie Woogie with plywood and gaffers tape, materials that I have a connection with … I am creating authenticity that meets my own standards of what’s important… It’s a Genuine Fake</p>
+</blockquote>
+<p>And this is the most fascinating part of the equation for me. The original art piece alone is beautiful but in the process of recreating the same art piece using tools that are unique to Tom Sachs, he created his Genuine Fake. It’s a <code>Fake</code> in the sense that it is not the original, but it is also <code>Genuine</code> because Tom Sachs experienced the joy of creating something uniquely his through intense study of the original.</p>
+<p>I built my Genuine Fake in hopes that I can experience the same journey. And while I am severely unfamiliar with both oil paint which was used in Mondrian’s original work and plywood used in Tom Sach’s work, I am rather familiar with digital tools and materials, so that is what I decided to use.</p>
+<p>In particular, I am taking a course on <a href="https://omscs.gatech.edu/cse-6242-data-visual-analytics">Data and Visual Analytics</a> this semester, which has a strong focus on <a href="https://d3js.org/">D3.js</a>, a javascript visualisation framework, so that’s what I used to build <strong>my genuine fake</strong>.</p>
+</section>
+<section id="interesting-things-i-learnt-along-the-way" class="level1">
+<h1>Interesting things I learnt along the way</h1>
+<p>Ok, that’s enough rambling about <strong>Why</strong> I started this project, let me now shift gears to list some of my learnings as I worked on <strong>How</strong> to execute this project.</p>
+<section id="the-interplay-between-observablejs-d3-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="the-interplay-between-observablejs-d3-quarto">The Interplay between ObservableJS / D3 / Quarto</h3>
+<p>Quarto, the publishing framework <a href="http://localhost:7537/posts/blogtips/">I keep raving about</a>, supports <a href="https://observablehq.com/@observablehq/observables-not-javascript">ObservableJS</a> right out of the box. ObservableJS is built by the same minds behind D3, so naturally, ObservableJS has D3 libraries preloaded.</p>
+<p>To write some D3/ObservableJS code in Quarto, you simply have to create a code block like so</p>
+<pre><code>```{ojs}
+// This creates an SVG element.
+svgRaw = htl.svg`&lt;svg&gt;&lt;/svg&gt;`
+
+// d3 code goes here
+d3.select(svgRaw)
+    .attr("width",500)
+    .attr("height",500)
+    ...
+```</code></pre>
+<p>Above, you can also see some of the niceties ObservableJS brings, such as the <a href="https://observablehq.com/@observablehq/htl">Hypertext Literals</a> which makes it a breeze to create HTML elements directly in the <code>{ojs}</code> code block without the need to touch the raw HTML file.</p>
+</section>
+<section id="easy-art-with-random-data" class="level3">
+<h3 class="anchored" data-anchor-id="easy-art-with-random-data">Easy art with random data</h3>
+<p>What makes the entire field of <a href="https://www.tate.org.uk/art/art-terms/g/generative-art">Generative Art</a> remarkable is how random data is transformed into art pieces. I started out my project seeking to do a pure 1-for-1 copy of the original Mondrian, so every street and block would be in the same position and of the same colour. I soon became really bored of creating a 1-for-1 copy and realized I could make a much more interesting project, simply by randomizing the data that would generate the streets and colours. It was so fun, I decided to include a button (“Boogie!”) so the user could cycle through many variants!</p>
+<p>In my implementation, I relied on Javascript’s <code>Math.random()</code> random number generator, which I later learnt is pseudo uniform. D3 includes a <a href="https://github.com/d3/d3-random">d3-random</a> which exposes more functions from a greater variety of distributions, and I would experiment with these if I were to revisit this project in the future.</p>
+</section>
+<section id="d3s-select-enter-update-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="d3s-select-enter-update-pattern">D3’s Select-Enter-Update pattern</h3>
+<p>D3 has a really difficult to grok <a href="https://observablehq.com/@d3/general-update-pattern">select-enter-update pattern</a>. The goal here is that once you bind your data to the visual elements of your page, following this pattern allows fine-grain control of how new items are added, existing items are updated and redundant items are removed.</p>
+<p>It’s incredibly powerful but this was the hardest part of the D3 syntax for me to understand. It does not help that D3 has several versions and I feel the syntax of this pattern goes through pretty major changes in each version.</p>
+</section>
+<section id="transitions-and-animations-really-make-things-pop" class="level3">
+<h3 class="anchored" data-anchor-id="transitions-and-animations-really-make-things-pop">Transitions and Animations really make things pop!</h3>
+<p>My favourite part of the project was making things animate and move. It’s pretty addictive once I got it working. It is a reminder that building web-based visualisations, while difficult and finicky, can absolutely create interactive and delightful experiences for the end user. When done right, web visualisations are magic.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Art is not my forte, nor my day job but I enjoyed the challenge of creating my Genuine Fake. Through this process, I have a newfound appreciation for the difficulty and satisfaction that comes from building web visualisations.</p>
+<div class="tenor-gif-embed" data-postid="11831081" data-share-method="host" data-aspect-ratio="1.4218" data-width="100%">
+<a href="https://tenor.com/view/artistry-at-its-finest-art-snoop-dogg-ggn-gif-11831081">Artistry At Its Finest GIF</a>from <a href="https://tenor.com/search/artistry-gifs">Artistry GIFs</a>
+</div>
+<script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "17 October 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {Broadway {Boogie} {Woogie}},
+  date = {2022-10-12},
+  url = {https://www.ddanieltan.com/posts/boogiewoogie},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“Broadway Boogie Woogie.”</span> October 12,
+2022. <a href="https://www.ddanieltan.com/posts/boogiewoogie">https://www.ddanieltan.com/posts/boogiewoogie</a>.
+</div></div></section></div> ]]></description>
+  <category>art</category>
+  <category>d3</category>
+  <category>randomness</category>
+  <category>observable</category>
+  <category>quarto</category>
+  <guid>https://www.ddanieltan.com/posts/boogiewoogie/index.html</guid>
+  <pubDate>Tue, 11 Oct 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/boogiewoogie/boogie.gif" medium="image" type="image/gif"/>
+</item>
 <item>
   <title>How to add some personality to your Quarto Blog</title>
   <dc:creator>Daniel Tan</dc:creator>

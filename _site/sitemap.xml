@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
-    <lastmod>2022-09-20T23:23:10.870Z</lastmod>
+    <lastmod>2022-10-17T03:33:19.922Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/some2/index.html</loc>
-    <lastmod>2022-09-20T23:23:02.430Z</lastmod>
+    <lastmod>2022-10-17T03:33:20.711Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/blogtips/index.html</loc>
-    <lastmod>2022-09-20T23:22:30.508Z</lastmod>
+    <lastmod>2022-10-17T03:33:51.740Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022scala/index.html</loc>
-    <lastmod>2022-09-20T23:23:33.617Z</lastmod>
+    <lastmod>2022-10-17T03:33:21.829Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/stow/index.html</loc>
-    <lastmod>2022-09-20T23:23:42.811Z</lastmod>
+    <lastmod>2022-10-17T03:33:22.353Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/boogiewoogie/index.html</loc>
+    <lastmod>2022-10-17T03:33:42.124Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/index.html</loc>
-    <lastmod>2022-09-20T23:23:43.582Z</lastmod>
+    <lastmod>2022-10-17T03:33:49.402Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/about.html</loc>
-    <lastmod>2022-09-20T07:39:14.661Z</lastmod>
+    <lastmod>2022-10-17T03:33:24.554Z</lastmod>
   </url>
 </urlset>

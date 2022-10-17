@@ -7,11 +7,25 @@
     "text": "I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable tool for both my professional and personal life. It helps me to organise my thoughts, maximise my impact and reflect on my learnings. Yet, I have consistently not prioritised writing and it is a disservice to myself that I have not made set aside time for deliberate practice.\nI have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.\nHere’s to another shot at this. Wish me luck!\n\n\n\n\n\nMy visualisation of Hello world + Quarto logo"
   },
   {
+    "objectID": "posts/helloworld/index.html#last-updated",
+    "href": "posts/helloworld/index.html#last-updated",
+    "title": "Hello world",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"21 September 2022\""
+  },
+  {
     "objectID": "posts/some2/index.html",
     "href": "posts/some2/index.html",
     "title": "Explainers: Inverse Transform Theorem",
     "section": "",
     "text": "Note\n\n\n\nThis post is my submission to 2022’s Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. I thoroughly enjoyed learning from the submissions from SoME1, and thought to scrape my spare time together this year to submit something for SoME2.\nYou can learn more about #SoME2 from Grant Sanderson’s(3B1B) video."
+  },
+  {
+    "objectID": "posts/some2/index.html#last-updated",
+    "href": "posts/some2/index.html#last-updated",
+    "title": "Explainers: Inverse Transform Theorem",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"21 September 2022\""
   },
   {
     "objectID": "posts/blogtips/index.html",
@@ -56,11 +70,25 @@
     "text": "Last Updated\n\n\n\n[1] \"21 September 2022\""
   },
   {
+    "objectID": "posts/boogiewoogie/index.html",
+    "href": "posts/boogiewoogie/index.html",
+    "title": "Broadway Boogie Woogie",
+    "section": "",
+    "text": "Code\nhtml`\n<button id=\"update\">Boogie!</button>\n`\n\n\n\n\n\n\n\n\n\nCode\n{\n    const svgRaw = htl.svg`<svg></svg>`\n    const svg = d3.select(svgRaw)\n    .attr(\"width\",500)\n    .attr(\"height\",500)\n    .style(\"background-color\",\"#e5e4f0\")\n\n    function randomData() {\n        return Array.from({length: 50}, () => Math.floor(Math.random() * 100))\n    }\n\n    function colourMap(num) {\n        if (num >= 0 && num <= 65) { return \"yellow\"}\n        if (num >= 66 && num <= 80) { return \"black\"}\n        if (num>= 81 && num <=85) {return \"red\"}\n        if (num>= 86 && num <=100) {return \"grey\"}\n    }\n\n    function horizontalStreets(yPosArray) {\n        for (let i=0; i<yPosArray.length; i++){\n            svg.selectAll(\"horizontal\")\n            .data(randomData())\n            .join(\n                enter => enter.append(\"rect\")\n                    .attr(\"class\",\"horizontal\")\n                    .attr(\"x\", function(d,i) {return i*10})\n                    .attr(\"y\", yPosArray[i])\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update => update,\n               exit => exit.remove()\n            )\n        }\n    }\n\n    function verticalStreets(xPosArray) {\n        for (let i=0; i<xPosArray.length; i++){\n            svg.selectAll(\"vertical\")\n            .data(randomData())\n            .join(\n                enter => enter.append(\"rect\")\n                    .attr(\"class\",\"vertical\")\n                    .attr(\"x\", xPosArray[i])\n                    .attr(\"y\", function(d,i) {return i*10})\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update => update,\n               exit => exit.remove()\n            )\n            \n        }\n    }\n\n    function moveBlock(d, i) {\n        d3.select(this)\n        .transition()\n            .attr(\"x\", Math.floor(Math.random() * 500))\n            .attr(\"y\", Math.floor(Math.random() * 500))\n    }\n\n    // Initial draw\n    horizontalStreets([10,50,120,150,220,250,280,340,440])\n    verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n    \n    var blue1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 50)\n        .attr(\"y\", 80)\n        .attr(\"width\", 30)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"blue\");\n    \n    var blue2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 50)\n        .attr(\"y\", 350)\n        .attr(\"width\", 40)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var blue3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 160)\n        .attr(\"y\", 260)\n        .attr(\"width\", 30)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"blue\");\n    \n    var blue4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 380)\n        .attr(\"y\", 160)\n        .attr(\"width\", 50)\n        .attr(\"height\", 100)\n        .style(\"fill\", \"blue\");\n\n    var blue5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 410)\n        .attr(\"y\", 350)\n        .attr(\"width\", 40)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var red1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n        .attr(\"y\", 20)\n        .attr(\"width\", 20)\n        .attr(\"height\", 90)\n        .style(\"fill\", \"red\");\n\n    var red2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 130)\n        .attr(\"y\", 20)\n        .attr(\"width\", 40)\n        .attr(\"height\", 60)\n        .style(\"fill\", \"red\");\n\n    var red3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n        .attr(\"y\", 270)\n        .attr(\"width\", 60)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"red\");\n    \n    var red4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 290)\n        .attr(\"y\", 200)\n        .attr(\"width\", 60)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"red\");\n\n    var red5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 340)\n        .attr(\"y\", 300)\n        .attr(\"width\", 50)\n        .attr(\"height\", 70)\n        .style(\"fill\", \"red\");\n    \n    var gray1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 140)\n        .attr(\"y\", 40)\n        .attr(\"width\", 30)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n\n    var gray2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n        .attr(\"y\", 110)\n        .attr(\"width\", 50)\n        .attr(\"height\", 70)\n        .style(\"fill\", \"gray\");\n\n    var gray3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n        .attr(\"y\", 370)\n        .attr(\"width\", 30)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"gray\");\n\n    var gray4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 370)\n        .attr(\"y\", 310)\n        .attr(\"width\", 40)\n        .attr(\"height\", 20)\n        .style(\"fill\", \"gray\");\n\n    var gray5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 400)\n        .attr(\"y\", 20)\n        .attr(\"width\", 50)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n   \n\n    // Updated draws\n    d3.select(\"#update\").on(\"click\", function() {\n        horizontalStreets([10,50,120,150,220,250,280,340,440])\n        verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n        d3.selectAll(\".block\").each(moveBlock)\n\n    })\n\n    yield svg.node();\n\n}\n\n\n\n\n\n\n\n\n\nThis is a piece of digital art I created. It features bright colours, straight lines and some fun interactivity.\n\n\nTry clicking the “Boogie!” button\nYou probably realize that my simple artwork is very similar to Piet Mondrian’s iconic Broadway Boogie Woogie. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and its aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s Museum of Modern Art (MOMA).\n\n\n\nPiet Mondrian’s original Broadway Boogie Woogie\n\n\nIndeed, my amateur recreation is inspired by the original Mondrian, but not directly. In fact, it’s probably more accurate to say, my art piece is a derivative of a derivative.\n\n\nCode\nflowchart TD\n    A(Mondrian's Broadway Boogie Woogie) -->|inspired| B(Tom Sach's Broadway Boogie Woogie)\n    B -->|inspired| C(My Broadway Boogie Woogie)\n\n\n\n\nflowchart TD\n    A(Mondrian's Broadway Boogie Woogie) -->|inspired| B(Tom Sach's Broadway Boogie Woogie)\n    B -->|inspired| C(My Broadway Boogie Woogie)"
+  },
+  {
+    "objectID": "posts/boogiewoogie/index.html#last-updated",
+    "href": "posts/boogiewoogie/index.html#last-updated",
+    "title": "Broadway Boogie Woogie",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"17 October 2022\""
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "🤔",
     "section": "",
-    "text": "A few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Building a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -68,19 +96,5 @@
     "title": "Daniel Tan",
     "section": "",
     "text": "I currently work on Experimentation @Apple. Previously, I worked on Personalisation @OCBC AI Labs and on the metasearch auction @TripAdvisor.\nOcassionally, I teach data science workshops @General Assembly and @Vertical Institute."
-  },
-  {
-    "objectID": "posts/some2/index.html#last-updated",
-    "href": "posts/some2/index.html#last-updated",
-    "title": "Explainers: Inverse Transform Theorem",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"21 September 2022\""
-  },
-  {
-    "objectID": "posts/helloworld/index.html#last-updated",
-    "href": "posts/helloworld/index.html#last-updated",
-    "title": "Hello world",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"21 September 2022\""
   }
 ]

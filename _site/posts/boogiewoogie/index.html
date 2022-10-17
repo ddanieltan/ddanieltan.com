@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Tan">
+<meta name="dcterms.date" content="2022-10-12">
+<meta name="description" content="Building a Genuine Fake">
+
+<title>ddanieltan.com - Broadway Boogie Woogie</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BQGXLNCBHY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="ddanieltan.com - Broadway Boogie Woogie">
+<meta property="og:description" content="Building a Genuine Fake">
+<meta property="og:image" content="https://www.ddanieltan.com/posts/boogiewoogie/boogie.gif">
+<meta property="og:site-name" content="ddanieltan.com">
+<meta name="twitter:title" content="ddanieltan.com - Broadway Boogie Woogie">
+<meta name="twitter:description" content="Building a Genuine Fake">
+<meta name="twitter:image" content="https://www.ddanieltan.com/posts/boogiewoogie/boogie.gif">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ddanieltan.com</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">Daniel Tan</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ddanieltan"><i class="bi bi-github" role="img" aria-label="github">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ddanieltan/"><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lets-boogie" id="toc-lets-boogie" class="nav-link active" data-scroll-target="#lets-boogie">Let’s Boogie</a></li>
+  <li><a href="#tom-sachs" id="toc-tom-sachs" class="nav-link" data-scroll-target="#tom-sachs">Tom Sachs</a></li>
+  <li><a href="#a-genuine-fake" id="toc-a-genuine-fake" class="nav-link" data-scroll-target="#a-genuine-fake">A Genuine Fake</a></li>
+  <li><a href="#interesting-things-i-learnt-along-the-way" id="toc-interesting-things-i-learnt-along-the-way" class="nav-link" data-scroll-target="#interesting-things-i-learnt-along-the-way">Interesting things I learnt along the way</a>
+  <ul class="collapse">
+  <li><a href="#the-interplay-between-observablejs-d3-quarto" id="toc-the-interplay-between-observablejs-d3-quarto" class="nav-link" data-scroll-target="#the-interplay-between-observablejs-d3-quarto">The Interplay between ObservableJS / D3 / Quarto</a></li>
+  <li><a href="#easy-art-with-random-data" id="toc-easy-art-with-random-data" class="nav-link" data-scroll-target="#easy-art-with-random-data">Easy art with random data</a></li>
+  <li><a href="#d3s-select-enter-update-pattern" id="toc-d3s-select-enter-update-pattern" class="nav-link" data-scroll-target="#d3s-select-enter-update-pattern">D3’s Select-Enter-Update pattern</a></li>
+  <li><a href="#transitions-and-animations-really-make-things-pop" id="toc-transitions-and-animations-really-make-things-pop" class="nav-link" data-scroll-target="#transitions-and-animations-really-make-things-pop">Transitions and Animations really make things pop!</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#last-updated" id="toc-last-updated" class="nav-link" data-scroll-target="#last-updated">Last Updated</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Broadway Boogie Woogie</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">art</div>
+    <div class="quarto-category">d3</div>
+    <div class="quarto-category">randomness</div>
+    <div class="quarto-category">observable</div>
+    <div class="quarto-category">quarto</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Building a Genuine Fake
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Tan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 12, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="lets-boogie" class="level1 page-columns page-full">
+<h1>Let’s Boogie</h1>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" data-startfrom="12" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 11;"><span id="cb1-12"><a href="#cb1-12"></a><span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="vs">&lt;button id="update"&gt;Boogie!&lt;/button&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="15" data-source-offset="-45"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 14;"><span id="cb2-15"><a href="#cb2-15"></a>{</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="kw">const</span> svgRaw <span class="op">=</span> htl<span class="op">.</span><span class="fu">svg</span><span class="vs">`&lt;svg&gt;&lt;/svg&gt;`</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(svgRaw)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span><span class="dv">500</span>)</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span><span class="dv">500</span>)</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="op">.</span><span class="fu">style</span>(<span class="st">"background-color"</span><span class="op">,</span><span class="st">"#e5e4f0"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21"></a></span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="kw">function</span> <span class="fu">randomData</span>() {</span>
+<span id="cb2-23"><a href="#cb2-23"></a>        <span class="cf">return</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">50</span>}<span class="op">,</span> () <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> <span class="dv">100</span>))</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    }</span>
+<span id="cb2-25"><a href="#cb2-25"></a></span>
+<span id="cb2-26"><a href="#cb2-26"></a>    <span class="kw">function</span> <span class="fu">colourMap</span>(num) {</span>
+<span id="cb2-27"><a href="#cb2-27"></a>        <span class="cf">if</span> (num <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> num <span class="op">&lt;=</span> <span class="dv">65</span>) { <span class="cf">return</span> <span class="st">"yellow"</span>}</span>
+<span id="cb2-28"><a href="#cb2-28"></a>        <span class="cf">if</span> (num <span class="op">&gt;=</span> <span class="dv">66</span> <span class="op">&amp;&amp;</span> num <span class="op">&lt;=</span> <span class="dv">80</span>) { <span class="cf">return</span> <span class="st">"black"</span>}</span>
+<span id="cb2-29"><a href="#cb2-29"></a>        <span class="cf">if</span> (num<span class="op">&gt;=</span> <span class="dv">81</span> <span class="op">&amp;&amp;</span> num <span class="op">&lt;=</span><span class="dv">85</span>) {<span class="cf">return</span> <span class="st">"red"</span>}</span>
+<span id="cb2-30"><a href="#cb2-30"></a>        <span class="cf">if</span> (num<span class="op">&gt;=</span> <span class="dv">86</span> <span class="op">&amp;&amp;</span> num <span class="op">&lt;=</span><span class="dv">100</span>) {<span class="cf">return</span> <span class="st">"grey"</span>}</span>
+<span id="cb2-31"><a href="#cb2-31"></a>    }</span>
+<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-33"><a href="#cb2-33"></a>    <span class="kw">function</span> <span class="fu">horizontalStreets</span>(yPosArray) {</span>
+<span id="cb2-34"><a href="#cb2-34"></a>        <span class="cf">for</span> (<span class="kw">let</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span>yPosArray<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>){</span>
+<span id="cb2-35"><a href="#cb2-35"></a>            svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"horizontal"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36"></a>            <span class="op">.</span><span class="fu">data</span>(<span class="fu">randomData</span>())</span>
+<span id="cb2-37"><a href="#cb2-37"></a>            <span class="op">.</span><span class="fu">join</span>(</span>
+<span id="cb2-38"><a href="#cb2-38"></a>                enter <span class="kw">=&gt;</span> enter<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-39"><a href="#cb2-39"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"horizontal"</span>)</span>
+<span id="cb2-40"><a href="#cb2-40"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="kw">function</span>(d<span class="op">,</span>i) {<span class="cf">return</span> i<span class="op">*</span><span class="dv">10</span>})</span>
+<span id="cb2-41"><a href="#cb2-41"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> yPosArray[i])</span>
+<span id="cb2-42"><a href="#cb2-42"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">10</span>)</span>
+<span id="cb2-43"><a href="#cb2-43"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">10</span>)</span>
+<span id="cb2-44"><a href="#cb2-44"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="kw">function</span>(d){<span class="cf">return</span> <span class="fu">colourMap</span>(d)})</span>
+<span id="cb2-45"><a href="#cb2-45"></a>                    <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseover"</span><span class="op">,</span> <span class="kw">function</span>(d) {</span>
+<span id="cb2-46"><a href="#cb2-46"></a>                        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb2-47"><a href="#cb2-47"></a>                            <span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-48"><a href="#cb2-48"></a>                            <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb2-49"><a href="#cb2-49"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span><span class="dv">25</span>)</span>
+<span id="cb2-50"><a href="#cb2-50"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span><span class="dv">25</span>)</span>
+<span id="cb2-51"><a href="#cb2-51"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span><span class="st">"black"</span>)</span>
+<span id="cb2-52"><a href="#cb2-52"></a>                            </span>
+<span id="cb2-53"><a href="#cb2-53"></a>                    })</span>
+<span id="cb2-54"><a href="#cb2-54"></a>                    <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseout"</span><span class="op">,</span> <span class="kw">function</span>(d) {</span>
+<span id="cb2-55"><a href="#cb2-55"></a>                        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb2-56"><a href="#cb2-56"></a>                            <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb2-57"><a href="#cb2-57"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span><span class="dv">10</span>)</span>
+<span id="cb2-58"><a href="#cb2-58"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span><span class="dv">10</span>)</span>
+<span id="cb2-59"><a href="#cb2-59"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span><span class="st">""</span>)</span>
+<span id="cb2-60"><a href="#cb2-60"></a>                    })<span class="op">,</span></span>
+<span id="cb2-61"><a href="#cb2-61"></a>               update <span class="kw">=&gt;</span> update<span class="op">,</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a>               exit <span class="kw">=&gt;</span> exit<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb2-63"><a href="#cb2-63"></a>            )</span>
+<span id="cb2-64"><a href="#cb2-64"></a>        }</span>
+<span id="cb2-65"><a href="#cb2-65"></a>    }</span>
+<span id="cb2-66"><a href="#cb2-66"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a>    <span class="kw">function</span> <span class="fu">verticalStreets</span>(xPosArray) {</span>
+<span id="cb2-68"><a href="#cb2-68"></a>        <span class="cf">for</span> (<span class="kw">let</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span>xPosArray<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>){</span>
+<span id="cb2-69"><a href="#cb2-69"></a>            svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"vertical"</span>)</span>
+<span id="cb2-70"><a href="#cb2-70"></a>            <span class="op">.</span><span class="fu">data</span>(<span class="fu">randomData</span>())</span>
+<span id="cb2-71"><a href="#cb2-71"></a>            <span class="op">.</span><span class="fu">join</span>(</span>
+<span id="cb2-72"><a href="#cb2-72"></a>                enter <span class="kw">=&gt;</span> enter<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-73"><a href="#cb2-73"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"vertical"</span>)</span>
+<span id="cb2-74"><a href="#cb2-74"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> xPosArray[i])</span>
+<span id="cb2-75"><a href="#cb2-75"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="kw">function</span>(d<span class="op">,</span>i) {<span class="cf">return</span> i<span class="op">*</span><span class="dv">10</span>})</span>
+<span id="cb2-76"><a href="#cb2-76"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">10</span>)</span>
+<span id="cb2-77"><a href="#cb2-77"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">10</span>)</span>
+<span id="cb2-78"><a href="#cb2-78"></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="kw">function</span>(d){<span class="cf">return</span> <span class="fu">colourMap</span>(d)})</span>
+<span id="cb2-79"><a href="#cb2-79"></a>                    <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseover"</span><span class="op">,</span> <span class="kw">function</span>(d) {</span>
+<span id="cb2-80"><a href="#cb2-80"></a>                        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb2-81"><a href="#cb2-81"></a>                            <span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-82"><a href="#cb2-82"></a>                            <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb2-83"><a href="#cb2-83"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span><span class="dv">25</span>)</span>
+<span id="cb2-84"><a href="#cb2-84"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span><span class="dv">25</span>)</span>
+<span id="cb2-85"><a href="#cb2-85"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span><span class="st">"black"</span>)</span>
+<span id="cb2-86"><a href="#cb2-86"></a>                            </span>
+<span id="cb2-87"><a href="#cb2-87"></a>                    })</span>
+<span id="cb2-88"><a href="#cb2-88"></a>                    <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseout"</span><span class="op">,</span> <span class="kw">function</span>(d) {</span>
+<span id="cb2-89"><a href="#cb2-89"></a>                        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb2-90"><a href="#cb2-90"></a>                            <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb2-91"><a href="#cb2-91"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span><span class="dv">10</span>)</span>
+<span id="cb2-92"><a href="#cb2-92"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span><span class="dv">10</span>)</span>
+<span id="cb2-93"><a href="#cb2-93"></a>                            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span><span class="st">""</span>)</span>
+<span id="cb2-94"><a href="#cb2-94"></a>                    })<span class="op">,</span></span>
+<span id="cb2-95"><a href="#cb2-95"></a>               update <span class="kw">=&gt;</span> update<span class="op">,</span></span>
+<span id="cb2-96"><a href="#cb2-96"></a>               exit <span class="kw">=&gt;</span> exit<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb2-97"><a href="#cb2-97"></a>            )</span>
+<span id="cb2-98"><a href="#cb2-98"></a>            </span>
+<span id="cb2-99"><a href="#cb2-99"></a>        }</span>
+<span id="cb2-100"><a href="#cb2-100"></a>    }</span>
+<span id="cb2-101"><a href="#cb2-101"></a></span>
+<span id="cb2-102"><a href="#cb2-102"></a>    <span class="kw">function</span> <span class="fu">moveBlock</span>(d<span class="op">,</span> i) {</span>
+<span id="cb2-103"><a href="#cb2-103"></a>        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb2-104"><a href="#cb2-104"></a>        <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb2-105"><a href="#cb2-105"></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> <span class="dv">500</span>))</span>
+<span id="cb2-106"><a href="#cb2-106"></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> <span class="dv">500</span>))</span>
+<span id="cb2-107"><a href="#cb2-107"></a>    }</span>
+<span id="cb2-108"><a href="#cb2-108"></a></span>
+<span id="cb2-109"><a href="#cb2-109"></a>    <span class="co">// Initial draw</span></span>
+<span id="cb2-110"><a href="#cb2-110"></a>    <span class="fu">horizontalStreets</span>([<span class="dv">10</span><span class="op">,</span><span class="dv">50</span><span class="op">,</span><span class="dv">120</span><span class="op">,</span><span class="dv">150</span><span class="op">,</span><span class="dv">220</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">280</span><span class="op">,</span><span class="dv">340</span><span class="op">,</span><span class="dv">440</span>])</span>
+<span id="cb2-111"><a href="#cb2-111"></a>    <span class="fu">verticalStreets</span>([<span class="dv">10</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">70</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span><span class="dv">330</span><span class="op">,</span><span class="dv">420</span><span class="op">,</span><span class="dv">440</span><span class="op">,</span><span class="dv">480</span><span class="op">,</span><span class="dv">500</span>])</span>
+<span id="cb2-112"><a href="#cb2-112"></a>    </span>
+<span id="cb2-113"><a href="#cb2-113"></a>    <span class="kw">var</span> blue1 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-114"><a href="#cb2-114"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-115"><a href="#cb2-115"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-116"><a href="#cb2-116"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">80</span>)</span>
+<span id="cb2-117"><a href="#cb2-117"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-118"><a href="#cb2-118"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-119"><a href="#cb2-119"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"blue"</span>)<span class="op">;</span></span>
+<span id="cb2-120"><a href="#cb2-120"></a>    </span>
+<span id="cb2-121"><a href="#cb2-121"></a>    <span class="kw">var</span> blue2 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-122"><a href="#cb2-122"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-123"><a href="#cb2-123"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-124"><a href="#cb2-124"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">350</span>)</span>
+<span id="cb2-125"><a href="#cb2-125"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-126"><a href="#cb2-126"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-127"><a href="#cb2-127"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"blue"</span>)<span class="op">;</span></span>
+<span id="cb2-128"><a href="#cb2-128"></a></span>
+<span id="cb2-129"><a href="#cb2-129"></a>    <span class="kw">var</span> blue3 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-130"><a href="#cb2-130"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-131"><a href="#cb2-131"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">160</span>)</span>
+<span id="cb2-132"><a href="#cb2-132"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">260</span>)</span>
+<span id="cb2-133"><a href="#cb2-133"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-134"><a href="#cb2-134"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-135"><a href="#cb2-135"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"blue"</span>)<span class="op">;</span></span>
+<span id="cb2-136"><a href="#cb2-136"></a>    </span>
+<span id="cb2-137"><a href="#cb2-137"></a>    <span class="kw">var</span> blue4 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-138"><a href="#cb2-138"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-139"><a href="#cb2-139"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">380</span>)</span>
+<span id="cb2-140"><a href="#cb2-140"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">160</span>)</span>
+<span id="cb2-141"><a href="#cb2-141"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-142"><a href="#cb2-142"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">100</span>)</span>
+<span id="cb2-143"><a href="#cb2-143"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"blue"</span>)<span class="op">;</span></span>
+<span id="cb2-144"><a href="#cb2-144"></a></span>
+<span id="cb2-145"><a href="#cb2-145"></a>    <span class="kw">var</span> blue5 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-146"><a href="#cb2-146"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-147"><a href="#cb2-147"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">410</span>)</span>
+<span id="cb2-148"><a href="#cb2-148"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">350</span>)</span>
+<span id="cb2-149"><a href="#cb2-149"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-150"><a href="#cb2-150"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-151"><a href="#cb2-151"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"blue"</span>)<span class="op">;</span></span>
+<span id="cb2-152"><a href="#cb2-152"></a></span>
+<span id="cb2-153"><a href="#cb2-153"></a>    <span class="kw">var</span> red1 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-154"><a href="#cb2-154"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-155"><a href="#cb2-155"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">80</span>)</span>
+<span id="cb2-156"><a href="#cb2-156"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">20</span>)</span>
+<span id="cb2-157"><a href="#cb2-157"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">20</span>)</span>
+<span id="cb2-158"><a href="#cb2-158"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">90</span>)</span>
+<span id="cb2-159"><a href="#cb2-159"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"red"</span>)<span class="op">;</span></span>
+<span id="cb2-160"><a href="#cb2-160"></a></span>
+<span id="cb2-161"><a href="#cb2-161"></a>    <span class="kw">var</span> red2 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-162"><a href="#cb2-162"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-163"><a href="#cb2-163"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">130</span>)</span>
+<span id="cb2-164"><a href="#cb2-164"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">20</span>)</span>
+<span id="cb2-165"><a href="#cb2-165"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-166"><a href="#cb2-166"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">60</span>)</span>
+<span id="cb2-167"><a href="#cb2-167"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"red"</span>)<span class="op">;</span></span>
+<span id="cb2-168"><a href="#cb2-168"></a></span>
+<span id="cb2-169"><a href="#cb2-169"></a>    <span class="kw">var</span> red3 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-170"><a href="#cb2-170"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-171"><a href="#cb2-171"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">80</span>)</span>
+<span id="cb2-172"><a href="#cb2-172"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">270</span>)</span>
+<span id="cb2-173"><a href="#cb2-173"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">60</span>)</span>
+<span id="cb2-174"><a href="#cb2-174"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-175"><a href="#cb2-175"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"red"</span>)<span class="op">;</span></span>
+<span id="cb2-176"><a href="#cb2-176"></a>    </span>
+<span id="cb2-177"><a href="#cb2-177"></a>    <span class="kw">var</span> red4 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-178"><a href="#cb2-178"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-179"><a href="#cb2-179"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">290</span>)</span>
+<span id="cb2-180"><a href="#cb2-180"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">200</span>)</span>
+<span id="cb2-181"><a href="#cb2-181"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">60</span>)</span>
+<span id="cb2-182"><a href="#cb2-182"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-183"><a href="#cb2-183"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"red"</span>)<span class="op">;</span></span>
+<span id="cb2-184"><a href="#cb2-184"></a></span>
+<span id="cb2-185"><a href="#cb2-185"></a>    <span class="kw">var</span> red5 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-186"><a href="#cb2-186"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-187"><a href="#cb2-187"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">340</span>)</span>
+<span id="cb2-188"><a href="#cb2-188"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">300</span>)</span>
+<span id="cb2-189"><a href="#cb2-189"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-190"><a href="#cb2-190"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">70</span>)</span>
+<span id="cb2-191"><a href="#cb2-191"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"red"</span>)<span class="op">;</span></span>
+<span id="cb2-192"><a href="#cb2-192"></a>    </span>
+<span id="cb2-193"><a href="#cb2-193"></a>    <span class="kw">var</span> gray1 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-194"><a href="#cb2-194"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-195"><a href="#cb2-195"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">140</span>)</span>
+<span id="cb2-196"><a href="#cb2-196"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-197"><a href="#cb2-197"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-198"><a href="#cb2-198"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-199"><a href="#cb2-199"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)<span class="op">;</span></span>
+<span id="cb2-200"><a href="#cb2-200"></a></span>
+<span id="cb2-201"><a href="#cb2-201"></a>    <span class="kw">var</span> gray2 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-202"><a href="#cb2-202"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-203"><a href="#cb2-203"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">230</span>)</span>
+<span id="cb2-204"><a href="#cb2-204"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">110</span>)</span>
+<span id="cb2-205"><a href="#cb2-205"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-206"><a href="#cb2-206"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">70</span>)</span>
+<span id="cb2-207"><a href="#cb2-207"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)<span class="op">;</span></span>
+<span id="cb2-208"><a href="#cb2-208"></a></span>
+<span id="cb2-209"><a href="#cb2-209"></a>    <span class="kw">var</span> gray3 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-210"><a href="#cb2-210"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-211"><a href="#cb2-211"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">230</span>)</span>
+<span id="cb2-212"><a href="#cb2-212"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">370</span>)</span>
+<span id="cb2-213"><a href="#cb2-213"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-214"><a href="#cb2-214"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-215"><a href="#cb2-215"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)<span class="op">;</span></span>
+<span id="cb2-216"><a href="#cb2-216"></a></span>
+<span id="cb2-217"><a href="#cb2-217"></a>    <span class="kw">var</span> gray4 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-218"><a href="#cb2-218"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-219"><a href="#cb2-219"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">370</span>)</span>
+<span id="cb2-220"><a href="#cb2-220"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">310</span>)</span>
+<span id="cb2-221"><a href="#cb2-221"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">40</span>)</span>
+<span id="cb2-222"><a href="#cb2-222"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">20</span>)</span>
+<span id="cb2-223"><a href="#cb2-223"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)<span class="op">;</span></span>
+<span id="cb2-224"><a href="#cb2-224"></a></span>
+<span id="cb2-225"><a href="#cb2-225"></a>    <span class="kw">var</span> gray5 <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)<span class="op">.</span><span class="fu">raise</span>()</span>
+<span id="cb2-226"><a href="#cb2-226"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"block"</span>)</span>
+<span id="cb2-227"><a href="#cb2-227"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">400</span>)</span>
+<span id="cb2-228"><a href="#cb2-228"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">20</span>)</span>
+<span id="cb2-229"><a href="#cb2-229"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-230"><a href="#cb2-230"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb2-231"><a href="#cb2-231"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)<span class="op">;</span></span>
+<span id="cb2-232"><a href="#cb2-232"></a>   </span>
+<span id="cb2-233"><a href="#cb2-233"></a></span>
+<span id="cb2-234"><a href="#cb2-234"></a>    <span class="co">// Updated draws</span></span>
+<span id="cb2-235"><a href="#cb2-235"></a>    d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#update"</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb2-236"><a href="#cb2-236"></a>        <span class="fu">horizontalStreets</span>([<span class="dv">10</span><span class="op">,</span><span class="dv">50</span><span class="op">,</span><span class="dv">120</span><span class="op">,</span><span class="dv">150</span><span class="op">,</span><span class="dv">220</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">280</span><span class="op">,</span><span class="dv">340</span><span class="op">,</span><span class="dv">440</span>])</span>
+<span id="cb2-237"><a href="#cb2-237"></a>        <span class="fu">verticalStreets</span>([<span class="dv">10</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">70</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span><span class="dv">330</span><span class="op">,</span><span class="dv">420</span><span class="op">,</span><span class="dv">440</span><span class="op">,</span><span class="dv">480</span><span class="op">,</span><span class="dv">500</span>])</span>
+<span id="cb2-238"><a href="#cb2-238"></a>        d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">".block"</span>)<span class="op">.</span><span class="fu">each</span>(moveBlock)</span>
+<span id="cb2-239"><a href="#cb2-239"></a></span>
+<span id="cb2-240"><a href="#cb2-240"></a>    })</span>
+<span id="cb2-241"><a href="#cb2-241"></a></span>
+<span id="cb2-242"><a href="#cb2-242"></a>    <span class="kw">yield</span> svg<span class="op">.</span><span class="fu">node</span>()<span class="op">;</span></span>
+<span id="cb2-243"><a href="#cb2-243"></a></span>
+<span id="cb2-244"><a href="#cb2-244"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<p>This is a piece of digital art I created. It features bright colours, straight lines and some fun interactivity.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Try clicking the “Boogie!” button</p>
+</div></div><p>You probably realize that my simple artwork is very similar to Piet Mondrian’s iconic <a href="https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie">Broadway Boogie Woogie</a>. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and its aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s <a href="https://www.moma.org/collection/works/78682">Museum of Modern Art (MOMA)</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Piet Mondrian’s original Broadway Boogie Woogie</figcaption><p></p>
+</figure>
+</div>
+<p>Indeed, my amateur recreation is inspired by the original Mondrian, but not directly. In fact, it’s probably more accurate to say, my art piece is a derivative of a derivative.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1"></a>flowchart TD</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    B --&gt;|inspired| C(My Broadway Boogie Woogie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart TD
+    A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)
+    B --&gt;|inspired| C(My Broadway Boogie Woogie)
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="tom-sachs" class="level1 page-columns page-full">
+<h1>Tom Sachs</h1>
+<p><a href="https://www.tomsachs.com/exhibitions">Tom Sachs</a> is another influential artist born of a later generation. Tom Sachs had a very special path to the world of art, working in many blue-collar jobs such as lift repairman, electrician, plumber and construction worker. As a result, he has a very special view of the relationship between working with physical materials and the art he creates. Like many, Tom Sachs was very enamoured with Mondrian’s Broadway Boogie Woogie. He liked the art piece so much, he created his own.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Tom Sachs is also credited by both <a href="https://www.youtube.com/c/Caseyneistatofficial">Casey</a> and <a href="https://www.youtube.com/c/vanneistat">Van Neistat</a> of Youtube fame as being a key inspiration for their growth as an artist.</p>
+</div></div><blockquote class="instagram-media blockquote" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+View this post on Instagram
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Tom Sachs (<span class="citation" data-cites="tomsachs">@tomsachs</span>)</a>
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</section>
+<section id="a-genuine-fake" class="level1">
+<h1>A Genuine Fake</h1>
+<p>Tom Sachs explains his thought process here in this <a href="https://youtu.be/cxLxwbm7FMA?t=2490">interview with Adam Savage</a> and in his <a href="https://youtu.be/V8aeaX6Kozw?t=282">Ted Talk</a>. Here are a few choice quotes:</p>
+<blockquote class="blockquote">
+<p>I know I spent more time and enjoyed Broadway Boogie Woogie than the person who bought it. I know I enjoyed it more because I … built one.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Creating my Broadway Boogie Woogie with plywood and gaffers tape, materials that I have a connection with … I am creating authenticity that meets my own standards of what’s important… It’s a Genuine Fake</p>
+</blockquote>
+<p>And this is the most fascinating part of the equation for me. The original art piece alone is beautiful but in the process of recreating the same art piece using tools that are unique to Tom Sachs, he created his Genuine Fake. It’s a <code>Fake</code> in the sense that it is not the original, but it is also <code>Genuine</code> because Tom Sachs experienced the joy of creating something uniquely his through intense study of the original.</p>
+<p>I built my Genuine Fake in hopes that I can experience the same journey. And while I am severely unfamiliar with both oil paint which was used in Mondrian’s original work and plywood used in Tom Sach’s work, I am rather familiar with digital tools and materials, so that is what I decided to use.</p>
+<p>In particular, I am taking a course on <a href="https://omscs.gatech.edu/cse-6242-data-visual-analytics">Data and Visual Analytics</a> this semester, which has a strong focus on <a href="https://d3js.org/">D3.js</a>, a javascript visualisation framework, so that’s what I used to build <strong>my genuine fake</strong>.</p>
+</section>
+<section id="interesting-things-i-learnt-along-the-way" class="level1">
+<h1>Interesting things I learnt along the way</h1>
+<p>Ok, that’s enough rambling about <strong>Why</strong> I started this project, let me now shift gears to list some of my learnings as I worked on <strong>How</strong> to execute this project.</p>
+<section id="the-interplay-between-observablejs-d3-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="the-interplay-between-observablejs-d3-quarto">The Interplay between ObservableJS / D3 / Quarto</h3>
+<p>Quarto, the publishing framework <a href="http://localhost:7537/posts/blogtips/">I keep raving about</a>, supports <a href="https://observablehq.com/@observablehq/observables-not-javascript">ObservableJS</a> right out of the box. ObservableJS is built by the same minds behind D3, so naturally, ObservableJS has D3 libraries preloaded.</p>
+<p>To write some D3/ObservableJS code in Quarto, you simply have to create a code block like so</p>
+<pre><code>```{ojs}
+// This creates an SVG element.
+svgRaw = htl.svg`&lt;svg&gt;&lt;/svg&gt;`
+
+// d3 code goes here
+d3.select(svgRaw)
+    .attr("width",500)
+    .attr("height",500)
+    ...
+```</code></pre>
+<p>Above, you can also see some of the niceties ObservableJS brings, such as the <a href="https://observablehq.com/@observablehq/htl">Hypertext Literals</a> which makes it a breeze to create HTML elements directly in the <code>{ojs}</code> code block without the need to touch the raw HTML file.</p>
+</section>
+<section id="easy-art-with-random-data" class="level3">
+<h3 class="anchored" data-anchor-id="easy-art-with-random-data">Easy art with random data</h3>
+<p>What makes the entire field of <a href="https://www.tate.org.uk/art/art-terms/g/generative-art">Generative Art</a> remarkable is how random data is transformed into art pieces. I started out my project seeking to do a pure 1-for-1 copy of the original Mondrian, so every street and block would be in the same position and of the same colour. I soon became really bored of creating a 1-for-1 copy and realized I could make a much more interesting project, simply by randomizing the data that would generate the streets and colours. It was so fun, I decided to include a button (“Boogie!”) so the user could cycle through many variants!</p>
+<p>In my implementation, I relied on Javascript’s <code>Math.random()</code> random number generator, which I later learnt is pseudo uniform. D3 includes a <a href="https://github.com/d3/d3-random">d3-random</a> which exposes more functions from a greater variety of distributions, and I would experiment with these if I were to revisit this project in the future.</p>
+</section>
+<section id="d3s-select-enter-update-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="d3s-select-enter-update-pattern">D3’s Select-Enter-Update pattern</h3>
+<p>D3 has a really difficult to grok <a href="https://observablehq.com/@d3/general-update-pattern">select-enter-update pattern</a>. The goal here is that once you bind your data to the visual elements of your page, following this pattern allows fine-grain control of how new items are added, existing items are updated and redundant items are removed.</p>
+<p>It’s incredibly powerful but this was the hardest part of the D3 syntax for me to understand. It does not help that D3 has several versions and I feel the syntax of this pattern goes through pretty major changes in each version.</p>
+</section>
+<section id="transitions-and-animations-really-make-things-pop" class="level3">
+<h3 class="anchored" data-anchor-id="transitions-and-animations-really-make-things-pop">Transitions and Animations really make things pop!</h3>
+<p>My favourite part of the project was making things animate and move. It’s pretty addictive once I got it working. It is a reminder that building web-based visualisations, while difficult and finicky, can absolutely create interactive and delightful experiences for the end user. When done right, web visualisations are magic.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Art is not my forte, nor my day job but I enjoyed the challenge of creating my Genuine Fake. Through this process, I have a newfound appreciation for the difficulty and satisfaction that comes from building web visualisations.</p>
+<div class="tenor-gif-embed" data-postid="11831081" data-share-method="host" data-aspect-ratio="1.4218" data-width="100%">
+<a href="https://tenor.com/view/artistry-at-its-finest-art-snoop-dogg-ggn-gif-11831081">Artistry At Its Finest GIF</a>from <a href="https://tenor.com/search/artistry-gifs">Artistry GIFs</a>
+</div>
+<script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "17 October 2022"</code></pre>
+</div>
+</div>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {Broadway {Boogie} {Woogie}},
+  date = {2022-10-12},
+  url = {https://www.ddanieltan.com/posts/boogiewoogie},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Daniel Tan. 2022. <span>“Broadway Boogie Woogie.”</span> October 12,
+2022. <a href="https://www.ddanieltan.com/posts/boogiewoogie">https://www.ddanieltan.com/posts/boogiewoogie</a>.
+</div></div></section></div></main> <!-- /main -->
+<script type="ojs-module-contents">
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`\n<button id=\"update\">Boogie!</button>\n`\n{\n    const svgRaw = htl.svg`<svg></svg>`\n    const svg = d3.select(svgRaw)\n    .attr(\"width\",500)\n    .attr(\"height\",500)\n    .style(\"background-color\",\"#e5e4f0\")\n\n    function randomData() {\n        return Array.from({length: 50}, () => Math.floor(Math.random() * 100))\n    }\n\n    function colourMap(num) {\n        if (num >= 0 && num <= 65) { return \"yellow\"}\n        if (num >= 66 && num <= 80) { return \"black\"}\n        if (num>= 81 && num <=85) {return \"red\"}\n        if (num>= 86 && num <=100) {return \"grey\"}\n    }\n\n    function horizontalStreets(yPosArray) {\n        for (let i=0; i<yPosArray.length; i++){\n            svg.selectAll(\"horizontal\")\n            .data(randomData())\n            .join(\n                enter => enter.append(\"rect\")\n                    .attr(\"class\",\"horizontal\")\n                    .attr(\"x\", function(d,i) {return i*10})\n                    .attr(\"y\", yPosArray[i])\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update => update,\n               exit => exit.remove()\n            )\n        }\n    }\n\n    function verticalStreets(xPosArray) {\n        for (let i=0; i<xPosArray.length; i++){\n            svg.selectAll(\"vertical\")\n            .data(randomData())\n            .join(\n                enter => enter.append(\"rect\")\n                    .attr(\"class\",\"vertical\")\n                    .attr(\"x\", xPosArray[i])\n                    .attr(\"y\", function(d,i) {return i*10})\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update => update,\n               exit => exit.remove()\n            )\n            \n        }\n    }\n\n    function moveBlock(d, i) {\n        d3.select(this)\n        .transition()\n            .attr(\"x\", Math.floor(Math.random() * 500))\n            .attr(\"y\", Math.floor(Math.random() * 500))\n    }\n\n    // Initial draw\n    horizontalStreets([10,50,120,150,220,250,280,340,440])\n    verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n    \n    var blue1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n\t\t.attr(\"x\", 50)\n\t\t.attr(\"y\", 80)\n\t\t.attr(\"width\", 30)\n\t\t.attr(\"height\", 30)\n        .style(\"fill\", \"blue\");\n    \n    var blue2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n\t\t.attr(\"x\", 50)\n\t\t.attr(\"y\", 350)\n\t\t.attr(\"width\", 40)\n\t\t.attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var blue3 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 160)\n\t\t.attr(\"y\", 260)\n\t\t.attr(\"width\", 30)\n\t\t.attr(\"height\", 50)\n        .style(\"fill\", \"blue\");\n    \n    var blue4 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 380)\n\t\t.attr(\"y\", 160)\n\t\t.attr(\"width\", 50)\n\t\t.attr(\"height\", 100)\n        .style(\"fill\", \"blue\");\n\n    var blue5 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 410)\n\t\t.attr(\"y\", 350)\n\t\t.attr(\"width\", 40)\n\t\t.attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var red1 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n\t\t.attr(\"y\", 20)\n\t\t.attr(\"width\", 20)\n\t\t.attr(\"height\", 90)\n        .style(\"fill\", \"red\");\n\n    var red2 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 130)\n\t\t.attr(\"y\", 20)\n\t\t.attr(\"width\", 40)\n\t\t.attr(\"height\", 60)\n        .style(\"fill\", \"red\");\n\n    var red3 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n\t\t.attr(\"y\", 270)\n\t\t.attr(\"width\", 60)\n\t\t.attr(\"height\", 40)\n        .style(\"fill\", \"red\");\n    \n    var red4 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 290)\n\t\t.attr(\"y\", 200)\n\t\t.attr(\"width\", 60)\n\t\t.attr(\"height\", 50)\n        .style(\"fill\", \"red\");\n\n    var red5 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 340)\n\t\t.attr(\"y\", 300)\n\t\t.attr(\"width\", 50)\n\t\t.attr(\"height\", 70)\n        .style(\"fill\", \"red\");\n    \n    var gray1 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 140)\n\t\t.attr(\"y\", 40)\n\t\t.attr(\"width\", 30)\n\t\t.attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n\n    var gray2 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n\t\t.attr(\"y\", 110)\n\t\t.attr(\"width\", 50)\n\t\t.attr(\"height\", 70)\n        .style(\"fill\", \"gray\");\n\n    var gray3 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n\t\t.attr(\"y\", 370)\n\t\t.attr(\"width\", 30)\n\t\t.attr(\"height\", 50)\n        .style(\"fill\", \"gray\");\n\n    var gray4 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 370)\n\t\t.attr(\"y\", 310)\n\t\t.attr(\"width\", 40)\n\t\t.attr(\"height\", 20)\n        .style(\"fill\", \"gray\");\n\n    var gray5 = svg.append(\"rect\").raise()\n\t\t.attr(\"class\",\"block\")\n        .attr(\"x\", 400)\n\t\t.attr(\"y\", 20)\n\t\t.attr(\"width\", 50)\n\t\t.attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n   \n\n    // Updated draws\n    d3.select(\"#update\").on(\"click\", function() {\n        horizontalStreets([10,50,120,150,220,250,280,340,440])\n        verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n        d3.selectAll(\".block\").each(moveBlock)\n\n    })\n\n    yield svg.node();\n\n}\n\n"}]}
+</script>
+<script type="module">
+window._ojs.paths.runtimeToDoc = "../../posts/boogiewoogie";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Reading furnishes the mind only with materials of knowledge. It is thinking that makes what we read ours - John Locke</div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

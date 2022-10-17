@@ -1,0 +1,334 @@
+---
+title: "Broadway Boogie Woogie"
+description: "Building a Genuine Fake"
+date: "2022-10-12"
+image: "boogie.gif"
+categories: [art, d3, randomness, observable, quarto]
+---
+
+# Let's Boogie
+```{ojs}
+//| fig-align: center
+html`
+<button id="update">Boogie!</button>
+`
+{
+    const svgRaw = htl.svg`<svg></svg>`
+    const svg = d3.select(svgRaw)
+    .attr("width",500)
+    .attr("height",500)
+    .style("background-color","#e5e4f0")
+
+    function randomData() {
+        return Array.from({length: 50}, () => Math.floor(Math.random() * 100))
+    }
+
+    function colourMap(num) {
+        if (num >= 0 && num <= 65) { return "yellow"}
+        if (num >= 66 && num <= 80) { return "black"}
+        if (num>= 81 && num <=85) {return "red"}
+        if (num>= 86 && num <=100) {return "grey"}
+    }
+
+    function horizontalStreets(yPosArray) {
+        for (let i=0; i<yPosArray.length; i++){
+            svg.selectAll("horizontal")
+            .data(randomData())
+            .join(
+                enter => enter.append("rect")
+                    .attr("class","horizontal")
+                    .attr("x", function(d,i) {return i*10})
+                    .attr("y", yPosArray[i])
+                    .attr("width", 10)
+                    .attr("height", 10)
+                    .attr("fill", function(d){return colourMap(d)})
+                    .on("mouseover", function(d) {
+                        d3.select(this)
+                            .raise()
+                            .transition()
+                            .attr("width",25)
+                            .attr("height",25)
+                            .attr("stroke","black")
+                            
+                    })
+                    .on("mouseout", function(d) {
+                        d3.select(this)
+                            .transition()
+                            .attr("width",10)
+                            .attr("height",10)
+                            .attr("stroke","")
+                    }),
+               update => update,
+               exit => exit.remove()
+            )
+        }
+    }
+
+    function verticalStreets(xPosArray) {
+        for (let i=0; i<xPosArray.length; i++){
+            svg.selectAll("vertical")
+            .data(randomData())
+            .join(
+                enter => enter.append("rect")
+                    .attr("class","vertical")
+                    .attr("x", xPosArray[i])
+                    .attr("y", function(d,i) {return i*10})
+                    .attr("width", 10)
+                    .attr("height", 10)
+                    .attr("fill", function(d){return colourMap(d)})
+                    .on("mouseover", function(d) {
+                        d3.select(this)
+                            .raise()
+                            .transition()
+                            .attr("width",25)
+                            .attr("height",25)
+                            .attr("stroke","black")
+                            
+                    })
+                    .on("mouseout", function(d) {
+                        d3.select(this)
+                            .transition()
+                            .attr("width",10)
+                            .attr("height",10)
+                            .attr("stroke","")
+                    }),
+               update => update,
+               exit => exit.remove()
+            )
+            
+        }
+    }
+
+    function moveBlock(d, i) {
+        d3.select(this)
+        .transition()
+            .attr("x", Math.floor(Math.random() * 500))
+            .attr("y", Math.floor(Math.random() * 500))
+    }
+
+    // Initial draw
+    horizontalStreets([10,50,120,150,220,250,280,340,440])
+    verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])
+    
+    var blue1 = svg.append("rect").raise()
+        .attr("class","block")
+		.attr("x", 50)
+		.attr("y", 80)
+		.attr("width", 30)
+		.attr("height", 30)
+        .style("fill", "blue");
+    
+    var blue2 = svg.append("rect").raise()
+        .attr("class","block")
+		.attr("x", 50)
+		.attr("y", 350)
+		.attr("width", 40)
+		.attr("height", 40)
+        .style("fill", "blue");
+
+    var blue3 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 160)
+		.attr("y", 260)
+		.attr("width", 30)
+		.attr("height", 50)
+        .style("fill", "blue");
+    
+    var blue4 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 380)
+		.attr("y", 160)
+		.attr("width", 50)
+		.attr("height", 100)
+        .style("fill", "blue");
+
+    var blue5 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 410)
+		.attr("y", 350)
+		.attr("width", 40)
+		.attr("height", 40)
+        .style("fill", "blue");
+
+    var red1 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 80)
+		.attr("y", 20)
+		.attr("width", 20)
+		.attr("height", 90)
+        .style("fill", "red");
+
+    var red2 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 130)
+		.attr("y", 20)
+		.attr("width", 40)
+		.attr("height", 60)
+        .style("fill", "red");
+
+    var red3 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 80)
+		.attr("y", 270)
+		.attr("width", 60)
+		.attr("height", 40)
+        .style("fill", "red");
+    
+    var red4 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 290)
+		.attr("y", 200)
+		.attr("width", 60)
+		.attr("height", 50)
+        .style("fill", "red");
+
+    var red5 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 340)
+		.attr("y", 300)
+		.attr("width", 50)
+		.attr("height", 70)
+        .style("fill", "red");
+    
+    var gray1 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 140)
+		.attr("y", 40)
+		.attr("width", 30)
+		.attr("height", 30)
+        .style("fill", "gray");
+
+    var gray2 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 230)
+		.attr("y", 110)
+		.attr("width", 50)
+		.attr("height", 70)
+        .style("fill", "gray");
+
+    var gray3 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 230)
+		.attr("y", 370)
+		.attr("width", 30)
+		.attr("height", 50)
+        .style("fill", "gray");
+
+    var gray4 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 370)
+		.attr("y", 310)
+		.attr("width", 40)
+		.attr("height", 20)
+        .style("fill", "gray");
+
+    var gray5 = svg.append("rect").raise()
+		.attr("class","block")
+        .attr("x", 400)
+		.attr("y", 20)
+		.attr("width", 50)
+		.attr("height", 30)
+        .style("fill", "gray");
+   
+
+    // Updated draws
+    d3.select("#update").on("click", function() {
+        horizontalStreets([10,50,120,150,220,250,280,340,440])
+        verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])
+        d3.selectAll(".block").each(moveBlock)
+
+    })
+
+    yield svg.node();
+
+}
+
+```
+This is a piece of digital art I created. It features bright colours, straight lines and some fun interactivity. 
+
+:::{.column-margin}
+Try clicking the "Boogie!" button
+:::
+
+You probably realize that my simple artwork is very similar to Piet Mondrian's iconic [Broadway Boogie Woogie](https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie). Broadway Boogie Woogie is considered one of Mondrian's most emblematic paintings and its aesthetic is instantly recognised all around the world. The original piece is housed today in New York's [Museum of Modern Art (MOMA)](https://www.moma.org/collection/works/78682).
+
+![Piet Mondrian's original Broadway Boogie Woogie](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg)
+
+Indeed, my amateur recreation is inspired by the original Mondrian, but not directly. In fact, it's probably more accurate to say, my art piece is a derivative of a derivative.
+```{mermaid}
+flowchart TD
+    A(Mondrian's Broadway Boogie Woogie) -->|inspired| B(Tom Sach's Broadway Boogie Woogie)
+    B -->|inspired| C(My Broadway Boogie Woogie)
+```
+
+# Tom Sachs
+
+[Tom Sachs](https://www.tomsachs.com/exhibitions) is another influential artist born of a later generation. Tom Sachs had a very special path to the world of art, working in many blue-collar jobs such as lift repairman, electrician, plumber and construction worker. As a result, he has a very special view of the relationship between working with physical materials and the art he creates. Like many, Tom Sachs was very enamoured with Mondrian's Broadway Boogie Woogie. He liked the art piece so much, he created his own.
+
+:::{.column-margin}
+Tom Sachs is also credited by both [Casey](https://www.youtube.com/c/Caseyneistatofficial) and [Van Neistat](https://www.youtube.com/c/vanneistat) of Youtube fame as being a key inspiration for their growth as an artist.
+:::
+
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CGV2D1An6gm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Tom Sachs (@tomsachs)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+
+# A Genuine Fake
+Tom Sachs explains his thought process here in this [interview with Adam Savage](https://youtu.be/cxLxwbm7FMA?t=2490) and in his [Ted Talk](https://youtu.be/V8aeaX6Kozw?t=282). Here are a few choice quotes:
+
+> I know I spent more time and enjoyed Broadway Boogie Woogie than the person who bought it. I know I enjoyed it more because I ... built one.
+
+> Creating my Broadway Boogie Woogie with plywood and gaffers tape, materials that I have a connection with ... I am creating authenticity that meets my own standards of what's important... It's a Genuine Fake
+
+And this is the most fascinating part of the equation for me. The original art piece alone is beautiful but in the process of recreating the same art piece using tools that are unique to Tom Sachs, he created his Genuine Fake. It's a `Fake` in the sense that it is not the original, but it is also `Genuine` because Tom Sachs experienced the joy of creating something uniquely his through intense study of the original.
+
+I built my Genuine Fake in hopes that I can experience the same journey. And while I am severely unfamiliar with both oil paint which was used in Mondrian's original work and plywood used in Tom Sach's work, I am rather familiar with digital tools and materials, so that is what I decided to use. 
+
+In particular, I am taking a course on [Data and Visual Analytics](https://omscs.gatech.edu/cse-6242-data-visual-analytics) this semester, which has a strong focus on [D3.js](https://d3js.org/), a javascript visualisation framework, so that's what I used to build **my genuine fake**.
+
+# Interesting things I learnt along the way
+
+Ok, that's enough rambling about **Why** I started this project, let me now shift gears to list some of my learnings as I worked on **How** to execute this project.
+
+### The Interplay between ObservableJS / D3 / Quarto
+Quarto, the publishing framework [I keep raving about](http://localhost:7537/posts/blogtips/), supports [ObservableJS](https://observablehq.com/@observablehq/observables-not-javascript) right out of the box. ObservableJS is built by the same minds behind D3, so naturally, ObservableJS has D3 libraries preloaded.
+
+To write some D3/ObservableJS code in Quarto, you simply have to create a code block like so
+
+````
+```{ojs}
+// This creates an SVG element.
+svgRaw = htl.svg`<svg></svg>`
+
+// d3 code goes here
+d3.select(svgRaw)
+    .attr("width",500)
+    .attr("height",500)
+    ...
+```
+````
+
+Above, you can also see some of the niceties ObservableJS brings, such as the [Hypertext Literals](https://observablehq.com/@observablehq/htl) which makes it a breeze to create HTML elements directly in the `{ojs}` code block without the need to touch the raw HTML file.
+
+### Easy art with random data
+What makes the entire field of [Generative Art](https://www.tate.org.uk/art/art-terms/g/generative-art) remarkable is how random data is transformed into art pieces. I started out my project seeking to do a pure 1-for-1 copy of the original Mondrian, so every street and block would be in the same position and of the same colour. I soon became really bored of creating a 1-for-1 copy and realized I could make a much more interesting project, simply by randomizing the data that would generate the streets and colours. It was so fun, I decided to include a button ("Boogie!") so the user could cycle through many variants! 
+
+In my implementation, I relied on Javascript's `Math.random()` random number generator, which I later learnt is pseudo uniform. D3 includes a [d3-random](https://github.com/d3/d3-random) which exposes more functions from a greater variety of distributions, and I would experiment with these if I were to revisit this project in the future.
+
+### D3's Select-Enter-Update pattern
+D3 has a really difficult to grok [select-enter-update pattern](https://observablehq.com/@d3/general-update-pattern). The goal here is that once you bind your data to the visual elements of your page, following this pattern allows fine-grain control of how new items are added, existing items are updated and redundant items are removed. 
+
+It's incredibly powerful but this was the hardest part of the D3 syntax for me to understand. It does not help that D3 has several versions and I feel the syntax of this pattern goes through pretty major changes in each version.
+
+### Transitions and Animations really make things pop!
+My favourite part of the project was making things animate and move. It's pretty addictive once I got it working. It is a reminder that building web-based visualisations, while difficult and finicky, can absolutely create interactive and delightful experiences for the end user. When done right, web visualisations are magic.
+
+# Conclusion
+Art is not my forte, nor my day job but I enjoyed the challenge of creating my Genuine Fake. Through this process, I have a newfound appreciation for the difficulty and satisfaction that comes from building web visualisations.
+
+<div class="tenor-gif-embed" data-postid="11831081" data-share-method="host" data-aspect-ratio="1.4218" data-width="100%"><a href="https://tenor.com/view/artistry-at-its-finest-art-snoop-dogg-ggn-gif-11831081">Artistry At Its Finest GIF</a>from <a href="https://tenor.com/search/artistry-gifs">Artistry GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+## Last Updated {.appendix}
+```{r}
+#| echo: false
+today <- Sys.Date()
+format(today, format="%d %B %Y")
+```
