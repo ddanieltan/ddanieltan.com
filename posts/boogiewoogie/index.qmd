@@ -250,7 +250,7 @@ This is a piece of digital art I created. It features bright colours, straight l
 Try clicking the "Boogie!" button
 :::
 
-You probably realize that my simple artwork is very similar to Piet Mondrian's iconic [Broadway Boogie Woogie](https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie). Broadway Boogie Woogie is considered one of Mondrian's most emblematic paintings and its aesthetic is instantly recognised all around the world. The original piece is housed today in New York's [Museum of Modern Art (MOMA)](https://www.moma.org/collection/works/78682).
+You probably realize that my simple artwork is very similar to Piet Mondrian's iconic [Broadway Boogie Woogie](https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie). Broadway Boogie Woogie is considered one of Mondrian's most emblematic paintings and whose aesthetic is instantly recognised all around the world. The original piece is housed today in New York's [Museum of Modern Art (MOMA)](https://www.moma.org/collection/works/78682).
 
 ![Piet Mondrian's original Broadway Boogie Woogie](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg)
 
@@ -278,15 +278,15 @@ Tom Sachs explains his thought process here in this [interview with Adam Savage]
 
 > Creating my Broadway Boogie Woogie with plywood and gaffers tape, materials that I have a connection with ... I am creating authenticity that meets my own standards of what's important... It's a Genuine Fake
 
-And this is the most fascinating part of the equation for me. The original art piece alone is beautiful but in the process of recreating the same art piece using tools that are unique to Tom Sachs, he created his Genuine Fake. It's a `Fake` in the sense that it is not the original, but it is also `Genuine` because Tom Sachs experienced the joy of creating something uniquely his through intense study of the original.
+And this is the most fascinating part of the equation for me. The original art piece is beautiful but in the process of recreating the same art piece using tools that were unique to Tom Sachs, he created his Genuine Fake. It's a `Fake` in the sense that it is not the original, but it is also `Genuine` because Tom Sachs experienced the joy of creating something unique through intense study of the original.
 
 I built my Genuine Fake in hopes that I can experience the same journey. And while I am severely unfamiliar with both oil paint which was used in Mondrian's original work and plywood used in Tom Sach's work, I am rather familiar with digital tools and materials, so that is what I decided to use. 
 
-In particular, I am taking a course on [Data and Visual Analytics](https://omscs.gatech.edu/cse-6242-data-visual-analytics) this semester, which has a strong focus on [D3.js](https://d3js.org/), a javascript visualisation framework, so that's what I used to build **my genuine fake**.
+Currently, I am taking a course on [Data and Visual Analytics](https://omscs.gatech.edu/cse-6242-data-visual-analytics), which has a strong focus on [D3.js](https://d3js.org/), a javascript visualisation framework, so that is what I used to build **my genuine fake**.
 
 # Interesting things I learnt along the way
 
-Ok, that's enough rambling about **Why** I started this project, let me now shift gears to list some of my learnings as I worked on **How** to execute this project.
+Ok, that's enough rambling about **Why** I started this project, let me shift gears to list some of my learnings as I worked on **How** to execute this project.
 
 ### The Interplay between ObservableJS / D3 / Quarto
 Quarto, the publishing framework [I keep raving about](http://localhost:7537/posts/blogtips/), supports [ObservableJS](https://observablehq.com/@observablehq/observables-not-javascript) right out of the box. ObservableJS is built by the same minds behind D3, so naturally, ObservableJS has D3 libraries preloaded.
@@ -306,12 +306,12 @@ d3.select(svgRaw)
 ```
 ````
 
-Above, you can also see some of the niceties ObservableJS brings, such as the [Hypertext Literals](https://observablehq.com/@observablehq/htl) which makes it a breeze to create HTML elements directly in the `{ojs}` code block without the need to touch the raw HTML file.
+Above, you can also see some of the niceties ObservableJS brings, such as [Hypertext Literals](https://observablehq.com/@observablehq/htl) which makes it a breeze to create HTML elements directly in the `{ojs}` code block without the need to touch the raw HTML file.
 
 ### Easy art with random data
 What makes the entire field of [Generative Art](https://www.tate.org.uk/art/art-terms/g/generative-art) remarkable is how random data is transformed into art pieces. I started out my project seeking to do a pure 1-for-1 copy of the original Mondrian, so every street and block would be in the same position and of the same colour. I soon became really bored of creating a 1-for-1 copy and realized I could make a much more interesting project, simply by randomizing the data that would generate the streets and colours. It was so fun, I decided to include a button ("Boogie!") so the user could cycle through many variants! 
 
-In my implementation, I relied on Javascript's `Math.random()` random number generator, which I later learnt is pseudo uniform. D3 includes a [d3-random](https://github.com/d3/d3-random) which exposes more functions from a greater variety of distributions, and I would experiment with these if I were to revisit this project in the future.
+In my implementation, I relied on Javascript's `Math.random()` random number generator, which I later learnt is pseudo uniform. D3 includes a more fleshed-out [d3-random](https://github.com/d3/d3-random) module which exposes more functions from a greater variety of distributions. If I revisit this project again in the future, I would use the d3-random over `Math.random()`.
 
 ### D3's Select-Enter-Update pattern
 D3 has a really difficult to grok [select-enter-update pattern](https://observablehq.com/@d3/general-update-pattern). The goal here is that once you bind your data to the visual elements of your page, following this pattern allows fine-grain control of how new items are added, existing items are updated and redundant items are removed. 

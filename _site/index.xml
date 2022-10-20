@@ -280,7 +280,7 @@
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Try clicking the “Boogie!” button</p>
-</div></div><p>You probably realize that my simple artwork is very similar to Piet Mondrian’s iconic <a href="https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie">Broadway Boogie Woogie</a>. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and its aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s <a href="https://www.moma.org/collection/works/78682">Museum of Modern Art (MOMA)</a>.</p>
+</div></div><p>You probably realize that my simple artwork is very similar to Piet Mondrian’s iconic <a href="https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie">Broadway Boogie Woogie</a>. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and whose aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s <a href="https://www.moma.org/collection/works/78682">Museum of Modern Art (MOMA)</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.ddanieltan.com/posts/boogiewoogie/https:/upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" class="img-fluid figure-img"></p>
@@ -405,13 +405,13 @@ View this post on Instagram
 <blockquote class="blockquote">
 <p>Creating my Broadway Boogie Woogie with plywood and gaffers tape, materials that I have a connection with … I am creating authenticity that meets my own standards of what’s important… It’s a Genuine Fake</p>
 </blockquote>
-<p>And this is the most fascinating part of the equation for me. The original art piece alone is beautiful but in the process of recreating the same art piece using tools that are unique to Tom Sachs, he created his Genuine Fake. It’s a <code>Fake</code> in the sense that it is not the original, but it is also <code>Genuine</code> because Tom Sachs experienced the joy of creating something uniquely his through intense study of the original.</p>
+<p>And this is the most fascinating part of the equation for me. The original art piece is beautiful but in the process of recreating the same art piece using tools that were unique to Tom Sachs, he created his Genuine Fake. It’s a <code>Fake</code> in the sense that it is not the original, but it is also <code>Genuine</code> because Tom Sachs experienced the joy of creating something unique through intense study of the original.</p>
 <p>I built my Genuine Fake in hopes that I can experience the same journey. And while I am severely unfamiliar with both oil paint which was used in Mondrian’s original work and plywood used in Tom Sach’s work, I am rather familiar with digital tools and materials, so that is what I decided to use.</p>
-<p>In particular, I am taking a course on <a href="https://omscs.gatech.edu/cse-6242-data-visual-analytics">Data and Visual Analytics</a> this semester, which has a strong focus on <a href="https://d3js.org/">D3.js</a>, a javascript visualisation framework, so that’s what I used to build <strong>my genuine fake</strong>.</p>
+<p>Currently, I am taking a course on <a href="https://omscs.gatech.edu/cse-6242-data-visual-analytics">Data and Visual Analytics</a>, which has a strong focus on <a href="https://d3js.org/">D3.js</a>, a javascript visualisation framework, so that is what I used to build <strong>my genuine fake</strong>.</p>
 </section>
 <section id="interesting-things-i-learnt-along-the-way" class="level1">
 <h1>Interesting things I learnt along the way</h1>
-<p>Ok, that’s enough rambling about <strong>Why</strong> I started this project, let me now shift gears to list some of my learnings as I worked on <strong>How</strong> to execute this project.</p>
+<p>Ok, that’s enough rambling about <strong>Why</strong> I started this project, let me shift gears to list some of my learnings as I worked on <strong>How</strong> to execute this project.</p>
 <section id="the-interplay-between-observablejs-d3-quarto" class="level3">
 <h3 class="anchored" data-anchor-id="the-interplay-between-observablejs-d3-quarto">The Interplay between ObservableJS / D3 / Quarto</h3>
 <p>Quarto, the publishing framework <a href="http://localhost:7537/posts/blogtips/">I keep raving about</a>, supports <a href="https://observablehq.com/@observablehq/observables-not-javascript">ObservableJS</a> right out of the box. ObservableJS is built by the same minds behind D3, so naturally, ObservableJS has D3 libraries preloaded.</p>
@@ -426,12 +426,12 @@ d3.select(svgRaw)
     .attr("height",500)
     ...
 ```</code></pre>
-<p>Above, you can also see some of the niceties ObservableJS brings, such as the <a href="https://observablehq.com/@observablehq/htl">Hypertext Literals</a> which makes it a breeze to create HTML elements directly in the <code>{ojs}</code> code block without the need to touch the raw HTML file.</p>
+<p>Above, you can also see some of the niceties ObservableJS brings, such as <a href="https://observablehq.com/@observablehq/htl">Hypertext Literals</a> which makes it a breeze to create HTML elements directly in the <code>{ojs}</code> code block without the need to touch the raw HTML file.</p>
 </section>
 <section id="easy-art-with-random-data" class="level3">
 <h3 class="anchored" data-anchor-id="easy-art-with-random-data">Easy art with random data</h3>
 <p>What makes the entire field of <a href="https://www.tate.org.uk/art/art-terms/g/generative-art">Generative Art</a> remarkable is how random data is transformed into art pieces. I started out my project seeking to do a pure 1-for-1 copy of the original Mondrian, so every street and block would be in the same position and of the same colour. I soon became really bored of creating a 1-for-1 copy and realized I could make a much more interesting project, simply by randomizing the data that would generate the streets and colours. It was so fun, I decided to include a button (“Boogie!”) so the user could cycle through many variants!</p>
-<p>In my implementation, I relied on Javascript’s <code>Math.random()</code> random number generator, which I later learnt is pseudo uniform. D3 includes a <a href="https://github.com/d3/d3-random">d3-random</a> which exposes more functions from a greater variety of distributions, and I would experiment with these if I were to revisit this project in the future.</p>
+<p>In my implementation, I relied on Javascript’s <code>Math.random()</code> random number generator, which I later learnt is pseudo uniform. D3 includes a more fleshed-out <a href="https://github.com/d3/d3-random">d3-random</a> module which exposes more functions from a greater variety of distributions. If I revisit this project again in the future, I would use the d3-random over <code>Math.random()</code>.</p>
 </section>
 <section id="d3s-select-enter-update-pattern" class="level3">
 <h3 class="anchored" data-anchor-id="d3s-select-enter-update-pattern">D3’s Select-Enter-Update pattern</h3>
@@ -457,7 +457,7 @@ d3.select(svgRaw)
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "17 October 2022"</code></pre>
+<pre><code>[1] "20 October 2022"</code></pre>
 </div>
 </div>
 
