@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Tan">
+<meta name="dcterms.date" content="2022-11-30">
+<meta name="description" content="Twas the night before AOC">
+
+<title>ddanieltan.com - Scala tips for Advent of Code 2022</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BQGXLNCBHY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<meta property="og:title" content="ddanieltan.com - Scala tips for Advent of Code 2022">
+<meta property="og:description" content="Twas the night before AOC">
+<meta property="og:site-name" content="ddanieltan.com">
+<meta name="twitter:title" content="ddanieltan.com - Scala tips for Advent of Code 2022">
+<meta name="twitter:description" content="Twas the night before AOC">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ddanieltan.com</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">Daniel Tan</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ddanieltan"><i class="bi bi-github" role="img" aria-label="github">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ddanieltan/"><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#december-is-upon-us" id="toc-december-is-upon-us" class="nav-link active" data-scroll-target="#december-is-upon-us">December is upon us 🎄🎅🏻🎄</a>
+  <ul class="collapse">
+  <li><a href="#the-advent-of-code" id="toc-the-advent-of-code" class="nav-link" data-scroll-target="#the-advent-of-code">The Advent of Code</a></li>
+  <li><a href="#scala-centers-solutions-for-2021" id="toc-scala-centers-solutions-for-2021" class="nav-link" data-scroll-target="#scala-centers-solutions-for-2021">Scala Center’s Solutions for 2021</a></li>
+  </ul></li>
+  <li><a href="#scala-cli-more-time-coding-less-time-fiddling" id="toc-scala-cli-more-time-coding-less-time-fiddling" class="nav-link" data-scroll-target="#scala-cli-more-time-coding-less-time-fiddling">1. Scala-cli: More time coding, less time fiddling</a></li>
+  <li><a href="#case-class---the-swiss-army-knife-of-modelling-a-problem" id="toc-case-class---the-swiss-army-knife-of-modelling-a-problem" class="nav-link" data-scroll-target="#case-class---the-swiss-army-knife-of-modelling-a-problem">2. Case class - The swiss army knife of modelling a problem</a></li>
+  <li><a href="#be-explicit-when-using-mutability" id="toc-be-explicit-when-using-mutability" class="nav-link" data-scroll-target="#be-explicit-when-using-mutability">3. Be explicit when using Mutability</a></li>
+  <li><a href="#use-recursion-in-place-of-repetition" id="toc-use-recursion-in-place-of-repetition" class="nav-link" data-scroll-target="#use-recursion-in-place-of-repetition">4. Use Recursion in place of repetition</a></li>
+  <li><a href="#pattern-matching---exhaustively-check-for-all-paths-your-code-can-take" id="toc-pattern-matching---exhaustively-check-for-all-paths-your-code-can-take" class="nav-link" data-scroll-target="#pattern-matching---exhaustively-check-for-all-paths-your-code-can-take">5. Pattern matching - Exhaustively check for all paths your code can take</a></li>
+  <li><a href="#use-try-for-elegant-error-handling" id="toc-use-try-for-elegant-error-handling" class="nav-link" data-scroll-target="#use-try-for-elegant-error-handling">6. Use Try for elegant error handling</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Scala tips for Advent of Code 2022</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">scala</div>
+    <div class="quarto-category">adventofcode</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Twas the night before AOC
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Tan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 30, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="december-is-upon-us" class="level1 page-columns page-full">
+<h1>December is upon us 🎄🎅🏻🎄</h1>
+<section id="the-advent-of-code" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-advent-of-code">The Advent of Code</h2>
+<p>Every December, I get excited about a project called the <a href="https://adventofcode.com/">Advent of Code (AOC)</a>. Advent of code is a free-to-join daily coding puzzle project that starts on 1 Dec and concludes on the 25th. Each day a two-part question is released on the site to test your problem-solving skills. Many programmers all around the world enjoy solving these puzzles together in a variety of programming languages. This year, being my <a href="https://www.ddanieltan.com/2022scala">Year of Scala</a>, it should come as no surprise that I plan on using Scala as my language of choice!</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Amongst the many different programming languages used for AOC, I am always impressed by the mavericks who choose to use <a href="https://detrang1301.github.io/adventofcode-2021-excel/">Excel</a> 🤯</p>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="aocLogo.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: https://thenewstack.io/advent-of-codes-programming-puzzles-set-new-global-record/</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="scala-centers-solutions-for-2021" class="level2">
+<h2 class="anchored" data-anchor-id="scala-centers-solutions-for-2021">Scala Center’s Solutions for 2021</h2>
+<p>An amazing resource we have to prepare for this year’s AOC are the examples and solutions provided by Scala Center for last year’s AOC - <a href="https://scalacenter.github.io/scala-advent-of-code/">Scala Center Solutions to 2021 Advent of Code</a>. Here you can find a variety of solutions using solely Scala’s standard library and showcasing how to best use idiomatic Scala to solve common problems. In this post, I am going to share is a summary of my tips and takeaways.</p>
+</section>
+</section>
+<section id="scala-cli-more-time-coding-less-time-fiddling" class="level1">
+<h1>1. Scala-cli: More time coding, less time fiddling</h1>
+<p>Among the many build tools available for Scala projects, my recommendation is <a href="https://scala-cli.virtuslab.org/">scala-cli</a>. Scala-cli is by far, the simplest tool that allows you to start solving the actual puzzles you will encounter and minimizes the time you fiddle with your project setup. You will find an easy-to-follow project structure here: https://github.com/scalacenter/scala-advent-of-code. You can install scala-cli via brew (see instructions on their website) or I typically rely on the default <a href="https://get-coursier.io/docs/cli-installation">Coursier</a> setup whose default bundle of packages includes scala-cli.</p>
+</section>
+<section id="case-class---the-swiss-army-knife-of-modelling-a-problem" class="level1">
+<h1>2. Case class - The swiss army knife of modelling a problem</h1>
+<p>How are AOC puzzles different from Leetcode? A: AOC puzzles are A LOT more verbose. Puzzles are usually described in a cute story incorporating a lot of storytelling elements which gives AOC its distinct Christmas-y flavour. But, this also means there’s just so much information to parse. One of my favourite features of Scala is the <code>case class</code> because it lends itself so well to converting the information from the question into clear and concise code.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">case</span> <span class="kw">class</span> <span class="fu">Elf</span><span class="op">(</span>name<span class="op">:</span><span class="ex">String</span><span class="op">,</span> age<span class="op">:</span><span class="bu">Int</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> isOldEnough<span class="op">:</span><span class="ex">Boolean</span> <span class="op">=</span> <span class="op">{</span> age <span class="op">&gt;=</span> <span class="dv">18</span><span class="op">}</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="op">}</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">val</span> e1 <span class="op">=</span> <span class="fu">Elf</span><span class="op">(</span><span class="st">"Alice"</span><span class="op">,</span><span class="dv">12</span><span class="op">)</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">val</span> e2 <span class="op">=</span> <span class="fu">Elf</span><span class="op">(</span><span class="st">"Bob"</span><span class="op">,</span><span class="dv">19</span><span class="op">)</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">val</span> e3 <span class="op">=</span> <span class="fu">Elf</span><span class="op">(</span><span class="st">"Alice"</span><span class="op">,</span><span class="dv">12</span><span class="op">)</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">// Comparison operators check for equality of data instead of the instance's memory location</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>e1 <span class="op">==</span> e3 <span class="co">// True</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">// Case classes can hold methods just like a regular class</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>e2<span class="op">.</span>isOldEnough <span class="co">// True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="be-explicit-when-using-mutability" class="level1">
+<h1>3. Be explicit when using Mutability</h1>
+<p>Scala has a strong sense of pragmatism. Scala encourages immutability as a default, which makes sense as it reduces a lot of unexpected side effects. But, Scala also does not force immutability on you in every circumstance. To use a mutable data structure, you can import like so.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">import</span> scala<span class="op">.</span>collection<span class="op">.</span>mutable</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">// A mutable map with key (x,y) --&gt; value</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">var</span> map <span class="op">=</span> mutable<span class="op">.</span><span class="ex">Map</span><span class="op">[</span>Tuple2<span class="op">[</span><span class="bu">Int</span><span class="op">,</span><span class="bu">Int</span><span class="op">],</span> <span class="bu">Int</span><span class="op">]()</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">// Initialising the map</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">map</span><span class="op">((</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">))</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">map</span><span class="op">((</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">))</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">map</span><span class="op">((</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">))</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>map <span class="co">// HashMap((0, 0) -&gt; 0, (1, 0) -&gt; 0, (0, 1) -&gt; 0)</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">// Updating values in the Map</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="fu">map</span><span class="op">((</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">))</span> <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>map <span class="co">// HashMap((0, 0) -&gt; 1, (1, 0) -&gt; 0, (0, 1) -&gt; 0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Keeping track of a map of (x,y) coordinates that correspond to a value that can change as the problem progresses is a rather common problem you will encounter. While I am sure you can still solve this problem using immutable data structures, I am glad that an option to use mutability exists. I also enjoy explicitly declaring which data structures are mutable because it reminds me to keep mutability to a minimum.</p>
+</section>
+<section id="use-recursion-in-place-of-repetition" class="level1">
+<h1>4. Use Recursion in place of repetition</h1>
+<p>In Scala, the recommendation is to use recursion in places where we need repetition. However, refactoring while loops to a recursive function used to be unintuitive for me, until I came across <a href="https://www.youtube.com/@TheAtomicmoose"><span class="citation" data-cites="Kit">@Kit</span> Langton</a>’s video.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/E8rwsxn1iTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p>Once you get a hang of recursion, a lot of solutions that require you to repeat actions while waiting for a condition get a lot simpler to understand. A classic example is a search algorithm which comes up fairly often in AOC.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">case</span> <span class="kw">class</span> <span class="ex">Point</span><span class="op">(</span>row<span class="op">:</span><span class="bu">Int</span><span class="op">,</span> col<span class="op">:</span><span class="bu">Int</span><span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>@scala<span class="op">.</span>annotation<span class="op">.</span>tailrec</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">def</span> <span class="fu">search</span><span class="op">(</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    visited<span class="op">:</span> <span class="ex">Set</span><span class="op">[</span><span class="ex">Point</span><span class="op">],</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    toVisit<span class="op">:</span> mutable<span class="op">.</span><span class="ex">Queue</span><span class="op">[</span><span class="ex">Point</span><span class="op">],</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    qualifiedPoints<span class="op">:</span> <span class="ex">Set</span><span class="op">[</span><span class="ex">Point</span><span class="op">]</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="op">)</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">if</span> toVisit<span class="op">.</span>isEmpty then qualifiedPoints</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>        <span class="kw">val</span> nextPoint <span class="op">=</span> toVisit<span class="op">.</span>dequeue</span>
+<span id="cb3-12"><a href="#cb3-12"></a>        <span class="kw">val</span> newPointsToVisit <span class="op">=</span> <span class="op">...</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a>        <span class="fu">search</span><span class="op">(</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>            visited <span class="op">++</span> <span class="ex">Set</span><span class="op">(</span>nextPoint<span class="op">),</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>            toVisit <span class="op">++</span> newPointsToVisit<span class="op">,</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>            qualifiedPoints <span class="op">++</span> <span class="ex">Set</span><span class="op">(</span>nextPoint<span class="op">))</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="op">}</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pattern-matching---exhaustively-check-for-all-paths-your-code-can-take" class="level1">
+<h1>5. Pattern matching - Exhaustively check for all paths your code can take</h1>
+<p>Pattern matching in Scala is incredibly expressive and I can’t do justice to this amazing feature in a single paragraph. If you are new to Scala, be sure to learn the various ways you can pattern match from the <a href="https://docs.scala-lang.org/tour/pattern-matching.html">Scala official website</a>. Specific to the puzzles in AOC, 1 thing I love about pattern matching is that the compiler will exhaustively check for every path my code execution can take and alert me if I missed something (which happens rather often). <img src="diagnostic.png" class="img-fluid" alt="Compiler checking for exhaustiveness"></p>
+</section>
+<section id="use-try-for-elegant-error-handling" class="level1">
+<h1>6. Use Try for elegant error handling</h1>
+<p>If you have many actions to run and some of which might throw an error, you can handle this situation elegantly by wrapping the actions in a <code>Try</code>. This converts the output to either a <code>Success</code> or <code>Failure</code> type that you can simply filter on.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">val</span> actions <span class="op">=</span> <span class="bu">Seq</span><span class="op">(</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>    Try <span class="op">{</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">},</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    Try <span class="op">{</span> <span class="dv">1</span> <span class="op">/</span> <span class="dv">0</span> <span class="op">}</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="op">)</span> <span class="co">// List(Success(value = 2), Failure(exception = java.lang.ArithmeticException: / by zero))</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">val</span> successfulActions <span class="op">=</span> actions<span class="op">.</span><span class="fu">filter</span><span class="op">(</span>_<span class="op">.</span>isSuccess<span class="op">)</span> <span class="co">// List(Success(value = 2))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>And, there you go! Hope these were useful tips and that I got you excited to try them out for 2022’s Advent of Code. Happy coding!</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {Scala Tips for {Advent} of {Code} 2022},
+  date = {2022-11-30},
+  url = {https://www.ddanieltan.com/posts/aocScala},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Daniel Tan. 2022. <span>“Scala Tips for Advent of Code 2022.”</span>
+November 30, 2022. <a href="https://www.ddanieltan.com/posts/aocScala">https://www.ddanieltan.com/posts/aocScala</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">We try to solve very complicated problems without letting people know how complicated the problem was - Johnathan Ives</div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
