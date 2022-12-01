@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Tan">
-<meta name="dcterms.date" content="2022-07-15">
-<meta name="description" content="A new hope">
+<meta name="dcterms.date" content="2022-11-08">
+<meta name="description" content="10 things that made me go wow">
 
-<title>ddanieltan.com - Hello world</title>
+<title>ddanieltan.com - Scala Data Manipulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,18 +73,12 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="ddanieltan.com - Hello world">
-<meta property="og:description" content="A new hope">
-<meta property="og:image" content="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png">
+<meta property="og:title" content="ddanieltan.com - Scala Data Manipulation">
+<meta property="og:description" content="10 things that made me go wow">
 <meta property="og:site-name" content="ddanieltan.com">
-<meta property="og:image:height" content="1251">
-<meta property="og:image:width" content="1251">
-<meta name="twitter:title" content="ddanieltan.com - Hello world">
-<meta name="twitter:description" content="A new hope">
-<meta name="twitter:image" content="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png">
-<meta name="twitter:image-height" content="1251">
-<meta name="twitter:image-width" content="1251">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ddanieltan.com - Scala Data Manipulation">
+<meta name="twitter:description" content="10 things that made me go wow">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="floating nav-fixed slimcontent">
@@ -130,11 +124,11 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-my-blog" id="toc-welcome-to-my-blog" class="nav-link active" data-scroll-target="#welcome-to-my-blog">Welcome to my blog</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#jumpstarting-this-blog" id="toc-jumpstarting-this-blog" class="nav-link" data-scroll-target="#jumpstarting-this-blog">Jumpstarting this blog</a>
+  <li><a href="#scala---data-manipulation-ergonomy" id="toc-scala---data-manipulation-ergonomy" class="nav-link active" data-scroll-target="#scala---data-manipulation-ergonomy">Scala - Data Manipulation Ergonomy</a>
   <ul class="collapse">
-  <li><a href="#last-updated" id="toc-last-updated" class="nav-link" data-scroll-target="#last-updated">Last Updated</a></li>
+  <li><a href="#immutable-variables-by-default" id="toc-immutable-variables-by-default" class="nav-link" data-scroll-target="#immutable-variables-by-default">1. Immutable variables by default</a></li>
+  <li><a href="#sadsad" id="toc-sadsad" class="nav-link" data-scroll-target="#sadsad">2. sadsad</a></li>
+  <li><a href="#sadasdas" id="toc-sadasdas" class="nav-link" data-scroll-target="#sadasdas">3. sadasdas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -147,15 +141,15 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hello world</h1>
+<h1 class="title">Scala Data Manipulation</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">quarto</div>
+    <div class="quarto-category">scala</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A new hope
+    10 things that made me go wow
   </div>
 </div>
 
@@ -172,7 +166,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 15, 2022</p>
+      <p class="date">November 8, 2022</p>
     </div>
   </div>
     
@@ -181,71 +175,41 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 
 </header>
 
-<section id="welcome-to-my-blog" class="level1">
-<h1>Welcome to my blog</h1>
-<p>I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable tool for both my professional and personal life. It helps me to organise my thoughts, maximise my impact and reflect on my learnings. Yet, I have consistently not prioritised writing and it is a disservice to myself that I have not made set aside time for deliberate practice.</p>
-<p>I have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.</p>
-<p>Here’s to another shot at this. Wish me luck!</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="quartoWorld.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">My visualisation of Hello world + Quarto logo</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="quarto" class="level1 page-columns page-full">
-<h1>Quarto</h1>
-<p>One reason why I got tempted to start a blog again is <a href="https://quarto.org/">Quarto</a>! Quarto is the shiny, new publishing framework (from <del>RStudio</del><a href="https://posit.co/">Posit</a>) that I use to publish this blog. Quarto is reminiscent of Rmarkdown, but rebuilt around the pandoc engine. Quarto feels purpose built for the entire data community, supporting all the major Data Science languages (Python, R, Julia, Javascript), and supporting a wide spectrum of output formats (pdf reports, websites, presentations and more).</p>
-<p>You can see my unbridled enthusiasm after first learning about Quarto here.</p>
-<p align="center">
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6943566445809152000" height="726" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
-</iframe>
-</p>
+<section id="scala---data-manipulation-ergonomy" class="level1 page-columns page-full">
+<h1>Scala - Data Manipulation Ergonomy</h1>
+<p>In my post about how I have dedicated <a href="https://www.ddanieltan.com/posts/2022scala/">2022 as my Year of Scala</a>, I shared this impression.</p>
+<blockquote class="blockquote">
+<p>Scala feels like a language designed for <strong>modelling and manipulating data</strong>. - Daniel, Young Scala Padawan</p>
+</blockquote>
+<p>Some readers who read that post have asked me to elaborate. I don’t feel my thoughts on Scala have quite crystallized yet into something coherent but I have a few points that I can share in as a <a href="https://en.wikipedia.org/wiki/Listicle">listicle</a>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>…along with my “this-is-a-huge-moment-in-history” hyperbole</p>
-</div></div></section>
-<section id="jumpstarting-this-blog" class="level1">
-<h1>Jumpstarting this blog</h1>
-<p>These were the best resources I found online to help me jump start this blog.</p>
-<section id="official-quarto-documentation-website-and-repos" class="level4">
-<h4 class="anchored" data-anchor-id="official-quarto-documentation-website-and-repos">1. Official Quarto Documentation (<a href="https://quarto.org/">website</a> and <a href="https://github.com/quarto-dev">repos</a>)</h4>
-<p>The official docs are extensive and well-written. Specific to building a blog, I frequently find myself on the <a href="https://quarto.org/docs/websites/">website page</a>, <a href="https://quarto.org/docs/publishing/">publishing page</a> or thumbing through their <a href="https://quarto.org/docs/gallery/">gallery</a> for inspiration.</p>
+<p>Stay tuned, I’m planning a proper reflection post on Scala end of this year.</p>
+</div></div><section id="immutable-variables-by-default" class="level2">
+<h2 class="anchored" data-anchor-id="immutable-variables-by-default">1. Immutable variables by default</h2>
+<p>sadas sadasdsdag s dsadas sadasdas</p>
 </section>
-<section id="danielle-navarros-porting-a-distill-blog-to-quarto-blog-and-repo" class="level4">
-<h4 class="anchored" data-anchor-id="danielle-navarros-porting-a-distill-blog-to-quarto-blog-and-repo">2. Danielle Navarro’s “Porting a Distill Blog to Quarto” (<a href="https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/">blog</a> and <a href="https://github.com/djnavarro/quarto-blog">repo</a>)</h4>
-<p>Danielle’s blog post is the perfect starting template. I found her recommended YAML settings, blog theme and deployment instructions very sensible and well-suited for a blog.</p>
+<section id="sadsad" class="level2">
+<h2 class="anchored" data-anchor-id="sadsad">2. sadsad</h2>
 </section>
-<section id="the-small-but-growing-collection-of-quarto-content-online" class="level4">
-<h4 class="anchored" data-anchor-id="the-small-but-growing-collection-of-quarto-content-online">3. The small but growing collection of Quarto content online</h4>
-<p>At the time of writing, I did not find a large collection of Quarto-specific content online. Nevertheless, I did find some helpful gems from <a href="https://www.youtube.com/results?search_query=quarto+blog">Youtube videos</a>, <a href="https://github.com/quarto-dev/quarto-cli/discussions">Github discussions</a> or <a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/">websites</a> that had a helpful tip or two that I could use for my blog.</p>
-</section>
+<section id="sadasdas" class="level2">
+<h2 class="anchored" data-anchor-id="sadasdas">3. sadasdas</h2>
+
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
-
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "21 September 2022"</code></pre>
-</div>
-</div>
-
-
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
   editor = {},
-  title = {Hello World},
-  date = {2022-07-15},
-  url = {https://www.ddanieltan.com/posts/helloworld},
+  title = {Scala {Data} {Manipulation}},
+  date = {2022-11-08},
+  url = {https://www.ddanieltan.com/posts/dataWithScala},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Daniel Tan. 2022. <span>“Hello World.”</span> July 15, 2022. <a href="https://www.ddanieltan.com/posts/helloworld">https://www.ddanieltan.com/posts/helloworld</a>.
+Daniel Tan. 2022. <span>“Scala Data Manipulation.”</span> November 8,
+2022. <a href="https://www.ddanieltan.com/posts/dataWithScala">https://www.ddanieltan.com/posts/dataWithScala</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -348,7 +312,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">We are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca</div>
+      <div class="nav-footer-center">The reward for good work is more work - Tom Sach</div>
   </div>
 </footer>
 

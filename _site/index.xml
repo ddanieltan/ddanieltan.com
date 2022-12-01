@@ -10,7 +10,140 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Tue, 11 Oct 2022 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 29 Nov 2022 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Scala tips for Advent of Code 2022</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/aocScala/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="december-is-upon-us" class="level1 page-columns page-full">
+<h1>December is upon us 🎄🎅🏻🎄</h1>
+<section id="the-advent-of-code" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-advent-of-code">The Advent of Code</h2>
+<p>Every December, I get excited about a project called the <a href="https://adventofcode.com/">Advent of Code (AOC)</a>. Advent of code is a free-to-join daily coding puzzle project that starts on 1 Dec and concludes on the 25th. Each day a two-part question is released on the site to test your problem-solving skills. Many programmers all around the world enjoy solving these puzzles together in a variety of programming languages. This year, being my <a href="https://www.ddanieltan.com/2022scala">Year of Scala</a>, it should come as no surprise that I plan on using Scala as my language of choice!</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Amongst the many different programming languages used for AOC, I am always impressed by the mavericks who choose to use <a href="https://detrang1301.github.io/adventofcode-2021-excel/">Excel</a> 🤯</p>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/aocScala/aocLogo.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: https://thenewstack.io/advent-of-codes-programming-puzzles-set-new-global-record/</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="scala-centers-solutions-for-2021" class="level2">
+<h2 class="anchored" data-anchor-id="scala-centers-solutions-for-2021">Scala Center’s Solutions for 2021</h2>
+<p>An amazing resource we have to prepare for this year’s AOC are the examples and solutions provided by Scala Center for last year’s AOC - <a href="https://scalacenter.github.io/scala-advent-of-code/">Scala Center Solutions to 2021 Advent of Code</a>. Here you can find a variety of solutions using solely Scala’s standard library and showcasing how to best use idiomatic Scala to solve common problems. In this post, I am going to share is a summary of my tips and takeaways.</p>
+</section>
+</section>
+<section id="scala-cli-more-time-coding-less-time-fiddling" class="level1">
+<h1>1. Scala-cli: More time coding, less time fiddling</h1>
+<p>Among the many build tools available for Scala projects, my recommendation is <a href="https://scala-cli.virtuslab.org/">scala-cli</a>. Scala-cli is by far, the simplest tool that allows you to start solving the actual puzzles you will encounter and minimizes the time you fiddle with your project setup. You will find an easy-to-follow project structure here: https://github.com/scalacenter/scala-advent-of-code. You can install scala-cli via brew (see instructions on their website) or I typically rely on the default <a href="https://get-coursier.io/docs/cli-installation">Coursier</a> setup whose default bundle of packages includes scala-cli.</p>
+</section>
+<section id="case-class---the-swiss-army-knife-of-modelling-a-problem" class="level1">
+<h1>2. Case class - The swiss army knife of modelling a problem</h1>
+<p>How are AOC puzzles different from Leetcode? A: AOC puzzles are A LOT more verbose. Puzzles are usually described in a cute story incorporating a lot of storytelling elements which gives AOC its distinct Christmas-y flavour. But, this also means there’s just so much information to parse. One of my favourite features of Scala is the <code>case class</code> because it lends itself so well to converting the information from the question into clear and concise code.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb1-1"><span class="cf" style="color: #003B4F;">case</span> <span class="kw" style="color: #003B4F;">class</span> <span class="fu" style="color: #4758AB;">Elf</span><span class="op" style="color: #5E5E5E;">(</span>name<span class="op" style="color: #5E5E5E;">:</span><span class="ex" style="color: null;">String</span><span class="op" style="color: #5E5E5E;">,</span> age<span class="op" style="color: #5E5E5E;">:</span><span class="bu" style="color: null;">Int</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">{</span></span>
+<span id="cb1-2">    <span class="kw" style="color: #003B4F;">def</span> isOldEnough<span class="op" style="color: #5E5E5E;">:</span><span class="ex" style="color: null;">Boolean</span> <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">{</span> age <span class="op" style="color: #5E5E5E;">&gt;=</span> <span class="dv" style="color: #AD0000;">18</span><span class="op" style="color: #5E5E5E;">}</span></span>
+<span id="cb1-3"><span class="op" style="color: #5E5E5E;">}</span></span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="kw" style="color: #003B4F;">val</span> e1 <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;">Elf</span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Alice"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">12</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-6"><span class="kw" style="color: #003B4F;">val</span> e2 <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;">Elf</span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Bob"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">19</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-7"><span class="kw" style="color: #003B4F;">val</span> e3 <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;">Elf</span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Alice"</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">12</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;">// Comparison operators check for equality of data instead of the instance's memory location</span></span>
+<span id="cb1-10">e1 <span class="op" style="color: #5E5E5E;">==</span> e3 <span class="co" style="color: #5E5E5E;">// True</span></span>
+<span id="cb1-11"></span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;">// Case classes can hold methods just like a regular class</span></span>
+<span id="cb1-13">e2<span class="op" style="color: #5E5E5E;">.</span>isOldEnough <span class="co" style="color: #5E5E5E;">// True</span></span></code></pre></div>
+</section>
+<section id="be-explicit-when-using-mutability" class="level1">
+<h1>3. Be explicit when using Mutability</h1>
+<p>Scala has a strong sense of pragmatism. Scala encourages immutability as a default, which makes sense as it reduces a lot of unexpected side effects. But, Scala also does not force immutability on you in every circumstance. To use a mutable data structure, you can import like so.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb2-1"><span class="kw" style="color: #003B4F;">import</span> scala<span class="op" style="color: #5E5E5E;">.</span>collection<span class="op" style="color: #5E5E5E;">.</span>mutable</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;">// A mutable map with key (x,y) --&gt; value</span></span>
+<span id="cb2-4"><span class="kw" style="color: #003B4F;">var</span> map <span class="op" style="color: #5E5E5E;">=</span> mutable<span class="op" style="color: #5E5E5E;">.</span><span class="ex" style="color: null;">Map</span><span class="op" style="color: #5E5E5E;">[</span>Tuple2<span class="op" style="color: #5E5E5E;">[</span><span class="bu" style="color: null;">Int</span><span class="op" style="color: #5E5E5E;">,</span><span class="bu" style="color: null;">Int</span><span class="op" style="color: #5E5E5E;">],</span> <span class="bu" style="color: null;">Int</span><span class="op" style="color: #5E5E5E;">]()</span></span>
+<span id="cb2-5"></span>
+<span id="cb2-6"><span class="co" style="color: #5E5E5E;">// Initialising the map</span></span>
+<span id="cb2-7"><span class="fu" style="color: #4758AB;">map</span><span class="op" style="color: #5E5E5E;">((</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">))</span> <span class="op" style="color: #5E5E5E;">=</span> <span class="dv" style="color: #AD0000;">0</span></span>
+<span id="cb2-8"><span class="fu" style="color: #4758AB;">map</span><span class="op" style="color: #5E5E5E;">((</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">))</span> <span class="op" style="color: #5E5E5E;">=</span> <span class="dv" style="color: #AD0000;">0</span></span>
+<span id="cb2-9"><span class="fu" style="color: #4758AB;">map</span><span class="op" style="color: #5E5E5E;">((</span><span class="dv" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">))</span> <span class="op" style="color: #5E5E5E;">=</span> <span class="dv" style="color: #AD0000;">0</span></span>
+<span id="cb2-10">map <span class="co" style="color: #5E5E5E;">// HashMap((0, 0) -&gt; 0, (1, 0) -&gt; 0, (0, 1) -&gt; 0)</span></span>
+<span id="cb2-11"></span>
+<span id="cb2-12"><span class="co" style="color: #5E5E5E;">// Updating values in the Map</span></span>
+<span id="cb2-13"><span class="fu" style="color: #4758AB;">map</span><span class="op" style="color: #5E5E5E;">((</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">,</span><span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">))</span> <span class="op" style="color: #5E5E5E;">+=</span> <span class="dv" style="color: #AD0000;">1</span></span>
+<span id="cb2-14">map <span class="co" style="color: #5E5E5E;">// HashMap((0, 0) -&gt; 1, (1, 0) -&gt; 0, (0, 1) -&gt; 0)</span></span></code></pre></div>
+<p>Keeping track of a map of (x,y) coordinates that correspond to a value that can change as the problem progresses is a rather common problem you will encounter. While I am sure you can still solve this problem using immutable data structures, I am glad that an option to use mutability exists. I also enjoy explicitly declaring which data structures are mutable because it reminds me to keep mutability to a minimum.</p>
+</section>
+<section id="use-recursion-in-place-of-repetition" class="level1">
+<h1>4. Use Recursion in place of repetition</h1>
+<p>In Scala, the recommendation is to use recursion in places where we need repetition. However, refactoring while loops to a recursive function used to be unintuitive for me, until I came across <a href="https://www.youtube.com/@TheAtomicmoose"><span class="citation" data-cites="Kit">@Kit</span> Langton</a>’s video.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/E8rwsxn1iTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p>Once you get a hang of recursion, a lot of solutions that require you to repeat actions while waiting for a condition get a lot simpler to understand. A classic example is a search algorithm which comes up fairly often in AOC.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb3-1"><span class="cf" style="color: #003B4F;">case</span> <span class="kw" style="color: #003B4F;">class</span> <span class="ex" style="color: null;">Point</span><span class="op" style="color: #5E5E5E;">(</span>row<span class="op" style="color: #5E5E5E;">:</span><span class="bu" style="color: null;">Int</span><span class="op" style="color: #5E5E5E;">,</span> col<span class="op" style="color: #5E5E5E;">:</span><span class="bu" style="color: null;">Int</span><span class="op" style="color: #5E5E5E;">)</span></span>
+<span id="cb3-2"></span>
+<span id="cb3-3">@scala<span class="op" style="color: #5E5E5E;">.</span>annotation<span class="op" style="color: #5E5E5E;">.</span>tailrec</span>
+<span id="cb3-4"><span class="kw" style="color: #003B4F;">def</span> <span class="fu" style="color: #4758AB;">search</span><span class="op" style="color: #5E5E5E;">(</span></span>
+<span id="cb3-5">    visited<span class="op" style="color: #5E5E5E;">:</span> <span class="ex" style="color: null;">Set</span><span class="op" style="color: #5E5E5E;">[</span><span class="ex" style="color: null;">Point</span><span class="op" style="color: #5E5E5E;">],</span></span>
+<span id="cb3-6">    toVisit<span class="op" style="color: #5E5E5E;">:</span> mutable<span class="op" style="color: #5E5E5E;">.</span><span class="ex" style="color: null;">Queue</span><span class="op" style="color: #5E5E5E;">[</span><span class="ex" style="color: null;">Point</span><span class="op" style="color: #5E5E5E;">],</span></span>
+<span id="cb3-7">    qualifiedPoints<span class="op" style="color: #5E5E5E;">:</span> <span class="ex" style="color: null;">Set</span><span class="op" style="color: #5E5E5E;">[</span><span class="ex" style="color: null;">Point</span><span class="op" style="color: #5E5E5E;">]</span></span>
+<span id="cb3-8"><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">{</span></span>
+<span id="cb3-9">    <span class="cf" style="color: #003B4F;">if</span> toVisit<span class="op" style="color: #5E5E5E;">.</span>isEmpty then qualifiedPoints</span>
+<span id="cb3-10">    <span class="cf" style="color: #003B4F;">else</span> <span class="op" style="color: #5E5E5E;">{</span></span>
+<span id="cb3-11">        <span class="kw" style="color: #003B4F;">val</span> nextPoint <span class="op" style="color: #5E5E5E;">=</span> toVisit<span class="op" style="color: #5E5E5E;">.</span>dequeue</span>
+<span id="cb3-12">        <span class="kw" style="color: #003B4F;">val</span> newPointsToVisit <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">...</span></span>
+<span id="cb3-13"></span>
+<span id="cb3-14">        <span class="fu" style="color: #4758AB;">search</span><span class="op" style="color: #5E5E5E;">(</span></span>
+<span id="cb3-15">            visited <span class="op" style="color: #5E5E5E;">++</span> <span class="ex" style="color: null;">Set</span><span class="op" style="color: #5E5E5E;">(</span>nextPoint<span class="op" style="color: #5E5E5E;">),</span></span>
+<span id="cb3-16">            toVisit <span class="op" style="color: #5E5E5E;">++</span> newPointsToVisit<span class="op" style="color: #5E5E5E;">,</span></span>
+<span id="cb3-17">            qualifiedPoints <span class="op" style="color: #5E5E5E;">++</span> <span class="ex" style="color: null;">Set</span><span class="op" style="color: #5E5E5E;">(</span>nextPoint<span class="op" style="color: #5E5E5E;">))</span></span>
+<span id="cb3-18">    <span class="op" style="color: #5E5E5E;">}</span></span>
+<span id="cb3-19"><span class="op" style="color: #5E5E5E;">}</span></span></code></pre></div>
+</section>
+<section id="pattern-matching---exhaustively-check-for-all-paths-your-code-can-take" class="level1">
+<h1>5. Pattern matching - Exhaustively check for all paths your code can take</h1>
+<p>Pattern matching in Scala is incredibly expressive and I can’t do justice to this amazing feature in a single paragraph. If you are new to Scala, be sure to learn the various ways you can pattern match from the <a href="https://docs.scala-lang.org/tour/pattern-matching.html">Scala official website</a>. Specific to the puzzles in AOC, 1 thing I love about pattern matching is that the compiler will exhaustively check for every path my code execution can take and alert me if I missed something (which happens rather often). <img src="https://www.ddanieltan.com/posts/aocScala/diagnostic.png" class="img-fluid" alt="Compiler checking for exhaustiveness"></p>
+</section>
+<section id="use-try-for-elegant-error-handling" class="level1">
+<h1>6. Use Try for elegant error handling</h1>
+<p>If you have many actions to run and some of which might throw an error, you can handle this situation elegantly by wrapping the actions in a <code>Try</code>. This converts the output to either a <code>Success</code> or <code>Failure</code> type that you can simply filter on.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb4-1"><span class="kw" style="color: #003B4F;">val</span> actions <span class="op" style="color: #5E5E5E;">=</span> <span class="bu" style="color: null;">Seq</span><span class="op" style="color: #5E5E5E;">(</span></span>
+<span id="cb4-2">    Try <span class="op" style="color: #5E5E5E;">{</span> <span class="dv" style="color: #AD0000;">1</span> <span class="op" style="color: #5E5E5E;">+</span> <span class="dv" style="color: #AD0000;">1</span> <span class="op" style="color: #5E5E5E;">},</span></span>
+<span id="cb4-3">    Try <span class="op" style="color: #5E5E5E;">{</span> <span class="dv" style="color: #AD0000;">1</span> <span class="op" style="color: #5E5E5E;">/</span> <span class="dv" style="color: #AD0000;">0</span> <span class="op" style="color: #5E5E5E;">}</span></span>
+<span id="cb4-4"><span class="op" style="color: #5E5E5E;">)</span> <span class="co" style="color: #5E5E5E;">// List(Success(value = 2), Failure(exception = java.lang.ArithmeticException: / by zero))</span></span>
+<span id="cb4-5"></span>
+<span id="cb4-6"><span class="kw" style="color: #003B4F;">val</span> successfulActions <span class="op" style="color: #5E5E5E;">=</span> actions<span class="op" style="color: #5E5E5E;">.</span><span class="fu" style="color: #4758AB;">filter</span><span class="op" style="color: #5E5E5E;">(</span>_<span class="op" style="color: #5E5E5E;">.</span>isSuccess<span class="op" style="color: #5E5E5E;">)</span> <span class="co" style="color: #5E5E5E;">// List(Success(value = 2))</span></span></code></pre></div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>And, there you go! Hope these were useful tips and that I got you excited to try them out for 2022’s Advent of Code. Happy coding!</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {Scala Tips for {Advent} of {Code} 2022},
+  date = {2022-11-30},
+  url = {https://www.ddanieltan.com/posts/aocScala},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“Scala Tips for Advent of Code 2022.”</span>
+November 30, 2022. <a href="https://www.ddanieltan.com/posts/aocScala">https://www.ddanieltan.com/posts/aocScala</a>.
+</div></div></section></div> ]]></description>
+  <category>scala</category>
+  <category>adventofcode</category>
+  <guid>https://www.ddanieltan.com/posts/aocScala/index.html</guid>
+  <pubDate>Tue, 29 Nov 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/aocScala/aocLogo.jpeg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Broadway Boogie Woogie</title>
   <dc:creator>Daniel Tan</dc:creator>
