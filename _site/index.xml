@@ -10,7 +10,111 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Tue, 29 Nov 2022 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 19 Dec 2022 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>2022 NormConf - My favourite talks</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/2022-normconf/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="normconf" class="level1">
+<h1>2022 NormConf</h1>
+<p><a href="https://normconf.com/">NormConf</a> is a free, virtual tech conference created by <a href="https://vickiboykis.com/">Vicki Boykis</a> with a keen focus on all the unglamourous challenges that real-life data science practitioners encounter in their day-to-day work. In an arena where many other tech conferences focus on the latest and greatest, this conference is a breath of fresh air! I can sincerely share that I found more ideas to bring back to try at my work from this conference than any previous conference I have attended.</p>
+<p><img src="https://www.ddanieltan.com/posts/2022-normconf/https:/normconf.com/images/normconf_banner.png" class="img-fluid"></p>
+<p>The conference was held in a single day, split between 3 sessions and several lightning talks. Each session had about 10 speakers covering a variety of topics. All of these are available for free on <a href="https://www.youtube.com/@normconf">NormConf’s youtube channel</a>.</p>
+<p>I spent the weekend catching up on all the talks and wanted to share a couple of my favourites:</p>
+</section>
+<section id="session-1" class="level1">
+<h1>Session 1</h1>
+<section id="spark-horror-stories-from-the-field-by-guenia-izquierdo" class="level2">
+<h2 class="anchored" data-anchor-id="spark-horror-stories-from-the-field-by-guenia-izquierdo"><a href="https://www.youtube.com/watch?v=DxUb8gRcASg">Spark Horror Stories From The Field</a> by <a href="https://www.linkedin.com/in/guenia/">Guenia Izquierdo</a></h2>
+<p>This talk right here is totally my jam. <a href="https://spark.apache.org/">Apache Spark</a> is an amazing tool. In fact, to conduct and model experiments for a large-scale business operation (like I do for work), the usage of Spark is pretty much <a href="https://en.wiktionary.org/wiki/table_stakes#:~:text=Noun,let%20alone%20ensure%20a%20win">table stakes</a>. That said, like many powerful tools, Spark is also a frustrating <a href="https://www.urbandictionary.com/define.php?term=footgun">footgun</a>.</p>
+<p>Guenia shares her experience on common pitfalls you might encounter when building Spark applications for the 1st time. I found myself nodding silently as she went through every mistake that I personally faced when I first started learning Spark. Additionally, she gives useful tips explaining the implications for each Spark command you invoke which promotes a better understanding of the entire Spark framework.</p>
+<p>If you are new to Spark, I have to recommend the first couple of minutes of Guenia’s talk as she provides one of the clearest and most succint crash course to Spark I have seen presented.</p>
+</section>
+<section id="a-game-of-construction-by-helena-sarin" class="level2">
+<h2 class="anchored" data-anchor-id="a-game-of-construction-by-helena-sarin"><a href="https://www.youtube.com/watch?v=n6FUXTDNKKQ">A Game of Construction</a> by <a href="https://twitter.com/NeuralBricolage">Helena Sarin</a></h2>
+<blockquote class="blockquote">
+<p>Art is all a game of construction. Some with the brush, some with the shovel, some choose the pen and some of us … choose <strong>neural networks</strong></p>
+</blockquote>
+<p>That quote up thre is how Helena started her talk 🤯 and boy was I absolutely blown away. Describing herself as an “engineering-artist”, Helena shared details and examples of her artwork and art process. I was deeply inspired by the many similarities Helena drew between the process of refining art work with the iterative nature of building complex models.</p>
+<p>I have always enjoyed the rare occasion where I get to <a href="https://www.ddanieltan.com/posts/boogiewoogie/">play with generative art</a>, and listening to a true artist’s artist share about her process was an incredible treat.</p>
+</section>
+</section>
+<section id="session-2" class="level1 page-columns page-full">
+<h1>Session 2</h1>
+<section id="ml-doesnt-always-replace-rules-sometimes-they-work-together-by-jeremy-jordan" class="level2">
+<h2 class="anchored" data-anchor-id="ml-doesnt-always-replace-rules-sometimes-they-work-together-by-jeremy-jordan"><a href="https://www.youtube.com/watch?v=gXe9iXNTuDc">ML doesn’t always replace rules, sometimes they work together</a> by <a href="https://twitter.com/jeremyjordan">Jeremy Jordan</a></h2>
+<p>Jeremy’s talk touches upon a very real set of skills required to run machine learning solutions in a highly regulated environment such as a bank or financial institution. I really enjoyed the nuance Jeremy’s talk provides to how we can combine rules based heuristics and machine learning into a robust policy layer.</p>
+<p>As with any complex solution, the talk is less of a how-to but more of a framework of discussions you should be looking to have if your team is building a solution that matches this use case.</p>
+</section>
+<section id="ethan-rosenthal-and-the-m1-misadventure-by-ethan-rosenthal" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="ethan-rosenthal-and-the-m1-misadventure-by-ethan-rosenthal"><a href="https://www.youtube.com/watch?v=I4wkCSd7iMM">Ethan Rosenthal and the M1 Misadventure</a> by <a href="https://twitter.com/eprosenthal">Ethan Rosenthal</a></h2>
+<p>Ethan’s M1 Misadventure covers all the trials and tribulations he went through to get his team’s codebase built on the new M1 Macs, and what can I say… A story about chasing obscure errors, finicky dependencies and the endless loop of upgrading/downgrading/backtracking changes just to get something work? That’s both my guilty pleasure 🍿🍿, as well as, an average work day 🥲.</p>
+<p>Ethan makes sure to share some useful tips about Python environments and dependency management too if you’re looking for tips in that category. I enjoyed this talk mostly because it validates that getting that darn code to compile/run is a common problem for any data scientist.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>They don’t call it <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> for nothing 😈😈😈</p>
+</div></div></section>
+</section>
+<section id="session-3" class="level1 page-columns page-full">
+<h1>Session 3</h1>
+<section id="how-many-folds-is-too-many-efficient-simulation-for-everyday-ml-decisions-by-julia-silge" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="how-many-folds-is-too-many-efficient-simulation-for-everyday-ml-decisions-by-julia-silge"><a href="https://www.youtube.com/watch?v=VeLAHateMIM">How many folds is too many? Efficient simulation for everyday ML decisions</a> by <a href="https://juliasilge.com/">Julia Silge</a></h2>
+<p>Whereas most of the other talks I’ve shared thus far are broadly inpsirational and entertaining, Julia’s talk is something I could bring directly back to my everyday work. Julia’s talk approaches a question that many new data science learners have but is hard to answer - When performing cross validation, how many folds is too many? And while Julia devotes a good amount of time approaching that question, what her talk really illustrates is how do you break down a question and empirically approach a solution via simulation.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>…unless you cop out with an answer like “it depends” 🙄</p>
+</div></div><p>Simulation is such a powerful tool that goes beyond just the introduction of resampling and bootstraps. Simulation is a paradigm that empowers you to structure your belief of how a system works explicitly as a model, and validate those assumptions with real data. I have found so many areas of my work where approaching the thorny problem through the <a href="https://www.ddanieltan.com/posts/some2/">lens of simulation</a> has clarified my understanding of viable solutions.</p>
+<p>If you have only time for 1 talk, this would be my recommendation.</p>
+</section>
+<section id="dont-do-invisible-work-by-chris-albon" class="level2">
+<h2 class="anchored" data-anchor-id="dont-do-invisible-work-by-chris-albon"><a href="https://www.youtube.com/watch?v=HiF83i1OLOM">Don’t do invisible work</a> by <a href="https://twitter.com/chrisalbon">Chris Albon</a></h2>
+<p>This is slightly nostalgic for me as Chris’s <a href="https://chrisalbon.com/">data science notes</a> was 1 of the first data science focused resource I chanced upon when first entering the field, and it felt really great to hear Chris’s talk. Chris’s talk focuses on the importance of not doing invisible work and sharing various tips on how you can systematically log the important milestones you achieved and impact for the business you have created.</p>
+<p>While there is a clear connection between this talk and your career as a data scientist, I like to think that this practice of putting your work out there also has benefits from a learning angle. Reflecting on the short time I have committed to sharing articles on this blog, I can clearly see the improvement in my clarity of writing and ability to articulate ideas. Beyond the benefits to your career, ensuring you are not doing invisible work is also a very important step to <strong>take charge of your own learning</strong>.</p>
+</section>
+</section>
+<section id="lightning-talks" class="level1">
+<h1>Lightning Talks</h1>
+<section id="hell-is-other-peoples-bugs-by-tj-murphy" class="level2">
+<h2 class="anchored" data-anchor-id="hell-is-other-peoples-bugs-by-tj-murphy"><a href="https://www.youtube.com/watch?v=wymQT_03-H4">Hell is other people’s bugs</a> by <a href="https://twitter.com/teej_m">TJ Murphy</a></h2>
+<p>TJ’s lightning talk covers all the common bugs he has seen in experimental platforms. The blind spot here is that while the statistical theory of which ever method you choose might be infallible, the implementation of said method in live experiments is not. As this is precisely the niche area of data science I work in, this talk was pretty much an instant-share for me.</p>
+</section>
+<section id="how-to-name-files-by-jenny-bryan" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-name-files-by-jenny-bryan"><a href="https://youtu.be/ES1LTlnpLMk">How to name files</a> by <a href="https://twitter.com/JennyBryan">Jenny Bryan</a></h2>
+<p>If there was ever 1 topic that anyone, and yes, I mean anyone who works in tech has an opinion on, it’s about the right way of naming files. Jenny’s talk covers her recommendations (I agree with them … mostly). This talk is the one that best fits the “normcore” spirit of the entire conference, you <strong>have</strong> to watch it.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>🎉🎉 Congrats and well done to everyone who made Normconf 2022 a success! It was truly my favourite conference this year.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {2022 {NormConf} - {My} Favourite Talks},
+  date = {2022-12-20},
+  url = {https://www.ddanieltan.com/posts/2022-normconf},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“2022 NormConf - My Favourite Talks.”</span>
+December 20, 2022. <a href="https://www.ddanieltan.com/posts/2022-normconf">https://www.ddanieltan.com/posts/2022-normconf</a>.
+</div></div></section></div> ]]></description>
+  <category>listicle</category>
+  <category>learning</category>
+  <category>spark</category>
+  <category>art</category>
+  <category>simulation</category>
+  <guid>https://www.ddanieltan.com/posts/2022-normconf/index.html</guid>
+  <pubDate>Mon, 19 Dec 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://normconf.com/images/normconf_banner.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>Scala tips for Advent of Code 2022</title>
   <dc:creator>Daniel Tan</dc:creator>
