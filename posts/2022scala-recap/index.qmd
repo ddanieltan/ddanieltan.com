@@ -5,21 +5,21 @@ date: "2022-12-31"
 categories: [scala,learning]
 ---
 
-# 2022 - My Year of Scala
+# My Year of Scala
 
-In 2022, I chose the [Scala programming language](https://www.scala-lang.org/) as the theme of my self-directed learning outside of work and school. I shared my motivations in greater detail in an earlier blogpost [2022: My Year in Scala](https://www.ddanieltan.com/posts/2022scala/).
+In 2022, I chose the [Scala programming language](https://www.scala-lang.org/) as learning theme. This meant that I would use Scala as much as I could for projects big and small, with a focus on understanding how I could incorporate Scala into my toolset. I shared my motivations in greater detail in an earlier blogpost [2022: My Year in Scala](https://www.ddanieltan.com/posts/2022scala/).
 
-As we end 2022, here's my recap and reflections on how I got to understand this programming language better what I would recommend if you too are interested to do the same.
+As we end 2022, here's my recap and reflections on how I got to understand this programming language better and what I would recommend if you too are interested to do the same.
 
 # Projects I completed with Scala
 
-Learning by doing has always been the most effective way to learn new things. One of the advantages to focusing on a single learning goal for an entire year is that I could pepper in both small and large Scala projects. This helped me to protect against my enthusiasm to use Scala for everything, and hopefully I avoided the classic "if all you have is a hammer, everything looks like a nail" trap. Here are some of my highlights:
+Learning by doing has always been the most effective way to learn new things. One of the advantages to focusing on a single learning goal for an entire year is that I could pepper in both small and large Scala projects. This helped me to protect against my enthusiasm to use Scala for everything, and hopefully I avoided the classic "if all you have is a hammer, everything looks like a nail" trap. Here are some of my favourite projects that I completed with Scala:
 
 #### 1. Built a scala application for Work 
 
-My impetus to learn Scala was primarily because I had to use it at work, so I am very proud of the fact that I got sufficiently up to speed with Scala within the year to actually build an application that adds value to myself and my team 😊! 
+My impetus to learn Scala was primarily because I had to use it at work, so I am very proud of the fact that I got sufficiently up to speed with Scala within the year to actually build a Scala application that that adds value to myself and my team 😊! 
 
-I won't dive into specifics on my public blog but this application interacts with an enterprise-grade Spark cluster and handles an enterprise-grade volume of data. Most importantly, this application fills in a gap in our tooling and fits in nicely with our existing stack because it was written in Scala.
+I won't dive into specifics on this public platform to respect sensitive work projects. But just to get a sense, this application interacts with an enterprise-grade Spark cluster and handles an enterprise-grade volume of data. Most importantly, this application fills in a gap in our existing tooling and delivers real value for its users. The choice to use Scala for this application was perfect because there was plenty of interaction with Spark and that it fits in well with our existing codebase.
 
 ::: {.column-margin}
 Did I mention "enterprise-grade" enough? 😆
@@ -33,27 +33,21 @@ I used Scala to build a [Tausworthe Generator](https://homes.luddy.indiana.edu/k
 
 #### 3. Attempted this year's Advent of Code in Scala
 
-Every year, I get excited for the global coding challenge known as the Advent of Code. In preparation, I worked my way through the Scala solutions for 2021's AoC and consolidated a few Scala tips in this [blog post](https://www.ddanieltan.com/posts/aocscala/). 
+Every year, I get excited for the global coding challenge known as the [Advent of Code](https://adventofcode.com/). In preparation, I worked my way through the Scala solutions for 2021's AoC and consolidated a few Scala tips in this [blog post](https://www.ddanieltan.com/posts/aocscala/). 
 
-I then went on to successfully use Scala for this year's challenge. Unfortunately, as I pretty much do every year, I eventually hit a wall so AoC 2022 is incomplete. This of course, has nothing to do with Scala, and more to do with the challenge difficulty ramping up and that I limit the amount of time I spend on these challenges because December is still a month where family time is the most important.
-
-::: {.column-margin}
-In fact, family is the most important every month.
-:::
-
-I reflected that Scala is a perfectly suited language for the general problem solving required in AoC. I really enjoyed Scala's flexibility as it relates to using mutable/immutable data structures. While the immutability is encouraged as a default, no one bats an eyelid if you choose to use mutability on occasion, because frankly some problems in AoC are much easier to grok that way.
+Using Scala for 2022's challenge was also incredibly fun! The challenge really nailed home the learning that Scala is a well-suited language for the general problem solving. In particular, I really enjoyed Scala's flexibility as it relates to using mutable/immutable data structures. While the immutability is encouraged as a default, no one bats an eyelid if you choose to use mutability on occasion, because frankly some problems in AoC are much easier to grok that way. 
 
 # What I liked about Scala
 
-After a year of trying to learn not just the syntax of the language but also appreciate its design, my simple summary of what Scala aims to be is **ergonomic**.
+After a year of trying to learn not just the syntax of the language but also appreciate its design, my favourite thing about Scala is how **ergonomic** it makes writing code feel.
 
-Scala reminds me of several specially crafted ergonomic tools that I have come across, such as the [Eames chair](https://eames.com/en/articles/eameschair) or the [Dvorak keyboard](https://dvorak-keyboard.com/). On first impression, most people find these tools strange looking. I certainly felt that same way approaching Scala coming from a primarily Python background. I could not understand why there was such an emphasis on the Type system, the functional patterns seemed foreign to me and I was curious why there was a small niche community that seemed so fervent in their support for the language.
+Scala reminds me of several specially crafted ergonomic tools that I have come across, such as the [Eames chair](https://eames.com/en/articles/eameschair) or the [Dvorak keyboard](https://dvorak-keyboard.com/). On first impression, most people find these tools strange and question why anyone would use something so different from the norm. I certainly felt that same way approaching Scala, coming from a primarily Python background. I could not understand why there was such an emphasis on the Type system, the functional patterns seemed foreign to me and I was curious why there was a small niche community that seemed so fervent in their support for this strange language.
 
-I am glad I had an entire year to incorporate Scala into my daily tasks, because I eventually grew to enjoy the expressiveness of the code you get after you invest to learn Scala's unique points. Similar to the aforementioned designer chair and keyboard layout, once you commit to using these tools, you start to appreciate its intentional design and ergonomic benefits.
+I am glad I had an entire year to incorporate Scala into my daily tasks, because I eventually grew to enjoy Scala. Scala has an expressiveness that seeps into how I approach problems, and how I think about solutions. I still find reading scala code idiosyncratic at times but I also get occasional Aha moments where I appreciate the elegance of how a solution is communicated. Similar to the aforementioned designer chair and keyboard layout, once you commit to using these tools, you start to appreciate its intentional design and ergonomic benefits.
 
 While its community and usage is (and probably will always be) niche, I have also found them to be welcoming and patient with new users like me! You can connect with the community primarily on the Scala Discord server or on [/r/scala](https://www.reddit.com/r/scala/).
 
-I consider myself way too green to give a proper commentary on Scala's core design but I found myself nodding along to all of the points mentioned Li Haoyi shared in this [Hacker News thread about Scala](https://news.ycombinator.com/item?id=26030970). No doubt things are a lot more complicated when you start comparing 1 language to another, but from my perspective, it truly does look like many other languages are converging to the features Scala provides today. And, I think this says a lot about how thoughtful and well implemented the Scala language is.
+I consider myself way too green to give a proper commentary on Scala's core design so instead I prefer to share this post Li Haoyi shared in this [Hacker News thread about Scala](https://news.ycombinator.com/item?id=26030970). No doubt things are a lot more complicated when you start comparing 1 language to another, but from my perspective, it truly does feel like many other languages are converging to the features Scala provides today. And, I think this says a lot about how thoughtful and well implemented the Scala language is.
 
 # What I disliked about Scala
 
@@ -74,15 +68,44 @@ I'm so glad to hear scala-cli might go on to be the default way we execute scala
 I'm probably spoilt by the huge amount of documentation available online for Python and its landscape of libraries. Additionally, it is not just the quantity of documentation and answers for all things Python, it is also the SEO. 
 I found it so perplexing that simply Googling a Scala library name and method often does not yield the correct documentation page I am looking for as a top result. Even after I located right ScalaDoc, I have often found it hard to navigate.
 
-::: {note}
+::: {.callout-note}
 As I'm proofreading my post before publishing, I am pleased to have found that the issue with ScalaDoc's layout is being fixed! See this [reddit post](https://www.reddit.com/r/scala/comments/zptt8t/a_new_reworked_scaladoc_is_here/) for more info!
 :::
 
+# What I Would Recommend
+
+If you are embarking on your own Scala learning journey, here are my recommendations.
+
+#### Basics
+The best resource I found for learning the basics of the Scala syntax is [Scala Exercises](https://www.scala-exercises.org/), particularly the module introducing the standard library. In there, you will find a dedicated set of explanations and interactive examples for all the key Scala language features.
+
+Another great resource for learning the basics would be the official [Tour of Scala](https://docs.scala-lang.org/tour/tour-of-scala.html).
+
+#### Practice
+
+As mentioned above, I am a big proponent of learning through practice. So my recommendation is that once you get a good understanding of the basics, you try your hand at completing some classic programming puzzles or tasks. I am very fond of the [Advent of Code](https://adventofcode.com/) but feel free to try your hand at other well known resources like [Project Euler](https://projecteuler.net/) or [Leetcode](https://leetcode.com/).
+
+I would recommend to aim to use Scala's standard data structures to solve these puzzles. These buiding blocks are incredibly robust and powerful and are key to unlocking a lot of the ergonomy I alluded to earlier.
+
+#### Textbooks
+
+I surveyed a variety of textbooks in the year, and for the most part, all of them were good. If you're pressed to choose, I found myself coming back again and again to [Hands-On Scala](https://www.handsonscala.com/). This textbook was my favourite because it had a nice variety of projects that you could incrementally build along whilst learning more about Scala and its ecosystem. 
+
+#### Tooling
+
+For beginners, I advocate for what I consider to be the most frictionless path to get started writing Scala code:
+
+- Install everything you need to write and run Scala via [Coursier](https://get-coursier.io/)
+- Use [scala-cli](https://scala-cli.virtuslab.org/) for compiling, running and packaging Scala scripts and applications
+- Use [Vscode](https://code.visualstudio.com/) with the [Metals extension](https://scalameta.org/metals/) as your development tool
+
+There are many alternatives to these technologies but you can take your time to explore them after you get started.
+
 # Conclusion
 
-I had a blast in 2022 working my way through Scala! It has been one of the most interesting and rewarding learning topics I have attempted. 
+I had a blast in 2022 working my way through Scala! It has been one of the most interesting and rewarding learning topics I have attempted.
 
-![Bonsai/Scala logo Credits: https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0](scala-bonsai.png)
+![Bonsai Tree/Scala logo. [Credits](https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0)](scala-bonsai.png)
 
 As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.
 
