@@ -10,7 +10,105 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Mon, 19 Dec 2022 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 30 Dec 2022 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>2022 Year of Scala Recap</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/2022scala-recap/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="my-year-of-scala" class="level1">
+<h1>2022 - My Year of Scala</h1>
+<p>In 2022, I chose the <a href="https://www.scala-lang.org/">Scala programming language</a> as the theme of my self-directed learning outside of work and school. I shared my motivations in greater detail in an earlier blogpost <a href="https://www.ddanieltan.com/posts/2022scala/">2022: My Year in Scala</a>.</p>
+<p>As we end 2022, here’s my recap and reflections on how I got to understand this programming language better what I would recommend if you too are interested to do the same.</p>
+</section>
+<section id="projects-i-completed-with-scala" class="level1 page-columns page-full">
+<h1>Projects I completed with Scala</h1>
+<p>Learning by doing has always been the most effective way to learn new things. One of the advantages to focusing on a single learning goal for an entire year is that I could pepper in both small and large Scala projects. This helped me to protect against my enthusiasm to use Scala for everything, and hopefully I avoided the classic “if all you have is a hammer, everything looks like a nail” trap. Here are some of my highlights:</p>
+<section id="built-a-scala-application-for-work" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="built-a-scala-application-for-work">1. Built a scala application for Work</h4>
+<p>My impetus to learn Scala was primarily because I had to use it at work, so I am very proud of the fact that I got sufficiently up to speed with Scala within the year to actually build an application that adds value to myself and my team 😊!</p>
+<p>I won’t dive into specifics on my public blog but this application interacts with an enterprise-grade Spark cluster and handles an enterprise-grade volume of data. Most importantly, this application fills in a gap in our tooling and fits in nicely with our existing stack because it was written in Scala.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Did I mention “enterprise-grade” enough? 😆</p>
+</div></div></section>
+<section id="built-a-random-number-generator-for-school" class="level4">
+<h4 class="anchored" data-anchor-id="built-a-random-number-generator-for-school">2. Built a Random Number Generator for School</h4>
+<p>I took a course on <a href="https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science">Simulation and Modeling</a> as part of my part-time masters programme this year. Our final project had a variety of questions and I chose to attempt one that required an implementation of one of the many Random Number Generators learnt in class.</p>
+<p>I used Scala to build a <a href="https://homes.luddy.indiana.edu/kapadia/project2/node9.html">Tausworthe Generator</a> that required multiple data transformations and bitwise operations. I reflected that Scala’s typing system and ease of data transformation patterns made for such a great fit for this project.</p>
+</section>
+<section id="attempted-this-years-advent-of-code-in-scala" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="attempted-this-years-advent-of-code-in-scala">3. Attempted this year’s Advent of Code in Scala</h4>
+<p>Every year, I get excited for the global coding challenge known as the Advent of Code. In preparation, I worked my way through the Scala solutions for 2021’s AoC and consolidated a few Scala tips in this <a href="https://www.ddanieltan.com/posts/aocscala/">blog post</a>.</p>
+<p>I then went on to successfully use Scala for this year’s challenge. Unfortunately, as I pretty much do every year, I eventually hit a wall so AoC 2022 is incomplete. This of course, has nothing to do with Scala, and more to do with the challenge difficulty ramping up and that I limit the amount of time I spend on these challenges because December is still a month where family time is the most important.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>In fact, family is the most important every month.</p>
+</div></div><p>I reflected that Scala is a perfectly suited language for the general problem solving required in AoC. I really enjoyed Scala’s flexibility as it relates to using mutable/immutable data structures. While the immutability is encouraged as a default, no one bats an eyelid if you choose to use mutability on occasion, because frankly some problems in AoC are much easier to grok that way.</p>
+</section>
+</section>
+<section id="what-i-liked-about-scala" class="level1">
+<h1>What I liked about Scala</h1>
+<p>After a year of trying to learn not just the syntax of the language but also appreciate its design, my simple summary of what Scala aims to be is <strong>ergonomic</strong>.</p>
+<p>Scala reminds me of several specially crafted ergonomic tools that I have come across, such as the <a href="https://eames.com/en/articles/eameschair">Eames chair</a> or the <a href="https://dvorak-keyboard.com/">Dvorak keyboard</a>. On first impression, most people find these tools strange looking. I certainly felt that same way approaching Scala coming from a primarily Python background. I could not understand why there was such an emphasis on the Type system, the functional patterns seemed foreign to me and I was curious why there was a small niche community that seemed so fervent in their support for the language.</p>
+<p>I am glad I had an entire year to incorporate Scala into my daily tasks, because I eventually grew to enjoy the expressiveness of the code you get after you invest to learn Scala’s unique points. Similar to the aforementioned designer chair and keyboard layout, once you commit to using these tools, you start to appreciate its intentional design and ergonomic benefits.</p>
+<p>While its community and usage is (and probably will always be) niche, I have also found them to be welcoming and patient with new users like me! You can connect with the community primarily on the Scala Discord server or on <a href="https://www.reddit.com/r/scala/">/r/scala</a>.</p>
+<p>I consider myself way too green to give a proper commentary on Scala’s core design but I found myself nodding along to all of the points mentioned Li Haoyi shared in this <a href="https://news.ycombinator.com/item?id=26030970">Hacker News thread about Scala</a>. No doubt things are a lot more complicated when you start comparing 1 language to another, but from my perspective, it truly does look like many other languages are converging to the features Scala provides today. And, I think this says a lot about how thoughtful and well implemented the Scala language is.</p>
+</section>
+<section id="what-i-disliked-about-scala" class="level1">
+<h1>What I disliked about Scala</h1>
+<p>To keep things balanced, I also want to touch upon things I struggled with this year.</p>
+<section id="tooling" class="level4">
+<h4 class="anchored" data-anchor-id="tooling">1. Tooling</h4>
+<p>I did not enjoy the “enterprise-grade” Scala build tool <a href="https://www.scala-sbt.org/">sbt</a>. That <code>sbt</code> once represented “Simple Build Tool” must surely be someone’s cruel joke. I remember vividly being particularly annoyed that to run a simple Hello World example, many sites wanted you to first grok <code>sbt</code>. I felt that the context switch to understand build tools in general and <code>sbt</code> in particular took my away from trying to learn the basics of Scala.</p>
+<p>I bounced around to other build tools, such as <a href="https://com-lihaoyi.github.io/mill/mill/Intro_to_Mill.html">Mill</a> but felt that outside of a handful of projects, I could not find sufficient examples particularly of simpler projects using Mill to help me better understand the tool.</p>
+<p>My saving grace came later in the year when <a href="https://scala-cli.virtuslab.org/">scala-cli</a> picked up development steam. scala-cli is not exactly a build tool to replace sbt, but it essentially became the tool I was looking for. I just needed a way to run Scala applications and occasionally handle simple packaging.</p>
+<p>I’m so glad to hear scala-cli might go on to be the default way we execute scala code in the future. Truly think it would alleviate one of the biggest hurdles beginners have to overcome when first learning Scala.</p>
+</section>
+<section id="documentation" class="level4">
+<h4 class="anchored" data-anchor-id="documentation">2. Documentation</h4>
+<p>I’m probably spoilt by the huge amount of documentation available online for Python and its landscape of libraries. Additionally, it is not just the quantity of documentation and answers for all things Python, it is also the SEO. I found it so perplexing that simply Googling a Scala library name and method often does not yield the correct documentation page I am looking for as a top result. Even after I located right ScalaDoc, I have often found it hard to navigate.</p>
+<div class="{note}">
+<p>As I’m proofreading my post before publishing, I am pleased to have found that the issue with ScalaDoc’s layout is being fixed! See this <a href="https://www.reddit.com/r/scala/comments/zptt8t/a_new_reworked_scaladoc_is_here/">reddit post</a> for more info!</p>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>I had a blast in 2022 working my way through Scala! It has been one of the most interesting and rewarding learning topics I have attempted.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/2022scala-recap/scala-bonsai.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Bonsai/Scala logo Credits: https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0</figcaption><p></p>
+</figure>
+</div>
+<p>As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.</p>
+<p>That said, I am absolutely itching to find a new topic to sink my teeth into for 2023. Let me know if you have any suggestions for me. Happy learning everyone! 🤔🤔🤔</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {2022 {Year} of {Scala} {Recap}},
+  date = {2022-12-31},
+  url = {https://www.ddanieltan.com/posts/2022scala-recap},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
+2022. <a href="https://www.ddanieltan.com/posts/2022scala-recap">https://www.ddanieltan.com/posts/2022scala-recap</a>.
+</div></div></section></div> ]]></description>
+  <category>scala</category>
+  <category>learning</category>
+  <guid>https://www.ddanieltan.com/posts/2022scala-recap/index.html</guid>
+  <pubDate>Fri, 30 Dec 2022 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/2022scala-recap/scala-bonsai.png" medium="image" type="image/png" height="288" width="144"/>
+</item>
 <item>
   <title>2022 NormConf - My favourite talks</title>
   <dc:creator>Daniel Tan</dc:creator>

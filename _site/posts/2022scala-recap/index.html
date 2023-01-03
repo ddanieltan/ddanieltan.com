@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Tan">
+<meta name="dcterms.date" content="2022-12-31">
+<meta name="description" content="Recaps, Learnings and Reflections">
+
+<title>ddanieltan.com - 2022 Year of Scala Recap</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BQGXLNCBHY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<meta property="og:title" content="ddanieltan.com - 2022 Year of Scala Recap">
+<meta property="og:description" content="Recaps, Learnings and Reflections">
+<meta property="og:site-name" content="ddanieltan.com">
+<meta name="twitter:title" content="ddanieltan.com - 2022 Year of Scala Recap">
+<meta name="twitter:description" content="Recaps, Learnings and Reflections">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ddanieltan.com</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">Daniel Tan</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ddanieltan"><i class="bi bi-github" role="img" aria-label="github">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ddanieltan/"><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#my-year-of-scala" id="toc-my-year-of-scala" class="nav-link active" data-scroll-target="#my-year-of-scala">2022 - My Year of Scala</a></li>
+  <li><a href="#projects-i-completed-with-scala" id="toc-projects-i-completed-with-scala" class="nav-link" data-scroll-target="#projects-i-completed-with-scala">Projects I completed with Scala</a></li>
+  <li><a href="#what-i-liked-about-scala" id="toc-what-i-liked-about-scala" class="nav-link" data-scroll-target="#what-i-liked-about-scala">What I liked about Scala</a></li>
+  <li><a href="#what-i-disliked-about-scala" id="toc-what-i-disliked-about-scala" class="nav-link" data-scroll-target="#what-i-disliked-about-scala">What I disliked about Scala</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">2022 Year of Scala Recap</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">scala</div>
+    <div class="quarto-category">learning</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Recaps, Learnings and Reflections
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Tan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 31, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="my-year-of-scala" class="level1">
+<h1>2022 - My Year of Scala</h1>
+<p>In 2022, I chose the <a href="https://www.scala-lang.org/">Scala programming language</a> as the theme of my self-directed learning outside of work and school. I shared my motivations in greater detail in an earlier blogpost <a href="https://www.ddanieltan.com/posts/2022scala/">2022: My Year in Scala</a>.</p>
+<p>As we end 2022, here’s my recap and reflections on how I got to understand this programming language better what I would recommend if you too are interested to do the same.</p>
+</section>
+<section id="projects-i-completed-with-scala" class="level1 page-columns page-full">
+<h1>Projects I completed with Scala</h1>
+<p>Learning by doing has always been the most effective way to learn new things. One of the advantages to focusing on a single learning goal for an entire year is that I could pepper in both small and large Scala projects. This helped me to protect against my enthusiasm to use Scala for everything, and hopefully I avoided the classic “if all you have is a hammer, everything looks like a nail” trap. Here are some of my highlights:</p>
+<section id="built-a-scala-application-for-work" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="built-a-scala-application-for-work">1. Built a scala application for Work</h4>
+<p>My impetus to learn Scala was primarily because I had to use it at work, so I am very proud of the fact that I got sufficiently up to speed with Scala within the year to actually build an application that adds value to myself and my team 😊!</p>
+<p>I won’t dive into specifics on my public blog but this application interacts with an enterprise-grade Spark cluster and handles an enterprise-grade volume of data. Most importantly, this application fills in a gap in our tooling and fits in nicely with our existing stack because it was written in Scala.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Did I mention “enterprise-grade” enough? 😆</p>
+</div></div></section>
+<section id="built-a-random-number-generator-for-school" class="level4">
+<h4 class="anchored" data-anchor-id="built-a-random-number-generator-for-school">2. Built a Random Number Generator for School</h4>
+<p>I took a course on <a href="https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science">Simulation and Modeling</a> as part of my part-time masters programme this year. Our final project had a variety of questions and I chose to attempt one that required an implementation of one of the many Random Number Generators learnt in class.</p>
+<p>I used Scala to build a <a href="https://homes.luddy.indiana.edu/kapadia/project2/node9.html">Tausworthe Generator</a> that required multiple data transformations and bitwise operations. I reflected that Scala’s typing system and ease of data transformation patterns made for such a great fit for this project.</p>
+</section>
+<section id="attempted-this-years-advent-of-code-in-scala" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="attempted-this-years-advent-of-code-in-scala">3. Attempted this year’s Advent of Code in Scala</h4>
+<p>Every year, I get excited for the global coding challenge known as the Advent of Code. In preparation, I worked my way through the Scala solutions for 2021’s AoC and consolidated a few Scala tips in this <a href="https://www.ddanieltan.com/posts/aocscala/">blog post</a>.</p>
+<p>I then went on to successfully use Scala for this year’s challenge. Unfortunately, as I pretty much do every year, I eventually hit a wall so AoC 2022 is incomplete. This of course, has nothing to do with Scala, and more to do with the challenge difficulty ramping up and that I limit the amount of time I spend on these challenges because December is still a month where family time is the most important.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>In fact, family is the most important every month.</p>
+</div></div><p>I reflected that Scala is a perfectly suited language for the general problem solving required in AoC. I really enjoyed Scala’s flexibility as it relates to using mutable/immutable data structures. While the immutability is encouraged as a default, no one bats an eyelid if you choose to use mutability on occasion, because frankly some problems in AoC are much easier to grok that way.</p>
+</section>
+</section>
+<section id="what-i-liked-about-scala" class="level1">
+<h1>What I liked about Scala</h1>
+<p>After a year of trying to learn not just the syntax of the language but also appreciate its design, my simple summary of what Scala aims to be is <strong>ergonomic</strong>.</p>
+<p>Scala reminds me of several specially crafted ergonomic tools that I have come across, such as the <a href="https://eames.com/en/articles/eameschair">Eames chair</a> or the <a href="https://dvorak-keyboard.com/">Dvorak keyboard</a>. On first impression, most people find these tools strange looking. I certainly felt that same way approaching Scala coming from a primarily Python background. I could not understand why there was such an emphasis on the Type system, the functional patterns seemed foreign to me and I was curious why there was a small niche community that seemed so fervent in their support for the language.</p>
+<p>I am glad I had an entire year to incorporate Scala into my daily tasks, because I eventually grew to enjoy the expressiveness of the code you get after you invest to learn Scala’s unique points. Similar to the aforementioned designer chair and keyboard layout, once you commit to using these tools, you start to appreciate its intentional design and ergonomic benefits.</p>
+<p>While its community and usage is (and probably will always be) niche, I have also found them to be welcoming and patient with new users like me! You can connect with the community primarily on the Scala Discord server or on <a href="https://www.reddit.com/r/scala/">/r/scala</a>.</p>
+<p>I consider myself way too green to give a proper commentary on Scala’s core design but I found myself nodding along to all of the points mentioned Li Haoyi shared in this <a href="https://news.ycombinator.com/item?id=26030970">Hacker News thread about Scala</a>. No doubt things are a lot more complicated when you start comparing 1 language to another, but from my perspective, it truly does look like many other languages are converging to the features Scala provides today. And, I think this says a lot about how thoughtful and well implemented the Scala language is.</p>
+</section>
+<section id="what-i-disliked-about-scala" class="level1">
+<h1>What I disliked about Scala</h1>
+<p>To keep things balanced, I also want to touch upon things I struggled with this year.</p>
+<section id="tooling" class="level4">
+<h4 class="anchored" data-anchor-id="tooling">1. Tooling</h4>
+<p>I did not enjoy the “enterprise-grade” Scala build tool <a href="https://www.scala-sbt.org/">sbt</a>. That <code>sbt</code> once represented “Simple Build Tool” must surely be someone’s cruel joke. I remember vividly being particularly annoyed that to run a simple Hello World example, many sites wanted you to first grok <code>sbt</code>. I felt that the context switch to understand build tools in general and <code>sbt</code> in particular took my away from trying to learn the basics of Scala.</p>
+<p>I bounced around to other build tools, such as <a href="https://com-lihaoyi.github.io/mill/mill/Intro_to_Mill.html">Mill</a> but felt that outside of a handful of projects, I could not find sufficient examples particularly of simpler projects using Mill to help me better understand the tool.</p>
+<p>My saving grace came later in the year when <a href="https://scala-cli.virtuslab.org/">scala-cli</a> picked up development steam. scala-cli is not exactly a build tool to replace sbt, but it essentially became the tool I was looking for. I just needed a way to run Scala applications and occasionally handle simple packaging.</p>
+<p>I’m so glad to hear scala-cli might go on to be the default way we execute scala code in the future. Truly think it would alleviate one of the biggest hurdles beginners have to overcome when first learning Scala.</p>
+</section>
+<section id="documentation" class="level4">
+<h4 class="anchored" data-anchor-id="documentation">2. Documentation</h4>
+<p>I’m probably spoilt by the huge amount of documentation available online for Python and its landscape of libraries. Additionally, it is not just the quantity of documentation and answers for all things Python, it is also the SEO. I found it so perplexing that simply Googling a Scala library name and method often does not yield the correct documentation page I am looking for as a top result. Even after I located right ScalaDoc, I have often found it hard to navigate.</p>
+<div class="{note}">
+<p>As I’m proofreading my post before publishing, I am pleased to have found that the issue with ScalaDoc’s layout is being fixed! See this <a href="https://www.reddit.com/r/scala/comments/zptt8t/a_new_reworked_scaladoc_is_here/">reddit post</a> for more info!</p>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>I had a blast in 2022 working my way through Scala! It has been one of the most interesting and rewarding learning topics I have attempted.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scala-bonsai.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Bonsai/Scala logo Credits: https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0</figcaption><p></p>
+</figure>
+</div>
+<p>As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.</p>
+<p>That said, I am absolutely itching to find a new topic to sink my teeth into for 2023. Let me know if you have any suggestions for me. Happy learning everyone! 🤔🤔🤔</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
+  author = {Daniel Tan},
+  editor = {},
+  title = {2022 {Year} of {Scala} {Recap}},
+  date = {2022-12-31},
+  url = {https://www.ddanieltan.com/posts/2022scala-recap},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Daniel Tan. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
+2022. <a href="https://www.ddanieltan.com/posts/2022scala-recap">https://www.ddanieltan.com/posts/2022scala-recap</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">The statistician cannot evade the responsibility for understanding the process he applies or recommends - Ronald Fisher</div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
