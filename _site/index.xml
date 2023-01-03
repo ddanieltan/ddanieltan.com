@@ -116,7 +116,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.ddanieltan.com/posts/2022scala-recap/scala-bonsai.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Bonsai Tree/Scala logo. <a href="https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0">Credits</a></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Bonsai Tree/Scala logo – https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0)</figcaption><p></p>
 </figure>
 </div>
 <p>As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.</p>
@@ -141,7 +141,7 @@ Daniel Tan. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
   <category>learning</category>
   <guid>https://www.ddanieltan.com/posts/2022scala-recap/index.html</guid>
   <pubDate>Fri, 30 Dec 2022 16:00:00 GMT</pubDate>
-  <media:content url="https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0" medium="image"/>
+  <media:content url="https://www.ddanieltan.com/posts/2022scala-recap/scala-bonsai.png" medium="image" type="image/png" height="288" width="144"/>
 </item>
 <item>
   <title>2022 NormConf - My favourite talks</title>

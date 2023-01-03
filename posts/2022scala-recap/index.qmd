@@ -105,7 +105,7 @@ There are many alternatives to these technologies but you can take your time to 
 
 I had a blast in 2022 working my way through Scala! It has been one of the most interesting and rewarding learning topics I have attempted.
 
-![Bonsai Tree/Scala logo. [Credits](https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0)](scala-bonsai.png)
+![Bonsai Tree/Scala logo -- https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0)](scala-bonsai.png)
 
 As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.
 
