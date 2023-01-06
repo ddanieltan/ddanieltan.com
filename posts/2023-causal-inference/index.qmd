@@ -1,0 +1,78 @@
+---
+title: "2023 Year of Causal Inference"
+description: "For every action there is an equal and opposite reaction"
+date: "2023-01-06"
+categories: [causality,learning]
+#image: scala-bonsai.png
+---
+
+## Learning Theme
+It's the start of the new year, which means I'm committing to a new learning theme for the year! I've found that having a single learning theme for the whole year helps keep me focused and prevents me from getting too excited about exploring new topics. It also helps me make both short- and long-term plans without stressing myself out too much, since I'm juggling my independent learning with time for my family, work, and school. As I mentioned in my [post about my learning theme for 2022](https://www.ddanieltan.com/posts/2022scala/), my goal is to find the right balance.
+
+This year, I'm focusing on **Causal Inference**! 🎊 🥳 🎊 🥳 🎊 🥳
+
+## What is Causal Inference?
+If you've taken a statistics class or worked in the data industry, you've probably heard this warning: "Correlation does not imply causation!" While this is definitely true, I've always wondered, "Well, what does imply causation?"
+
+![xkcd never gets old](https://imgs.xkcd.com/comics/correlation.png)
+
+When we use correlation and other measurements of association in our machine learning models, we end up with a good understanding of dependence. ML models are great at identifying patterns that link our features to outcomes, which is why they can make such accurate predictions. But even with these accurate predictions, we may not always have a clear understanding of the complex cause-and-effect forces at play in the system.
+
+That's where causal inference comes in. It's the study of these cause-and-effect forces – not just being able to predict future outcomes, but also understanding which factors contribute and how.
+
+## Why did I choose Causal Inference?
+
+### Causal Inference can answer questions classic Experimentation theory cannot
+At work, I'm often involved in designing online experiments using randomized control trials (also known as A/B tests), which are considered the gold standard for gathering causal inferences. But RCTs aren't always feasible – sometimes the question we're trying to answer requires a longer timeline, or it might be unethical to test (like the effects of smoking). 
+
+Outside of the clean data we get from RCTs, there's a wealth of observational data from field experiments, surveys, and logs that we can use to draw causal inferences. There are so many interesting questions that we can generate looking at these data and causal inference could provide me new tools to my statistical toolkit to answer them.
+
+### Causal Inference is relatable to everyone
+Second, causal inference is something that's relevant to everyone. We all make a ton of decisions every day – from what to have for breakfast to whether we need to take an umbrella with us. A lot of these decisions are influenced by our understanding of the causal forces at play in our lives. I believe that, with the right set of skills, we can "play the hand we're dealt" as best we can, even if we can't change the circumstances we were born into.
+
+### There is a resurgence of materials to help one learn Causal Inference
+Finally, there's been a resurgence of materials on causal inference lately, starting with the [Nobel Prize in Economics awarded to proponents of the field in 2021](https://www.nature.com/articles/d41586-021-02799-7#:~:text=13%20October%202021-,Nobel%2Dwinning%20'natural%20experiments'%20approach%20made%20economics%20more%20robust,and%20effect%20in%20social%20science). There are more resources available now than ever before to help people learn about causal inference, which makes it a great time to dive in.
+
+
+## Plan for the Year
+Here is my collection of study materials that I plan on using this year:
+
+### Structured Courses
+Structured or semi-structured courses with assignments and projects are my favourite format for learning. I found [Coursera's Essential Causal Inference Techniques for Data Science](https://www.coursera.org/projects/essential-causal-inference-for-data-science) . This looks to be a straight-forward, short introduction to causal inference techniques to survey the landscape.
+
+### Materials that come with a community
+
+These are the primary resources I plan to use, particularly because these are all resources that facilitate a community of learners either by providing a study group or video lectures. This is important to me because I enjoy have this community to learn with and learn from.
+
+[Scott Cunningham's Causal Inference Mixtape](https://mixtape.scunning.com/) is the single most recommended material on Causal Inference. You can read the free online copy or support the Prof. Cunningham by purchasing a print copy (links on the home page). Last year, [Ravin Kumar organised a Causal Inference Book Club](https://community.intuitivebayes.com/c/book-club/21), so there is a lively community of online discussions and youtube videos to study along side with. 
+
+[Richard McElreath's Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) is perhaps my favourite textbook of all time. While this material is more often billed as an introduction to Bayesian statistics, I have always found a lot of the central themes align with the pursuit of causality. The printed copy needs to be purchased but Prof. McElreath provides free recordings of his lectures on youtube. [2023's lectures](https://www.youtube.com/watch?v=FdnMWdICdRs&list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus&ab_channel=RichardMcElreath) just began this month.
+
+:::{.column-margin}
+What do you mean it's not a thing to have a "favourite textbook"?! Everyone has one, right? Right?
+:::
+
+[Matheus Facure's Causal Inference for the Brave and True](https://matheusfacure.github.io/python-causality-handbook/landing-page.html) is another material that is on the top of many recommendations. The above 2 recommendations primarily have their code examples in R, so Matheus's alternative with Python examples fits a nice gap. Matheus is also working on an O'Reilly book [Causal Inference in Python](https://www.oreilly.com/library/view/causal-inference-in/9781098140243/) which I am eagerly waiting for. 
+
+[Nick Huntington-Klien's The Effect Book](https://theeffectbook.net/) rounds up my list of recommended materials. The Effect Book is a comprehensive dive into causal inference paired with research design, and Dr. Huntington-Klien even includes an accompanying [free Youtube video series](https://www.youtube.com/playlist?list=PLcTBLulJV_AK1hKtnO0-kYrU0D09K-kj8) along with homework assignments and source code to learn from. The online version of the book is free and you can purchase the print copy from links on its home page.
+
+### Materials for solo studying and referencing
+This is a shorter list of materials that do not come with a ready online community. These are more traditional academic textbooks that I plan to peruse occasionally when referencing a gnarly topic.
+
+- [Elements of Causal Inference](https://mitpress.mit.edu/9780262037310/elements-of-causal-inference/#:~:text=Elements%20of%20Causal%20Inference%20is,data%20to%20understand%20the%20world.)
+- [Field Experiments: Design, Analysis, and Interpretation](https://www.amazon.com/Field-Experiments-Design-Analysis-Interpretation/dp/0393979954)
+- [Introductory Econometrics A Modern Approach](https://economics.ut.ac.ir/documents/3030266/14100645/Jeffrey_M._Wooldridge_Introductory_Econometrics_A_Modern_Approach__2012.pdf)
+
+## Learning by doing
+This is a rough draft of the type of projects I can do during this year to complement my primary study of online materials. 
+### Causal Inference Projects
+I plan to work my way up from simple notebooks and exercises illustrating the usage of one of the many causal inference libraries. Eventually, being able to complete a larger analysis more akin to the type of problems I hope to address at work. I would like the opportunity to try out several different libraries from a variety of programming languages, if applicable. I bookmarked [Emily Riederer's blog on Causal Design Patterns for Data Analysts](https://emilyriederer.netlify.app/post/causal-design-patterns/) for reference, and I hope to be able to implement each of the patterns she describes by the end of the year.
+
+### Learning about the Causal Inference landscape
+Causal Inference is a broad umbrella comprising of many professionals from a wide swathe of disciplines. Besides learning the technical methodologies, I would like to learn more about the academics, educators and practitioners that make up its global community. Prof. Cunningham also records a [podcast interviewing several causal inference experts](https://podcasts.apple.com/us/podcast/the-mixtape-with-scott/id1615110472). It might be a nice break from studying to allocate some time to listen to their stories and write a few summary posts on my blog.
+
+### Blogging
+Which brings me to this blog! Last year, I started this blog and published 8 blog articles. I aim to publish 12 this year (mostly about Causal Inference) and share with you the learnings along my journey.
+
+## Conclusion
+Ok, so that's the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I'm brimming with excitement, onward!

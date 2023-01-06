@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://www.ddanieltan.com/index.html</loc>
-    <lastmod>2023-01-06T09:26:08.355Z</lastmod>
+    <lastmod>2023-01-06T13:09:44.501Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/about.html</loc>
@@ -63,5 +63,9 @@
   <url>
     <loc>https://www.ddanieltan.com/posts/2022scala-recap/index.html</loc>
     <lastmod>2023-01-06T09:24:37.032Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</loc>
+    <lastmod>2023-01-06T13:09:43.358Z</lastmod>
   </url>
 </urlset>

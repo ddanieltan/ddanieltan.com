@@ -10,7 +10,113 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Fri, 30 Dec 2022 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 05 Jan 2023 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>2023 Year of Causal Inference</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="learning-theme" class="level2">
+<h2 class="anchored" data-anchor-id="learning-theme">Learning Theme</h2>
+<p>It’s the start of the new year, which means I’m committing to a new learning theme for the year! I’ve found that having a single learning theme for the whole year helps keep me focused and prevents me from getting too excited about exploring new topics. It also helps me make both short- and long-term plans without stressing myself out too much, since I’m juggling my independent learning with time for my family, work, and school. As I mentioned in my <a href="https://www.ddanieltan.com/posts/2022scala/">post about my learning theme for 2022</a>, my goal is to find the right balance.</p>
+<p>This year, I’m focusing on <strong>Causal Inference</strong>! 🎊 🥳 🎊 🥳 🎊 🥳</p>
+</section>
+<section id="what-is-causal-inference" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-causal-inference">What is Causal Inference?</h2>
+<p>If you’ve taken a statistics class or worked in the data industry, you’ve probably heard this warning: “Correlation does not imply causation!” While this is definitely true, I’ve always wondered, “Well, what does imply causation?”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/2023-causal-inference/https:/imgs.xkcd.com/comics/correlation.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">xkcd never gets old</figcaption><p></p>
+</figure>
+</div>
+<p>When we use correlation and other measurements of association in our machine learning models, we end up with a good understanding of dependence. ML models are great at identifying patterns that link our features to outcomes, which is why they can make such accurate predictions. But even with these accurate predictions, we may not always have a clear understanding of the complex cause-and-effect forces at play in the system.</p>
+<p>That’s where causal inference comes in. It’s the study of these cause-and-effect forces – not just being able to predict future outcomes, but also understanding which factors contribute and how.</p>
+</section>
+<section id="why-did-i-choose-causal-inference" class="level2">
+<h2 class="anchored" data-anchor-id="why-did-i-choose-causal-inference">Why did I choose Causal Inference?</h2>
+<section id="causal-inference-can-answer-questions-classic-experimentation-theory-cannot" class="level3">
+<h3 class="anchored" data-anchor-id="causal-inference-can-answer-questions-classic-experimentation-theory-cannot">Causal Inference can answer questions classic Experimentation theory cannot</h3>
+<p>At work, I’m often involved in designing online experiments using randomized control trials (also known as A/B tests), which are considered the gold standard for gathering causal inferences. But RCTs aren’t always feasible – sometimes the question we’re trying to answer requires a longer timeline, or it might be unethical to test (like the effects of smoking).</p>
+<p>Outside of the clean data we get from RCTs, there’s a wealth of observational data from field experiments, surveys, and logs that we can use to draw causal inferences. There are so many interesting questions that we can generate looking at these data and causal inference could provide me new tools to my statistical toolkit to answer them.</p>
+</section>
+<section id="causal-inference-is-relatable-to-everyone" class="level3">
+<h3 class="anchored" data-anchor-id="causal-inference-is-relatable-to-everyone">Causal Inference is relatable to everyone</h3>
+<p>Second, causal inference is something that’s relevant to everyone. We all make a ton of decisions every day – from what to have for breakfast to whether we need to take an umbrella with us. A lot of these decisions are influenced by our understanding of the causal forces at play in our lives. I believe that, with the right set of skills, we can “play the hand we’re dealt” as best we can, even if we can’t change the circumstances we were born into.</p>
+</section>
+<section id="there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference" class="level3">
+<h3 class="anchored" data-anchor-id="there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference">There is a resurgence of materials to help one learn Causal Inference</h3>
+<p>Finally, there’s been a resurgence of materials on causal inference lately, starting with the <a href="https://www.nature.com/articles/d41586-021-02799-7#:~:text=13%20October%202021-,Nobel%2Dwinning%20'natural%20experiments'%20approach%20made%20economics%20more%20robust,and%20effect%20in%20social%20science">Nobel Prize in Economics awarded to proponents of the field in 2021</a>. There are more resources available now than ever before to help people learn about causal inference, which makes it a great time to dive in.</p>
+</section>
+</section>
+<section id="plan-for-the-year" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="plan-for-the-year">Plan for the Year</h2>
+<p>Here is my collection of study materials that I plan on using this year:</p>
+<section id="structured-courses" class="level3">
+<h3 class="anchored" data-anchor-id="structured-courses">Structured Courses</h3>
+<p>Structured or semi-structured courses with assignments and projects are my favourite format for learning. I found <a href="https://www.coursera.org/projects/essential-causal-inference-for-data-science">Coursera’s Essential Causal Inference Techniques for Data Science</a> . This looks to be a straight-forward, short introduction to causal inference techniques to survey the landscape.</p>
+</section>
+<section id="materials-that-come-with-a-community" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="materials-that-come-with-a-community">Materials that come with a community</h3>
+<p>These are the primary resources I plan to use, particularly because these are all resources that facilitate a community of learners either by providing a study group or video lectures. This is important to me because I enjoy have this community to learn with and learn from.</p>
+<p><a href="https://mixtape.scunning.com/">Scott Cunningham’s Causal Inference Mixtape</a> is the single most recommended material on Causal Inference. You can read the free online copy or support the Prof.&nbsp;Cunningham by purchasing a print copy (links on the home page). Last year, <a href="https://community.intuitivebayes.com/c/book-club/21">Ravin Kumar organised a Causal Inference Book Club</a>, so there is a lively community of online discussions and youtube videos to study along side with.</p>
+<p><a href="https://xcelab.net/rm/statistical-rethinking/">Richard McElreath’s Statistical Rethinking</a> is perhaps my favourite textbook of all time. While this material is more often billed as an introduction to Bayesian statistics, I have always found a lot of the central themes align with the pursuit of causality. The printed copy needs to be purchased but Prof.&nbsp;McElreath provides free recordings of his lectures on youtube. <a href="https://www.youtube.com/watch?v=FdnMWdICdRs&amp;list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus&amp;ab_channel=RichardMcElreath">2023’s lectures</a> just began this month.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>What do you mean it’s not a thing to have a “favourite textbook”?! Everyone has one, right? Right?</p>
+</div></div><p><a href="https://matheusfacure.github.io/python-causality-handbook/landing-page.html">Matheus Facure’s Causal Inference for the Brave and True</a> is another material that is on the top of many recommendations. The above 2 recommendations primarily have their code examples in R, so Matheus’s alternative with Python examples fits a nice gap. Matheus is also working on an O’Reilly book <a href="https://www.oreilly.com/library/view/causal-inference-in/9781098140243/">Causal Inference in Python</a> which I am eagerly waiting for.</p>
+<p><a href="https://theeffectbook.net/">Nick Huntington-Klien’s The Effect Book</a> rounds up my list of recommended materials. The Effect Book is a comprehensive dive into causal inference paired with research design, and Dr.&nbsp;Huntington-Klien even includes an accompanying <a href="https://www.youtube.com/playlist?list=PLcTBLulJV_AK1hKtnO0-kYrU0D09K-kj8">free Youtube video series</a> along with homework assignments and source code to learn from. The online version of the book is free and you can purchase the print copy from links on its home page.</p>
+</section>
+<section id="materials-for-solo-studying-and-referencing" class="level3">
+<h3 class="anchored" data-anchor-id="materials-for-solo-studying-and-referencing">Materials for solo studying and referencing</h3>
+<p>This is a shorter list of materials that do not come with a ready online community. These are more traditional academic textbooks that I plan to peruse occasionally when referencing a gnarly topic.</p>
+<ul>
+<li><a href="https://mitpress.mit.edu/9780262037310/elements-of-causal-inference/#:~:text=Elements%20of%20Causal%20Inference%20is,data%20to%20understand%20the%20world.">Elements of Causal Inference</a></li>
+<li><a href="https://www.amazon.com/Field-Experiments-Design-Analysis-Interpretation/dp/0393979954">Field Experiments: Design, Analysis, and Interpretation</a></li>
+<li><a href="https://economics.ut.ac.ir/documents/3030266/14100645/Jeffrey_M._Wooldridge_Introductory_Econometrics_A_Modern_Approach__2012.pdf">Introductory Econometrics A Modern Approach</a></li>
+</ul>
+</section>
+</section>
+<section id="learning-by-doing" class="level2">
+<h2 class="anchored" data-anchor-id="learning-by-doing">Learning by doing</h2>
+<p>This is a rough draft of the type of projects I can do during this year to complement my primary study of online materials. ### Causal Inference Projects I plan to work my way up from simple notebooks and exercises illustrating the usage of one of the many causal inference libraries. Eventually, being able to complete a larger analysis more akin to the type of problems I hope to address at work. I would like the opportunity to try out several different libraries from a variety of programming languages, if applicable. I bookmarked <a href="https://emilyriederer.netlify.app/post/causal-design-patterns/">Emily Riederer’s blog on Causal Design Patterns for Data Analysts</a> for reference, and I hope to be able to implement each of the patterns she describes by the end of the year.</p>
+<section id="learning-about-the-causal-inference-landscape" class="level3">
+<h3 class="anchored" data-anchor-id="learning-about-the-causal-inference-landscape">Learning about the Causal Inference landscape</h3>
+<p>Causal Inference is a broad umbrella comprising of many professionals from a wide swathe of disciplines. Besides learning the technical methodologies, I would like to learn more about the academics, educators and practitioners that make up its global community. Prof.&nbsp;Cunningham also records a <a href="https://podcasts.apple.com/us/podcast/the-mixtape-with-scott/id1615110472">podcast interviewing several causal inference experts</a>. It might be a nice break from studying to allocate some time to listen to their stories and write a few summary posts on my blog.</p>
+</section>
+<section id="blogging" class="level3">
+<h3 class="anchored" data-anchor-id="blogging">Blogging</h3>
+<p>Which brings me to this blog! Last year, I started this blog and published 8 blog articles. I aim to publish 12 this year (mostly about Causal Inference) and share with you the learnings along my journey.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Ok, so that’s the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I’m brimming with excitement, onward!</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2023,
+  author = {Daniel Tan},
+  editor = {},
+  title = {2023 {Year} of {Causal} {Inference}},
+  date = {2023-01-06},
+  url = {https://www.ddanieltan.com/posts/2023-causal-inference},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2023" class="csl-entry quarto-appendix-citeas">
+Daniel Tan. 2023. <span>“2023 Year of Causal Inference.”</span> January
+6, 2023. <a href="https://www.ddanieltan.com/posts/2023-causal-inference">https://www.ddanieltan.com/posts/2023-causal-inference</a>.
+</div></div></section></div> ]]></description>
+  <category>causality</category>
+  <category>learning</category>
+  <guid>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</guid>
+  <pubDate>Thu, 05 Jan 2023 16:00:00 GMT</pubDate>
+  <media:content url="https://imgs.xkcd.com/comics/correlation.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>2022 Year of Scala Recap</title>
   <dc:creator>Daniel Tan</dc:creator>
