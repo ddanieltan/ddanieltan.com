@@ -827,7 +827,7 @@ d3.select(svgRaw)
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "20 October 2022"</code></pre>
+<pre><code>[1] "06 January 2023"</code></pre>
 </div>
 </div>
 
@@ -933,7 +933,7 @@ Note
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "21 September 2022"</code></pre>
+<pre><code>[1] "06 January 2023"</code></pre>
 </div>
 </div>
 
@@ -1052,7 +1052,7 @@ Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/bl
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "21 September 2022"</code></pre>
+<pre><code>[1] "06 January 2023"</code></pre>
 </div>
 </div>
 
@@ -1170,7 +1170,7 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "21 September 2022"</code></pre>
+<pre><code>[1] "06 January 2023"</code></pre>
 </div>
 </div>
 
@@ -1341,7 +1341,7 @@ Note
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "21 September 2022"</code></pre>
+<pre><code>[1] "06 January 2023"</code></pre>
 </div>
 </div>
 
@@ -1424,7 +1424,7 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "21 September 2022"</code></pre>
+<pre><code>[1] "06 January 2023"</code></pre>
 </div>
 </div>
 
