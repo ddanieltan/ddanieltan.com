@@ -64,7 +64,8 @@ This is a shorter list of materials that do not come with a ready online communi
 - [Introductory Econometrics A Modern Approach](https://economics.ut.ac.ir/documents/3030266/14100645/Jeffrey_M._Wooldridge_Introductory_Econometrics_A_Modern_Approach__2012.pdf)
 
 ## Learning by doing
-This is a rough draft of the type of projects I can do during this year to complement my primary study of online materials. 
+This is a rough draft of the type of projects I can do during this year to complement my learning.
+
 ### Causal Inference Projects
 I plan to work my way up from simple notebooks and exercises illustrating the usage of one of the many causal inference libraries. Eventually, being able to complete a larger analysis more akin to the type of problems I hope to address at work. I would like the opportunity to try out several different libraries from a variety of programming languages, if applicable. I bookmarked [Emily Riederer's blog on Causal Design Patterns for Data Analysts](https://emilyriederer.netlify.app/post/causal-design-patterns/) for reference, and I hope to be able to implement each of the patterns she describes by the end of the year.
 
