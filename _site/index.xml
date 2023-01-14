@@ -9,7 +9,7 @@
 <link>https://www.ddanieltan.com/index.html</link>
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.1.251</generator>
+<generator>quarto-1.2.313</generator>
 <lastBuildDate>Thu, 05 Jan 2023 16:00:00 GMT</lastBuildDate>
 <item>
   <title>2023 Year of Causal Inference</title>
@@ -105,7 +105,6 @@
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2023,
   author = {Daniel Tan},
-  editor = {},
   title = {2023 {Year} of {Causal} {Inference}},
   date = {2023-01-06},
   url = {https://www.ddanieltan.com/posts/2023-causal-inference},
@@ -238,7 +237,6 @@ Note
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {2022 {Year} of {Scala} {Recap}},
   date = {2022-12-31},
   url = {https://www.ddanieltan.com/posts/2022scala-recap},
@@ -339,7 +337,6 @@ Daniel Tan. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {2022 {NormConf} - {My} Favourite Talks},
   date = {2022-12-20},
   url = {https://www.ddanieltan.com/posts/2022-normconf},
@@ -475,7 +472,6 @@ December 20, 2022. <a href="https://www.ddanieltan.com/posts/2022-normconf">http
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {Scala Tips for {Advent} of {Code} 2022},
   date = {2022-11-30},
   url = {https://www.ddanieltan.com/posts/aocScala},
@@ -778,7 +774,7 @@ November 30, 2022. <a href="https://www.ddanieltan.com/posts/aocScala">https://w
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart TD
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart TD
     A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)
     B --&gt;|inspired| C(My Broadway Boogie Woogie)
 </pre>
@@ -937,14 +933,13 @@ d3.select(svgRaw)
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "06 January 2023"</code></pre>
+<pre><code>[1] "14 January 2023"</code></pre>
 </div>
 </div>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {Broadway {Boogie} {Woogie}},
   date = {2022-10-12},
   url = {https://www.ddanieltan.com/posts/boogiewoogie},
@@ -1043,14 +1038,13 @@ Note
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "06 January 2023"</code></pre>
+<pre><code>[1] "14 January 2023"</code></pre>
 </div>
 </div>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {How to Add Some Personality to Your {Quarto} {Blog}},
   date = {2022-09-20},
   url = {https://www.ddanieltan.com/posts/blogtips},
@@ -1162,14 +1156,13 @@ Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/bl
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "06 January 2023"</code></pre>
+<pre><code>[1] "14 January 2023"</code></pre>
 </div>
 </div>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {2022: {My} {Year} of {Scala}},
   date = {2022-09-15},
   url = {https://www.ddanieltan.com/posts/2022scala},
@@ -1280,14 +1273,13 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "06 January 2023"</code></pre>
+<pre><code>[1] "14 January 2023"</code></pre>
 </div>
 </div>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {How {I} Sync My Config Files with {Stow}},
   date = {2022-08-27},
   url = {https://www.ddanieltan.com/posts/stow},
@@ -1534,14 +1526,13 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "06 January 2023"</code></pre>
+<pre><code>[1] "14 January 2023"</code></pre>
 </div>
 </div>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
   author = {Daniel Tan},
-  editor = {},
   title = {Hello World},
   date = {2022-07-15},
   url = {https://www.ddanieltan.com/posts/helloworld},

@@ -1,6 +1,6 @@
 project:
   type: website
-  post-render: randomizeFooterQuote.py
+  pre-render: randomizeFooterQuote.py
 
 website:
   title: "ddanieltan.com"
@@ -17,7 +17,7 @@ website:
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/ddanieltan/
-  page-footer: "If your experiment needs statistics, you ought to have done a better experiment - Ernest Rutherford"
+  page-footer: "The reward for good work is more work - Tom Sach"
   google-analytics: "G-BQGXLNCBHY"
 format:
   html:
