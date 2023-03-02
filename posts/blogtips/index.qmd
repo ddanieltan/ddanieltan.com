@@ -64,9 +64,21 @@ Last but not least, let's not forget that some potential readers might land on a
 # Conclusion
 And there you go, hope you found a tip or two you can use. Let's go make your personal slice of the internet your own 💪!
 
-## Last Updated {.appendix}
-```{r}
+## Appendix {.appendix}
+```{python}
 #| echo: false
-today <- Sys.Date()
-format(today, format="%d %B %Y")
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
 ```
+<blockquote>
+```{python}
+#| echo: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
+</blockquote>

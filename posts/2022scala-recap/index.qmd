@@ -112,3 +112,22 @@ I had a blast in 2022 working my way through Scala! It has been one of the most 
 As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.
 
 That said, I am absolutely itching to find a new topic to sink my teeth into for 2023. Let me know if you have any suggestions for me. Happy learning everyone! 🤔🤔🤔
+
+## Appendix {.appendix}
+```{python}
+#| echo: false
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
+```
+<blockquote>
+```{python}
+#| echo: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
+</blockquote>

@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
-    <lastmod>2023-01-14T13:05:59.138Z</lastmod>
+    <lastmod>2023-02-27T15:33:42.222Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/some2/index.html</loc>
-    <lastmod>2023-01-06T09:25:10.608Z</lastmod>
+    <lastmod>2023-03-02T13:03:27.605Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/blogtips/index.html</loc>
-    <lastmod>2023-01-14T13:05:48.861Z</lastmod>
+    <lastmod>2023-03-02T14:26:10.342Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022scala/index.html</loc>
-    <lastmod>2023-01-14T13:05:35.995Z</lastmod>
+    <lastmod>2023-02-27T15:32:58.812Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/stow/index.html</loc>
-    <lastmod>2023-01-14T13:06:06.606Z</lastmod>
+    <lastmod>2023-02-27T15:37:01.318Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/boogiewoogie/index.html</loc>
-    <lastmod>2023-01-14T13:05:53.984Z</lastmod>
+    <lastmod>2023-03-02T14:23:45.603Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/index.html</loc>
-    <lastmod>2023-01-14T13:06:07.747Z</lastmod>
+    <lastmod>2023-03-02T14:25:16.955Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/about.html</loc>
-    <lastmod>2023-01-06T09:28:47.278Z</lastmod>
+    <lastmod>2023-02-18T09:04:13.438Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/expviz/index.html</loc>
@@ -50,11 +50,11 @@
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/aocScala/index.html</loc>
-    <lastmod>2023-01-14T13:05:44.166Z</lastmod>
+    <lastmod>2023-03-02T14:24:07.861Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022-normconf/index.html</loc>
-    <lastmod>2023-01-14T13:05:25.998Z</lastmod>
+    <lastmod>2023-03-02T14:25:24.714Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022-scala-wrapup/index.html</loc>
@@ -62,10 +62,10 @@
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022scala-recap/index.html</loc>
-    <lastmod>2023-01-14T13:05:33.725Z</lastmod>
+    <lastmod>2023-03-02T14:25:15.257Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</loc>
-    <lastmod>2023-01-14T13:05:40.237Z</lastmod>
+    <lastmod>2023-03-02T14:24:18.106Z</lastmod>
   </url>
 </urlset>

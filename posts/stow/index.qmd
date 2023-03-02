@@ -14,7 +14,7 @@ I have one machine for work, one machine for personal stuff and a bunch of serve
 knitr::include_graphics("organized.png")
 ```
 
-As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - [Stow](https://www.gnu.org/software/stow/). Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without. 
+1As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - [Stow](https://www.gnu.org/software/stow/). Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post</p>&mdash; David Robinson (@drob) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -83,15 +83,21 @@ Stowing too many config files can also get out of hand pretty quickly. You proba
 
 Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.
 
-# Conclusions
-> “Life truly begins when you put your house in order.”
-> - Marie Kondo
-
-Couldn't have phrased it better myself! Stow is a great tool to keep your config files sync-ed, do give it a try.
-
-## Last Updated {.appendix}
-```{r}
+## Appendix {.appendix}
+```{python}
 #| echo: false
-today <- Sys.Date()
-format(today, format="%d %B %Y")
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
 ```
+<blockquote>
+```{python}
+#| echo: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
+</blockquote>

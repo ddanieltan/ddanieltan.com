@@ -202,8 +202,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
   <li><a href="#an-organisational-nightmare" id="toc-an-organisational-nightmare" class="nav-link active" data-scroll-target="#an-organisational-nightmare">An organisational nightmare</a></li>
   <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link" data-scroll-target="#the-big-picture">The Big Picture</a></li>
   <li><a href="#syncing-a-config-file-for-the-1st-time" id="toc-syncing-a-config-file-for-the-1st-time" class="nav-link" data-scroll-target="#syncing-a-config-file-for-the-1st-time">Syncing a config file for the 1st time</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a>
   <ul class="collapse">
   <li><a href="#last-updated" id="toc-last-updated" class="nav-link" data-scroll-target="#last-updated">Last Updated</a></li>
   </ul></li>
@@ -266,7 +265,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
+<p>1As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
 <blockquote class="twitter-tweet blockquote">
 <p lang="en" dir="ltr">
 When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
@@ -326,13 +325,6 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 <p>This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.</p>
 <p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
 <p>Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
-</section>
-<section id="conclusions" class="level1">
-<h1>Conclusions</h1>
-<blockquote class="blockquote">
-<p>“Life truly begins when you put your house in order.” - Marie Kondo</p>
-</blockquote>
-<p>Couldn’t have phrased it better myself! Stow is a great tool to keep your config files sync-ed, do give it a try.</p>
 
 </section>
 
@@ -340,9 +332,16 @@ When you’ve written the same code 3 times, write a function<br><br>When you’
 
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "14 January 2023"</code></pre>
+<pre><code>[1] "27 February 2023"</code></pre>
 </div>
 </div>
+<blockquote class="blockquote">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Somewhere, something incredible is waiting to be known - Carl Sagan"</code></pre>
+</div>
+</div>
+</blockquote>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
@@ -605,11 +604,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-      <div class="nav-footer-center">Study hard what interests you the most in the most undisciplined, irreverent and original manner possible - Richard Feynman</div>
-  </div>
-</footer>
 
 
 

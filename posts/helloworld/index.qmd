@@ -42,9 +42,21 @@ Danielle's blog post is the perfect starting template. I found her recommended Y
 #### 3. The small but growing collection of Quarto content online
 At the time of writing, I did not find a large collection of Quarto-specific content online. Nevertheless, I did find some helpful gems from [Youtube videos](https://www.youtube.com/results?search_query=quarto+blog), [Github discussions](https://github.com/quarto-dev/quarto-cli/discussions) or [websites](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/) that had a helpful tip or two that I could use for my blog.
 
-## Last Updated {.appendix}
-```{r}
+## Appendix {.appendix}
+```{python}
 #| echo: false
-today <- Sys.Date()
-format(today, format="%d %B %Y")
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
 ```
+<blockquote>
+```{python}
+#| echo: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
+</blockquote>

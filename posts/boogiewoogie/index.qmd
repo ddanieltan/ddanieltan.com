@@ -326,9 +326,21 @@ Art is not my forte, nor my day job but I enjoyed the challenge of creating my G
 
 <div class="tenor-gif-embed" data-postid="11831081" data-share-method="host" data-aspect-ratio="1.4218" data-width="100%"><a href="https://tenor.com/view/artistry-at-its-finest-art-snoop-dogg-ggn-gif-11831081">Artistry At Its Finest GIF</a>from <a href="https://tenor.com/search/artistry-gifs">Artistry GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-## Last Updated {.appendix}
-```{r}
+## Appendix {.appendix}
+```{python}
 #| echo: false
-today <- Sys.Date()
-format(today, format="%d %B %Y")
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
 ```
+<blockquote>
+```{python}
+#| echo: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
+</blockquote>

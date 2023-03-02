@@ -11,7 +11,7 @@
     "href": "posts/helloworld/index.html#last-updated",
     "title": "Hello world",
     "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"14 January 2023\""
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca"
   },
   {
     "objectID": "posts/some2/index.html",
@@ -39,7 +39,7 @@
     "href": "posts/blogtips/index.html#last-updated",
     "title": "How to add some personality to your Quarto Blog",
     "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"14 January 2023\""
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe try to solve very complicated problems without letting people know how complicated the problem was - Johnathan Ives"
   },
   {
     "objectID": "posts/2022scala/index.html",
@@ -53,21 +53,21 @@
     "href": "posts/2022scala/index.html#last-updated",
     "title": "2022: My Year of Scala",
     "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"14 January 2023\""
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nReading furnishes the mind only with materials of knowledge. It is thinking that makes what we read ours - John Locke"
   },
   {
     "objectID": "posts/stow/index.html",
     "href": "posts/stow/index.html",
     "title": "How I sync my config files with Stow",
     "section": "",
-    "text": "I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.\n\n\n\n\n\nDallE2 art with prompt: ‘Keeping things organized across multiple machines, digital art’\n\n\n\n\nAs this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - Stow. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.\n\n\nWhen you’ve written the same code 3 times, write a functionWhen you’ve given the same in-person advice 3 times, write a blog post\n\n— David Robinson (@drob) November 9, 2017\n\n\nI find myself bringing up Stow pretty often in conversations so I wanted to take @drob’s advice. However, as there are many excellent blogs that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe."
+    "text": "I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.\n\n\n\n\n\nDallE2 art with prompt: ‘Keeping things organized across multiple machines, digital art’\n\n\n\n\n1As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - Stow. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.\n\n\nWhen you’ve written the same code 3 times, write a functionWhen you’ve given the same in-person advice 3 times, write a blog post\n\n— David Robinson (@drob) November 9, 2017\n\n\nI find myself bringing up Stow pretty often in conversations so I wanted to take @drob’s advice. However, as there are many excellent blogs that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe."
   },
   {
     "objectID": "posts/stow/index.html#last-updated",
     "href": "posts/stow/index.html#last-updated",
     "title": "How I sync my config files with Stow",
     "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"14 January 2023\""
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\n[1] \"Somewhere, something incredible is waiting to be known - Carl Sagan\""
   },
   {
     "objectID": "posts/boogiewoogie/index.html",
@@ -81,7 +81,7 @@
     "href": "posts/boogiewoogie/index.html#last-updated",
     "title": "Broadway Boogie Woogie",
     "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"14 January 2023\""
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca"
   },
   {
     "objectID": "index.html",
@@ -95,7 +95,7 @@
     "href": "about.html",
     "title": "Daniel Tan",
     "section": "",
-    "text": "I currently work on Experimentation @Apple. Previously, I worked on Personalisation @OCBC AI Labs and on the metasearch auction @TripAdvisor.\nOcassionally, I teach data science workshops @General Assembly and @Vertical Institute."
+    "text": "Hi 👋, I’m Daniel, a data scientist based in Singapore.\nI currently work on Experimentation @Apple. Previously, I worked on Personalisation @OCBC AI Labs and on the metasearch auction @TripAdvisor.\nOcassionally, I teach data science workshops @General Assembly and @Vertical Institute."
   },
   {
     "objectID": "posts/expviz/index.html",
@@ -235,7 +235,7 @@
     "href": "posts/2022scala-recap/index.html",
     "title": "2022 Year of Scala Recap",
     "section": "",
-    "text": "My Year of Scala\nIn 2022, I chose the Scala programming language as my learning theme. This meant that I would use Scala in projects big and small, with a focus on understanding how I could incorporate Scala into my toolset. I shared my motivations in greater detail in an earlier blogpost 2022: My Year in Scala.\nAs we end 2022, here’s my recap and reflections on how I got to understand this programming language better and what I would recommend if you are interested to do the same.\n\n\nProjects I completed with Scala\nLearning by doing has always been the most effective way to learn new things. One of the advantages to focusing on a single learning goal for an entire year is that I could pepper in both small and large Scala projects. This helped me to protect against my enthusiasm to use Scala for everything, and hopefully I avoided the classic “if all you have is a hammer, everything looks like a nail” trap. Here are some of my favourite projects that I completed with Scala:\n\n1. Built a scala application for Work\nMy impetus to learn Scala was primarily because I had to use it at work, so I am very proud of the fact that I got sufficiently up to speed with Scala within the year to actually build a Scala application that that adds value to myself and my team 😊!\nI won’t dive into specifics on this public platform to respect sensitive work projects. But just to get a sense, this application interacts with an enterprise-grade Spark cluster and handles an enterprise-grade volume of data. Most importantly, this application fills in a gap in our existing tooling and delivers real value for its users. The choice to use Scala for this application was perfect because there was plenty of interaction with Spark and that it fits in well with our existing codebase.\n\n\nDid I mention “enterprise-grade” enough? 😆\n\n\n2. Built a Random Number Generator for School\nI took a course on Simulation and Modeling as part of my part-time masters programme this year. Our final project had a variety of questions and I chose to attempt one that required an implementation of one of the many Random Number Generators learnt in class.\nI used Scala to build a Tausworthe Generator that required multiple data transformations and bitwise operations. I reflected that Scala’s Type system and ease of data transformation patterns made for such a great fit for this project.\n\n\n3. Attempted this year’s Advent of Code in Scala\nEvery year, I get excited for the global coding challenge known as the Advent of Code. In preparation, I worked my way through the Scala solutions for 2021’s AoC and consolidated a few Scala tips in this blog post.\nUsing Scala for 2022’s challenge was also incredibly fun! The challenge really nailed home that Scala is a high level language well-suited for the general problem solving. In particular, I really enjoyed Scala’s flexibility as it relates to using mutable/immutable data structures. While the immutability is encouraged as a default, no one bats an eyelid if you choose to use mutability on occasion, because frankly some problems in AoC are much easier to grok that way.\n\n\n\nWhat I liked about Scala\nAfter a year of trying to learn not just the syntax of the language but also appreciate its design, my favourite thing about Scala is how ergonomic it makes writing code feel.\nScala reminds me of several specially crafted ergonomic tools that I have come across, such as the Eames chair or the Dvorak keyboard. On first impression, most people find these tools strange and question why anyone would use something so different from the norm. I certainly felt that same way approaching Scala, coming from a primarily Python background. I could not understand why there was such an emphasis on the Type system, the functional patterns seemed foreign to me and I was curious why there was a small niche community that seemed so fervent in their support for this strange language.\nI am glad I had an entire year to incorporate Scala into my daily tasks, because I eventually grew to enjoy Scala. Scala has an expressiveness that seeps into how I approach problems, and how I think about solutions. I still find reading scala code idiosyncratic at times but I also get occasional Aha moments where I appreciate the elegance of how a solution is communicated. Similar to the aforementioned designer chair and keyboard layout, once you commit to using these tools, you start to appreciate its intentional design and ergonomic benefits.\nWhile its community and usage is (and probably will always be) niche, I have also found them to be welcoming and patient with new users like me! You can connect with the community primarily on the Scala Discord server or on /r/scala.\nI consider myself way too green to give a proper commentary on Scala’s core design so instead let me echo this point from Li Haoyi’s Hacker News thread about Scala. Comparing programming languages is complicated, but from a distance, it truly does feel like many other languages are converging to the features Scala provides today. And, I think this says a lot about how thoughtful and well implemented the Scala language is.\n\n\nWhat I disliked about Scala\nTo keep things balanced, I also want to touch upon things I struggled with this year.\n\n1. Tooling\nI did not enjoy the “enterprise-grade” Scala build tool sbt. That sbt once represented “Simple Build Tool” must surely be someone’s cruel joke. I remember vividly being particularly annoyed that to run a simple Hello World example, many sites wanted you to first grok sbt. I felt that the context switch to understand build tools in general and sbt in particular took my attention away from trying to learn the basics of Scala.\nI bounced around to other build tools, such as Mill but felt that outside of a handful of projects, I could not find sufficient examples particularly of simpler projects using Mill to help me better understand the tool.\nMy saving grace came later in the year when scala-cli picked up development steam. scala-cli is not a full fledged build tool capable of replacing sbt, but it was exactly the tool a beginner like me was looking for. A simple tool that allows the user to run Scala applications and occasionally handle simple packaging.\nI’m so glad to hear scala-cli might go on to be the default way we execute scala code in the future. I think it would alleviate one of the biggest hurdles beginners have to overcome when first learning Scala.\n\n\n2. Documentation\nI’m probably spoilt by the huge amount of documentation available online for Python and its landscape of libraries. Additionally, it is not just the quantity of documentation and answers for all things Python, it is also the SEO.\nI found it so perplexing that simply Googling a Scala library name and method often does not yield the correct documentation page I am looking for as a top result. Even after I located right ScalaDoc page, I found navigating the page difficult and discoverability for new methods poor. I sorely missed having example lines of code showing a method’s usage which is something I have gotten used to from reading documentation sites for pandas or numpy.\n\n\n\n\n\n\nNote\n\n\n\nAs I’m proofreading my post before publishing, I am pleased to have found that the issue with ScalaDoc’s layout is being fixed! See this reddit post for more info!\n\n\n\n\n\nWhat I Would Recommend\nIf you are embarking on your own Scala learning journey, here are my recommendations.\n\nBasics\nThe best resource I found for learning the basics of the Scala syntax is Scala Exercises, particularly the module introducing the standard library. In there, you will find a dedicated set of explanations and interactive examples for all the key Scala language features.\nAnother great resource for learning the basics would be the official Tour of Scala.\n\n\nPractice\nAs mentioned above, I am a big proponent of learning through practice. So my recommendation is that once you get a good understanding of the basics, you try your hand at completing some classic programming puzzles or tasks. I am very fond of the Advent of Code but feel free to try your hand at other well known resources like Project Euler or Leetcode.\nI would recommend to aim to use Scala’s standard data structures to solve these puzzles. These buiding blocks are incredibly robust and powerful and are key to unlocking a lot of the ergonomy I alluded to earlier.\n\n\nTextbooks\nI surveyed a variety of textbooks in the year, and for the most part, all of them were good. If you’re pressed to choose, I found myself coming back again and again to Hands-On Scala. This textbook was my favourite because it had a nice variety of projects that you could incrementally build along whilst learning more about Scala and its ecosystem.\n\n\nTooling\nFor beginners, I advocate for what I consider to be the most frictionless path to get started writing Scala code:\n\nInstall everything you need to write and run Scala via Coursier\nUse scala-cli for compiling, running and packaging Scala scripts and applications\nUse Vscode with the Metals extension as your development environment.\n\nThere are many alternatives to these technologies but you can take your time to explore them after you get started.\n\n\n\nConclusion\nI had a blast in 2022 working my way through Scala! It has been one of the most interesting and rewarding learning topics I have attempted.\n\n\n\nBonsai Tree/Scala logo – https://lexica.art/prompt/e42e0aba-a2cb-42fe-b952-2abdf8431ef0)\n\n\nAs we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.\nThat said, I am absolutely itching to find a new topic to sink my teeth into for 2023. Let me know if you have any suggestions for me. Happy learning everyone! 🤔🤔🤔\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  title = {2022 {Year} of {Scala} {Recap}},\n  date = {2022-12-31},\n  url = {https://www.ddanieltan.com/posts/2022scala-recap},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “2022 Year of Scala Recap.” December 31,\n2022. https://www.ddanieltan.com/posts/2022scala-recap."
+    "text": "In 2022, I chose the Scala programming language as my learning theme. This meant that I would use Scala in projects big and small, with a focus on understanding how I could incorporate Scala into my toolset. I shared my motivations in greater detail in an earlier blogpost 2022: My Year in Scala.\nAs we end 2022, here’s my recap and reflections on how I got to understand this programming language better and what I would recommend if you are interested to do the same."
   },
   {
     "objectID": "posts/2023-causal-inference/index.html",
@@ -278,5 +278,75 @@
     "title": "2023 Year of Causal Inference",
     "section": "Conclusion",
     "text": "Conclusion\nOk, so that’s the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I’m brimming with excitement, onward!"
+  },
+  {
+    "objectID": "posts/aocScala/index.html#last-updated",
+    "href": "posts/aocScala/index.html#last-updated",
+    "title": "Scala tips for Advent of Code 2022",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nThe reward for good work is more work - Tom Sach"
+  },
+  {
+    "objectID": "posts/2022-normconf/index.html#last-updated",
+    "href": "posts/2022-normconf/index.html#last-updated",
+    "title": "2022 NormConf - My favourite talks",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n\n\n2\n2"
+  },
+  {
+    "objectID": "posts/2023-causal-inference/index.html#last-updated",
+    "href": "posts/2023-causal-inference/index.html#last-updated",
+    "title": "2023 Year of Causal Inference",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nYou don't understand anything until you learn it more than one way - Marvin Minsky"
+  },
+  {
+    "objectID": "posts/2022scala-recap/index.html#last-updated",
+    "href": "posts/2022scala-recap/index.html#last-updated",
+    "title": "2022 Year of Scala Recap",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nSomewhere, something incredible is waiting to be known - Carl Sagan"
+  },
+  {
+    "objectID": "posts/2022-normconf/index.html#appendix",
+    "href": "posts/2022-normconf/index.html#appendix",
+    "title": "2022 NormConf - My favourite talks",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nStudy hard what interests you the most in the most undisciplined,\nirreverent and original manner possible -- Richard Feynman"
+  },
+  {
+    "objectID": "posts/boogiewoogie/index.html#appendix",
+    "href": "posts/boogiewoogie/index.html#appendix",
+    "title": "Broadway Boogie Woogie",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nStudy hard what interests you the most in the most undisciplined,\nirreverent and original manner possible -- Richard Feynman"
+  },
+  {
+    "objectID": "posts/blogtips/index.html#appendix",
+    "href": "posts/blogtips/index.html#appendix",
+    "title": "How to add some personality to your Quarto Blog",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nYou don't understand anything until you learn it more than one way --\nMarvin Minsky"
+  },
+  {
+    "objectID": "posts/aocScala/index.html#appendix",
+    "href": "posts/aocScala/index.html#appendix",
+    "title": "Scala tips for Advent of Code 2022",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nSomewhere, something incredible is waiting to be known -- Carl Sagan"
+  },
+  {
+    "objectID": "posts/2023-causal-inference/index.html#appendix",
+    "href": "posts/2023-causal-inference/index.html#appendix",
+    "title": "2023 Year of Causal Inference",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nYou don't understand anything until you learn it more than one way --\nMarvin Minsky"
+  },
+  {
+    "objectID": "posts/2022scala-recap/index.html#appendix",
+    "href": "posts/2022scala-recap/index.html#appendix",
+    "title": "2022 Year of Scala Recap",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nI am convinced the best learning takes place when the learner takes\ncharge -- Seymour Papert"
   }
 ]

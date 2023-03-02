@@ -3,7 +3,6 @@ title: "Scala tips for Advent of Code 2022"
 description: "Twas the night before AOC"
 date: "2022-11-30"
 categories: [scala, adventofcode]
-#image
 ---
 # December is upon us 🎄🎅🏻🎄
 ## The Advent of Code
@@ -105,3 +104,22 @@ val successfulActions = actions.filter(_.isSuccess) // List(Success(value = 2))
 
 # Conclusion
 And, there you go! Hope these were useful tips and that I got you excited to try them out for 2022's Advent of Code. Happy coding!
+
+## Appendix {.appendix}
+```{python}
+#| echo: false
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
+```
+<blockquote>
+```{python}
+#| echo: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
+</blockquote>
