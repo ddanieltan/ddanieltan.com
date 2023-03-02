@@ -21,21 +21,19 @@ An important facet that Quarto supports is [Scholarly Writing](https://quarto.or
 
 This [appendix section](https://quarto.org/docs/authoring/appendices.html) is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a `Last Updated` section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.
 
-```` default
-## Last Updated {.appendix}
-```{{r}}
-#| echo: false
-today <- Sys.Date()
-format(today, format="%d %B %Y")
+```{python}
+#| echo: fenced
+#| output: false
+from datetime import date
+print(f"Last updated: {date.today().strftime('%d %B %y')}")
 ```
-````
 
 If you like to do more than just log a post's last update, I recommend checking out [Danielle Navarro's](https://blog.djnavarro.net/) [source code](https://github.com/djnavarro/quarto-blog) for her quarto blog for a more impressive appendix. 
 
 # 2. Make custom CSS tweaks
 The default Quarto blog comes ready with many Bootstrap themes from the [Bootswatch project](https://bootswatch.com/). I found that a really efficient way to tackle styling for your blog is to start with one of these ready-made themes (I chose Litera) and then add on custom css to make small tweaks. I am consistently surprised how some seemingly small css tweaks can create a dramatic effect on your overall site.
 
-I took this the [SCSS snippet](https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss) from this [RappA's youtube video](https://youtu.be/ErRX8plZpQE). This block of css helps to perfectly align the elements in my navbar with the margins of my content body. I cannot express in words how much joy this tiny tweak brings me.
+I wrote this [SCSS snippet](https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss) following steps from [RappA's youtube video](https://youtu.be/ErRX8plZpQE). This block of css helps to perfectly align the elements in my navbar with the margins of my content body. I cannot express in words how much joy this tiny tweak brings me.
 
 ```css
 .navbar > .container-xxl, .navbar > .container-xl, .navbar > .container-lg, .navbar > .container-md, .navbar > .container-sm, .navbar > .container, .navbar > .container-fluid {
@@ -52,9 +50,23 @@ Page footers are generally reserved for important business-y messages. The usual
 Scroll down right now and find your easter-egg quote! Thank you for reading my post in its entirety 😊 
 :::
 
-To keep this experience fresh, I ensure a random quote is chosen from my list of favourites every time I re-render a page. The mechanism that makes this possible is Quarto's [pre and post render hooks](https://quarto.org/docs/projects/scripts.html#pre-and-post-render). Using this feature, you can specify Quarto to run a Typescript, Python, R or Lua script either pre-render or post-render. 
+:::{.callout-note}
+When I first wrote this post, I used Quarto's [pre and post render hooks](https://quarto.org/docs/projects/scripts.html#pre-and-post-render) to insert a new quote into the `page-footer` field of my `_quarto.yml`. But this proved clunky, because `_quarto.yml` was a project-wide config, and I wanted a different quote for every post, which meant I needed to manually trigger this pre-render hook multiple times. As of [this commit](https://github.com/ddanieltan/ddanieltan.com/commit/98c069f1f97fa198fcaa065c87259abae45b72a0), I opted to add my random quotes using code blocks instead. 
+:::
 
-I chose to configure a post-render script. You can see the specifics of how this is implemented (and also sneak a peek at the full list of my favourite quotes) by taking a look at my post-render python script: [randomizeFooterQuotes.py](https://github.com/ddanieltan/ddanieltan.com/blob/main/randomizeFooterQuote.py). 
+I maintain a simple text file with quotes that I enjoy. I simply pick a random quote from this file, wrap the text and insert the output into `<blockquote>` tags like so.
+
+```{python}
+#| echo: fenced
+#| output: false
+import random
+import textwrap
+with open("../../quotes.txt") as f:
+    quotes = f.readlines()
+quotes = [q.strip() for q in quotes]
+res = random.choice(quotes)
+print("\n".join(textwrap.wrap(res)))
+```
 
 # 4. Create a custom 404 page
 Last but not least, let's not forget that some potential readers might land on a missing page, or use a url with a small typo. No reason to let them be greeted with a humdrum, run-of-the-mill 404 page! Quarto allows you to easily [customize your 404 page](https://quarto.org/docs/websites/website-navigation.html#pages-404). For [my 404 page](https://www.ddanieltan.com/404.html), I chose this simple image I created with DallE2.

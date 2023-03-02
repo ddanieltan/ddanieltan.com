@@ -1059,18 +1059,22 @@ Note
 <h1>1. Enrich your Appendices</h1>
 <p>An important facet that Quarto supports is <a href="https://quarto.org/docs/authoring/title-blocks.html">Scholarly Writing</a>. With a few simple flags in your <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/posts/_metadata.yml">_metadata.yml</a> file, you can easily configure each blog post to neatly organize your footnotes, references, license and citation information in an appendix section at the bottom of your post.</p>
 <p>This <a href="https://quarto.org/docs/authoring/appendices.html">appendix section</a> is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a <code>Last Updated</code> section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1">## Last Updated {.appendix}</span>
-<span id="cb1-2">```{r}</span>
-<span id="cb1-3">#| echo: false</span>
-<span id="cb1-4">today &lt;- Sys.Date()</span>
-<span id="cb1-5">format(today, format="%d %B %Y")</span>
-<span id="cb1-6">```</span></code></pre></div>
+<div class="cell" data-execution_count="1">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="in" style="color: #5E5E5E;">```{python}</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;">#| output: false</span></span>
+<span id="cb1-3"><span class="im" style="color: #00769E;">from</span> datetime <span class="im" style="color: #00769E;">import</span> date</span>
+<span id="cb1-4"><span class="bu" style="color: null;">print</span>(<span class="ss" style="color: #20794D;">f"Last updated: </span><span class="sc" style="color: #5E5E5E;">{</span>date<span class="sc" style="color: #5E5E5E;">.</span>today()<span class="sc" style="color: #5E5E5E;">.</span>strftime(<span class="st" style="color: #20794D;">'</span><span class="sc" style="color: #5E5E5E;">%d</span><span class="st" style="color: #20794D;"> %B %y'</span>)<span class="sc" style="color: #5E5E5E;">}</span><span class="ss" style="color: #20794D;">"</span>)</span>
+<span id="cb1-5"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
+</details>
+</div>
 <p>If you like to do more than just log a post’s last update, I recommend checking out <a href="https://blog.djnavarro.net/">Danielle Navarro’s</a> <a href="https://github.com/djnavarro/quarto-blog">source code</a> for her quarto blog for a more impressive appendix.</p>
 </section>
 <section id="make-custom-css-tweaks" class="level1">
 <h1>2. Make custom CSS tweaks</h1>
 <p>The default Quarto blog comes ready with many Bootstrap themes from the <a href="https://bootswatch.com/">Bootswatch project</a>. I found that a really efficient way to tackle styling for your blog is to start with one of these ready-made themes (I chose Litera) and then add on custom css to make small tweaks. I am consistently surprised how some seemingly small css tweaks can create a dramatic effect on your overall site.</p>
-<p>I took this the <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss">SCSS snippet</a> from this <a href="https://youtu.be/ErRX8plZpQE">RappA’s youtube video</a>. This block of css helps to perfectly align the elements in my navbar with the margins of my content body. I cannot express in words how much joy this tiny tweak brings me.</p>
+<p>I wrote this <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/custom.scss">SCSS snippet</a> following steps from <a href="https://youtu.be/ErRX8plZpQE">RappA’s youtube video</a>. This block of css helps to perfectly align the elements in my navbar with the margins of my content body. I cannot express in words how much joy this tiny tweak brings me.</p>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-xxl</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-xl</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-lg</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-md</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-sm</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container</span><span class="op" style="color: #5E5E5E;">,</span> <span class="fu" style="color: #4758AB;">.navbar</span> <span class="op" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">.container-fluid</span> {</span>
 <span id="cb2-2">  <span class="kw" style="color: #003B4F;">max-width</span>: <span class="dv" style="color: #AD0000;">1145</span><span class="dt" style="color: #AD0000;">px</span><span class="op" style="color: #5E5E5E;">;</span></span>
 <span id="cb2-3">  <span class="kw" style="color: #003B4F;">margin</span>: <span class="dv" style="color: #AD0000;">0</span> <span class="bu" style="color: null;">auto</span><span class="op" style="color: #5E5E5E;">;</span></span></code></pre></div>
@@ -1086,8 +1090,35 @@ Note
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Scroll down right now and find your easter-egg quote! Thank you for reading my post in its entirety 😊</p>
-</div></div><p>To keep this experience fresh, I ensure a random quote is chosen from my list of favourites every time I re-render a page. The mechanism that makes this possible is Quarto’s <a href="https://quarto.org/docs/projects/scripts.html#pre-and-post-render">pre and post render hooks</a>. Using this feature, you can specify Quarto to run a Typescript, Python, R or Lua script either pre-render or post-render.</p>
-<p>I chose to configure a post-render script. You can see the specifics of how this is implemented (and also sneak a peek at the full list of my favourite quotes) by taking a look at my post-render python script: <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/randomizeFooterQuote.py">randomizeFooterQuotes.py</a>.</p>
+</div></div><div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When I first wrote this post, I used Quarto’s <a href="https://quarto.org/docs/projects/scripts.html#pre-and-post-render">pre and post render hooks</a> to insert a new quote into the <code>page-footer</code> field of my <code>_quarto.yml</code>. But this proved clunky, because <code>_quarto.yml</code> was a project-wide config, and I wanted a different quote for every post, which meant I needed to manually trigger this pre-render hook multiple times. As of <a href="https://github.com/ddanieltan/ddanieltan.com/commit/98c069f1f97fa198fcaa065c87259abae45b72a0">this commit</a>, I opted to add my random quotes using code blocks instead.</p>
+</div>
+</div>
+<p>I maintain a simple text file with quotes that I enjoy. I simply pick a random quote from this file, wrap the text and insert the output into <code>&lt;blockquote&gt;</code> tags like so.</p>
+<div class="cell" data-execution_count="2">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><span class="in" style="color: #5E5E5E;">```{python}</span></span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;">#| output: false</span></span>
+<span id="cb3-3"><span class="im" style="color: #00769E;">import</span> random</span>
+<span id="cb3-4"><span class="im" style="color: #00769E;">import</span> textwrap</span>
+<span id="cb3-5"><span class="cf" style="color: #003B4F;">with</span> <span class="bu" style="color: null;">open</span>(<span class="st" style="color: #20794D;">"../../quotes.txt"</span>) <span class="im" style="color: #00769E;">as</span> f:</span>
+<span id="cb3-6">    quotes <span class="op" style="color: #5E5E5E;">=</span> f.readlines()</span>
+<span id="cb3-7">quotes <span class="op" style="color: #5E5E5E;">=</span> [q.strip() <span class="cf" style="color: #003B4F;">for</span> q <span class="kw" style="color: #003B4F;">in</span> quotes]</span>
+<span id="cb3-8">res <span class="op" style="color: #5E5E5E;">=</span> random.choice(quotes)</span>
+<span id="cb3-9"><span class="bu" style="color: null;">print</span>(<span class="st" style="color: #20794D;">"</span><span class="ch" style="color: #20794D;">\n</span><span class="st" style="color: #20794D;">"</span>.join(textwrap.wrap(res)))</span>
+<span id="cb3-10"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
+</details>
+</div>
 </section>
 <section id="create-a-custom-404-page" class="level1">
 <h1>4. Create a custom 404 page</h1>
@@ -1107,16 +1138,15 @@ Note
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>Last updated: 02 March 23</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
-<pre><code>You don't understand anything until you learn it more than one way --
-Marvin Minsky</code></pre>
+<pre><code>Die trying -- Van Neistat</code></pre>
 </div>
 </div>
 </blockquote>
