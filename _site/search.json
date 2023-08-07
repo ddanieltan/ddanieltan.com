@@ -1,96 +1,5 @@
 [
   {
-    "objectID": "posts/helloworld/index.html",
-    "href": "posts/helloworld/index.html",
-    "title": "Hello world",
-    "section": "",
-    "text": "I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable tool for both my professional and personal life. It helps me to organise my thoughts, maximise my impact and reflect on my learnings. Yet, I have consistently not prioritised writing and it is a disservice to myself that I have not made set aside time for deliberate practice.\nI have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.\nHere’s to another shot at this. Wish me luck!\n\n\n\n\n\nMy visualisation of Hello world + Quarto logo"
-  },
-  {
-    "objectID": "posts/helloworld/index.html#last-updated",
-    "href": "posts/helloworld/index.html#last-updated",
-    "title": "Hello world",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca"
-  },
-  {
-    "objectID": "posts/some2/index.html",
-    "href": "posts/some2/index.html",
-    "title": "Explainers: Inverse Transform Theorem",
-    "section": "",
-    "text": "Note\n\n\n\nThis post is my submission to 2022’s Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. I thoroughly enjoyed learning from the submissions from SoME1, and thought to scrape my spare time together this year to submit something for SoME2.\nYou can learn more about #SoME2 from Grant Sanderson’s(3B1B) video."
-  },
-  {
-    "objectID": "posts/some2/index.html#last-updated",
-    "href": "posts/some2/index.html#last-updated",
-    "title": "Explainers: Inverse Transform Theorem",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"06 January 2023\""
-  },
-  {
-    "objectID": "posts/blogtips/index.html",
-    "href": "posts/blogtips/index.html",
-    "title": "How to add some personality to your Quarto Blog",
-    "section": "",
-    "text": "The basic Quarto blog covers a lot of ground. Here is a detailed walkthrough of how to build a blog with Quarto conducted by Rstudio/Posit, the makers of Quarto. Just following this alone will get you started with a perfectly beautiful and functional blog. \nHowever, your blog is also your personal slice out on the internet, and if you can add just a tad bit of your personality into the content, it makes it more enjoyable for your readers. Here are my favourite tips.\n\n\n\n\n\n\nNote\n\n\n\nWhile it is fun to add these bells and whistles, do not lose focus on the most important part of your blog - the content."
-  },
-  {
-    "objectID": "posts/blogtips/index.html#last-updated",
-    "href": "posts/blogtips/index.html#last-updated",
-    "title": "How to add some personality to your Quarto Blog",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe try to solve very complicated problems without letting people know how complicated the problem was - Johnathan Ives"
-  },
-  {
-    "objectID": "posts/2022scala/index.html",
-    "href": "posts/2022scala/index.html",
-    "title": "2022: My Year of Scala",
-    "section": "",
-    "text": "Neil Gaiman, illustrious author and everlasting source of wit, has a really cool mental exercise to help him complete his projects.\n\nYou don’t have to write. You have permission to not write, but you don’t have permission to do anything else.\n\n\nI would go down to my lovely little gazebo at the bottom of the garden, sit down, and I’m absolutely allowed not to do anything. I’m allowed to sit at my desk, I’m allowed to stare out at the world, I’m allowed to do anything I like, as long as it isn’t anything. Not allowed to do a crossword, not allowed to read a book, not allowed to phone a friend, not allowed to make a clay model of something. All I’m allowed to do is absolutely nothing, or write.\n\nFor a couple of years now, I have adapted a version of this exercise to help me complete my learning projects. Every year I make the grand announcement that this will be the year of X. Where X is a learning topic or a new programming language that I wish to focus on.\n\n\nI declared this my year of Scala all the way back in Jan, but I only started this blog in July, which is why this post is published in September 😅.\n\n\n\n🎉 2022 year is my year of Scala! 🎉\n\n\nInspired by Neil’s rules, my rules for this year are:\n\nFor every project that requires coding, I am going to try and use Scala\nBut, I give myself permission to not use Scala if it is just not the right option for my use case\nHowever, I do not have permission to try out any other shiny new programming language I might be tempted by"
-  },
-  {
-    "objectID": "posts/2022scala/index.html#last-updated",
-    "href": "posts/2022scala/index.html#last-updated",
-    "title": "2022: My Year of Scala",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nReading furnishes the mind only with materials of knowledge. It is thinking that makes what we read ours - John Locke"
-  },
-  {
-    "objectID": "posts/stow/index.html",
-    "href": "posts/stow/index.html",
-    "title": "How I sync my config files with Stow",
-    "section": "",
-    "text": "I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.\n\n\n\n\n\nDallE2 art with prompt: ‘Keeping things organized across multiple machines, digital art’\n\n\n\n\n1As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - Stow. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.\n\n\nWhen you’ve written the same code 3 times, write a functionWhen you’ve given the same in-person advice 3 times, write a blog post\n\n— David Robinson (@drob) November 9, 2017\n\n\nI find myself bringing up Stow pretty often in conversations so I wanted to take @drob’s advice. However, as there are many excellent blogs that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe."
-  },
-  {
-    "objectID": "posts/stow/index.html#last-updated",
-    "href": "posts/stow/index.html#last-updated",
-    "title": "How I sync my config files with Stow",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\n[1] \"Somewhere, something incredible is waiting to be known - Carl Sagan\""
-  },
-  {
-    "objectID": "posts/boogiewoogie/index.html",
-    "href": "posts/boogiewoogie/index.html",
-    "title": "Broadway Boogie Woogie",
-    "section": "",
-    "text": "Code\nhtml`\n<button id=\"update\">Boogie!</button>\n`\n\n\n\n\n\n\n\n\n\nCode\n{\n    const svgRaw = htl.svg`<svg></svg>`\n    const svg = d3.select(svgRaw)\n    .attr(\"width\",500)\n    .attr(\"height\",500)\n    .style(\"background-color\",\"#e5e4f0\")\n\n    function randomData() {\n        return Array.from({length: 50}, () => Math.floor(Math.random() * 100))\n    }\n\n    function colourMap(num) {\n        if (num >= 0 && num <= 65) { return \"yellow\"}\n        if (num >= 66 && num <= 80) { return \"black\"}\n        if (num>= 81 && num <=85) {return \"red\"}\n        if (num>= 86 && num <=100) {return \"grey\"}\n    }\n\n    function horizontalStreets(yPosArray) {\n        for (let i=0; i<yPosArray.length; i++){\n            svg.selectAll(\"horizontal\")\n            .data(randomData())\n            .join(\n                enter => enter.append(\"rect\")\n                    .attr(\"class\",\"horizontal\")\n                    .attr(\"x\", function(d,i) {return i*10})\n                    .attr(\"y\", yPosArray[i])\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update => update,\n               exit => exit.remove()\n            )\n        }\n    }\n\n    function verticalStreets(xPosArray) {\n        for (let i=0; i<xPosArray.length; i++){\n            svg.selectAll(\"vertical\")\n            .data(randomData())\n            .join(\n                enter => enter.append(\"rect\")\n                    .attr(\"class\",\"vertical\")\n                    .attr(\"x\", xPosArray[i])\n                    .attr(\"y\", function(d,i) {return i*10})\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update => update,\n               exit => exit.remove()\n            )\n            \n        }\n    }\n\n    function moveBlock(d, i) {\n        d3.select(this)\n        .transition()\n            .attr(\"x\", Math.floor(Math.random() * 500))\n            .attr(\"y\", Math.floor(Math.random() * 500))\n    }\n\n    // Initial draw\n    horizontalStreets([10,50,120,150,220,250,280,340,440])\n    verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n    \n    var blue1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 50)\n        .attr(\"y\", 80)\n        .attr(\"width\", 30)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"blue\");\n    \n    var blue2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 50)\n        .attr(\"y\", 350)\n        .attr(\"width\", 40)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var blue3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 160)\n        .attr(\"y\", 260)\n        .attr(\"width\", 30)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"blue\");\n    \n    var blue4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 380)\n        .attr(\"y\", 160)\n        .attr(\"width\", 50)\n        .attr(\"height\", 100)\n        .style(\"fill\", \"blue\");\n\n    var blue5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 410)\n        .attr(\"y\", 350)\n        .attr(\"width\", 40)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var red1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n        .attr(\"y\", 20)\n        .attr(\"width\", 20)\n        .attr(\"height\", 90)\n        .style(\"fill\", \"red\");\n\n    var red2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 130)\n        .attr(\"y\", 20)\n        .attr(\"width\", 40)\n        .attr(\"height\", 60)\n        .style(\"fill\", \"red\");\n\n    var red3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n        .attr(\"y\", 270)\n        .attr(\"width\", 60)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"red\");\n    \n    var red4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 290)\n        .attr(\"y\", 200)\n        .attr(\"width\", 60)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"red\");\n\n    var red5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 340)\n        .attr(\"y\", 300)\n        .attr(\"width\", 50)\n        .attr(\"height\", 70)\n        .style(\"fill\", \"red\");\n    \n    var gray1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 140)\n        .attr(\"y\", 40)\n        .attr(\"width\", 30)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n\n    var gray2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n        .attr(\"y\", 110)\n        .attr(\"width\", 50)\n        .attr(\"height\", 70)\n        .style(\"fill\", \"gray\");\n\n    var gray3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n        .attr(\"y\", 370)\n        .attr(\"width\", 30)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"gray\");\n\n    var gray4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 370)\n        .attr(\"y\", 310)\n        .attr(\"width\", 40)\n        .attr(\"height\", 20)\n        .style(\"fill\", \"gray\");\n\n    var gray5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 400)\n        .attr(\"y\", 20)\n        .attr(\"width\", 50)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n   \n\n    // Updated draws\n    d3.select(\"#update\").on(\"click\", function() {\n        horizontalStreets([10,50,120,150,220,250,280,340,440])\n        verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n        d3.selectAll(\".block\").each(moveBlock)\n\n    })\n\n    yield svg.node();\n\n}\n\n\n\n\n\n\n\n\n\nThis is a piece of digital art I created. It features bright colours, straight lines and some fun interactivity.\n\n\nTry clicking the “Boogie!” button\nYou probably realize that my simple artwork is very similar to Piet Mondrian’s iconic Broadway Boogie Woogie. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and whose aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s Museum of Modern Art (MOMA).\n\n\n\nPiet Mondrian’s original Broadway Boogie Woogie\n\n\nIndeed, my amateur recreation is inspired by the original Mondrian, but not directly. In fact, it’s probably more accurate to say, my art piece is a derivative of a derivative.\n\n\nCode\nflowchart TD\n    A(Mondrian's Broadway Boogie Woogie) -->|inspired| B(Tom Sach's Broadway Boogie Woogie)\n    B -->|inspired| C(My Broadway Boogie Woogie)\n\n\n\n\nflowchart TD\n    A(Mondrian's Broadway Boogie Woogie) -->|inspired| B(Tom Sach's Broadway Boogie Woogie)\n    B -->|inspired| C(My Broadway Boogie Woogie)"
-  },
-  {
-    "objectID": "posts/boogiewoogie/index.html#last-updated",
-    "href": "posts/boogiewoogie/index.html#last-updated",
-    "title": "Broadway Boogie Woogie",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "🤔",
-    "section": "",
-    "text": "2023 Year of Causal Inference\n\n\n\n\n\nFor every action there is an equal and opposite reaction\n\n\n\n\n\n\nJanuary 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2022 Year of Scala Recap\n\n\n\n\n\nRecaps, Learnings and Reflections\n\n\n\n\n\n\nDecember 31, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022 NormConf - My favourite talks\n\n\n\n\n\nLessons from real-life data science practitioners\n\n\n\n\n\n\nDecember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nScala tips for Advent of Code 2022\n\n\n\n\n\nTwas the night before AOC\n\n\n\n\n\n\nNovember 30, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBroadway Boogie Woogie\n\n\n\n\n\nBuilding a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to add some personality to your Quarto Blog\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022: My Year of Scala\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow I sync my config files with Stow\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\nExplainers: Inverse Transform Theorem\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHello world\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Daniel Tan",
@@ -98,74 +7,11 @@
     "text": "Hi 👋, I’m Daniel, a data scientist based in Singapore.\nI currently work on Experimentation @Apple. Previously, I worked on Personalisation @OCBC AI Labs and on the metasearch auction @TripAdvisor.\nOcassionally, I teach data science workshops @General Assembly and @Vertical Institute."
   },
   {
-    "objectID": "posts/expviz/index.html",
-    "href": "posts/expviz/index.html",
-    "title": "Riffing on experiment visualisations",
-    "section": "",
-    "text": "Design is not just what it looks like an feels like. Design is how it works. – Steve Jobs\n\nIn my previous post, I created some digital art by trying to replicate an existing piece of art. That was a pretty fun exercise which stimulated a lot of my thoughts about the process of building visualisations.\nSo, as fun project for this post, I have decided to try and collect/recrete/riff on several visualisations for experimentation. In doing so, I aim to improve my understanding how experiment visualisations and try to think of the best ways to present the key messages. As I shared on my [post about creating digital art], I am taking a course on d3.js, so that is the tool I’ll use for this project."
-  },
-  {
-    "objectID": "posts/expviz/index.html#my-riff",
-    "href": "posts/expviz/index.html#my-riff",
-    "title": "Riffing on experiment visualisations",
-    "section": "My riff",
-    "text": "My riff\n\n\nCode\n{\n    const svgRaw = htl.svg`<svg></svg>`\n    const width = 200\n    const height = 400\n    const margin = {top: 20, right: 30, bottom: 30, left: 40}\n    const data = [{\n        variant:\"Control\",\n        value: 13.4,\n        colour: \"lightblue\"\n    }, {\n        variant: \"Treatment\",\n        value: 42.27,\n        colour: \"steelblue\"\n    }]\n\n    const svg = d3.select(svgRaw)\n    .attr(\"width\",width)\n    .attr(\"height\",height)\n    .style(\"background-color\",\"white\")\n    .style(\"stroke\",\"black\")\n    .attr(\"transform\",`translate(${margin.left},${margin.top})`)\n\n    // Axes\n    const xScale = d3.scaleBand()\n        .range([margin.left,width - margin.right])\n        .domain(data.map(d => d.variant))\n        .padding(0.4);\n    svg.append(\"g\")\n      .attr(\"transform\", `translate(0,${height})`)\n      .call(d3.axisBottom(xScale));\n\n    const yScale = d3.scaleLinear()\n        .range([height - margin.bottom, margin.top])\n        .domain([0, 50]);\n    svg.append(\"g\")\n        .call(d3.axisLeft(yScale));\n\n    // Bars\n    svg.selectAll()\n        .data(data)\n        .enter()\n        .append(\"g\")\n        .append(\"rect\")\n        .attr(\"class\",\"bar\")\n        .attr(\"x\", d => xScale(d.variant))\n        .attr(\"y\", d => yScale(d.value))\n        .attr(\"height\", d => height - yScale(d.value))\n        .attr(\"width\", xScale.bandwidth())\n        .style(\"fill\",d => d.colour)\n    \n    yield svg.node();\n\n}"
-  },
-  {
-    "objectID": "posts/expviz/index.html#trial-2",
-    "href": "posts/expviz/index.html#trial-2",
-    "title": "Riffing on experiment visualisations",
-    "section": "Trial 2",
-    "text": "Trial 2\n\n\nCode\nmargin = ({top: 20, right: 30, bottom: 30, left: 40})\nheight = 500\ndata = [{\n        variant:\"Control\",\n        value: 21.23,\n        colour: \"lightblue\"\n    }, {\n        variant: \"Treatment\",\n        value: 42.27,\n        colour: \"steelblue\"\n    }]\n\n\nx = d3.scaleBand()\n    .domain(data.map(d => d.variant))\n    .range([margin.left, width - margin.right])\n    .padding(0.4)\ny = d3.scaleLinear()\n    .domain([0, 50])\n    .range([height - margin.bottom, margin.top])\nxAxis = g => g\n    .attr(\"transform\", `translate(0,${height - margin.bottom})`)\n    .call(d3.axisBottom(x))\nyAxis = g => g\n    .attr(\"transform\", `translate(${margin.left},0)`)\n    .call(d3.axisLeft(y))\n\nchart = {\n  const svg = d3.create(\"svg\")\n      .attr(\"viewBox\", [0, 0, width, height]);\n\n  svg.append(\"g\")\n      .call(xAxis);\n\n  svg.append(\"g\")\n      .call(yAxis);\n\n  svg.selectAll()\n        .data(data)\n        .enter()\n        .append(\"g\")\n        .append(\"rect\")\n        .attr(\"class\",\"bar\")\n        .attr(\"x\", d => x(d.variant))\n        .attr(\"y\", d => y(d.value)-margin.bottom)\n        .attr(\"height\", d => height - y(d.value))\n        .attr(\"width\", x.bandwidth())\n        .style(\"fill\",d => d.colour);\n\n  return svg.node();\n}"
-  },
-  {
-    "objectID": "posts/dataWithScala/index.html",
-    "href": "posts/dataWithScala/index.html",
-    "title": "Scala Data Manipulation",
-    "section": "",
-    "text": "Reusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  editor = {},\n  title = {Scala {Data} {Manipulation}},\n  date = {2022-11-08},\n  url = {https://www.ddanieltan.com/posts/dataWithScala},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “Scala Data Manipulation.” November 8,\n2022. https://www.ddanieltan.com/posts/dataWithScala."
-  },
-  {
-    "objectID": "posts/infer/index.html",
-    "href": "posts/infer/index.html",
-    "title": "Do Upworthy titles blah blah blah",
-    "section": "",
-    "text": "B\n\n\nC\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  editor = {},\n  title = {Do {Upworthy} Titles Blah Blah Blah},\n  date = {2022-11-21},\n  url = {https://www.ddanieltan.com/posts/infer},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “Do Upworthy Titles Blah Blah Blah.”\nNovember 21, 2022. https://www.ddanieltan.com/posts/infer."
-  },
-  {
-    "objectID": "posts/inferUpworthy/index.html",
-    "href": "posts/inferUpworthy/index.html",
-    "title": "Hypothesis testing with Tidymodel’s Infer",
-    "section": "",
-    "text": "The Upworthy Research Archive\nLet me take this opportunity to introduce a rather fascinating dataset for our little exercise. The Upworthy Research Archive is an open dataset showcasing thousands of experiments conducted by Upworthy.com. Each row in this dataset represents a package, which is a variant of a test. A package contains a unique headline and image combination, and records the aggregated impressions and clicks from the random group of users who were exposed to this package. A test consist of multiple packages jointly identified by a common clickability_test_id.\n\n\n\nExample of 4 packages with different headlines and images in the same test. Source: Prof. Matias’s Lecture\n\n\n\n\nDo Headlines matter?\nOne can imagine the key question these experiments are trying to answer is “Does changing an article’s headline or image, meaningfully improve user engagement?”\n\n\nCode\nupworthy <- read_csv(\"upworthy-archive-confirmatory-packages-03.12.2020.csv\")\n\n\nHere is an example of single test in the upworthy dataset, where 4 subtly different headlines are shown to random groups of users.\nWell, that’s where Infer comes in.\n\n\nIf your curiousity is piqued by what the “answer to the poignant question” is, here’s a link to upworthy article\n\n\nCode\nupworthy %>% \n    filter(clickability_test_id == \"527c5cdaf54181002d005141\") %>%\n    select(headline, impressions, clicks) %>%\n    gt()\n\n\n\n\n\n\n  \n  \n    \n      headline\n      impressions\n      clicks\n    \n  \n  \n    See That Girl From The Hunger Games Respond To A Poignant Question\n15858\n498\n    That Girl From The Hunger Games Is Asked A Poignant Question, And I Love Her Answer\n16210\n625\n    That Girl From The Hunger Games Responds To A Question In Such A Poignant Way\n15549\n504\n    See The Girl From The Hunger Games Respond To A Poignant Question In A Wonderful Way\n17582\n566\n  \n  \n  \n\n\n\n\nWe can assume that for each headline variant, an equal group of users would be tagged as eligible to be exposed to the headline. However, running a live experiment on live users with different browsing patterns (and other factors associated with a modern web application), contribute to a different number of impressions served for each variant. Notably, we also record a different number of clicks users made on the article.\nClearly, there are headlines that achieve higher clicks per impressions compared to the other variants in the same test, but how do we know if this increase is not just coming random variance?\nLet’s use Infer to take a swing at answering such questions.\n\n\nWhat is the baseline click per impression rate?\n\n\nCode\nupworthy %>% \n    select(impressions, clicks) %>%\n    mutate(clicks_per_imp = clicks/impressions)\n\n\n# A tibble: 105,550 × 3\n   impressions clicks clicks_per_imp\n         <dbl>  <dbl>          <dbl>\n 1        3118      8        0.00257\n 2        4587    130        0.0283 \n 3        3017     19        0.00630\n 4        2974     26        0.00874\n 5        3050     10        0.00328\n 6        3061     20        0.00653\n 7        2997     20        0.00667\n 8        2959     29        0.00980\n 9        3086     16        0.00518\n10        3068     16        0.00522\n# … with 105,540 more rows\n\n\nWe have a sizeable dataset of ~100,000 rows sdasd\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  editor = {},\n  title = {Hypothesis Testing with {Tidymodel’s} {Infer}},\n  date = {2022-11-21},\n  url = {https://www.ddanieltan.com/posts/inferUpworthy},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “Hypothesis Testing with Tidymodel’s\nInfer.” November 21, 2022. https://www.ddanieltan.com/posts/inferUpworthy."
-  },
-  {
-    "objectID": "posts/inferUpworthy/index.html#do-headlines-matter",
-    "href": "posts/inferUpworthy/index.html#do-headlines-matter",
-    "title": "Do Upworthy titles blah blah blah",
-    "section": "Do Headlines matter?",
-    "text": "Do Headlines matter?\nOne can imagine the key question these experiments are trying to answer is “Does changing an article’s headline or image, meaningfully improve user engagement?”\n\n\nCode\nupworthy <- read_csv(\"upworthy-archive-confirmatory-packages-03.12.2020.csv\")\n\n\n\n\nCode\nupworthy %>% \n    filter(clickability_test_id == \"527c5cdaf54181002d005141\") %>%\n    select(headline, impressions, clicks) %>%\n    gt()\n\n\n\n\n\n\n  \n  \n    \n      headline\n      impressions\n      clicks\n    \n  \n  \n    See That Girl From The Hunger Games Respond To A Poignant Question\n15858\n498\n    That Girl From The Hunger Games Is Asked A Poignant Question, And I Love Her Answer\n16210\n625\n    That Girl From The Hunger Games Responds To A Question In Such A Poignant Way\n15549\n504\n    See The Girl From The Hunger Games Respond To A Poignant Question In A Wonderful Way\n17582\n566"
-  },
-  {
-    "objectID": "posts/aocScala/index.html",
-    "href": "posts/aocScala/index.html",
-    "title": "Scala tips for Advent of Code 2022",
-    "section": "",
-    "text": "Every December, I get excited about a project called the Advent of Code (AOC). Advent of code is a free-to-join daily coding puzzle project that starts on 1 Dec and concludes on the 25th. Each day a two-part question is released on the site to test your problem-solving skills. Many programmers all around the world enjoy solving these puzzles together in a variety of programming languages. This year, being my Year of Scala, it should come as no surprise that I plan on using Scala as my language of choice!\n\n\nAmongst the many different programming languages used for AOC, I am always impressed by the mavericks who choose to use Excel 🤯\n\n\n\nSource: https://thenewstack.io/advent-of-codes-programming-puzzles-set-new-global-record/\n\n\n\n\n\nAn amazing resource we have to prepare for this year’s AOC are the examples and solutions provided by Scala Center for last year’s AOC - Scala Center Solutions to 2021 Advent of Code. Here you can find a variety of solutions using solely Scala’s standard library and showcasing how to best use idiomatic Scala to solve common problems. In this post, I am going to share is a summary of my tips and takeaways."
-  },
-  {
     "objectID": "posts/2022-normconf/index.html",
     "href": "posts/2022-normconf/index.html",
     "title": "2022 NormConf - My favourite talks",
     "section": "",
     "text": "NormConf is a free, virtual tech conference created by Vicki Boykis with a keen focus on all the unglamourous challenges that real-life data science practitioners encounter in their day-to-day work. In an arena where many other tech conferences focus on the latest and greatest, this conference is a breath of fresh air! I can sincerely share that I found more ideas to bring back to try at my work from this conference than any previous conference I have attended.\n\nThe conference was held in a single day, split between 3 sessions and several lightning talks. Each session had about 10 speakers covering a variety of topics. All of these are available for free on NormConf’s youtube channel.\nI spent the weekend catching up on all the talks and wanted to share a couple of my favourites:"
-  },
-  {
-    "objectID": "posts/2022-normconf/index.html#spark-horror-stories-from-the-field---guenia-izquierdo",
-    "href": "posts/2022-normconf/index.html#spark-horror-stories-from-the-field---guenia-izquierdo",
-    "title": "2022 NormConf - My favourite talks",
-    "section": "Spark Horror Stories From The Field - Guenia Izquierdo",
-    "text": "Spark Horror Stories From The Field - Guenia Izquierdo\nThis talk right here is totally my jam. To get to the fun and interesting experiments we conduct at my work, we need to deal with a serious amount of data. At this volume of data, the usage of Spark is non-negotiable and while Spark is an amazing framework for its big data capabilities, it is also such a footgun.\nI wish I had access to Guenia’s talk when I 1st started building Spark applications. Guenia’s talk is useful for anyone who would not only like to be more aware of pitfalls to avoid, but also to better understand the implications for each Spark command you invoke.\nIf you are new to Spark, give Guenia’s Spark crash course at 2:40 a watch! It is one of the clearest and most succint introduction to Spark I have seen presented."
   },
   {
     "objectID": "posts/2022-normconf/index.html#spark-horror-stories-from-the-field-by-guenia-izquierdo",
@@ -182,18 +28,18 @@
     "text": "A Game of Construction by Helena Sarin\n\nArt is all a game of construction. Some with the brush, some with the shovel, some choose the pen and some of us … choose neural networks\n\nThat quote up thre is how Helena started her talk 🤯 and boy was I absolutely blown away. Describing herself as an “engineering-artist”, Helena shared details and examples of her artwork and art process. I was deeply inspired by the many similarities Helena drew between the process of refining art work with the iterative nature of building complex models.\nI have always enjoyed the rare occasion where I get to play with generative art, and listening to a true artist’s artist share about her process was an incredible treat."
   },
   {
-    "objectID": "posts/2022-normconf/index.html#ethan-rosenthal-and-the-m1-misadventure-by-ethan-rosenthal",
-    "href": "posts/2022-normconf/index.html#ethan-rosenthal-and-the-m1-misadventure-by-ethan-rosenthal",
-    "title": "2022 NormConf - My favourite talks",
-    "section": "Ethan Rosenthal and the M1 Misadventure by Ethan Rosenthal",
-    "text": "Ethan Rosenthal and the M1 Misadventure by Ethan Rosenthal\nEthan’s M1 Misadventure covers all the trials and tribulations he went through to get his team’s codebase built on the new M1 Macs, and what can I say… A story about chasing obscure errors, finicky dependencies and the endless loop of upgrading/downgrading/backtracking changes just to get something work? That’s both my guilty pleasure 🍿🍿, as well as, an average work day 🥲.\nEthan makes sure to share some useful tips about Python environments and dependency management too if you’re looking for tips in that category. I enjoyed this talk mostly because it validates that getting that darn code to compile/run is a common problem for any data scientist.\n\n\nThey don’t call it dependency hell for nothing 😈😈😈"
-  },
-  {
     "objectID": "posts/2022-normconf/index.html#ml-doesnt-always-replace-rules-sometimes-they-work-together-by-jeremy-jordan",
     "href": "posts/2022-normconf/index.html#ml-doesnt-always-replace-rules-sometimes-they-work-together-by-jeremy-jordan",
     "title": "2022 NormConf - My favourite talks",
     "section": "ML doesn’t always replace rules, sometimes they work together by Jeremy Jordan",
     "text": "ML doesn’t always replace rules, sometimes they work together by Jeremy Jordan\nJeremy’s talk touches upon a very real set of skills required to run machine learning solutions in a highly regulated environment such as a bank or financial institution. I really enjoyed the nuance Jeremy’s talk provides to how we can combine rules based heuristics and machine learning into a robust policy layer.\nAs with any complex solution, the talk is less of a how-to but more of a framework of discussions you should be looking to have if your team is building a solution that matches this use case."
+  },
+  {
+    "objectID": "posts/2022-normconf/index.html#ethan-rosenthal-and-the-m1-misadventure-by-ethan-rosenthal",
+    "href": "posts/2022-normconf/index.html#ethan-rosenthal-and-the-m1-misadventure-by-ethan-rosenthal",
+    "title": "2022 NormConf - My favourite talks",
+    "section": "Ethan Rosenthal and the M1 Misadventure by Ethan Rosenthal",
+    "text": "Ethan Rosenthal and the M1 Misadventure by Ethan Rosenthal\nEthan’s M1 Misadventure covers all the trials and tribulations he went through to get his team’s codebase built on the new M1 Macs, and what can I say… A story about chasing obscure errors, finicky dependencies and the endless loop of upgrading/downgrading/backtracking changes just to get something work? That’s both my guilty pleasure 🍿🍿, as well as, an average work day 🥲.\nEthan makes sure to share some useful tips about Python environments and dependency management too if you’re looking for tips in that category. I enjoyed this talk mostly because it validates that getting that darn code to compile/run is a common problem for any data scientist.\n\n\nThey don’t call it dependency hell for nothing 😈😈😈"
   },
   {
     "objectID": "posts/2022-normconf/index.html#how-many-folds-is-too-many-efficient-simulation-for-everyday-ml-decisions-by-julia-silge",
@@ -224,11 +70,95 @@
     "text": "How to name files by Jenny Bryan\nIf there was ever 1 topic that anyone, and yes, I mean anyone who works in tech has an opinion on, it’s about the right way of naming files. Jenny’s talk covers her recommendations (I agree with them … mostly). This talk is the one that best fits the “normcore” spirit of the entire conference, you have to watch it."
   },
   {
-    "objectID": "posts/2022-scala-wrapup/index.html",
-    "href": "posts/2022-scala-wrapup/index.html",
-    "title": "2022 Year of Scala Wrap-up",
+    "objectID": "posts/2022-normconf/index.html#appendix",
+    "href": "posts/2022-normconf/index.html#appendix",
+    "title": "2022 NormConf - My favourite talks",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nStudy hard what interests you the most in the most undisciplined,\nirreverent and original manner possible -- Richard Feynman"
+  },
+  {
+    "objectID": "posts/stow/index.html",
+    "href": "posts/stow/index.html",
+    "title": "How I sync my config files with Stow",
     "section": "",
-    "text": "Reusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{tan2022,\n  author = {Daniel Tan},\n  editor = {},\n  title = {2022 {Year} of {Scala} {Wrap-up}},\n  date = {2022-12-31},\n  url = {https://www.ddanieltan.com/posts/2022-scala-wrapup},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nDaniel Tan. 2022. “2022 Year of Scala Wrap-up.” December\n31, 2022. https://www.ddanieltan.com/posts/2022-scala-wrapup."
+    "text": "I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.\n\n\n\n\n\nDallE2 art with prompt: ‘Keeping things organized across multiple machines, digital art’\n\n\n\n\n1As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - Stow. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.\n\n\nWhen you’ve written the same code 3 times, write a functionWhen you’ve given the same in-person advice 3 times, write a blog post\n\n— David Robinson (@drob) November 9, 2017\n\n\nI find myself bringing up Stow pretty often in conversations so I wanted to take @drob’s advice. However, as there are many excellent blogs that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe."
+  },
+  {
+    "objectID": "posts/stow/index.html#last-updated",
+    "href": "posts/stow/index.html#last-updated",
+    "title": "How I sync my config files with Stow",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\n[1] \"Somewhere, something incredible is waiting to be known - Carl Sagan\""
+  },
+  {
+    "objectID": "posts/blogtips/index.html",
+    "href": "posts/blogtips/index.html",
+    "title": "How to add some personality to your Quarto Blog",
+    "section": "",
+    "text": "The basic Quarto blog covers a lot of ground. Here is a detailed walkthrough of how to build a blog with Quarto conducted by Rstudio/Posit, the makers of Quarto. Just following this alone will get you started with a perfectly beautiful and functional blog. \nHowever, your blog is also your personal slice out on the internet, and if you can add just a tad bit of your personality into the content, it makes it more enjoyable for your readers. Here are my favourite tips.\n\n\n\n\n\n\nNote\n\n\n\nWhile it is fun to add these bells and whistles, do not lose focus on the most important part of your blog - the content."
+  },
+  {
+    "objectID": "posts/blogtips/index.html#appendix",
+    "href": "posts/blogtips/index.html#appendix",
+    "title": "How to add some personality to your Quarto Blog",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nDie trying -- Van Neistat"
+  },
+  {
+    "objectID": "posts/some2/index.html",
+    "href": "posts/some2/index.html",
+    "title": "Explainers: Inverse Transform Theorem",
+    "section": "",
+    "text": "Note\n\n\n\nThis post is my submission to 2022’s Summer of Math Exposition 2 (SoME2), a competition encouraging people all around the world to create expository content on their favourite math topics during the summer. I thoroughly enjoyed learning from the submissions from SoME1, and thought to scrape my spare time together this year to submit something for SoME2.\nYou can learn more about #SoME2 from Grant Sanderson’s(3B1B) video.\nCode\nlibrary(tidyverse)\nset.seed(sum(utf8ToInt(\"SoME2\")))"
+  },
+  {
+    "objectID": "posts/some2/index.html#last-updated",
+    "href": "posts/some2/index.html#last-updated",
+    "title": "Explainers: Inverse Transform Theorem",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"06 January 2023\""
+  },
+  {
+    "objectID": "posts/aocScala/index.html",
+    "href": "posts/aocScala/index.html",
+    "title": "Scala tips for Advent of Code 2022",
+    "section": "",
+    "text": "Every December, I get excited about a project called the Advent of Code (AOC). Advent of code is a free-to-join daily coding puzzle project that starts on 1 Dec and concludes on the 25th. Each day a two-part question is released on the site to test your problem-solving skills. Many programmers all around the world enjoy solving these puzzles together in a variety of programming languages. This year, being my Year of Scala, it should come as no surprise that I plan on using Scala as my language of choice!\n\n\nAmongst the many different programming languages used for AOC, I am always impressed by the mavericks who choose to use Excel 🤯\n\n\n\nSource: https://thenewstack.io/advent-of-codes-programming-puzzles-set-new-global-record/\n\n\n\n\n\nAn amazing resource we have to prepare for this year’s AOC are the examples and solutions provided by Scala Center for last year’s AOC - Scala Center Solutions to 2021 Advent of Code. Here you can find a variety of solutions using solely Scala’s standard library and showcasing how to best use idiomatic Scala to solve common problems. In this post, I am going to share is a summary of my tips and takeaways."
+  },
+  {
+    "objectID": "posts/aocScala/index.html#the-advent-of-code",
+    "href": "posts/aocScala/index.html#the-advent-of-code",
+    "title": "Scala tips for Advent of Code 2022",
+    "section": "",
+    "text": "Every December, I get excited about a project called the Advent of Code (AOC). Advent of code is a free-to-join daily coding puzzle project that starts on 1 Dec and concludes on the 25th. Each day a two-part question is released on the site to test your problem-solving skills. Many programmers all around the world enjoy solving these puzzles together in a variety of programming languages. This year, being my Year of Scala, it should come as no surprise that I plan on using Scala as my language of choice!\n\n\nAmongst the many different programming languages used for AOC, I am always impressed by the mavericks who choose to use Excel 🤯\n\n\n\nSource: https://thenewstack.io/advent-of-codes-programming-puzzles-set-new-global-record/"
+  },
+  {
+    "objectID": "posts/aocScala/index.html#scala-centers-solutions-for-2021",
+    "href": "posts/aocScala/index.html#scala-centers-solutions-for-2021",
+    "title": "Scala tips for Advent of Code 2022",
+    "section": "",
+    "text": "An amazing resource we have to prepare for this year’s AOC are the examples and solutions provided by Scala Center for last year’s AOC - Scala Center Solutions to 2021 Advent of Code. Here you can find a variety of solutions using solely Scala’s standard library and showcasing how to best use idiomatic Scala to solve common problems. In this post, I am going to share is a summary of my tips and takeaways."
+  },
+  {
+    "objectID": "posts/aocScala/index.html#appendix",
+    "href": "posts/aocScala/index.html#appendix",
+    "title": "Scala tips for Advent of Code 2022",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nSomewhere, something incredible is waiting to be known -- Carl Sagan"
+  },
+  {
+    "objectID": "posts/helloworld/index.html",
+    "href": "posts/helloworld/index.html",
+    "title": "Hello world",
+    "section": "",
+    "text": "I started this blog to have a place on the internet where I can practice and publish my writing. Writing has been a very remarkable tool for both my professional and personal life. It helps me to organise my thoughts, maximise my impact and reflect on my learnings. Yet, I have consistently not prioritised writing and it is a disservice to myself that I have not made set aside time for deliberate practice.\nI have started and abandoned more blogs than I can remember, so I always start a new blogging project with some apprehension. But, as mentioned above, writing is too important for me to not try again.\nHere’s to another shot at this. Wish me luck!\n\n\n\n\n\nMy visualisation of Hello world + Quarto logo"
+  },
+  {
+    "objectID": "posts/helloworld/index.html#last-updated",
+    "href": "posts/helloworld/index.html#last-updated",
+    "title": "Hello world",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nWe are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca"
   },
   {
     "objectID": "posts/2022scala-recap/index.html",
@@ -238,8 +168,36 @@
     "text": "In 2022, I chose the Scala programming language as my learning theme. This meant that I would use Scala in projects big and small, with a focus on understanding how I could incorporate Scala into my toolset. I shared my motivations in greater detail in an earlier blogpost 2022: My Year in Scala.\nAs we end 2022, here’s my recap and reflections on how I got to understand this programming language better and what I would recommend if you are interested to do the same."
   },
   {
+    "objectID": "posts/2022scala-recap/index.html#appendix",
+    "href": "posts/2022scala-recap/index.html#appendix",
+    "title": "2022 Year of Scala Recap",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nI am convinced the best learning takes place when the learner takes\ncharge -- Seymour Papert"
+  },
+  {
+    "objectID": "posts/2022scala/index.html",
+    "href": "posts/2022scala/index.html",
+    "title": "2022: My Year of Scala",
+    "section": "",
+    "text": "Neil Gaiman, illustrious author and everlasting source of wit, has a really cool mental exercise to help him complete his projects.\n\nYou don’t have to write. You have permission to not write, but you don’t have permission to do anything else.\n\n\nI would go down to my lovely little gazebo at the bottom of the garden, sit down, and I’m absolutely allowed not to do anything. I’m allowed to sit at my desk, I’m allowed to stare out at the world, I’m allowed to do anything I like, as long as it isn’t anything. Not allowed to do a crossword, not allowed to read a book, not allowed to phone a friend, not allowed to make a clay model of something. All I’m allowed to do is absolutely nothing, or write.\n\nFor a couple of years now, I have adapted a version of this exercise to help me complete my learning projects. Every year I make the grand announcement that this will be the year of X. Where X is a learning topic or a new programming language that I wish to focus on.\n\n\nI declared this my year of Scala all the way back in Jan, but I only started this blog in July, which is why this post is published in September 😅.\n\n\n\n🎉 2022 year is my year of Scala! 🎉\n\n\nInspired by Neil’s rules, my rules for this year are:\n\nFor every project that requires coding, I am going to try and use Scala\nBut, I give myself permission to not use Scala if it is just not the right option for my use case\nHowever, I do not have permission to try out any other shiny new programming language I might be tempted by"
+  },
+  {
+    "objectID": "posts/2022scala/index.html#last-updated",
+    "href": "posts/2022scala/index.html#last-updated",
+    "title": "2022: My Year of Scala",
+    "section": "Last Updated",
+    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nReading furnishes the mind only with materials of knowledge. It is thinking that makes what we read ours - John Locke"
+  },
+  {
     "objectID": "posts/2023-causal-inference/index.html",
     "href": "posts/2023-causal-inference/index.html",
+    "title": "2023 Year of Causal Inference",
+    "section": "",
+    "text": "It’s the start of the new year, which means I’m committing to a new learning theme for the year! I’ve found that having a single learning theme for the whole year helps keep me focused and prevents me from getting too excited about exploring new topics. It also helps me make both short- and long-term plans without stressing myself out too much, since I’m juggling my independent learning with time for my family, work, and school. As I mentioned in my post about my learning theme for 2022, my goal is to find the right balance.\nThis year, I’m focusing on Causal Inference! 🎊 🥳 🎊 🥳 🎊 🥳"
+  },
+  {
+    "objectID": "posts/2023-causal-inference/index.html#learning-theme",
+    "href": "posts/2023-causal-inference/index.html#learning-theme",
     "title": "2023 Year of Causal Inference",
     "section": "",
     "text": "It’s the start of the new year, which means I’m committing to a new learning theme for the year! I’ve found that having a single learning theme for the whole year helps keep me focused and prevents me from getting too excited about exploring new topics. It also helps me make both short- and long-term plans without stressing myself out too much, since I’m juggling my independent learning with time for my family, work, and school. As I mentioned in my post about my learning theme for 2022, my goal is to find the right balance.\nThis year, I’m focusing on Causal Inference! 🎊 🥳 🎊 🥳 🎊 🥳"
@@ -280,39 +238,18 @@
     "text": "Conclusion\nOk, so that’s the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I’m brimming with excitement, onward!"
   },
   {
-    "objectID": "posts/aocScala/index.html#last-updated",
-    "href": "posts/aocScala/index.html#last-updated",
-    "title": "Scala tips for Advent of Code 2022",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nThe reward for good work is more work - Tom Sach"
-  },
-  {
-    "objectID": "posts/2022-normconf/index.html#last-updated",
-    "href": "posts/2022-normconf/index.html#last-updated",
-    "title": "2022 NormConf - My favourite talks",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n\n\n2\n2"
-  },
-  {
-    "objectID": "posts/2023-causal-inference/index.html#last-updated",
-    "href": "posts/2023-causal-inference/index.html#last-updated",
+    "objectID": "posts/2023-causal-inference/index.html#appendix",
+    "href": "posts/2023-causal-inference/index.html#appendix",
     "title": "2023 Year of Causal Inference",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nYou don't understand anything until you learn it more than one way - Marvin Minsky"
-  },
-  {
-    "objectID": "posts/2022scala-recap/index.html#last-updated",
-    "href": "posts/2022scala-recap/index.html#last-updated",
-    "title": "2022 Year of Scala Recap",
-    "section": "Last Updated",
-    "text": "Last Updated\n\n\n\n[1] \"27 February 2023\"\n\n\n\n\n\nSomewhere, something incredible is waiting to be known - Carl Sagan"
-  },
-  {
-    "objectID": "posts/2022-normconf/index.html#appendix",
-    "href": "posts/2022-normconf/index.html#appendix",
-    "title": "2022 NormConf - My favourite talks",
     "section": "Appendix",
-    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nStudy hard what interests you the most in the most undisciplined,\nirreverent and original manner possible -- Richard Feynman"
+    "text": "Appendix\n\n\n\nLast updated: 10 March 23\n\n\n\n\n\n3 things tell a man. His eyes, his friends and his favourite quotes --\nImmanuel Kant"
+  },
+  {
+    "objectID": "posts/boogiewoogie/index.html",
+    "href": "posts/boogiewoogie/index.html",
+    "title": "Broadway Boogie Woogie",
+    "section": "",
+    "text": "Code\nhtml`\n&lt;button id=\"update\"&gt;Boogie!&lt;/button&gt;\n`\n\n\n\n\n\n\n\n\n\nCode\n{\n    const svgRaw = htl.svg`&lt;svg&gt;&lt;/svg&gt;`\n    const svg = d3.select(svgRaw)\n    .attr(\"width\",500)\n    .attr(\"height\",500)\n    .style(\"background-color\",\"#e5e4f0\")\n\n    function randomData() {\n        return Array.from({length: 50}, () =&gt; Math.floor(Math.random() * 100))\n    }\n\n    function colourMap(num) {\n        if (num &gt;= 0 && num &lt;= 65) { return \"yellow\"}\n        if (num &gt;= 66 && num &lt;= 80) { return \"black\"}\n        if (num&gt;= 81 && num &lt;=85) {return \"red\"}\n        if (num&gt;= 86 && num &lt;=100) {return \"grey\"}\n    }\n\n    function horizontalStreets(yPosArray) {\n        for (let i=0; i&lt;yPosArray.length; i++){\n            svg.selectAll(\"horizontal\")\n            .data(randomData())\n            .join(\n                enter =&gt; enter.append(\"rect\")\n                    .attr(\"class\",\"horizontal\")\n                    .attr(\"x\", function(d,i) {return i*10})\n                    .attr(\"y\", yPosArray[i])\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update =&gt; update,\n               exit =&gt; exit.remove()\n            )\n        }\n    }\n\n    function verticalStreets(xPosArray) {\n        for (let i=0; i&lt;xPosArray.length; i++){\n            svg.selectAll(\"vertical\")\n            .data(randomData())\n            .join(\n                enter =&gt; enter.append(\"rect\")\n                    .attr(\"class\",\"vertical\")\n                    .attr(\"x\", xPosArray[i])\n                    .attr(\"y\", function(d,i) {return i*10})\n                    .attr(\"width\", 10)\n                    .attr(\"height\", 10)\n                    .attr(\"fill\", function(d){return colourMap(d)})\n                    .on(\"mouseover\", function(d) {\n                        d3.select(this)\n                            .raise()\n                            .transition()\n                            .attr(\"width\",25)\n                            .attr(\"height\",25)\n                            .attr(\"stroke\",\"black\")\n                            \n                    })\n                    .on(\"mouseout\", function(d) {\n                        d3.select(this)\n                            .transition()\n                            .attr(\"width\",10)\n                            .attr(\"height\",10)\n                            .attr(\"stroke\",\"\")\n                    }),\n               update =&gt; update,\n               exit =&gt; exit.remove()\n            )\n            \n        }\n    }\n\n    function moveBlock(d, i) {\n        d3.select(this)\n        .transition()\n            .attr(\"x\", Math.floor(Math.random() * 500))\n            .attr(\"y\", Math.floor(Math.random() * 500))\n    }\n\n    // Initial draw\n    horizontalStreets([10,50,120,150,220,250,280,340,440])\n    verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n    \n    var blue1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 50)\n        .attr(\"y\", 80)\n        .attr(\"width\", 30)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"blue\");\n    \n    var blue2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 50)\n        .attr(\"y\", 350)\n        .attr(\"width\", 40)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var blue3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 160)\n        .attr(\"y\", 260)\n        .attr(\"width\", 30)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"blue\");\n    \n    var blue4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 380)\n        .attr(\"y\", 160)\n        .attr(\"width\", 50)\n        .attr(\"height\", 100)\n        .style(\"fill\", \"blue\");\n\n    var blue5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 410)\n        .attr(\"y\", 350)\n        .attr(\"width\", 40)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"blue\");\n\n    var red1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n        .attr(\"y\", 20)\n        .attr(\"width\", 20)\n        .attr(\"height\", 90)\n        .style(\"fill\", \"red\");\n\n    var red2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 130)\n        .attr(\"y\", 20)\n        .attr(\"width\", 40)\n        .attr(\"height\", 60)\n        .style(\"fill\", \"red\");\n\n    var red3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 80)\n        .attr(\"y\", 270)\n        .attr(\"width\", 60)\n        .attr(\"height\", 40)\n        .style(\"fill\", \"red\");\n    \n    var red4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 290)\n        .attr(\"y\", 200)\n        .attr(\"width\", 60)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"red\");\n\n    var red5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 340)\n        .attr(\"y\", 300)\n        .attr(\"width\", 50)\n        .attr(\"height\", 70)\n        .style(\"fill\", \"red\");\n    \n    var gray1 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 140)\n        .attr(\"y\", 40)\n        .attr(\"width\", 30)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n\n    var gray2 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n        .attr(\"y\", 110)\n        .attr(\"width\", 50)\n        .attr(\"height\", 70)\n        .style(\"fill\", \"gray\");\n\n    var gray3 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 230)\n        .attr(\"y\", 370)\n        .attr(\"width\", 30)\n        .attr(\"height\", 50)\n        .style(\"fill\", \"gray\");\n\n    var gray4 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 370)\n        .attr(\"y\", 310)\n        .attr(\"width\", 40)\n        .attr(\"height\", 20)\n        .style(\"fill\", \"gray\");\n\n    var gray5 = svg.append(\"rect\").raise()\n        .attr(\"class\",\"block\")\n        .attr(\"x\", 400)\n        .attr(\"y\", 20)\n        .attr(\"width\", 50)\n        .attr(\"height\", 30)\n        .style(\"fill\", \"gray\");\n   \n\n    // Updated draws\n    d3.select(\"#update\").on(\"click\", function() {\n        horizontalStreets([10,50,120,150,220,250,280,340,440])\n        verticalStreets([10, 30, 70, 140, 300,330,420,440,480,500])\n        d3.selectAll(\".block\").each(moveBlock)\n\n    })\n\n    yield svg.node();\n\n}\n\n\n\n\n\n\n\n\n\nThis is a piece of digital art I created. It features bright colours, straight lines and some fun interactivity.\n\n\nTry clicking the “Boogie!” button\nYou probably realize that my simple artwork is very similar to Piet Mondrian’s iconic Broadway Boogie Woogie. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and whose aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s Museum of Modern Art (MOMA).\n\n\n\nPiet Mondrian’s original Broadway Boogie Woogie\n\n\nIndeed, my amateur recreation is inspired by the original Mondrian, but not directly. In fact, it’s probably more accurate to say, my art piece is a derivative of a derivative.\n\n\nCode\nflowchart TD\n    A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)\n    B --&gt;|inspired| C(My Broadway Boogie Woogie)\n\n\n\n\nflowchart TD\n    A(Mondrian's Broadway Boogie Woogie) --&gt;|inspired| B(Tom Sach's Broadway Boogie Woogie)\n    B --&gt;|inspired| C(My Broadway Boogie Woogie)"
   },
   {
     "objectID": "posts/boogiewoogie/index.html#appendix",
@@ -322,31 +259,10 @@
     "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nStudy hard what interests you the most in the most undisciplined,\nirreverent and original manner possible -- Richard Feynman"
   },
   {
-    "objectID": "posts/blogtips/index.html#appendix",
-    "href": "posts/blogtips/index.html#appendix",
-    "title": "How to add some personality to your Quarto Blog",
-    "section": "Appendix",
-    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nDie trying -- Van Neistat"
-  },
-  {
-    "objectID": "posts/aocScala/index.html#appendix",
-    "href": "posts/aocScala/index.html#appendix",
-    "title": "Scala tips for Advent of Code 2022",
-    "section": "Appendix",
-    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nSomewhere, something incredible is waiting to be known -- Carl Sagan"
-  },
-  {
-    "objectID": "posts/2023-causal-inference/index.html#appendix",
-    "href": "posts/2023-causal-inference/index.html#appendix",
-    "title": "2023 Year of Causal Inference",
-    "section": "Appendix",
-    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nYou don't understand anything until you learn it more than one way --\nMarvin Minsky"
-  },
-  {
-    "objectID": "posts/2022scala-recap/index.html#appendix",
-    "href": "posts/2022scala-recap/index.html#appendix",
-    "title": "2022 Year of Scala Recap",
-    "section": "Appendix",
-    "text": "Appendix\n\n\n\nLast updated: 02 March 23\n\n\n\n\n\nI am convinced the best learning takes place when the learner takes\ncharge -- Seymour Papert"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "🤔",
+    "section": "",
+    "text": "2023 Year of Causal Inference\n\n\n\n\n\nFor every action there is an equal and opposite reaction\n\n\n\n\n\n\nJanuary 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2022 Year of Scala Recap\n\n\n\n\n\nRecaps, Learnings and Reflections\n\n\n\n\n\n\nDecember 31, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022 NormConf - My favourite talks\n\n\n\n\n\nLessons from real-life data science practitioners\n\n\n\n\n\n\nDecember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nScala tips for Advent of Code 2022\n\n\n\n\n\nTwas the night before AOC\n\n\n\n\n\n\nNovember 30, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBroadway Boogie Woogie\n\n\n\n\n\nBuilding a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to add some personality to your Quarto Blog\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022: My Year of Scala\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow I sync my config files with Stow\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\nExplainers: Inverse Transform Theorem\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHello world\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -1,71 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
-    <lastmod>2023-03-02T14:38:03.128Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/some2/index.html</loc>
-    <lastmod>2023-03-02T14:38:04.197Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/blogtips/index.html</loc>
-    <lastmod>2023-03-02T14:40:45.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/2022scala/index.html</loc>
-    <lastmod>2023-03-02T14:38:05.115Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/stow/index.html</loc>
-    <lastmod>2023-03-02T14:38:05.846Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/boogiewoogie/index.html</loc>
-    <lastmod>2023-03-02T14:23:45.603Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/index.html</loc>
-    <lastmod>2023-03-02T14:40:47.301Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.ddanieltan.com/about.html</loc>
-    <lastmod>2023-02-18T09:04:13.438Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/expviz/index.html</loc>
-    <lastmod>2022-11-26T04:09:26.354Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/dataWithScala/index.html</loc>
-    <lastmod>2022-11-08T15:12:27.061Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/infer/index.html</loc>
-    <lastmod>2022-11-21T10:27:33.558Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/inferUpworthy/index.html</loc>
-    <lastmod>2022-11-26T05:46:44.436Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ddanieltan.com/posts/aocScala/index.html</loc>
-    <lastmod>2023-03-02T14:24:07.861Z</lastmod>
+    <lastmod>2023-08-07T13:43:14.676Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022-normconf/index.html</loc>
-    <lastmod>2023-03-02T14:25:24.714Z</lastmod>
+    <lastmod>2023-08-07T13:43:09.781Z</lastmod>
   </url>
   <url>
-    <loc>https://www.ddanieltan.com/posts/2022-scala-wrapup/index.html</loc>
-    <lastmod>2022-12-24T12:37:41.980Z</lastmod>
+    <loc>https://www.ddanieltan.com/posts/stow/index.html</loc>
+    <lastmod>2023-08-07T13:43:07.168Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/blogtips/index.html</loc>
+    <lastmod>2023-08-07T13:43:05.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/some2/index.html</loc>
+    <lastmod>2023-08-07T13:43:02.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/aocScala/index.html</loc>
+    <lastmod>2023-08-07T13:43:00.386Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/helloworld/index.html</loc>
+    <lastmod>2023-08-07T13:43:01.203Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2022scala-recap/index.html</loc>
-    <lastmod>2023-03-02T14:25:15.257Z</lastmod>
+    <lastmod>2023-08-07T13:43:03.803Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/2022scala/index.html</loc>
+    <lastmod>2023-08-07T13:43:06.278Z</lastmod>
   </url>
   <url>
     <loc>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</loc>
-    <lastmod>2023-03-02T14:24:18.106Z</lastmod>
+    <lastmod>2023-08-07T13:43:08.454Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/posts/boogiewoogie/index.html</loc>
+    <lastmod>2023-08-07T13:43:11.742Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ddanieltan.com/index.html</loc>
+    <lastmod>2023-08-07T13:43:14.191Z</lastmod>
   </url>
 </urlset>
