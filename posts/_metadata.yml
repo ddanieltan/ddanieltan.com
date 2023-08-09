@@ -2,7 +2,7 @@
 
 # freeze computational output
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
-freeze: true
+freeze: false
 
 # HTML Options: https://quarto.org/docs/reference/formats/html.html
 # -----------------------------------------------------------------
