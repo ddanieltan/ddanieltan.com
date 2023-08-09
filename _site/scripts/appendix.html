@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Tan">
-<meta name="dcterms.date" content="2022-09-15">
-<meta name="description" content="How I added a new tool to my toolbox">
 
-<title>ddanieltan.com - 2022: My Year of Scala</title>
+<title>ddanieltan.com – appendix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,61 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,28 +73,16 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="ddanieltan.com - 2022: My Year of Scala">
-<meta property="og:description" content="How I added a new tool to my toolbox">
-<meta property="og:image" content="https://www.ddanieltan.com/posts/2022scala/scalaLogo.png">
-<meta property="og:site-name" content="ddanieltan.com">
-<meta property="og:image:height" content="323">
-<meta property="og:image:width" content="241">
-<meta name="twitter:title" content="ddanieltan.com - 2022: My Year of Scala">
-<meta name="twitter:description" content="How I added a new tool to my toolbox">
-<meta name="twitter:image" content="https://www.ddanieltan.com/posts/2022scala/scalaLogo.png">
-<meta name="twitter:image-height" content="323">
-<meta name="twitter:image-width" content="241">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ddanieltan.com</span>
     </a>
   </div>
@@ -142,7 +93,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">Daniel Tan</span></a>
   </li>  
   <li class="nav-item compact">
@@ -166,154 +117,17 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#my-year-of" id="toc-my-year-of" class="nav-link active" data-scroll-target="#my-year-of">My Year of …</a></li>
-  <li><a href="#what-is-scala" id="toc-what-is-scala" class="nav-link" data-scroll-target="#what-is-scala">What is Scala?</a></li>
-  <li><a href="#why-scala" id="toc-why-scala" class="nav-link" data-scroll-target="#why-scala">Why Scala?</a></li>
-  <li><a href="#how-has-the-year-gone-so-far" id="toc-how-has-the-year-gone-so-far" class="nav-link" data-scroll-target="#how-has-the-year-gone-so-far">How has the year gone so far?</a></li>
-  <li><a href="#ending-the-year-strong" id="toc-ending-the-year-strong" class="nav-link" data-scroll-target="#ending-the-year-strong">Ending the year strong</a>
-  <ul class="collapse">
-  
-  </ul></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">2022: My Year of Scala</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">scala</div>
-    <div class="quarto-category">learning</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    How I added a new tool to my toolbox
-  </div>
-</div>
+<main class="content" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p><a href="https://www.ddanieltan.com">Daniel Tan</a> </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2022</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="my-year-of" class="level1 page-columns page-full">
-<h1>My Year of …</h1>
-<p>Neil Gaiman, <a href="https://en.wikipedia.org/wiki/Neil_Gaiman_bibliography">illustrious author</a> and <a href="https://www.buzzfeed.com/amphtml/jarrylee/neil-gaiman-wins-twitter">everlasting source of wit</a>, has a really cool mental exercise to help him complete his projects.</p>
-<blockquote class="blockquote">
-<p>You don’t have to write. You have permission to not write, but you don’t have permission to do anything else.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>I would go down to my lovely little gazebo at the bottom of the garden, sit down, and I’m absolutely allowed not to do anything. I’m allowed to sit at my desk, I’m allowed to stare out at the world, I’m allowed to do anything I like, as long as it isn’t anything. Not allowed to do a crossword, not allowed to read a book, not allowed to phone a friend, not allowed to make a clay model of something. All I’m allowed to do is absolutely nothing, or write.</p>
-</blockquote>
-<p>For a couple of years now, I have adapted a version of this exercise to help me complete my learning projects. Every year I make the grand announcement that this will be the year of X. Where X is a learning topic or a new programming language that I wish to focus on.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>I declared this my year of Scala all the way back in Jan, but I only started this blog in July, which is why this post is published in September 😅.</p>
-</div></div><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://media.giphy.com/media/YkKPc5T8mFSdqg8yTa/giphy.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">🎉 2022 year is my year of Scala! 🎉</figcaption>
-</figure>
-</div>
-<p>Inspired by Neil’s rules, my rules for this year are:</p>
-<ul>
-<li>For every project that requires coding, I am going to try and use Scala</li>
-<li>But, I give myself permission to not use Scala if it is just not the right option for my use case</li>
-<li>However, I do not have permission to try out any other shiny new programming language I might be tempted by</li>
-</ul>
-</section>
-<section id="what-is-scala" class="level1">
-<h1>What is Scala?</h1>
-<p><a href="https://www.scala-lang.org/">Scala</a> is a programming language that is probably most famous for consistently showing up as one of the “Top Paying Technologies” in <a href="https://insights.stackoverflow.com/survey">StackOverflow’s annual survey</a> 🤑🤑🤑. In Data Science, Scala is famous for being the language used to build the <a href="https://spark.apache.org/">Apache Spark</a> engine, which makes Scala essentially the core language that “Enterprise Big Data<sup>TM</sup>” is run on.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">// Illustrating Scala's legible syntax</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">// and method chaining pattern</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">val</span> inputs <span class="op">=</span> <span class="ex">Vector</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">8</span><span class="op">)</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>inputs</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="op">.</span><span class="fu">map</span><span class="op">(</span>x <span class="op">=&gt;</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>x <span class="op">=&gt;</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="op">.</span><span class="fu">slice</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span><span class="dv">6</span><span class="op">)</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">//res1: Vector[Int] = Vector(6, 8)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>My 1-liner description of Scala (with the caveat that I am pretty much still a beginner) is that Scala feels like <strong>a language designed for modelling and manipulating data</strong>.</p>
-<p>I enjoy Scala’s</p>
-<ul>
-<li>legible and easy-to-read syntax</li>
-<li>encouraged design pattern of running an immutable data source through chains of transformations (which should be familiar to fans of <a href="https://tomaugspurger.github.io/method-chaining.html">Python’s method chaining</a> or <a href="https://style.tidyverse.org/pipes.html">R’s pipe</a>)</li>
-<li>ability to give me a <a href="https://www.lihaoyi.com/post/FromFirstPrinciplesWhyScala.html">dynamic language experience with the safety of a compiled language</a></li>
-<li>power/scalability out-of-the-box thanks to piggy-backing on the highly optimized JVM</li>
-<li>unique features such as <a href="https://docs.scala-lang.org/tour/case-classes.html">Case Classes</a>, <a href="https://docs.scala-lang.org/overviews/core/implicit-classes.html">Implicits</a> etc. that gives the language that extra bit of black magic to set it apart</li>
-</ul>
-</section>
-<section id="why-scala" class="level1 page-columns page-full">
-<h1>Why Scala?</h1>
-<p>The main reason is that I recently joined a team where our main codebase is in Scala. This gives me a practical incentive, as well as, the opportunity to be surrounded by knowledgable colleagues who I can pester with my questions.</p>
-<p>The secondary reason is curiosity. Scala is designed to support both the object-oriented paradigm and the functional programming paradigm. Through Scala, I hope to dip my toes into the great ocean that is <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>Fingers crossed that one day, I’ll be able to explain what a <a href="https://www.youtube.com/watch?v=CMm98RkCgPg">monad</a> is.</p>
-</div></div></section>
-<section id="how-has-the-year-gone-so-far" class="level1">
-<h1>How has the year gone so far?</h1>
-<p>Pretty good! I have not burnt out and I have found opportunities to use Scala in my projects for work, school and play. So far I have used Scala to:</p>
-<ol type="1">
-<li><p>Write applications to improve my tooling for work</p></li>
-<li><p>Build random number generators for a module for school</p></li>
-<li><p>Create a rudimentary (and incomplete) <a href="https://github.com/ddanieltan/scalaBlog">blog engine</a></p></li>
-<li><p>Inch my way through the excellent <a href="https://www.handsonscala.com/">Hands-on Scala</a> book</p></li>
-<li><p>Automate small scripting tasks (although I’m still not convinced Scala is my 1st choice as a scripting language)</p></li>
-<li><p>Build a simple website without writing 1 line of javascript (😲!!) thanks to <a href="https://www.scala-js.org/">Scala.js</a></p></li>
-</ol>
-<p>Additionally, I have also found small ways to engage with the small but fascinating community. For example, I enjoyed learning a little history behind Scala by asking the Reddit community <a href="https://www.reddit.com/r/scala/comments/smq3t2/whats_the_story_behind_scalas_logo/">What’s the story behind Scala’s logo?</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="scalaLogo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">My rendition of Scala’s logo. What does this look like to you?</figcaption>
-</figure>
-</div>
-</section>
-<section id="ending-the-year-strong" class="level1">
-<h1>Ending the year strong</h1>
-<p>I still have a good couple of months until the end of 2022. I would like to accomplish the following before the end of this year:</p>
-<ul>
-<li>Build a Scala application which serves more users than just myself</li>
-<li>Attempt this year’s <a href="https://adventofcode.com/">Advent of Code</a> in Scala</li>
-<li>Write a recap blog post at the end of the year reflecting what I liked/disliked about Scala</li>
-</ul>
 <!--
 Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
 -->
 
-</section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
@@ -359,21 +173,11 @@ Expand for Session Info
 </div>
 </div>
 <blockquote class="blockquote">
-We are not given a short life but we make it short,we are not ill-supplied but wasteful of it. Life is long if you know how to use it. – Seneca
+<p>The purpose of visualization is insight, not pictures – Ben Shneiderman</p>
 </blockquote>
 
 
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
-  author = {Tan, Daniel},
-  title = {2022: {My} {Year} of {Scala}},
-  date = {2022-09-15},
-  url = {https://www.ddanieltan.com/posts/2022scala},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-Tan, Daniel. 2022. <span>“2022: My Year of Scala.”</span> September 15,
-2022. <a href="https://www.ddanieltan.com/posts/2022scala">https://www.ddanieltan.com/posts/2022scala</a>.
-</div></div></section></div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -726,5 +530,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

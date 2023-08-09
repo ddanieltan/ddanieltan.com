@@ -99,23 +99,57 @@
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>Ok, so that’s the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I’m brimming with excitement, onward!</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 10 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>3 things tell a man. His eyes, his friends and his favourite quotes --
-Immanuel Kant</code></pre>
-</div>
-</div>
+There is no such thing as informational overload, just bad design. If something is cluttered or confusing, fix your design – Edward Tufte
 </blockquote>
 
 
@@ -246,23 +280,57 @@ Note
 </div>
 <p>As we move onward to 2023, I have no plans of dropping Scala from my toolset. Scala will remain one of my favourite languages to solve problems with. Honestly, it has pretty much become my daily driver.</p>
 <p>That said, I am absolutely itching to find a new topic to sink my teeth into for 2023. Let me know if you have any suggestions for me. Happy learning everyone! 🤔🤔🤔</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 02 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>I am convinced the best learning takes place when the learner takes
-charge -- Seymour Papert</code></pre>
-</div>
-</div>
+You don’t understand anything until you learn it more than one way – Marvin Minsky
 </blockquote>
 
 
@@ -362,23 +430,57 @@ Tan, Daniel. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>🎉🎉 Congrats and well done to everyone who made Normconf 2022 a success! It was truly my favourite conference this year.</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 02 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>Study hard what interests you the most in the most undisciplined,
-irreverent and original manner possible -- Richard Feynman</code></pre>
-</div>
-</div>
+There are 2 ways of spreading light. Be the candle or the mirror that reflects it – Edith Wharton
 </blockquote>
 
 
@@ -880,22 +982,57 @@ font-style: inherit;">// List(Success(value = 2))</span></span></code></pre></di
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>And, there you go! Hope these were useful tips and that I got you excited to try them out for 2022’s Advent of Code. Happy coding!</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 02 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>Somewhere, something incredible is waiting to be known -- Carl Sagan</code></pre>
-</div>
-</div>
+I am convinced the best learning takes place when the learner takes charge – Seymour Papert
 </blockquote>
 
 
@@ -3375,23 +3512,57 @@ d3.select(svgRaw)
 <a href="https://tenor.com/view/artistry-at-its-finest-art-snoop-dogg-ggn-gif-11831081">Artistry At Its Finest GIF</a>from <a href="https://tenor.com/search/artistry-gifs">Artistry GIFs</a>
 </div>
 <script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 02 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>Study hard what interests you the most in the most undisciplined,
-irreverent and original manner possible -- Richard Feynman</code></pre>
-</div>
-</div>
+We must never make experiments to confirm our ideas, but simply to control them – Claude Bernard
 </blockquote>
 
 
@@ -3445,7 +3616,7 @@ Note
 <h1>1. Enrich your Appendices</h1>
 <p>An important facet that Quarto supports is <a href="https://quarto.org/docs/authoring/title-blocks.html">Scholarly Writing</a>. With a few simple flags in your <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/posts/_metadata.yml">_metadata.yml</a> file, you can easily configure each blog post to neatly organize your footnotes, references, license and citation information in an appendix section at the bottom of your post.</p>
 <p>This <a href="https://quarto.org/docs/authoring/appendices.html">appendix section</a> is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a <code>Last Updated</code> section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="in" style="color: #5E5E5E;
@@ -3590,7 +3761,7 @@ Note
 </div>
 </div>
 <p>I maintain a simple text file with quotes that I enjoy. I simply pick a random quote from this file, wrap the text and insert the output into <code>&lt;blockquote&gt;</code> tags like so.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><span class="in" style="color: #5E5E5E;
@@ -3655,22 +3826,73 @@ font-style: inherit;">```</span></span></code></pre></div>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>And there you go, hope you found a tip or two you can use. Let’s go make your personal slice of the internet your own 💪!</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="3">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 02 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+─ Python configuration ───────────────────────────────────────────────────────
+ python:         /Users/ddanieltan/miniconda3/envs/py310/bin/python
+ libpython:      /Users/ddanieltan/miniconda3/envs/py310/lib/libpython3.10.dylib
+ pythonhome:     /Users/ddanieltan/miniconda3/envs/py310:/Users/ddanieltan/miniconda3/envs/py310
+ version:        3.10.4 (main, Mar 31 2022, 03:38:35) [Clang 12.0.0 ]
+ numpy:          /Users/ddanieltan/miniconda3/envs/py310/lib/python3.10/site-packages/numpy
+ numpy_version:  1.21.5
+ 
+ python versions found: 
+  /usr/local/bin/python3
+  /Users/ddanieltan/miniconda3/envs/py310/bin/python
+  /Users/ddanieltan/miniconda3/bin/python
+  /Users/ddanieltan/miniconda3/envs/dev/bin/python
+  /Users/ddanieltan/miniconda3/envs/ml/bin/python
+  /Users/ddanieltan/miniconda3/envs/web/bin/python
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>Die trying -- Van Neistat</code></pre>
-</div>
-</div>
+Somewhere, something incredible is waiting to be known – Carl Sagan
 </blockquote>
 
 
@@ -3872,22 +4094,57 @@ font-style: inherit;">//res1: Vector[Int] = Vector(6, 8)</span></span></code></p
 <li>Attempt this year’s <a href="https://adventofcode.com/">Advent of Code</a> in Scala</li>
 <li>Write a recap blog post at the end of the year reflecting what I liked/disliked about Scala</li>
 </ul>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
-<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "27 February 2023"</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Reading furnishes the mind only with materials of knowledge. It is thinking that makes what we read ours - John Locke</code></pre>
-</div>
-</div>
+We are not given a short life but we make it short,we are not ill-supplied but wasteful of it. Life is long if you know how to use it. – Seneca
 </blockquote>
 
 
@@ -3923,7 +4180,7 @@ Tan, Daniel. 2022. <span>“2022: My Year of Scala.”</span> September 15,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/stow/organized.png" class="img-fluid figure-img"></p>
+<p><img src="https://www.ddanieltan.com/posts/stow/organized.png" class="img-fluid figure-img" width="512"></p>
 <figcaption class="figure-caption"><a href="https://openai.com/dall-e-2/">DallE2</a> art with prompt: ‘Keeping things organized across multiple machines, digital art’</figcaption>
 </figure>
 </div>
@@ -4011,22 +4268,57 @@ font-style: inherit;">└──</span> nvim</span></code></pre></div>
 <p>This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.</p>
 <p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
 <p>Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
-<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "27 February 2023"</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Somewhere, something incredible is waiting to be known - Carl Sagan"</code></pre>
-</div>
-</div>
+Study hard what interests you the most in the most undisciplined, irreverent and original manner possible – Richard Feynman
 </blockquote>
 
 
@@ -4125,9 +4417,9 @@ font-style: inherit;"># 1 represents a successful flip</span></span></code></pre
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">totalGames<span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">totalGames <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span></span>
 <span id="cb4-2">avgGoalsPerGame <span class="ot" style="color: #003B4F;
@@ -4137,7 +4429,7 @@ background-color: null;
 font-style: inherit;">1</span></span>
 <span id="cb4-3"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">rpois</span>(totalGames,avgGoalsPerGame)</span></code></pre></div>
+font-style: inherit;">rpois</span>(totalGames, avgGoalsPerGame)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 0 1 2 1 2 2 0 0 1 2 2 0 1 0 1 3 2 2 1 1 2 1 1 1 1 0 4 3 1 0 0 0 2 1 0 1 0
@@ -4253,7 +4545,7 @@ font-style: inherit;">"CDFs from an assortment of distributions"</span>)</span><
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/some2/inverse.png" class="img-fluid figure-img"></p>
+<p><img src="https://www.ddanieltan.com/posts/some2/inverse.png" class="img-fluid figure-img" width="882"></p>
 <figcaption class="figure-caption">What the inverse function means</figcaption>
 </figure>
 </div>
@@ -4274,22 +4566,76 @@ font-style: inherit;">"CDFs from an assortment of distributions"</span>)</span><
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/some2/midjourney.png" class="img-fluid figure-img"></p>
+<p><img src="https://www.ddanieltan.com/posts/some2/midjourney.png" class="img-fluid figure-img" width="256"></p>
 <figcaption class="figure-caption"><a href="https://www.midjourney.com/home/">Midjourney</a> AI Art with the prompt of ‘Inverse Transform Theorem’</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
-<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "06 January 2023"</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ ! package     * version date (UTC) lib source
+ P dplyr       * 1.1.2   2023-04-20 [?] CRAN (R 4.3.0)
+ P forcats     * 1.0.0   2023-01-29 [?] CRAN (R 4.3.0)
+ P ggplot2     * 3.4.2   2023-04-03 [?] CRAN (R 4.3.0)
+ P lubridate   * 1.9.2   2023-02-10 [?] CRAN (R 4.3.0)
+ P purrr       * 1.0.1   2023-01-10 [?] CRAN (R 4.3.0)
+ P readr       * 2.1.4   2023-02-10 [?] CRAN (R 4.3.0)
+   sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+ P stringr     * 1.5.0   2022-12-02 [?] CRAN (R 4.3.0)
+ P tibble      * 3.2.1   2023-03-20 [?] CRAN (R 4.3.0)
+ P tidyr       * 1.3.0   2023-01-24 [?] CRAN (R 4.3.0)
+ P tidyverse   * 2.0.0   2023-02-22 [?] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+ P ── Loaded and on-disk path mismatch.
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+The reward for good work is more work – Tom Sach
+</blockquote>
 
 
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
@@ -4328,7 +4674,7 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png" class="img-fluid figure-img"></p>
+<p><img src="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png" class="img-fluid figure-img" width="626"></p>
 <figcaption class="figure-caption">My visualisation of Hello world + Quarto logo</figcaption>
 </figure>
 </div>
@@ -4361,23 +4707,58 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
 <section id="the-small-but-growing-collection-of-quarto-content-online" class="level4">
 <h4 class="anchored" data-anchor-id="the-small-but-growing-collection-of-quarto-content-online">3. The small but growing collection of Quarto content online</h4>
 <p>At the time of writing, I did not find a large collection of Quarto-specific content online. Nevertheless, I did find some helpful gems from <a href="https://www.youtube.com/results?search_query=quarto+blog">Youtube videos</a>, <a href="https://github.com/quarto-dev/quarto-cli/discussions">Github discussions</a> or <a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/">websites</a> that had a helpful tip or two that I could use for my blog.</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 </section>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section id="last-updated" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Last Updated</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "27 February 2023"</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>We are not given a short life but we make it short, we are not ill-supplied but wasteful of it. Life is long if you know how to use it. - Seneca</code></pre>
-</div>
-</div>
+If your experiment needs statistics, you ought to have done a better experiment – Ernest Rutherford
 </blockquote>
 
 

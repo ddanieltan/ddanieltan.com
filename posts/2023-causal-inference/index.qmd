@@ -78,21 +78,5 @@ Which brings me to this blog! Last year, I started this blog and published 8 blo
 ## Conclusion
 Ok, so that's the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I'm brimming with excitement, onward!
 
-## Appendix {.appendix}
-```{python}
-#| echo: false
-from datetime import date
-print(f"Last updated: {date.today().strftime('%d %B %y')}")
+```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
 ```
-<blockquote>
-```{python}
-#| echo: false
-import random
-import textwrap
-with open("../../quotes.txt") as f:
-    quotes = f.readlines()
-quotes = [q.strip() for q in quotes]
-res = random.choice(quotes)
-print("\n".join(textwrap.wrap(res)))
-```
-</blockquote>

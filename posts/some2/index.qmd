@@ -31,9 +31,9 @@ Yes, 🙄 I know bottle flipping was a trend way back in [2016](https://www.quor
 
 Or, say I'm a sports fan and my football team scores an average of 1 goal per game. I could simulate the goals scored over 100 games, by modelling the goals scored by my team after a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution), and once again, run my simulation by generating 100 random variates from this distribution.
 ```{r}
-totalGames=100
+totalGames = 100
 avgGoalsPerGame = 1
-rpois(totalGames,avgGoalsPerGame)
+rpois(totalGames, avgGoalsPerGame)
 ```
 
 You get the gist. From models using a single distribution to ones using complex combinations of distributions, our ability to generate random variates allows us to simulate almost any scenario we can think of! 
@@ -104,21 +104,5 @@ The Inverse Transform Theorem is a remarkable piece of math that links the unifo
 knitr::include_graphics("midjourney.png")
 ```
 
-## Appendix {.appendix}
-```{python}
-#| echo: false
-from datetime import date
-print(f"Last updated: {date.today().strftime('%d %B %y')}")
+```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
 ```
-<blockquote>
-```{python}
-#| echo: false
-import random
-import textwrap
-with open("../../quotes.txt") as f:
-    quotes = f.readlines()
-quotes = [q.strip() for q in quotes]
-res = random.choice(quotes)
-print("\n".join(textwrap.wrap(res)))
-```
-</blockquote>

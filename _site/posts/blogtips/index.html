@@ -245,7 +245,7 @@ Note
 <h1>1. Enrich your Appendices</h1>
 <p>An important facet that Quarto supports is <a href="https://quarto.org/docs/authoring/title-blocks.html">Scholarly Writing</a>. With a few simple flags in your <a href="https://github.com/ddanieltan/ddanieltan.com/blob/main/posts/_metadata.yml">_metadata.yml</a> file, you can easily configure each blog post to neatly organize your footnotes, references, license and citation information in an appendix section at the bottom of your post.</p>
 <p>This <a href="https://quarto.org/docs/authoring/appendices.html">appendix section</a> is easily customizable by inserting any other information you think your reader might appreciate. 1 of the simplest things to add is a <code>Last Updated</code> section. I insert this block of code at the bottom of every post, and each time I make a change to a post and re-render, this code chunk will automatically reflect this last updated date.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{python}</span></span>
@@ -290,7 +290,7 @@ Note
 </div>
 </div>
 <p>I maintain a simple text file with quotes that I enjoy. I simply pick a random quote from this file, wrap the text and insert the output into <code>&lt;blockquote&gt;</code> tags like so.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{python}</span></span>
@@ -319,22 +319,73 @@ Note
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>And there you go, hope you found a tip or two you can use. Let’s go make your personal slice of the internet your own 💪!</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
 
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
-<div class="cell" data-execution_count="3">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Last updated: 02 March 23</code></pre>
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.5
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2023-08-10
+ pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.433
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+─ Python configuration ───────────────────────────────────────────────────────
+ python:         /Users/ddanieltan/miniconda3/envs/py310/bin/python
+ libpython:      /Users/ddanieltan/miniconda3/envs/py310/lib/libpython3.10.dylib
+ pythonhome:     /Users/ddanieltan/miniconda3/envs/py310:/Users/ddanieltan/miniconda3/envs/py310
+ version:        3.10.4 (main, Mar 31 2022, 03:38:35) [Clang 12.0.0 ]
+ numpy:          /Users/ddanieltan/miniconda3/envs/py310/lib/python3.10/site-packages/numpy
+ numpy_version:  1.21.5
+ 
+ python versions found: 
+  /usr/local/bin/python3
+  /Users/ddanieltan/miniconda3/envs/py310/bin/python
+  /Users/ddanieltan/miniconda3/bin/python
+  /Users/ddanieltan/miniconda3/envs/dev/bin/python
+  /Users/ddanieltan/miniconda3/envs/ml/bin/python
+  /Users/ddanieltan/miniconda3/envs/web/bin/python
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <blockquote class="blockquote">
-<div class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>Die trying -- Van Neistat</code></pre>
-</div>
-</div>
+Somewhere, something incredible is waiting to be known – Carl Sagan
 </blockquote>
 
 

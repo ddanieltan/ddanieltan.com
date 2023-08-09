@@ -87,21 +87,5 @@ I still have a good couple of months until the end of 2022. I would like to acco
 - Attempt this year's [Advent of Code](https://adventofcode.com/) in Scala
 - Write a recap blog post at the end of the year reflecting what I liked/disliked about Scala
 
-## Appendix {.appendix}
-```{python}
-#| echo: false
-from datetime import date
-print(f"Last updated: {date.today().strftime('%d %B %y')}")
+```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
 ```
-<blockquote>
-```{python}
-#| echo: false
-import random
-import textwrap
-with open("../../quotes.txt") as f:
-    quotes = f.readlines()
-quotes = [q.strip() for q in quotes]
-res = random.choice(quotes)
-print("\n".join(textwrap.wrap(res)))
-```
-</blockquote>

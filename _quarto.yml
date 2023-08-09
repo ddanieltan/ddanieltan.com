@@ -1,6 +1,5 @@
 project:
   type: website
-
 website:
   title: "ddanieltan.com"
   site-url: https://www.ddanieltan.com
