@@ -1,0 +1,25 @@
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
+## Appendix{.appendix}
+:::{.callout-tip collapse="true"}
+## Expand for Session Info
+```{r}
+#| echo: false
+library(sessioninfo)
+
+# Print session_info with quarto version added
+pkg_sesh <- session_info(pkgs = "attached")
+pkg_sesh$platform$quarto <- paste(system("quarto --version", intern = TRUE))
+pkg_sesh
+```
+:::
+
+<blockquote>
+```{r}
+#| echo: false
+#| results: asis
+quotes <- readr::read_lines("/Users/ddanieltan/Code/ddanieltan.com/quotes.txt")
+cat(sample(quotes, 1))
+```
+</blockquote>
