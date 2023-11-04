@@ -1,0 +1,75 @@
+---
+title: "A Tour of Google IDX"
+description: "Develop apps entirely in the cloud"
+date: "2023-11-04"
+categories: [tooling, review, webdev]
+image: editor.png
+---
+
+# Google IDX
+
+[IDX](https://idx.dev/) is a project from Google that aims to provide an entirely cloud based app development experience. From development to deployment and everything in between can be done from the comfort of your web browser and seamlessly integrated through Google's cloud ecosystem. While [hardly the first](https://github.com/features/codespaces) in this space, the project piqued my interest and I signed up for beta access to give it a spin.
+
+# Creating a new app
+
+The onboarding experience was very smooth, my google account was required to sign up for the beta and immediately synced to my IDX account. At this stage there weren't too many templates to choose a starter project from from the last option on the "Create A Workspace" page, it looks like **Python**, **Go** and importantly **AI** templates are coming soon, which I can imagine would accelerate interest in this project.
+
+![](create-a-workspace.png)
+
+# Editting Experience
+
+A couple of clicks later, I was up and running. I really enjoyed how quickly and relatively friction-less it took to get to this stage.
+
+![](editor.png)
+
+Greeted by my familiar [vscode/monaco editor](https://microsoft.github.io/monaco-editor/), I found navigating the options straightforward. The 2 additional icons on top of the usual vscode options you see on the sidebar to the left are for the Firebase deployment and Project IDX options.
+
+Crucially, the typing experience felt natural and latency free. Coding up a simple web app was fuss-free and the default settings had quality-of-life features for web development such as instant reloading previews and a colour picker.
+
+# Nix
+
+A rather novel choice that IDX made was to use [Nix](https://nixos.org/manual/nix/stable/introduction) as the package manager to define environment configurations for every workspace. Learning that Nix is a purely functional package manager piqued my interest as not too long ago I spent [a year learning Scala](https://www.ddanieltan.com/posts/2022scala-recap/) At the outset, I do see a lot of sense in having a functional approach to dealing with package dependencies, but I'd love to spend more time with this tool to understand it more.
+
+![](nix.png)
+
+For my simple app, the Nix configuration was pre-populated and I could understand all the default settings made. The ability to edit the command used to preview your app defaults to the standard Python web server but can be changed for other languages if needed.
+
+# Python environment
+
+While the Python workspace is coming soon, seeing that Python was used as the default web server for previews got me curious to poke around a bit.
+
+I found the default python version to be 3.11 but it was truly a barebones environment that did not come with pip installed. This is not too surprisingly considering every development container is a fresh VM instance. I look forward to seeing the start python environment when it becomes available as I imagine there would be more batteries included for that workspace.
+
+![](python.png)
+
+I ended my session with a quick check of the specs of the cloud machine that is provided for free. It turned out to be in-line with most basic tiers of cloud containers that I have come to expected.
+
+![](cpu.png)
+
+# Overall
+
+## What I liked so far
+
+-   Delivers on the promise of a convenient way to develop apps
+
+```{=html}
+<!-- -->
+```
+-   Classic and familiar editing experience, they resisted the urge to reinvent any wheel unnecessarily
+
+-   Free (but I wait with bated breath to see how long this lasts)
+
+## What I'm looking forward to
+
+-   Python workspace and app examples
+
+-   AI coding assistant
+
+-   More detailed documentation. The current docs feel a little light but we are still in beta.
+
+-   Vim mode: I would prefer native bindings over Vim emulation offered via vscode extensions
+
+Overall, Project IDX impressed me in my quick testing. It was a breeze to get started and the tooling made my development experience enjoyable! My little write up is missing my review of the deployment process but that's solely because I did not have an existing Firebase account. If I revisit this project again in the future, I'll be sure to try that experience out too.
+
+```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
+```
