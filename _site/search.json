@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "🤔",
     "section": "",
-    "text": "2023 Year of Causal Inference\n\n\n\n\n\nFor every action there is an equal and opposite reaction\n\n\n\n\n\n\nJanuary 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2022 Year of Scala Recap\n\n\n\n\n\nRecaps, Learnings and Reflections\n\n\n\n\n\n\nDecember 31, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022 NormConf - My favourite talks\n\n\n\n\n\nLessons from real-life data science practitioners\n\n\n\n\n\n\nDecember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nScala tips for Advent of Code 2022\n\n\n\n\n\nTwas the night before AOC\n\n\n\n\n\n\nNovember 30, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBroadway Boogie Woogie\n\n\n\n\n\nBuilding a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to add some personality to your Quarto Blog\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022: My Year of Scala\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow I sync my config files with Stow\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\nExplainers: Inverse Transform Theorem\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHello world\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "A Tour of Google IDX\n\n\n\n\n\nDevelop apps entirely in the cloud\n\n\n\n\n\n\nNovember 4, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2023 Year of Causal Inference\n\n\n\n\n\nFor every action there is an equal and opposite reaction\n\n\n\n\n\n\nJanuary 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2022 Year of Scala Recap\n\n\n\n\n\nRecaps, Learnings and Reflections\n\n\n\n\n\n\nDecember 31, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022 NormConf - My favourite talks\n\n\n\n\n\nLessons from real-life data science practitioners\n\n\n\n\n\n\nDecember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nScala tips for Advent of Code 2022\n\n\n\n\n\nTwas the night before AOC\n\n\n\n\n\n\nNovember 30, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBroadway Boogie Woogie\n\n\n\n\n\nBuilding a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to add some personality to your Quarto Blog\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022: My Year of Scala\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow I sync my config files with Stow\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\nExplainers: Inverse Transform Theorem\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHello world\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/boogiewoogie/index.html",
@@ -278,5 +278,33 @@
     "title": "Daniel Tan",
     "section": "",
     "text": "Hi 👋, I’m Daniel, a data scientist based in Singapore.\nI currently work on Experimentation @Apple. Previously, I worked on Personalisation @OCBC AI Labs and on the metasearch auction @TripAdvisor.\nOcassionally, I teach data science workshops @General Assembly and @Vertical Institute."
+  },
+  {
+    "objectID": "posts/google-idx/index.html",
+    "href": "posts/google-idx/index.html",
+    "title": "A Tour of Google IDX",
+    "section": "",
+    "text": "IDX is a project from Google that aims to provide an entirely cloud based app development experience. From development to deployment and everything in between can be done from the comfort of your web browser and seamlessly integrated through Google’s cloud ecosystem. While hardly the first in this space, the project piqued my interest and I signed up for beta access to give it a spin."
+  },
+  {
+    "objectID": "posts/google-idx/index.html#what-i-liked-so-far",
+    "href": "posts/google-idx/index.html#what-i-liked-so-far",
+    "title": "A Tour of Google IDX",
+    "section": "What I liked so far",
+    "text": "What I liked so far\n\nDelivers on the promise of a convenient way to develop apps\n\n\n\nClassic and familiar editing experience, they resisted the urge to reinvent any wheel unnecessarily\nFree (but I wait with bated breath to see how long this lasts)"
+  },
+  {
+    "objectID": "posts/google-idx/index.html#what-im-looking-forward-to",
+    "href": "posts/google-idx/index.html#what-im-looking-forward-to",
+    "title": "A Tour of Google IDX",
+    "section": "What I’m looking forward to",
+    "text": "What I’m looking forward to\n\nPython workspace and app examples\nAI coding assistant\nMore detailed documentation. The current docs feel a little light but we are still in beta.\nVim mode: I would prefer native bindings over Vim emulation offered via vscode extensions\n\nOverall, Project IDX impressed me in my quick testing. It was a breeze to get started and the tooling made my development experience enjoyable! My little write up is missing my review of the deployment process but that’s solely because I did not have an existing Firebase account. If I revisit this project again in the future, I’ll be sure to try that experience out too."
+  },
+  {
+    "objectID": "posts/google-idx/index.html#appendix",
+    "href": "posts/google-idx/index.html#appendix",
+    "title": "A Tour of Google IDX",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\n\n\n\n\nExpand for Session Info\n\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       macOS Sonoma 14.0\n system   x86_64, darwin20\n ui       X11\n language (EN)\n collate  en_US.UTF-8\n ctype    en_US.UTF-8\n tz       Asia/Singapore\n date     2023-11-05\n pandoc   3.1.9 @ /usr/local/bin/ (via rmarkdown)\n quarto   1.3.450\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)\n\n [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20\n [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13\n\n──────────────────────────────────────────────────────────────────────────────\n\n\n\n\n\n\nYou don’t understand anything until you learn it more than one way – Marvin Minsky"
   }
 ]

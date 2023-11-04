@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/google-idx/index.html",
       "/posts/2023-causal-inference/index.html",
       "/posts/2022scala-recap/index.html",
       "/posts/2022-normconf/index.html",
