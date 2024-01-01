@@ -437,17 +437,17 @@ Expand for Session Info
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.3.1 (2023-06-16)
- os       macOS Ventura 13.5
+ version  R version 4.3.2 (2023-10-31)
+ os       macOS Sonoma 14.1.2
  system   x86_64, darwin20
  ui       X11
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       Asia/Singapore
- date     2023-08-10
- pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
- quarto   1.3.433
+ date     2024-01-01
+ pandoc   3.1.10 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.450
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
@@ -463,7 +463,7 @@ Expand for Session Info
 </div>
 </div>
 <blockquote class="blockquote">
-You don’t understand anything until you learn it more than one way – Marvin Minsky
+If your experiment needs statistics, you ought to have done a better experiment – Ernest Rutherford
 </blockquote>
 
 
@@ -480,6 +480,7 @@ Tan, Daniel. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
 </div></div></section></div> ]]></description>
   <category>scala</category>
   <category>learning</category>
+  <category>yearly-review</category>
   <guid>https://www.ddanieltan.com/posts/2022scala-recap/index.html</guid>
   <pubDate>Fri, 30 Dec 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/2022scala-recap/scala-bonsai.png" medium="image" type="image/png" height="288" width="144"/>
