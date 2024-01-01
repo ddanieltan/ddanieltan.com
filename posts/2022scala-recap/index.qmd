@@ -2,7 +2,7 @@
 title: "2022 Year of Scala Recap"
 description: "Recaps, Learnings and Reflections"
 date: "2022-12-31"
-categories: [scala,learning]
+categories: [scala,learning, yearly-review]
 image: scala-bonsai.png
 ---
 

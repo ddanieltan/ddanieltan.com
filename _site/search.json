@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "🤔",
     "section": "",
-    "text": "A Tour of Google IDX\n\n\n\n\n\nDevelop apps entirely in the cloud\n\n\n\n\n\n\nNovember 4, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2023 Year of Causal Inference\n\n\n\n\n\nFor every action there is an equal and opposite reaction\n\n\n\n\n\n\nJanuary 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2022 Year of Scala Recap\n\n\n\n\n\nRecaps, Learnings and Reflections\n\n\n\n\n\n\nDecember 31, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022 NormConf - My favourite talks\n\n\n\n\n\nLessons from real-life data science practitioners\n\n\n\n\n\n\nDecember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nScala tips for Advent of Code 2022\n\n\n\n\n\nTwas the night before AOC\n\n\n\n\n\n\nNovember 30, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBroadway Boogie Woogie\n\n\n\n\n\nBuilding a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to add some personality to your Quarto Blog\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022: My Year of Scala\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow I sync my config files with Stow\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\nExplainers: Inverse Transform Theorem\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHello world\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "My 2023 Review\n\n\n\n\n\nReflections on the highs and lows\n\n\n\n\n\n\nDecember 31, 2023\n\n\n\n\n\n\n  \n\n\n\n\nA Tour of Google IDX\n\n\n\n\n\nDevelop apps entirely in the cloud\n\n\n\n\n\n\nNovember 4, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2023 Year of Causal Inference\n\n\n\n\n\nFor every action there is an equal and opposite reaction\n\n\n\n\n\n\nJanuary 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\n2022 Year of Scala Recap\n\n\n\n\n\nRecaps, Learnings and Reflections\n\n\n\n\n\n\nDecember 31, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022 NormConf - My favourite talks\n\n\n\n\n\nLessons from real-life data science practitioners\n\n\n\n\n\n\nDecember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nScala tips for Advent of Code 2022\n\n\n\n\n\nTwas the night before AOC\n\n\n\n\n\n\nNovember 30, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBroadway Boogie Woogie\n\n\n\n\n\nBuilding a Genuine Fake\n\n\n\n\n\n\nOctober 12, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to add some personality to your Quarto Blog\n\n\n\n\n\nA few of my favourite bells and whistles\n\n\n\n\n\n\nSeptember 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\n2022: My Year of Scala\n\n\n\n\n\nHow I added a new tool to my toolbox\n\n\n\n\n\n\nSeptember 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow I sync my config files with Stow\n\n\n\n\n\nA simple system to keep chaos at bay\n\n\n\n\n\n\nAugust 27, 2022\n\n\n\n\n\n\n  \n\n\n\n\nExplainers: Inverse Transform Theorem\n\n\n\n\n\nA #SoME2 submission\n\n\n\n\n\n\nAugust 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHello world\n\n\n\n\n\nA new hope\n\n\n\n\n\n\nJuly 15, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/boogiewoogie/index.html",
@@ -306,5 +306,68 @@
     "title": "A Tour of Google IDX",
     "section": "Appendix",
     "text": "Appendix\n\n\n\n\n\n\n\nExpand for Session Info\n\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       macOS Sonoma 14.0\n system   x86_64, darwin20\n ui       X11\n language (EN)\n collate  en_US.UTF-8\n ctype    en_US.UTF-8\n tz       Asia/Singapore\n date     2023-11-05\n pandoc   3.1.9 @ /usr/local/bin/ (via rmarkdown)\n quarto   1.3.450\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)\n\n [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20\n [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13\n\n──────────────────────────────────────────────────────────────────────────────\n\n\n\n\n\n\nYou don’t understand anything until you learn it more than one way – Marvin Minsky"
+  },
+  {
+    "objectID": "posts/2023-review/index.html",
+    "href": "posts/2023-review/index.html",
+    "title": "My 2023 Review",
+    "section": "",
+    "text": "2023 was a busy year where I undertook more activities and projects than I initially planned for. Reflecting on the last day of the year, I am grateful and happy to have had a good year with my friends and family. For posterity, here are my notes of this year’s highs and lows."
+  },
+  {
+    "objectID": "posts/2023-review/index.html#building-organisation-habits",
+    "href": "posts/2023-review/index.html#building-organisation-habits",
+    "title": "My 2023 Review",
+    "section": "Building Organisation Habits",
+    "text": "Building Organisation Habits\nThe number 1 thing I wanted to do going from 2022 to 2023 was to be more organized about everything. I am really proud of the fact that I have built personalised processes and systems that help me better manage my time, projects, finances and family commitments. These include:\n\nA workflow to journal weekly capturing my focal projects, reflections on wins, areas of improvements and moments of inspiration\nA more accurate map of my monthly spending and investments\nA daily personal task manager for my work and personal projects\nImprovements in the way that I capture information for my personal knowledge graph/second brain"
+  },
+  {
+    "objectID": "posts/2023-review/index.html#work",
+    "href": "posts/2023-review/index.html#work",
+    "title": "My 2023 Review",
+    "section": "Work",
+    "text": "Work\nI am lucky that there have been interesting problems to solve at work pretty much every year but given the landmark year 2023 has been for AI and LLMs, the energy at work for 2023 has felt like unlike any other. To that end, I feel that the projects I got to work on this year were particularly interesting! I am grateful to continue to be working with an incredible group of people on my team, who I learn from daily. I also received a promotion this year which was a wonderful surprise and cherished testament to the amazing support from my family, colleagues and mentors who have been with me on my career journey."
+  },
+  {
+    "objectID": "posts/2023-review/index.html#travel",
+    "href": "posts/2023-review/index.html#travel",
+    "title": "My 2023 Review",
+    "section": "Travel",
+    "text": "Travel\n😅 It’s hard to deny that me and my wife are revenge travellers, and our 2023 was filled with many trips. Travelling is a luxury but its one of the things I enjoy very much. In particular, this year I found out that I really enjoyed travelling in a larger group. Turns out that great experiences get better when shared with friends and family."
+  },
+  {
+    "objectID": "posts/2023-review/index.html#school",
+    "href": "posts/2023-review/index.html#school",
+    "title": "My 2023 Review",
+    "section": "School",
+    "text": "School\nThis was my 3rd year in Georgia Tech’s OMSCS programme and it was the most time-consuming and hardest year of curriculum. I took Machine Learning in Spring, Human-Computer Interaction in Summer followed by “everyone’s favourite” Graduate Algorithms in Fall. It was gruelling but I made it, and I’m glad to be 1 step closer to the finish line."
+  },
+  {
+    "objectID": "posts/2023-review/index.html#health",
+    "href": "posts/2023-review/index.html#health",
+    "title": "My 2023 Review",
+    "section": "Health",
+    "text": "Health\n🐷 I got heavier and fatter this year. Nothing terribly drastic but it is an accurate reflection that I have indulged in unhealthy food and skipped workouts more often that I should have in 2023. I take solace that I don’t have anything more serious but I see this as 1 of the more important things I need to work on in 2024."
+  },
+  {
+    "objectID": "posts/2023-review/index.html#plan-to-study-causal-inference",
+    "href": "posts/2023-review/index.html#plan-to-study-causal-inference",
+    "title": "My 2023 Review",
+    "section": "Plan to study Causal Inference",
+    "text": "Plan to study Causal Inference\nMy plan of dedicating 2023 as my Year of Causal Inference did not go as smoothly as I had planned. While I managed to work my way through a lot of material such as Coursera’s Essential Causal Inference Techniques, Matthew Facure’s Causal Inference in Python and Alex Deng’s Causal Inference and It’s Applications in Online Industry, I did not feel like I fully understood how to apply Causal Inference in my projects.\nAdditionally, while having a singular learning topic in 2022 to learn Scala worked wonders for me, trying to apply that singular dedication to Causal Inference in 2023 when there were so many interesting advancements in AI and LLMs took away some joy of learning. Eventually, I decided to adapt and pivot my efforts let my interests dictate my learning topics and spent more time on personal LLM projects.\nNonetheless, I appreciate the time I spent learning about Causal Inference and while I underestimated how vast this field was this year, I look forward to when I can come back and continue my education in Causal Inference sometime in the future."
+  },
+  {
+    "objectID": "posts/2023-review/index.html#writing",
+    "href": "posts/2023-review/index.html#writing",
+    "title": "My 2023 Review",
+    "section": "Writing",
+    "text": "Writing\nI wrote 8 blog posts in 2022 but only 2 blog posts in 2023. I have to acknowledge that I chose to prioritise work, school and other commitments over my desire to improve my writing, despite my firm belief that writing is one of the most important skills anyone needs to hone.\nI believe I need to approach this the same way I approached how I built better organisational habits for the other areas of my life, in that, beyond giving myself a target of number of blog posts to reach, I need to consider what processes and systems can I create make writing easier and more conducive for myself. Which takes me to…"
+  },
+  {
+    "objectID": "posts/2023-review/index.html#appendix",
+    "href": "posts/2023-review/index.html#appendix",
+    "title": "My 2023 Review",
+    "section": "Appendix",
+    "text": "Appendix\n\n\n\n\n\n\n\nExpand for Session Info\n\n\n\n\n\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       macOS Sonoma 14.1.2\n system   x86_64, darwin20\n ui       X11\n language (EN)\n collate  en_US.UTF-8\n ctype    en_US.UTF-8\n tz       Asia/Singapore\n date     2024-01-01\n pandoc   3.1.10 @ /usr/local/bin/ (via rmarkdown)\n quarto   1.3.450\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)\n\n [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20\n [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13\n\n──────────────────────────────────────────────────────────────────────────────\n\n\n\n\n\n\nSucking at something is the 1st step to being sorta good at something – Jake the Dog"
   }
 ]

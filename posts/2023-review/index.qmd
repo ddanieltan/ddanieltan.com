@@ -1,0 +1,59 @@
+---
+title: "My 2023 Review"
+description: "Reflections on the highs and lows"
+date: "2023-12-31"
+categories: [learning, causality, yearly-review, llm, career]
+---
+# Summary
+2023 was a busy year where I undertook more activities and projects than I initially planned for. Reflecting on the last day of the year, I am grateful and happy to have had a good year with my friends and family. For posterity, here are my notes of this year's highs and lows.
+
+# Highlights
+
+## Building Organisation Habits
+The number 1 thing I wanted to do going from 2022 to 2023 was to be more organized about everything. I am really proud of the fact that I have built personalised processes and systems that help me better manage my time, projects, finances and family commitments. These include:
+
+- A workflow to journal weekly capturing my focal projects, reflections on wins, areas of improvements and moments of inspiration
+- A more accurate map of my monthly spending and investments
+- A daily personal task manager for my work and personal projects
+- Improvements in the way that I capture information for my personal knowledge graph/[second brain](https://fortelabs.com/blog/basboverview/)
+
+## Work
+I am lucky that there have been interesting problems to solve at work pretty much every year but given the landmark year 2023 has been for AI and LLMs, the energy at work for 2023 has felt like unlike any other. To that end, I feel that the projects I got to work on this year were particularly interesting! I am grateful to continue to be working with an incredible group of people on my team, who I learn from daily. I also received a [promotion this year](https://www.linkedin.com/in/ddanieltan/) which was a wonderful surprise and cherished testament to the amazing support from my family, colleagues and mentors who have been with me on my career journey.
+
+## Travel
+😅 It's hard to deny that me and my wife are [revenge travellers](https://www.forbes.com/sites/geoffwhitmore/2023/10/11/what-is-revenge-travel-and-is-it-still-happening/?sh=783c07fe7cc5), and our 2023 was filled with many trips. Travelling is a luxury but its one of the things I enjoy very much. In particular, this year I found out that I really enjoyed travelling in a larger group. Turns out that great experiences get better when shared with friends and family.
+
+## School
+This was my 3rd year in [Georgia Tech's OMSCS programme](https://omscs.gatech.edu/) and it was the most time-consuming and hardest year of curriculum. I took [Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning) in Spring, [Human-Computer Interaction](https://omscs.gatech.edu/cs-6750-human-computer-interaction) in Summer followed by "everyone's favourite" [Graduate Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms) in Fall. It was gruelling but I made it, and I'm glad to be 1 step closer to the finish line.
+
+# Areas for Improvement
+
+## Health
+🐷 I got heavier and fatter this year. Nothing terribly drastic but it is an accurate reflection that I have indulged in unhealthy food and skipped workouts more often that I should have in 2023. I take solace that I don't have anything more serious but I see this as 1 of the more important things I need to work on in 2024.
+
+## Plan to study Causal Inference
+My plan of dedicating 2023 as my [Year of Causal Inference](http://ddanieltan.com/posts/2023-causal-inference/) did not go as smoothly as I had planned. While I managed to work my way through a lot of material such as [Coursera's Essential Causal Inference Techniques](https://www.coursera.org/projects/essential-causal-inference-for-data-science), Matthew Facure's [Causal Inference in Python](https://www.oreilly.com/library/view/causal-inference-in/9781098140243/) and Alex Deng's [Causal Inference and It's Applications in Online Industry](https://alexdeng.github.io/causal/index.html), I did not feel like I fully understood how to apply Causal Inference in my projects. 
+
+Additionally, while having a singular learning topic in [2022 to learn Scala](https://www.ddanieltan.com/posts/2022scala-recap/) worked wonders for me, trying to apply that singular dedication to Causal Inference in 2023 when there were so many interesting advancements in AI and LLMs took away some joy of learning. Eventually, I decided to adapt and pivot my efforts let my interests dictate my learning topics and spent more time on personal LLM projects. 
+
+Nonetheless, I appreciate the time I spent learning about Causal Inference and while I underestimated how vast this field was this year, I look forward to when I can come back and continue my education in Causal Inference sometime in the future.
+
+## Writing
+I wrote 8 blog posts in 2022 but only 2 blog posts in 2023. I have to acknowledge that I chose to prioritise work, school and other commitments over my desire to improve my writing, despite my firm belief that writing is one of the most important skills anyone needs to hone. 
+
+I believe I need to approach this the same way I approached how I built better organisational habits for the other areas of my life, in that, beyond giving myself a target of number of blog posts to reach, I need to consider what processes and systems can I create make writing easier and more conducive for myself. Which takes me to...
+
+# My Plan for 2024
+
+1. Write more. Develop a system that helps me make writing a priority, an enjoyable activity and a sustainable habit in my life.
+
+2. Get Healthier. The classic new year resolution but this time I have some health data to guide my progress.
+
+3. Find a flexible learning topic that strikes a balance between focus and curiousity. I'm still pondering on what this might be.
+
+Overall, 2023 was another fantastic year that I am very grateful for. Hope your year was great too. Let's look forward to 2024! 😊
+
+
+
+```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
+```
