@@ -8,6 +8,7 @@ website:
   twitter-card: true
   open-graph: true
   navbar:
+    logo: "favicon.ico"
     right:
       - about.qmd
       - icon: github
