@@ -4,6 +4,8 @@ description: "Reflections on the highs and lows"
 date: "2023-12-31"
 categories: [learning, causality, yearly-review, llm, career]
 ---
+![](https://upload.wikimedia.org/wikipedia/commons/3/37/2023-01-01_new-year-illustration_by_David_Revoy.jpg)
+
 # Summary
 2023 was a busy year where I undertook more activities and projects than I initially planned for. Reflecting on the last day of the year, I am grateful and happy to have had a good year with my friends and family. For posterity, here are my notes of this year's highs and lows.
 
