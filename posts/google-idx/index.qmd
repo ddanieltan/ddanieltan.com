@@ -16,7 +16,7 @@ The onboarding experience was very smooth, my google account was required to sig
 
 ![](create-a-workspace.png)
 
-# Editting Experience
+# Editing Experience
 
 A couple of clicks later, I was up and running. I really enjoyed how quickly and relatively friction-less it took to get to this stage.
 
