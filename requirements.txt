@@ -1,0 +1,17 @@
+# Editing
+jupyter
+quarto
+
+# Data
+pandas
+polars
+scikit-learn
+numpy
+scipy
+
+# Plotting
+altair
+lets-plot
+plotnine
+matplotlib
+seaborn
