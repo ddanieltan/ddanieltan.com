@@ -1,0 +1,87 @@
+---
+title: "Why I like Obsidian"
+description: "A tool that helps me manage pretty much everything"
+date: "2024-01-17"
+categories: [obsidian]
+image: graph2.png
+---
+
+# The start of my [Obsidian](https://obsidian.md/) journey
+21 January 2021, that's the date I created in my first note in my [Obsidian](https://obsidian.md/) vault. Back then, it was just an experiment in my ongoing quest to find the perfect note-taking tool. [Evernote](https://evernote.com/), [Roam Research](https://roamresearch.com/), and even the good ol' [pen and paper](https://www.zebrapen.com/blogs/enlightened-writing/4-reasons-to-keep-writing-with-a-pen-and-paper) took their turns on my desk. But ever since I started using Obsidian, I never used another tool again. Since that day, Obsidian has been my constant companion through learning adventures, career changes, study sessions, and moments of personal reflection. What started as a simple app transformed into an indispensable tool, the backstage manager of my life, keeping everything in check. 
+
+# Obsidian's Features
+What really makes Obsidian unique? I think it boils down to 3 features:
+
+## 1. Obsidian allows structure to grow organically
+Most note-taking tools require you to decide upon the structure of your note before you record the note. For example, say I am taking notes while going through one of deeplearning.ai's excellent [Generative AI LLM courses](https://www.deeplearning.ai/courses/generative-ai-with-llms/), before writing down my notes, I might have to decide on my folder structure.
+
+Perhaps I should structure my notes by their topic
+```
+├── Instruction Fine Tuning
+│   ├── Single Task
+│   └── Multi Task
+├── Parameter Efficient Fine Tuning (PEFT)
+├── Low Rank Adaption of LLMs (LoRA)
+├── Model Evaluation Metrics
+    └── LLM benchmarks
+```
+
+Or perhaps I should structure my notes based by date so I can track my learning progress over time
+```
+├── 2024-01-01
+├── 2024-01-02
+│   └── Instruction Fine Tuning
+├── 2024-01-03
+│   └── Parameter Efficient Fine Tuning (PEFT)
+├── 2024-01-04
+│   └── Low Rank Adaption of LLMs (LoRA)
+└── 2024-01-05
+```
+
+Either way could be valid, depending on how I plan to revise and reorganise my notes in the future. But having to decide upon a structure upfront before I get the chance to start recording my notes never feels good.
+
+### Internal Links
+Obsidian offers a powerful feature to solve this problem - [Internal Links](https://help.obsidian.md/Linking+notes+and+files/Internal+links). Here is an example of Internal Links in action:
+![](./internal-link-example.png)
+
+By wrapping any idea/noun/topic in double `[[]]` brackets Obsidian creates a dedicated new notes for that item, as well as the connection between the note I am currently taking and the one that was just created. In this short paragraph, I have linked both a date `2024-01-02` and several key topics e.g. (`In-context learning`), which means that when I want to revisit or reorganise my notes, I can do so either by topic or by date. 
+
+:::{.column-margin}
+With internal links, I enjoy keeping my notes in a flat hierachy but I have seen vaults that still prefer folders. Obsidian supports both preferences equally well 🙂
+:::
+
+This flexibility enables me to build my vault out with an organic structure that adapts to my learning needs.
+
+## 2. Obsidian helps me link atomic ideas into greater understanding
+Knowledge is a mosaic crafted from interconnected ideas.
+
+::: {.panel-tabset}
+
+### What my vault started as
+
+![](./graph1.png)
+
+Here is the [graph view](https://help.obsidian.md/Plugins/Graph+view) of my Obsidian vault in my 1st year. Every node in this graph is a single note. It is clear that when I was first starting out, I was writing down disparate, unconnected notes. I was probably writing down a lot of interesting ideas, but I had not taken the time to connect these ideas to gain a broader understanding.
+
+### What my vault grew into
+
+![](./graph2.png)
+
+As I continued using Obsidian, I started to link notes together. This could be done either when the notew was first created, or when I scheduled time to review these notes again. Soon, I saw clusters of ideas organically forming into broader topics. My [deep dive into Scala](https://www.ddanieltan.com/posts/2022scala/), my [exploration of Causal Inference](https://www.ddanieltan.com/posts/2023-causal-inference/) and a whole variety of subjects that interest me came out of these clusters. And today, I have a nice graphical topology of sorts that represents my learning journey and keeps me motivated.
+
+:::
+
+## 3. Obsidian's choice to work with plain text files make it future-proof
+
+Lastly, my favourite feature of Obsidian is that by deafault, it chooses to work with plain text files. This simple decision means that Obsidian notes:
+
+- Can be used offline
+- Can be editted with any text editor
+- Can be viewed with a variety of text readers
+- Can be easily synced on iCloud, Dropbox or using git
+- Is yours, forever!
+
+Obsidian's CEO Steph Ango wrote a [dedicated blog post on this philosophy](https://stephango.com/file-over-app) that went deeper into this philosophy. He shared that *all software is ephemeral and Obsidian wants to give people ownership over their own data*, which is an approach that builds trust for its users.
+
+```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
+```

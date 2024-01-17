@@ -10,7 +10,152 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sat, 30 Dec 2023 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 16 Jan 2024 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Why I like Obsidian</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/obsidian/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="the-start-of-my-obsidian-journey" class="level1">
+<h1>The start of my <a href="https://obsidian.md/">Obsidian</a> journey</h1>
+<p>21 January 2021, that’s the date I created in my first note in my <a href="https://obsidian.md/">Obsidian</a> vault. Back then, it was just an experiment in my ongoing quest to find the perfect note-taking tool. <a href="https://evernote.com/">Evernote</a>, <a href="https://roamresearch.com/">Roam Research</a>, and even the good ol’ <a href="https://www.zebrapen.com/blogs/enlightened-writing/4-reasons-to-keep-writing-with-a-pen-and-paper">pen and paper</a> took their turns on my desk. But ever since I started using Obsidian, I never used another tool again. Since that day, Obsidian has been my constant companion through learning adventures, career changes, study sessions, and moments of personal reflection. What started as a simple app transformed into an indispensable tool, the backstage manager of my life, keeping everything in check.</p>
+</section>
+<section id="obsidians-features" class="level1 page-columns page-full">
+<h1>Obsidian’s Features</h1>
+<p>What really makes Obsidian unique? I think it boils down to 3 features:</p>
+<section id="obsidian-allows-structure-to-grow-organically" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="obsidian-allows-structure-to-grow-organically">1. Obsidian allows structure to grow organically</h2>
+<p>Most note-taking tools require you to decide upon the structure of your note before you record the note. For example, say I am taking notes while going through one of deeplearning.ai’s excellent <a href="https://www.deeplearning.ai/courses/generative-ai-with-llms/">Generative AI LLM courses</a>, before writing down my notes, I might have to decide on my folder structure.</p>
+<p>Perhaps I should structure my notes by their topic</p>
+<pre><code>├── Instruction Fine Tuning
+│&nbsp;&nbsp; ├── Single Task
+│&nbsp;&nbsp; └── Multi Task
+├── Parameter Efficient Fine Tuning (PEFT)
+├── Low Rank Adaption of LLMs (LoRA)
+├── Model Evaluation Metrics
+ &nbsp;&nbsp; └── LLM benchmarks</code></pre>
+<p>Or perhaps I should structure my notes based by date so I can track my learning progress over time</p>
+<pre><code>├── 2024-01-01
+├── 2024-01-02
+│&nbsp;&nbsp; └── Instruction Fine Tuning
+├── 2024-01-03
+│&nbsp;&nbsp; └── Parameter Efficient Fine Tuning (PEFT)
+├── 2024-01-04
+│&nbsp;&nbsp; └── Low Rank Adaption of LLMs (LoRA)
+└── 2024-01-05</code></pre>
+<p>Either way could be valid, depending on how I plan to revise and reorganise my notes in the future. But having to decide upon a structure upfront before I get the chance to start recording my notes never feels good.</p>
+<section id="internal-links" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="internal-links">Internal Links</h3>
+<p>Obsidian offers a powerful feature to solve this problem - <a href="https://help.obsidian.md/Linking+notes+and+files/Internal+links">Internal Links</a>. Here is an example of Internal Links in action: <img src="https://www.ddanieltan.com/posts/obsidian/internal-link-example.png" class="img-fluid"></p>
+<p>By wrapping any idea/noun/topic in double <code>[[]]</code> brackets Obsidian creates a dedicated new notes for that item, as well as the connection between the note I am currently taking and the one that was just created. In this short paragraph, I have linked both a date <code>2024-01-02</code> and several key topics e.g.&nbsp;(<code>In-context learning</code>), which means that when I want to revisit or reorganise my notes, I can do so either by topic or by date.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>With internal links, I enjoy keeping my notes in a flat hierachy but I have seen vaults that still prefer folders. Obsidian supports both preferences equally well 🙂</p>
+</div></div><p>This flexibility enables me to build my vault out with an organic structure that adapts to my learning needs.</p>
+</section>
+</section>
+<section id="obsidian-helps-me-link-atomic-ideas-into-greater-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="obsidian-helps-me-link-atomic-ideas-into-greater-understanding">2. Obsidian helps me link atomic ideas into greater understanding</h2>
+<p>Knowledge is a mosaic crafted from interconnected ideas.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">What my vault started as</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">What my vault grew into</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p><img src="https://www.ddanieltan.com/posts/obsidian/graph1.png" class="img-fluid"></p>
+<p>Here is the <a href="https://help.obsidian.md/Plugins/Graph+view">graph view</a> of my Obsidian vault in my 1st year. Every node in this graph is a single note. It is clear that when I was first starting out, I was writing down disparate, unconnected notes. I was probably writing down a lot of interesting ideas, but I had not taken the time to connect these ideas to gain a broader understanding.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<p><img src="https://www.ddanieltan.com/posts/obsidian/graph2.png" class="img-fluid"></p>
+<p>As I continued using Obsidian, I started to link notes together. This could be done either when the notew was first created, or when I scheduled time to review these notes again. Soon, I saw clusters of ideas organically forming into broader topics. My <a href="https://www.ddanieltan.com/posts/2022scala/">deep dive into Scala</a>, my <a href="https://www.ddanieltan.com/posts/2023-causal-inference/">exploration of Causal Inference</a> and a whole variety of subjects that interest me came out of these clusters. And today, I have a nice graphical topology of sorts that represents my learning journey and keeps me motivated.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="obsidians-choice-to-work-with-plain-text-files-make-it-future-proof" class="level2">
+<h2 class="anchored" data-anchor-id="obsidians-choice-to-work-with-plain-text-files-make-it-future-proof">3. Obsidian’s choice to work with plain text files make it future-proof</h2>
+<p>Lastly, my favourite feature of Obsidian is that by deafault, it chooses to work with plain text files. This simple decision means that Obsidian notes:</p>
+<ul>
+<li>Can be used offline</li>
+<li>Can be editted with any text editor</li>
+<li>Can be viewed with a variety of text readers</li>
+<li>Can be easily synced on iCloud, Dropbox or using git</li>
+<li>Is yours, forever!</li>
+</ul>
+<p>Obsidian’s CEO Steph Ango wrote a <a href="https://stephango.com/file-over-app">dedicated blog post on this philosophy</a> that went deeper into this philosophy. He shared that <em>all software is ephemeral and Obsidian wants to give people ownership over their own data</em>, which is an approach that builds trust for its users.</p>
+<!--
+Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
+-->
+</section>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.2 (2023-10-31)
+ os       macOS Sonoma 14.1.2
+ system   x86_64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Singapore
+ date     2024-01-17
+ pandoc   3.1.10 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.3.450
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
+
+ [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
+ [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+The statistician cannot evade the responsibility for understanding the process he applies or recommends – Ronald Fisher
+</blockquote>
+
+
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
+  author = {Tan, Daniel},
+  title = {Why {I} Like {Obsidian}},
+  date = {2024-01-17},
+  url = {https://www.ddanieltan.com/posts/obsidian},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas">
+Tan, Daniel. 2024. <span>“Why I Like Obsidian.”</span> January 17, 2024.
+<a href="https://www.ddanieltan.com/posts/obsidian">https://www.ddanieltan.com/posts/obsidian</a>.
+</div></div></section></div> ]]></description>
+  <category>obsidian</category>
+  <guid>https://www.ddanieltan.com/posts/obsidian/index.html</guid>
+  <pubDate>Tue, 16 Jan 2024 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/obsidian/graph2.png" medium="image" type="image/png" height="143" width="144"/>
+</item>
 <item>
   <title>My 2023 Review</title>
   <dc:creator>Daniel Tan</dc:creator>

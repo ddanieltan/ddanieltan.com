@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/obsidian/index.html",
       "/posts/2023-review/index.html",
       "/posts/google-idx/index.html",
       "/posts/2023-causal-inference/index.html",
