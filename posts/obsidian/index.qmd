@@ -83,5 +83,7 @@ Lastly, my favourite feature of Obsidian is that by deafault, it chooses to work
 
 Obsidian's CEO Steph Ango wrote a [dedicated blog post on this philosophy](https://stephango.com/file-over-app) that went deeper into this philosophy. He shared that *all software is ephemeral and Obsidian wants to give people ownership over their own data*, which is an approach that builds trust for its users.
 
+*Edit: [Hackernews discussion thread](https://news.ycombinator.com/item?id=39027154#39027707)*
+
 ```{r, echo=FALSE, child="/Users/ddanieltan/Code/ddanieltan.com/scripts/appendix.qmd"}
 ```
