@@ -73,10 +73,10 @@ As I continued using Obsidian, I started to link notes together. This could be d
 
 ## 3. Obsidian's choice to work with plain text files make it future-proof
 
-Lastly, my favourite feature of Obsidian is that by deafault, it chooses to work with plain text files. This simple decision means that Obsidian notes:
+Lastly, my favourite feature of Obsidian is that by default, it chooses to work with plain text files. This simple decision means that Obsidian notes:
 
 - Can be used offline
-- Can be editted with any text editor
+- Can be edited with any text editor
 - Can be viewed with a variety of text readers
 - Can be easily synced on iCloud, Dropbox or using git
 - Is yours, forever!
