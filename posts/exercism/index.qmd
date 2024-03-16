@@ -2,13 +2,12 @@
 title: "Exercism"
 description: "An enjoyable, convenient and realistic interface for coding exercises"
 date: "2024-03-16"
-image: https://assets.exercism.org/assets/graphics/landing-page-top-74da2134b88efcf34b05e804987fdfb832771716.svg
 categories: [learning]
 ---
 
 # What is Exercism
 
-![](https://assets.exercism.org/assets/graphics/landing-page-top-74da2134b88efcf34b05e804987fdfb832771716.svg){fig-align="center"}
+![](./exercism.png){fig-align='center' width=400}
 
 [Exercism](https://exercism.org/) is a website where you can learn how to code in a variety of programming languages. I do enjoy learning new programming languages and this site is one of my favourite places to find both instructional as well as practical content and exercises. When it comes to learning a new programming language, I've found that online courses can sometimes provide too much instruction without enough hands-on practice. On the other hand, [project-based learning](https://github.com/practical-tutorials/project-based-learning) can go too far in the opposite direction, focusing heavily on practical work but lacking structure and guidance. 
 
