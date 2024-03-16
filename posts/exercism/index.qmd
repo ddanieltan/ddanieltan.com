@@ -1,0 +1,47 @@
+---
+title: "Exercism"
+description: "An enjoyable, convenient and realistic interface for coding exercises"
+date: "2024-03-16"
+image: https://assets.exercism.org/assets/graphics/landing-page-top-74da2134b88efcf34b05e804987fdfb832771716.svg
+categories: [learning]
+---
+
+# What is Exercism
+
+![](https://assets.exercism.org/assets/graphics/landing-page-top-74da2134b88efcf34b05e804987fdfb832771716.svg){fig-align="center"}
+
+[Exercism](https://exercism.org/) is a website where you can learn how to code in a variety of programming languages. I do enjoy learning new programming languages and this site is one of my favourite places to find both instructional as well as practical content and exercises. When it comes to learning a new programming language, I've found that online courses can sometimes provide too much instruction without enough hands-on practice. On the other hand, [project-based learning](https://github.com/practical-tutorials/project-based-learning) can go too far in the opposite direction, focusing heavily on practical work but lacking structure and guidance. 
+
+Exercism strikes a nice balance between the two extremes. It gives you just the right amount of instruction combined with coding exercises to solidify your understanding. It's like the "Goldilocks" solution – not too much theory, not too little, but just the right mix to make the learning process enjoyable and effective.
+
+Additionally, compared to other large names in this space ie. [LeetCode](https://leetcode.com/), I find Exercism a lot more focused on teaching you how to utilise the features of a programming language more so than how to pass the Algorithms round of coding interviews.
+
+# The Exercism CLI
+
+Thus far, I have been using the online code editor on Exercism as I go through the exercises but today, I learnt of the [Exercism CLI](https://exercism.org/docs/using/solving-exercises/working-locally). I much prefer using the CLI because:
+- I get to use my preferred coding editor (Vscode / Neovim) where I have my familiar key bindings and Vim motions
+- I get a more immediate response when running my unit tests
+- It feels more realistic! You get written instructions that you need to understand the problem, coding stubs that you need to complete and unit tests to evaluate if your implementation is correct. This forms a minimal but realistic example of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development).
+
+## Setup
+
+1. Create an account on Exercism, navigate to your settings page and copy your authentication token to the clipboard.
+2. Install the Exercism CLI with `brew install exercism`
+3. Specify which workspace directory you want the CLI to download problems to with `exercism configure -w <directory>`
+
+## Solving and Submitting Exercises
+
+Now that we've covered the overall approach, you're ready to start tackling some exercises. On Exercism, programming languages are organized into what they call [Tracks](https://exercism.org/tracks). Each track contains a series of coding exercises arranged from easiest to hardest. You'll find a great selection of tracks for both popular languages and some more obscure ones. No matter how familiar I think I am with a language, I always end up learning something new from the exercises. And it's been really cool to get exposed to languages I'd never even heard of before. The variety ensures there's something engaging for everyone to explore.
+
+1. Find an exercise from a Track
+2. Copy the exercism cli command to download the problem. E.g. `exercism download --track=python --exercise=chaitanas-colossal-coaster`
+3. Navigate to your configured workspace directory and start solving! Use the provided unit tests to see if your implementation is correct. `pytest -v`
+4. Once all tests are passed, submit your solution with `exercism submit`
+
+## Learning and getting feedback
+
+Your learning doesn't stop after you submit an exercise solution. You can navigate back to the problem page and check out how other Exercism users approached the same exercise. I've lost count of how many times I've picked up a clever new technique or a more idiomatic way of writing code just by exploring the top-rated solutions from others.
+
+But in my opinion, the **killer feature** of Exercism is the ability to request a code review from an actual human mentor - not a bot. Code reviews are a huge part of real software development jobs, so it's fantastic that this platform exposes you to that process in a supportive, low-stress environment. Getting that experience early on is invaluable!
+
+Hope you found this short write up useful and you give Exercism a try!
