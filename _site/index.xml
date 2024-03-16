@@ -6,16 +6,17 @@
       version="2.0">
 <channel>
 <title>ddanieltan.com</title>
-<link>https://www.ddanieltan.com/index.html</link>
+<link>https://www.ddanieltan.com/</link>
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.450</generator>
+<generator>quarto-1.4.550</generator>
 <lastBuildDate>Tue, 16 Jan 2024 16:00:00 GMT</lastBuildDate>
 <item>
   <title>Why I like Obsidian</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/obsidian/index.html</link>
+  <link>https://www.ddanieltan.com/posts/obsidian/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -76,10 +77,10 @@
 </section>
 <section id="obsidians-choice-to-work-with-plain-text-files-make-it-future-proof" class="level2">
 <h2 class="anchored" data-anchor-id="obsidians-choice-to-work-with-plain-text-files-make-it-future-proof">3. Obsidian’s choice to work with plain text files make it future-proof</h2>
-<p>Lastly, my favourite feature of Obsidian is that by deafault, it chooses to work with plain text files. This simple decision means that Obsidian notes:</p>
+<p>Lastly, my favourite feature of Obsidian is that by default, it chooses to work with plain text files. This simple decision means that Obsidian notes:</p>
 <ul>
 <li>Can be used offline</li>
-<li>Can be editted with any text editor</li>
+<li>Can be edited with any text editor</li>
 <li>Can be viewed with a variety of text readers</li>
 <li>Can be easily synced on iCloud, Dropbox or using git</li>
 <li>Is yours, forever!</li>
@@ -112,16 +113,16 @@ Expand for Session Info
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.3.2 (2023-10-31)
- os       macOS Sonoma 14.1.2
+ os       macOS Sonoma 14.3.1
  system   x86_64, darwin20
  ui       X11
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       Asia/Singapore
- date     2024-01-17
- pandoc   3.1.10 @ /usr/local/bin/ (via rmarkdown)
- quarto   1.3.450
+ date     2024-03-16
+ pandoc   3.1.12.2 @ /usr/local/bin/ (via rmarkdown)
+ quarto   1.4.550
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package     * version date (UTC) lib source
@@ -137,11 +138,11 @@ Expand for Session Info
 </div>
 </div>
 <blockquote class="blockquote">
-There are 2 ways of spreading light. Be the candle or the mirror that reflects it – Edith Wharton
+3 things tell a man. His eyes, his friends and his favourite quotes – Immanuel Kant
 </blockquote>
 
 
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
   author = {Tan, Daniel},
   title = {Why {I} Like {Obsidian}},
   date = {2024-01-17},
@@ -153,19 +154,19 @@ Tan, Daniel. 2024. <span>“Why I Like Obsidian.”</span> January 17, 2024.
 <a href="https://www.ddanieltan.com/posts/obsidian">https://www.ddanieltan.com/posts/obsidian</a>.
 </div></div></section></div> ]]></description>
   <category>obsidian</category>
-  <guid>https://www.ddanieltan.com/posts/obsidian/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/obsidian/</guid>
   <pubDate>Tue, 16 Jan 2024 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/obsidian/graph2.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
   <title>My 2023 Review</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/2023-review/index.html</link>
+  <link>https://www.ddanieltan.com/posts/2023-review/</link>
   <description><![CDATA[ 
 
 
 
-<p><img src="https://www.ddanieltan.com/posts/2023-review/https:/upload.wikimedia.org/wikipedia/commons/3/37/2023-01-01_new-year-illustration_by_David_Revoy.jpg" class="img-fluid"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/2023-01-01_new-year-illustration_by_David_Revoy.jpg" class="img-fluid"></p>
 <section id="summary" class="level1">
 <h1>Summary</h1>
 <p>2023 was a busy year where I undertook more activities and projects than I initially planned for. Reflecting on the last day of the year, I am grateful and happy to have had a good year with my friends and family. For posterity, here are my notes of this year’s highs and lows.</p>
@@ -290,13 +291,13 @@ Tan, Daniel. 2023. <span>“My 2023 Review.”</span> December 31, 2023. <a href
   <category>yearly-review</category>
   <category>llm</category>
   <category>career</category>
-  <guid>https://www.ddanieltan.com/posts/2023-review/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/2023-review/</guid>
   <pubDate>Sat, 30 Dec 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A Tour of Google IDX</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/google-idx/index.html</link>
+  <link>https://www.ddanieltan.com/posts/google-idx/</link>
   <description><![CDATA[ 
 
 
@@ -422,14 +423,14 @@ Tan, Daniel. 2023. <span>“A Tour of Google IDX.”</span> November 4,
   <category>tooling</category>
   <category>review</category>
   <category>webdev</category>
-  <guid>https://www.ddanieltan.com/posts/google-idx/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/google-idx/</guid>
   <pubDate>Fri, 03 Nov 2023 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/google-idx/editor.png" medium="image" type="image/png" height="69" width="144"/>
 </item>
 <item>
   <title>2023 Year of Causal Inference</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</link>
+  <link>https://www.ddanieltan.com/posts/2023-causal-inference/</link>
   <description><![CDATA[ 
 
 
@@ -444,7 +445,7 @@ Tan, Daniel. 2023. <span>“A Tour of Google IDX.”</span> November 4,
 <p>If you’ve taken a statistics class or worked in the data industry, you’ve probably heard this warning: “Correlation does not imply causation!” While this is definitely true, I’ve always wondered, “Well, what does imply causation?”</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/2023-causal-inference/https:/imgs.xkcd.com/comics/correlation.png" class="img-fluid figure-img"></p>
+<p><img src="https://imgs.xkcd.com/comics/correlation.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">xkcd never gets old</figcaption>
 </figure>
 </div>
@@ -581,13 +582,13 @@ Tan, Daniel. 2023. <span>“2023 Year of Causal Inference.”</span> January
 </div></div></section></div> ]]></description>
   <category>causality</category>
   <category>learning</category>
-  <guid>https://www.ddanieltan.com/posts/2023-causal-inference/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/2023-causal-inference/</guid>
   <pubDate>Thu, 05 Jan 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
   <title>2022 Year of Scala Recap</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/2022scala-recap/index.html</link>
+  <link>https://www.ddanieltan.com/posts/2022scala-recap/</link>
   <description><![CDATA[ 
 
 
@@ -763,14 +764,14 @@ Tan, Daniel. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
   <category>scala</category>
   <category>learning</category>
   <category>yearly-review</category>
-  <guid>https://www.ddanieltan.com/posts/2022scala-recap/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/2022scala-recap/</guid>
   <pubDate>Fri, 30 Dec 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/2022scala-recap/scala-bonsai.png" medium="image" type="image/png" height="288" width="144"/>
 </item>
 <item>
   <title>2022 NormConf - My favourite talks</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/2022-normconf/index.html</link>
+  <link>https://www.ddanieltan.com/posts/2022-normconf/</link>
   <description><![CDATA[ 
 
 
@@ -778,7 +779,7 @@ Tan, Daniel. 2022. <span>“2022 Year of Scala Recap.”</span> December 31,
 <section id="normconf" class="level1">
 <h1>2022 NormConf</h1>
 <p><a href="https://normconf.com/">NormConf</a> is a free, virtual tech conference created by <a href="https://vickiboykis.com/">Vicki Boykis</a> with a keen focus on all the unglamourous challenges that real-life data science practitioners encounter in their day-to-day work. In an arena where many other tech conferences focus on the latest and greatest, this conference is a breath of fresh air! I can sincerely share that I found more ideas to bring back to try at my work from this conference than any previous conference I have attended.</p>
-<p><img src="https://www.ddanieltan.com/posts/2022-normconf/https:/normconf.com/images/normconf_banner.png" class="img-fluid"></p>
+<p><img src="https://normconf.com/images/normconf_banner.png" class="img-fluid"></p>
 <p>The conference was held in a single day, split between 3 sessions and several lightning talks. Each session had about 10 speakers covering a variety of topics. All of these are available for free on <a href="https://www.youtube.com/@normconf">NormConf’s youtube channel</a>.</p>
 <p>I spent the weekend catching up on all the talks and wanted to share a couple of my favourites:</p>
 </section>
@@ -916,13 +917,13 @@ December 20, 2022. <a href="https://www.ddanieltan.com/posts/2022-normconf">http
   <category>spark</category>
   <category>art</category>
   <category>simulation</category>
-  <guid>https://www.ddanieltan.com/posts/2022-normconf/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/2022-normconf/</guid>
   <pubDate>Mon, 19 Dec 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Scala tips for Advent of Code 2022</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/aocScala/index.html</link>
+  <link>https://www.ddanieltan.com/posts/aocScala/</link>
   <description><![CDATA[ 
 
 
@@ -1465,13 +1466,13 @@ November 30, 2022. <a href="https://www.ddanieltan.com/posts/aocScala">https://w
 </div></div></section></div> ]]></description>
   <category>scala</category>
   <category>adventofcode</category>
-  <guid>https://www.ddanieltan.com/posts/aocScala/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/aocScala/</guid>
   <pubDate>Tue, 29 Nov 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Broadway Boogie Woogie</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/boogiewoogie/index.html</link>
+  <link>https://www.ddanieltan.com/posts/boogiewoogie/</link>
   <description><![CDATA[ 
 
 
@@ -3764,7 +3765,7 @@ font-style: inherit;">;</span></span>
 </div></div><p>You probably realize that my simple artwork is very similar to Piet Mondrian’s iconic <a href="https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie">Broadway Boogie Woogie</a>. Broadway Boogie Woogie is considered one of Mondrian’s most emblematic paintings and whose aesthetic is instantly recognised all around the world. The original piece is housed today in New York’s <a href="https://www.moma.org/collection/works/78682">Museum of Modern Art (MOMA)</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/boogiewoogie/https:/upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1200px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Piet Mondrian’s original Broadway Boogie Woogie</figcaption>
 </figure>
 </div>
@@ -3998,14 +3999,14 @@ Tan, Daniel. 2022. <span>“Broadway Boogie Woogie.”</span> October 12,
   <category>randomness</category>
   <category>observable</category>
   <category>quarto</category>
-  <guid>https://www.ddanieltan.com/posts/boogiewoogie/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/boogiewoogie/</guid>
   <pubDate>Tue, 11 Oct 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/boogiewoogie/boogie.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>How to add some personality to your Quarto Blog</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/blogtips/index.html</link>
+  <link>https://www.ddanieltan.com/posts/blogtips/</link>
   <description><![CDATA[ 
 
 
@@ -4324,14 +4325,14 @@ Tan, Daniel. 2022. <span>“How to Add Some Personality to Your Quarto
 Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/blogtips">https://www.ddanieltan.com/posts/blogtips</a>.
 </div></div></section></div> ]]></description>
   <category>quarto</category>
-  <guid>https://www.ddanieltan.com/posts/blogtips/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/blogtips/</guid>
   <pubDate>Mon, 19 Sep 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/404.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>2022: My Year of Scala</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/2022scala/index.html</link>
+  <link>https://www.ddanieltan.com/posts/2022scala/</link>
   <description><![CDATA[ 
 
 
@@ -4351,7 +4352,7 @@ Blog.”</span> September 20, 2022. <a href="https://www.ddanieltan.com/posts/bl
 <p>I declared this my year of Scala all the way back in Jan, but I only started this blog in July, which is why this post is published in September 😅.</p>
 </div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/2022scala/https:/media.giphy.com/media/YkKPc5T8mFSdqg8yTa/giphy.gif" class="img-fluid figure-img"></p>
+<p><img src="https://media.giphy.com/media/YkKPc5T8mFSdqg8yTa/giphy.gif" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">🎉 2022 year is my year of Scala! 🎉</figcaption>
 </figure>
 </div>
@@ -4577,14 +4578,14 @@ Tan, Daniel. 2022. <span>“2022: My Year of Scala.”</span> September 15,
 </div></div></section></div> ]]></description>
   <category>scala</category>
   <category>learning</category>
-  <guid>https://www.ddanieltan.com/posts/2022scala/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/2022scala/</guid>
   <pubDate>Wed, 14 Sep 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/2022scala/scalaLogo.png" medium="image" type="image/png" height="193" width="144"/>
 </item>
 <item>
   <title>How I sync my config files with Stow</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/stow/index.html</link>
+  <link>https://www.ddanieltan.com/posts/stow/</link>
   <description><![CDATA[ 
 
 
@@ -4750,14 +4751,14 @@ Tan, Daniel. 2022. <span>“How I Sync My Config Files with Stow.”</span>
 August 27, 2022. <a href="https://www.ddanieltan.com/posts/stow">https://www.ddanieltan.com/posts/stow</a>.
 </div></div></section></div> ]]></description>
   <category>tooling</category>
-  <guid>https://www.ddanieltan.com/posts/stow/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/stow/</guid>
   <pubDate>Fri, 26 Aug 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/stow/organized.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Explainers: Inverse Transform Theorem</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/some2/index.html</link>
+  <link>https://www.ddanieltan.com/posts/some2/</link>
   <description><![CDATA[ 
 
 
@@ -5069,14 +5070,14 @@ August 8, 2022. <a href="https://www.ddanieltan.com/posts/some2">https://www.dda
   <category>R</category>
   <category>simulation</category>
   <category>randomness</category>
-  <guid>https://www.ddanieltan.com/posts/some2/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/some2/</guid>
   <pubDate>Sun, 07 Aug 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/some2/midjourney.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Hello world</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/helloworld/index.html</link>
+  <link>https://www.ddanieltan.com/posts/helloworld/</link>
   <description><![CDATA[ 
 
 
@@ -5189,7 +5190,7 @@ If your experiment needs statistics, you ought to have done a better experiment 
 Tan, Daniel. 2022. <span>“Hello World.”</span> July 15, 2022. <a href="https://www.ddanieltan.com/posts/helloworld">https://www.ddanieltan.com/posts/helloworld</a>.
 </div></div></section></div> ]]></description>
   <category>quarto</category>
-  <guid>https://www.ddanieltan.com/posts/helloworld/index.html</guid>
+  <guid>https://www.ddanieltan.com/posts/helloworld/</guid>
   <pubDate>Thu, 14 Jul 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/helloworld/quartoWorld.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
