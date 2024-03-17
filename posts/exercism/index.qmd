@@ -18,6 +18,7 @@ Additionally, compared to other large names in this space ie. [LeetCode](https:/
 # The Exercism CLI
 
 Thus far, I have been using the online code editor on Exercism as I go through the exercises but today, I learnt of the [Exercism CLI](https://exercism.org/docs/using/solving-exercises/working-locally). I much prefer using the CLI because:
+
 - I get to use my preferred coding editor (Vscode / Neovim) where I have my familiar key bindings and Vim motions
 - I get a more immediate response when running my unit tests
 - It feels more realistic! You get written instructions that you need to understand the problem, coding stubs that you need to complete and unit tests to evaluate if your implementation is correct. This forms a minimal but realistic example of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development).
