@@ -1,0 +1,20 @@
+---
+title: "Makeover"
+description: "#30DayChartChallenge Day 3"
+date: "2024-04-03"
+categories: [dataviz, chart-challenge, TIL]
+draft: True
+---
+
+```{python}
+import pandas as pd
+import polars as pl
+from lets_plot import *
+```
+
+
+```{python}
+drink_cols = ['country', 'beer', 'spirit', 'wine', 'liters', 'continent']
+url = 'https://raw.githubusercontent.com/justmarkham/DAT8/master/data/drinks.csv'
+drinks = pd.read_csv(url, header=0, names=drink_cols, na_filter=False)
+```
