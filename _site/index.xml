@@ -36,7 +36,7 @@ Note
 <section id="neo" class="level1">
 <h1>Neo</h1>
 <p>Today’s theme is Neo, and since I couldn’t immediately think of an associated chart, I decided to go with my first instinct: create something related to the groundbreaking 1999 movie, <a href="https://en.wikipedia.org/wiki/The_Matrix">The Matrix</a>. I remember watching The Matrix as a kid and being amazed by its mind-bending plot, cool 90s fashion, and fluid action scenes.</p>
-<div id="34190cdf" class="cell" data-execution_count="1">
+<div id="31a2e4c6" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -46,32 +46,27 @@ background-color: null;
 font-style: inherit;">as</span> np</span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb1-3"><span class="im" style="color: #00769E;
-background-color: null;
 font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> pl</span>
-<span id="cb1-4"><span class="im" style="color: #00769E;
+<span id="cb1-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> PIL <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Image</span>
-<span id="cb1-5"></span>
-<span id="cb1-6"><span class="im" style="color: #00769E;
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> lets_plot <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span></span>
-<span id="cb1-7">LetsPlot.setup_html()</span></code></pre></div>
+<span id="cb1-6">LetsPlot.setup_html()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 
-            <div id="heBT1s"></div>
+            <div id="aUXN8D"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -95,9 +90,9 @@ font-style: inherit;">*</span></span>
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("heBT1s").appendChild(div);
+                        document.getElementById("aUXN8D").appendChild(div);
                     };
-                    var e = document.getElementById("heBT1s");
+                    var e = document.getElementById("aUXN8D");
                     e.appendChild(script);
                 })()
             </script>
@@ -108,7 +103,7 @@ font-style: inherit;">*</span></span>
 <section id="geom_spoke" class="level1">
 <h1>geom_spoke()</h1>
 <p>Another interpretation of “Neo” is the concept of “new.” While browsing the Lets-Plot gallery, I came across a unique geom - <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_spoke.ipynb">geom_spoke()</a>. This is quite a rare geom that I rarely see used outside of weather maps showing wind fields. It occurred to me that this geom also resembles bullets, which inspired me to create the following…</p>
-<div id="bf6e9b1e" class="cell" data-execution_count="2">
+<div id="13ff0c78" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">image <span class="op" style="color: #5E5E5E;
@@ -341,7 +336,7 @@ font-style: inherit;">600</span>)</span>
 <span id="cb2-32">p</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
-   <div id="i9Co6l"></div>
+   <div id="6yWIPt"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -426,7 +421,7 @@ font-style: inherit;">600</span>)</span>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("i9Co6l");
+           var plotContainer = document.getElementById("6yWIPt");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -434,7 +429,7 @@ font-style: inherit;">600</span>)</span>
    </script>
 </div>
 </div>
-<div id="4e6ba3f6" class="cell" data-execution_count="3">
+<div id="3fa5834f" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">ggsave(p, <span class="st" style="color: #20794D;
