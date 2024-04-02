@@ -17,7 +17,7 @@ lang: en
 ## Code
 code-fold: show
 code-line-numbers: true
-code-overflow: wrap
+#code-overflow: wrap
 code-copy: true
 
 ## Appendix

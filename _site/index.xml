@@ -10,7 +10,393 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Fri, 15 Mar 2024 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 31 Mar 2024 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Part-to-whole Chick-Fil-A Menu Items</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/30-day-chart-1/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="quick-primer-on-the-30daychartchallenge" class="level1">
+<h1>Quick primer on the #30DayChartChallenge</h1>
+<p><img src="https://www.ddanieltan.com/posts/30-day-chart-1/30_day_chart_challenge.jpeg" class="img-fluid"></p>
+<p>The #30DayChartChallenge is a data visualisation community activity that I found out via <a href="https://www.linkedin.com/company/30daychartchallenge/">Linkedin</a>. Every day for the month of April 2024 has a key word prompt (see image above). For each prompt, participants all around the world come up with an original data visualisation to share.</p>
+<p>On a whim, I decided to participate in this challenge as I think it’s a great way try something new, better understand my tools and engage with a vibrant community.</p>
+<p>Given that this is very much a last-minute decision, I’ll choose to use Python libraries that I am familiar with. <code>polars</code> has already completely replaced <code>pandas</code> for my data manipulation needs and <code>lets-plot</code> is one of my favourite ggplot2 ports in Python.</p>
+<div id="85fe8ff8" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pl</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> lets_plot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb1-3">LetsPlot.setup_html()</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+
+            <div id="uEYbt9"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.2.0/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("uEYbt9").appendChild(div);
+                    };
+                    var e = document.getElementById("uEYbt9");
+                    e.appendChild(script);
+                })()
+            </script>
+            
+</div>
+</div>
+</section>
+<section id="data-prep" class="level1">
+<h1>Data Prep</h1>
+<p>I have heard rumours of Chick-Fil-A looking to open it’s 1st outlet in Singapore (<a href="https://cnalifestyle.channelnewsasia.com/dining/chick-fil-possible-singapore-outlet-opening-386521">source</a>), so I was inspired to make a visualisation to show the component parts of the major macro-nutrients - Protein, Carbohydrates and Fat for its popular menu items. I figure this should help me decide what I should spend my calories on when it first opens 😋.</p>
+<p>It took a bit of a search, but as always TidyTuesdays has a suitable dataset for my needs.</p>
+<div id="ac715342" class="cell" data-execution_count="2">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">fast_food <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (pl</span>
+<span id="cb2-2">    .read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv"</span>, ignore_errors<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb2-3">    .drop(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 1st index column is unnamed and not required</span></span>
+<span id="cb2-4">)</span></code></pre></div>
+</details>
+</div>
+<p>I planned to create a stacked bar chart so we need to manipulate the dataframe into a tidy-longer form.</p>
+<div id="5224ad17" class="cell" data-execution_count="3">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">chick_fil_a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (fast_food</span>
+<span id="cb3-2">    .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"restaurant"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Chick Fil-A"</span>)</span>
+<span id="cb3-3">    .select([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"item"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"total_fat"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"total_carb"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"protein"</span>])</span>
+<span id="cb3-4">    .rename({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'total_fat'</span>:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Fat'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"total_carb"</span>:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Carbohydrates"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"protein"</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Protein"</span>})</span>
+<span id="cb3-5">    .melt(id_vars<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"item"</span>, variable_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nutrients"</span>)</span>
+<span id="cb3-6">)</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="nutrients-in-chick-fil-a-menu-items" class="level1">
+<h1>Nutrients in Chick-fil-a menu items</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/30-day-chart-1/chick_fil_a_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="150"></p>
+</figure>
+</div>
+<div id="72245709" class="cell" data-execution_count="4">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> lets_plot.mapping <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> as_discrete</span>
+<span id="cb4-2"></span>
+<span id="cb4-3">p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (ggplot(chick_fil_a) </span>
+<span id="cb4-4">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_bar(</span>
+<span id="cb4-5">        aes(</span>
+<span id="cb4-6">            x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>as_discrete(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'item'</span>, order_by<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'value'</span>, order<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),</span>
+<span id="cb4-7">            y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value"</span>,fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nutrients"</span>),</span>
+<span id="cb4-8">            stat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span></span>
+<span id="cb4-9">        )</span>
+<span id="cb4-10">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> coord_flip()</span>
+<span id="cb4-11">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> labs(</span>
+<span id="cb4-12">        x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>,</span>
+<span id="cb4-13">        y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nutrients (g)"</span>,</span>
+<span id="cb4-14">        fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>,</span>
+<span id="cb4-15">        caption <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Data: TidyTuesday 2018-09-04</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Made by: www.ddanieltan.com"</span></span>
+<span id="cb4-16">        )</span>
+<span id="cb4-17">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme_minimal2()</span>
+<span id="cb4-18">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_fill_manual({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Protein'</span>:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#3b3561'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Carbohydrates'</span>:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#E51636'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Fat'</span>:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#ffc759'</span>})</span>
+<span id="cb4-19">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme(</span>
+<span id="cb4-20">        legend_position<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>,</span>
+<span id="cb4-21">        plot_caption<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'grey'</span>),</span>
+<span id="cb4-22">        plot_margin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb4-23">    )</span>
+<span id="cb4-24">)</span>
+<span id="cb4-25"></span>
+<span id="cb4-26">p</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+   <div id="OfxBiF"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"item":["Chargrilled Chicken Club Sandwich","Chargrilled Chicken Sandwich","Chick-n-Slider","1 Piece Chick-n-Strips","2 Piece Chick-n-Strips","3 Piece Chick-n-Strips","4 piece Chick-n-Strips","Chicken Deluxe","4 piece Chicken Nuggets","6 piece Chicken Nuggets","8 piece Chicken Nuggets","12 piece Chicken Nuggets","30 piece Chicken Nuggets","Chicken Salad Sandwich","Chicken Sandwich","4 Piece Grilled Chicken Nuggets","6 Piece Grilled Chicken Nuggets","8 piece Grilled Chicken Nuggets","12 Piece Grilled Chicken Nuggets","Spicy Grilled Chicken Sub Sandwich","Regular Grilled Chicken Sub Sandwich","Smokehouse BBQ Bacon Sandwich","Spicy Chicken Sandwich","Spicy Deluxe","Chargrilled Chicken Cool Wrap","Chicken Enchiladas Meal Kit","Chicken Parmesan Meal Kit","Chargrilled Chicken Club Sandwich","Chargrilled Chicken Sandwich","Chick-n-Slider","1 Piece Chick-n-Strips","2 Piece Chick-n-Strips","3 Piece Chick-n-Strips","4 piece Chick-n-Strips","Chicken Deluxe","4 piece Chicken Nuggets","6 piece Chicken Nuggets","8 piece Chicken Nuggets","12 piece Chicken Nuggets","30 piece Chicken Nuggets","Chicken Salad Sandwich","Chicken Sandwich","4 Piece Grilled Chicken Nuggets","6 Piece Grilled Chicken Nuggets","8 piece Grilled Chicken Nuggets","12 Piece Grilled Chicken Nuggets","Spicy Grilled Chicken Sub Sandwich","Regular Grilled Chicken Sub Sandwich","Smokehouse BBQ Bacon Sandwich","Spicy Chicken Sandwich","Spicy Deluxe","Chargrilled Chicken Cool Wrap","Chicken Enchiladas Meal Kit","Chicken Parmesan Meal Kit","Chargrilled Chicken Club Sandwich","Chargrilled Chicken Sandwich","Chick-n-Slider","1 Piece Chick-n-Strips","2 Piece Chick-n-Strips","3 Piece Chick-n-Strips","4 piece Chick-n-Strips","Chicken Deluxe","4 piece Chicken Nuggets","6 piece Chicken Nuggets","8 piece Chicken Nuggets","12 piece Chicken Nuggets","30 piece Chicken Nuggets","Chicken Salad Sandwich","Chicken Sandwich","4 Piece Grilled Chicken Nuggets","6 Piece Grilled Chicken Nuggets","8 piece Grilled Chicken Nuggets","12 Piece Grilled Chicken Nuggets","Spicy Grilled Chicken Sub Sandwich","Regular Grilled Chicken Sub Sandwich","Smokehouse BBQ Bacon Sandwich","Spicy Chicken Sandwich","Spicy Deluxe","Chargrilled Chicken Cool Wrap","Chicken Enchiladas Meal Kit","Chicken Parmesan Meal Kit"],
+"Nutrients":["Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein"],
+"value":[16.0,6.0,11.0,6.0,12.0,17.0,23.0,23.0,6.0,9.0,12.0,18.0,46.0,19.0,19.0,2.0,3.0,4.0,5.0,12.0,13.0,18.0,19.0,25.0,14.0,47.0,31.0,37.0,36.0,26.0,6.0,13.0,22.0,29.0,42.0,5.0,7.0,9.0,14.0,35.0,55.0,40.0,1.0,2.0,2.0,3.0,47.0,48.0,46.0,41.0,43.0,29.0,70.0,65.0,37.0,29.0,16.0,11.0,22.0,28.0,37.0,31.0,14.0,21.0,28.0,41.0,103.0,28.0,28.0,13.0,19.0,25.0,38.0,33.0,34.0,33.0,29.0,34.0,37.0,39.0,48.0]
+},
+"mapping":{
+},
+"data_meta":{
+},
+"coord":{
+"name":"flip",
+"flip":true
+},
+"caption":{
+"text":"Data: TidyTuesday 2018-09-04\nMade by: www.ddanieltan.com"
+},
+"theme":{
+"name":"minimal2",
+"legend_position":"bottom",
+"plot_caption":{
+"color":"grey",
+"size":12.0,
+"blank":false
+},
+"plot_margin":[20.0,50.0,10.0,0.0]
+},
+"kind":"plot",
+"scales":[{
+"name":"",
+"aesthetic":"x"
+},{
+"name":"Nutrients (g)",
+"aesthetic":"y"
+},{
+"name":"",
+"aesthetic":"fill"
+},{
+"aesthetic":"fill",
+"breaks":["Protein","Carbohydrates","Fat"],
+"values":["#3b3561","#E51636","#ffc759"]
+}],
+"layers":[{
+"geom":"bar",
+"stat":"identity",
+"mapping":{
+"x":"item",
+"y":"value",
+"fill":"Nutrients"
+},
+"data_meta":{
+"mapping_annotations":[{
+"aes":"x",
+"annotation":"as_discrete",
+"parameters":{
+"label":"item",
+"order_by":"value",
+"order":1.0
+}
+}]
+},
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("OfxBiF");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();    
+   </script>
+</div>
+</div>
+</section>
+<section id="things-i-learnt" class="level1">
+<h1>Things I Learnt</h1>
+<ul>
+<li>Lets-plot has a unique method <code>as_discrete()</code> to reorder categorical values, analogous to <code>reorder()</code> in <code>ggplot2</code> <a href="https://lets-plot.org/python/pages/as_discrete.html">Docs</a></li>
+<li>It’s really difficult to move my plot title to the left-margin of the plot instead of the axis due to the lack of a parameter like <code>ggplot2</code>’s <code>plot.title.position</code> but it’s coming soon https://github.com/JetBrains/lets-plot/issues/1027</li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
+  author = {Tan, Daniel},
+  title = {Part-to-Whole {Chick-Fil-A} {Menu} {Items}},
+  date = {2024-04-01},
+  url = {https://www.ddanieltan.com/posts/30-day-chart-1},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas">
+Tan, Daniel. 2024. <span>“Part-to-Whole Chick-Fil-A Menu Items.”</span>
+April 1, 2024. <a href="https://www.ddanieltan.com/posts/30-day-chart-1">https://www.ddanieltan.com/posts/30-day-chart-1</a>.
+</div></div></section></div> ]]></description>
+  <category>dataviz</category>
+  <category>chart-challenge</category>
+  <category>TIL</category>
+  <guid>https://www.ddanieltan.com/posts/30-day-chart-1/</guid>
+  <pubDate>Sun, 31 Mar 2024 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-1/day1.png" medium="image" type="image/png" height="107" width="144"/>
+</item>
 <item>
   <title>Exercism</title>
   <dc:creator>Daniel Tan</dc:creator>
@@ -511,6 +897,7 @@ Tan, Daniel. 2023. <span>“A Tour of Google IDX.”</span> November 4,
 
 
 
+
 <section id="learning-theme" class="level2">
 <h2 class="anchored" data-anchor-id="learning-theme">Learning Theme</h2>
 <p>It’s the start of the new year, which means I’m committing to a new learning theme for the year! I’ve found that having a single learning theme for the whole year helps keep me focused and prevents me from getting too excited about exploring new topics. It also helps me make both short- and long-term plans without stressing myself out too much, since I’m juggling my independent learning with time for my family, work, and school. As I mentioned in my <a href="https://www.ddanieltan.com/posts/2022scala/">post about my learning theme for 2022</a>, my goal is to find the right balance.</p>
@@ -522,7 +909,7 @@ Tan, Daniel. 2023. <span>“A Tour of Google IDX.”</span> November 4,
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://imgs.xkcd.com/comics/correlation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">xkcd never gets old</figcaption>
+<figcaption>xkcd never gets old</figcaption>
 </figure>
 </div>
 <p>When we use correlation and other measurements of association in our machine learning models, we end up with a good understanding of dependence. ML models are great at identifying patterns that link our features to outcomes, which is why they can make such accurate predictions. But even with these accurate predictions, we may not always have a clear understanding of the complex cause-and-effect forces at play in the system.</p>
@@ -645,7 +1032,7 @@ There is no such thing as informational overload, just bad design. If something 
 </blockquote>
 
 
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2023,
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2023,
   author = {Tan, Daniel},
   title = {2023 {Year} of {Causal} {Inference}},
   date = {2023-01-06},

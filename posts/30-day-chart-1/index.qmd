@@ -1,0 +1,80 @@
+---
+title: "Part-to-whole Chick-Fil-A Menu Items"
+description: "#30DayChartChallenge Day 1"
+date: "2024-04-01"
+categories: [dataviz, chart-challenge, TIL]
+image: "day1.png"
+---
+# Quick primer on the #30DayChartChallenge
+![](./30_day_chart_challenge.jpeg)
+
+The #30DayChartChallenge is a data visualisation community activity that I found out via [Linkedin](https://www.linkedin.com/company/30daychartchallenge/). Every day for the month of April 2024 has a key word prompt (see image above). For each prompt, participants all around the world come up with an original data visualisation to share.
+
+On a whim, I decided to participate in this challenge as I think it's a great way try something new, better understand my tools and engage with a vibrant community.
+
+Given that this is very much a last-minute decision, I'll choose to use Python libraries that I am familiar with. `polars` has already completely replaced `pandas` for my data manipulation needs and `lets-plot` is one of my favourite ggplot2 ports in Python.
+
+```{python}
+import polars as pl
+from lets_plot import *
+LetsPlot.setup_html()
+```
+
+# Data Prep
+
+I have heard rumours of Chick-Fil-A looking to open it's 1st outlet in Singapore ([source](https://cnalifestyle.channelnewsasia.com/dining/chick-fil-possible-singapore-outlet-opening-386521)), so I was inspired to make a visualisation to show the component parts of the major macro-nutrients - Protein, Carbohydrates and Fat for its popular menu items. I figure this should help me decide what I should spend my calories on when it first opens 😋.
+
+It took a bit of a search, but as always TidyTuesdays has a suitable dataset for my needs.
+```{python}
+fast_food = (pl
+    .read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv", ignore_errors=True)
+    .drop("") # 1st index column is unnamed and not required
+)
+```
+
+I planned to create a stacked bar chart so we need to manipulate the dataframe into a tidy-longer form.
+```{python}
+chick_fil_a = (fast_food
+    .filter(pl.col("restaurant")=="Chick Fil-A")
+    .select(["item","total_fat","total_carb","protein"])
+    .rename({'total_fat':'Fat', "total_carb":"Carbohydrates", "protein": "Protein"})
+    .melt(id_vars="item", variable_name="Nutrients")
+)
+```
+
+
+# Nutrients in Chick-fil-a menu items
+![](./chick_fil_a_logo.png){fig-align="center" width=150}
+```{python}
+from lets_plot.mapping import as_discrete
+
+p = (ggplot(chick_fil_a) 
+    + geom_bar(
+        aes(
+            x=as_discrete('item', order_by='value', order=1),
+            y="value",fill="Nutrients"),
+            stat="identity"
+        )
+    + coord_flip()
+    + labs(
+        x= "",
+        y = "Nutrients (g)",
+        fill= "",
+        caption = "Data: TidyTuesday 2018-09-04\nMade by: www.ddanieltan.com"
+        )
+    + theme_minimal2()
+    + scale_fill_manual({'Protein':'#3b3561','Carbohydrates':'#E51636', 'Fat':'#ffc759'})
+    + theme(
+        legend_position="bottom",
+        plot_caption=element_text(size=12, color='grey'),
+        plot_margin=[20,50,10,0]
+    )
+)
+
+p
+```
+
+
+# Things I Learnt
+- Lets-plot has a unique method `as_discrete()` to reorder categorical values, analogous to `reorder()` in `ggplot2` [Docs](https://lets-plot.org/python/pages/as_discrete.html)
+- It's really difficult to move my plot title to the left-margin of the plot instead of the axis due to the lack of a parameter like `ggplot2`'s `plot.title.position` but it's coming soon https://github.com/JetBrains/lets-plot/issues/1027

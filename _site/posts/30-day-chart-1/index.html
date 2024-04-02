@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Tan">
-<meta name="dcterms.date" content="2023-01-06">
-<meta name="description" content="For every action there is an equal and opposite reaction">
+<meta name="dcterms.date" content="2024-04-01">
+<meta name="description" content="#30DayChartChallenge Day 1">
 
-<title>ddanieltan.com - 2023 Year of Causal Inference</title>
+<title>ddanieltan.com - Part-to-whole Chick-Fil-A Menu Items</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,10 +23,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -82,17 +116,26 @@ gtag('js', new Date());
 gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta property="og:title" content="ddanieltan.com - 2023 Year of Causal Inference">
-<meta property="og:description" content="For every action there is an equal and opposite reaction">
+<meta property="og:title" content="ddanieltan.com - Part-to-whole Chick-Fil-A Menu Items">
+<meta property="og:description" content="#30DayChartChallenge Day 1">
+<meta property="og:image" content="https://www.ddanieltan.com/posts/30-day-chart-1/day1.png">
 <meta property="og:site_name" content="ddanieltan.com">
-<meta name="twitter:title" content="ddanieltan.com - 2023 Year of Causal Inference">
-<meta name="twitter:description" content="For every action there is an equal and opposite reaction">
-<meta name="twitter:card" content="summary">
+<meta property="og:image:height" content="1128">
+<meta property="og:image:width" content="1524">
+<meta name="twitter:title" content="ddanieltan.com - Part-to-whole Chick-Fil-A Menu Items">
+<meta name="twitter:description" content="#30DayChartChallenge Day 1">
+<meta name="twitter:image" content="https://www.ddanieltan.com/posts/30-day-chart-1/day1.png">
+<meta name="twitter:image-height" content="1128">
+<meta name="twitter:image-width" content="1524">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -142,28 +185,10 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-theme" id="toc-learning-theme" class="nav-link active" data-scroll-target="#learning-theme">Learning Theme</a></li>
-  <li><a href="#what-is-causal-inference" id="toc-what-is-causal-inference" class="nav-link" data-scroll-target="#what-is-causal-inference">What is Causal Inference?</a></li>
-  <li><a href="#why-did-i-choose-causal-inference" id="toc-why-did-i-choose-causal-inference" class="nav-link" data-scroll-target="#why-did-i-choose-causal-inference">Why did I choose Causal Inference?</a>
-  <ul class="collapse">
-  <li><a href="#causal-inference-can-answer-questions-classic-experimentation-theory-cannot" id="toc-causal-inference-can-answer-questions-classic-experimentation-theory-cannot" class="nav-link" data-scroll-target="#causal-inference-can-answer-questions-classic-experimentation-theory-cannot">Causal Inference can answer questions classic Experimentation theory cannot</a></li>
-  <li><a href="#causal-inference-is-relatable-to-everyone" id="toc-causal-inference-is-relatable-to-everyone" class="nav-link" data-scroll-target="#causal-inference-is-relatable-to-everyone">Causal Inference is relatable to everyone</a></li>
-  <li><a href="#there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference" id="toc-there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference" class="nav-link" data-scroll-target="#there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference">There is a resurgence of materials to help one learn Causal Inference</a></li>
-  </ul></li>
-  <li><a href="#plan-for-the-year" id="toc-plan-for-the-year" class="nav-link" data-scroll-target="#plan-for-the-year">Plan for the Year</a>
-  <ul class="collapse">
-  <li><a href="#structured-courses" id="toc-structured-courses" class="nav-link" data-scroll-target="#structured-courses">Structured Courses</a></li>
-  <li><a href="#materials-that-come-with-a-community" id="toc-materials-that-come-with-a-community" class="nav-link" data-scroll-target="#materials-that-come-with-a-community">Materials that come with a community</a></li>
-  <li><a href="#materials-for-solo-studying-and-referencing" id="toc-materials-for-solo-studying-and-referencing" class="nav-link" data-scroll-target="#materials-for-solo-studying-and-referencing">Materials for solo studying and referencing</a></li>
-  </ul></li>
-  <li><a href="#learning-by-doing" id="toc-learning-by-doing" class="nav-link" data-scroll-target="#learning-by-doing">Learning by doing</a>
-  <ul class="collapse">
-  <li><a href="#causal-inference-projects" id="toc-causal-inference-projects" class="nav-link" data-scroll-target="#causal-inference-projects">Causal Inference Projects</a></li>
-  <li><a href="#learning-about-the-causal-inference-landscape" id="toc-learning-about-the-causal-inference-landscape" class="nav-link" data-scroll-target="#learning-about-the-causal-inference-landscape">Learning about the Causal Inference landscape</a></li>
-  <li><a href="#blogging" id="toc-blogging" class="nav-link" data-scroll-target="#blogging">Blogging</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  
+  <li><a href="#quick-primer-on-the-30daychartchallenge" id="toc-quick-primer-on-the-30daychartchallenge" class="nav-link active" data-scroll-target="#quick-primer-on-the-30daychartchallenge">Quick primer on the #30DayChartChallenge</a></li>
+  <li><a href="#data-prep" id="toc-data-prep" class="nav-link" data-scroll-target="#data-prep">Data Prep</a></li>
+  <li><a href="#nutrients-in-chick-fil-a-menu-items" id="toc-nutrients-in-chick-fil-a-menu-items" class="nav-link" data-scroll-target="#nutrients-in-chick-fil-a-menu-items">Nutrients in Chick-fil-a menu items</a></li>
+  <li><a href="#things-i-learnt" id="toc-things-i-learnt" class="nav-link" data-scroll-target="#things-i-learnt">Things I Learnt</a></li>
   </ul>
 </nav>
 </nav>
@@ -172,20 +197,21 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2023 Year of Causal Inference</h1>
+<h1 class="title">Part-to-whole Chick-Fil-A Menu Items</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">causality</div>
-    <div class="quarto-category">learning</div>
+    <div class="quarto-category">dataviz</div>
+    <div class="quarto-category">chart-challenge</div>
+    <div class="quarto-category">TIL</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    For every action there is an equal and opposite reaction
+    #30DayChartChallenge Day 1
   </div>
 </div>
 
@@ -202,7 +228,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 6, 2023</p>
+      <p class="date">April 1, 2024</p>
     </div>
   </div>
   
@@ -214,150 +240,217 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </header>
 
 
-<section id="learning-theme" class="level2">
-<h2 class="anchored" data-anchor-id="learning-theme">Learning Theme</h2>
-<p>It’s the start of the new year, which means I’m committing to a new learning theme for the year! I’ve found that having a single learning theme for the whole year helps keep me focused and prevents me from getting too excited about exploring new topics. It also helps me make both short- and long-term plans without stressing myself out too much, since I’m juggling my independent learning with time for my family, work, and school. As I mentioned in my <a href="https://www.ddanieltan.com/posts/2022scala/">post about my learning theme for 2022</a>, my goal is to find the right balance.</p>
-<p>This year, I’m focusing on <strong>Causal Inference</strong>! 🎊 🥳 🎊 🥳 🎊 🥳</p>
+<section id="quick-primer-on-the-30daychartchallenge" class="level1">
+<h1>Quick primer on the #30DayChartChallenge</h1>
+<p><img src="./30_day_chart_challenge.jpeg" class="img-fluid"></p>
+<p>The #30DayChartChallenge is a data visualisation community activity that I found out via <a href="https://www.linkedin.com/company/30daychartchallenge/">Linkedin</a>. Every day for the month of April 2024 has a key word prompt (see image above). For each prompt, participants all around the world come up with an original data visualisation to share.</p>
+<p>On a whim, I decided to participate in this challenge as I think it’s a great way try something new, better understand my tools and engage with a vibrant community.</p>
+<p>Given that this is very much a last-minute decision, I’ll choose to use Python libraries that I am familiar with. <code>polars</code> has already completely replaced <code>pandas</code> for my data manipulation needs and <code>lets-plot</code> is one of my favourite ggplot2 ports in Python.</p>
+<div id="85fe8ff8" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> lets_plot <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>LetsPlot.setup_html()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+
+            <div id="uEYbt9"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.2.0/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("uEYbt9").appendChild(div);
+                    };
+                    var e = document.getElementById("uEYbt9");
+                    e.appendChild(script);
+                })()
+            </script>
+            
+</div>
+</div>
 </section>
-<section id="what-is-causal-inference" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-causal-inference">What is Causal Inference?</h2>
-<p>If you’ve taken a statistics class or worked in the data industry, you’ve probably heard this warning: “Correlation does not imply causation!” While this is definitely true, I’ve always wondered, “Well, what does imply causation?”</p>
+<section id="data-prep" class="level1">
+<h1>Data Prep</h1>
+<p>I have heard rumours of Chick-Fil-A looking to open it’s 1st outlet in Singapore (<a href="https://cnalifestyle.channelnewsasia.com/dining/chick-fil-possible-singapore-outlet-opening-386521">source</a>), so I was inspired to make a visualisation to show the component parts of the major macro-nutrients - Protein, Carbohydrates and Fat for its popular menu items. I figure this should help me decide what I should spend my calories on when it first opens 😋.</p>
+<p>It took a bit of a search, but as always TidyTuesdays has a suitable dataset for my needs.</p>
+<div id="ac715342" class="cell" data-execution_count="2">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>fast_food <span class="op">=</span> (pl</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    .read_csv(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv"</span>, ignore_errors<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    .drop(<span class="st">""</span>) <span class="co"># 1st index column is unnamed and not required</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>I planned to create a stacked bar chart so we need to manipulate the dataframe into a tidy-longer form.</p>
+<div id="5224ad17" class="cell" data-execution_count="3">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>chick_fil_a <span class="op">=</span> (fast_food</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">"restaurant"</span>)<span class="op">==</span><span class="st">"Chick Fil-A"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    .select([<span class="st">"item"</span>,<span class="st">"total_fat"</span>,<span class="st">"total_carb"</span>,<span class="st">"protein"</span>])</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    .rename({<span class="st">'total_fat'</span>:<span class="st">'Fat'</span>, <span class="st">"total_carb"</span>:<span class="st">"Carbohydrates"</span>, <span class="st">"protein"</span>: <span class="st">"Protein"</span>})</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    .melt(id_vars<span class="op">=</span><span class="st">"item"</span>, variable_name<span class="op">=</span><span class="st">"Nutrients"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="nutrients-in-chick-fil-a-menu-items" class="level1">
+<h1>Nutrients in Chick-fil-a menu items</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://imgs.xkcd.com/comics/correlation.png" class="img-fluid figure-img"></p>
-<figcaption>xkcd never gets old</figcaption>
+<p><img src="./chick_fil_a_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="150"></p>
 </figure>
 </div>
-<p>When we use correlation and other measurements of association in our machine learning models, we end up with a good understanding of dependence. ML models are great at identifying patterns that link our features to outcomes, which is why they can make such accurate predictions. But even with these accurate predictions, we may not always have a clear understanding of the complex cause-and-effect forces at play in the system.</p>
-<p>That’s where causal inference comes in. It’s the study of these cause-and-effect forces – not just being able to predict future outcomes, but also understanding which factors contribute and how.</p>
+<div id="72245709" class="cell" data-execution_count="4">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> lets_plot.mapping <span class="im">import</span> as_discrete</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>p <span class="op">=</span> (ggplot(chick_fil_a) </span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="op">+</span> geom_bar(</span>
+<span id="cb4-5"><a href="#cb4-5"></a>        aes(</span>
+<span id="cb4-6"><a href="#cb4-6"></a>            x<span class="op">=</span>as_discrete(<span class="st">'item'</span>, order_by<span class="op">=</span><span class="st">'value'</span>, order<span class="op">=</span><span class="dv">1</span>),</span>
+<span id="cb4-7"><a href="#cb4-7"></a>            y<span class="op">=</span><span class="st">"value"</span>,fill<span class="op">=</span><span class="st">"Nutrients"</span>),</span>
+<span id="cb4-8"><a href="#cb4-8"></a>            stat<span class="op">=</span><span class="st">"identity"</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>        )</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="op">+</span> coord_flip()</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="op">+</span> labs(</span>
+<span id="cb4-12"><a href="#cb4-12"></a>        x<span class="op">=</span> <span class="st">""</span>,</span>
+<span id="cb4-13"><a href="#cb4-13"></a>        y <span class="op">=</span> <span class="st">"Nutrients (g)"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14"></a>        fill<span class="op">=</span> <span class="st">""</span>,</span>
+<span id="cb4-15"><a href="#cb4-15"></a>        caption <span class="op">=</span> <span class="st">"Data: TidyTuesday 2018-09-04</span><span class="ch">\n</span><span class="st">Made by: www.ddanieltan.com"</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>        )</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="op">+</span> theme_minimal2()</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="op">+</span> scale_fill_manual({<span class="st">'Protein'</span>:<span class="st">'#3b3561'</span>,<span class="st">'Carbohydrates'</span>:<span class="st">'#E51636'</span>, <span class="st">'Fat'</span>:<span class="st">'#ffc759'</span>})</span>
+<span id="cb4-19"><a href="#cb4-19"></a>    <span class="op">+</span> theme(</span>
+<span id="cb4-20"><a href="#cb4-20"></a>        legend_position<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21"></a>        plot_caption<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">'grey'</span>),</span>
+<span id="cb4-22"><a href="#cb4-22"></a>        plot_margin<span class="op">=</span>[<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>,<span class="dv">0</span>]</span>
+<span id="cb4-23"><a href="#cb4-23"></a>    )</span>
+<span id="cb4-24"><a href="#cb4-24"></a>)</span>
+<span id="cb4-25"><a href="#cb4-25"></a></span>
+<span id="cb4-26"><a href="#cb4-26"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+   <div id="OfxBiF"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"item":["Chargrilled Chicken Club Sandwich","Chargrilled Chicken Sandwich","Chick-n-Slider","1 Piece Chick-n-Strips","2 Piece Chick-n-Strips","3 Piece Chick-n-Strips","4 piece Chick-n-Strips","Chicken Deluxe","4 piece Chicken Nuggets","6 piece Chicken Nuggets","8 piece Chicken Nuggets","12 piece Chicken Nuggets","30 piece Chicken Nuggets","Chicken Salad Sandwich","Chicken Sandwich","4 Piece Grilled Chicken Nuggets","6 Piece Grilled Chicken Nuggets","8 piece Grilled Chicken Nuggets","12 Piece Grilled Chicken Nuggets","Spicy Grilled Chicken Sub Sandwich","Regular Grilled Chicken Sub Sandwich","Smokehouse BBQ Bacon Sandwich","Spicy Chicken Sandwich","Spicy Deluxe","Chargrilled Chicken Cool Wrap","Chicken Enchiladas Meal Kit","Chicken Parmesan Meal Kit","Chargrilled Chicken Club Sandwich","Chargrilled Chicken Sandwich","Chick-n-Slider","1 Piece Chick-n-Strips","2 Piece Chick-n-Strips","3 Piece Chick-n-Strips","4 piece Chick-n-Strips","Chicken Deluxe","4 piece Chicken Nuggets","6 piece Chicken Nuggets","8 piece Chicken Nuggets","12 piece Chicken Nuggets","30 piece Chicken Nuggets","Chicken Salad Sandwich","Chicken Sandwich","4 Piece Grilled Chicken Nuggets","6 Piece Grilled Chicken Nuggets","8 piece Grilled Chicken Nuggets","12 Piece Grilled Chicken Nuggets","Spicy Grilled Chicken Sub Sandwich","Regular Grilled Chicken Sub Sandwich","Smokehouse BBQ Bacon Sandwich","Spicy Chicken Sandwich","Spicy Deluxe","Chargrilled Chicken Cool Wrap","Chicken Enchiladas Meal Kit","Chicken Parmesan Meal Kit","Chargrilled Chicken Club Sandwich","Chargrilled Chicken Sandwich","Chick-n-Slider","1 Piece Chick-n-Strips","2 Piece Chick-n-Strips","3 Piece Chick-n-Strips","4 piece Chick-n-Strips","Chicken Deluxe","4 piece Chicken Nuggets","6 piece Chicken Nuggets","8 piece Chicken Nuggets","12 piece Chicken Nuggets","30 piece Chicken Nuggets","Chicken Salad Sandwich","Chicken Sandwich","4 Piece Grilled Chicken Nuggets","6 Piece Grilled Chicken Nuggets","8 piece Grilled Chicken Nuggets","12 Piece Grilled Chicken Nuggets","Spicy Grilled Chicken Sub Sandwich","Regular Grilled Chicken Sub Sandwich","Smokehouse BBQ Bacon Sandwich","Spicy Chicken Sandwich","Spicy Deluxe","Chargrilled Chicken Cool Wrap","Chicken Enchiladas Meal Kit","Chicken Parmesan Meal Kit"],
+"Nutrients":["Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Fat","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Carbohydrates","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein","Protein"],
+"value":[16.0,6.0,11.0,6.0,12.0,17.0,23.0,23.0,6.0,9.0,12.0,18.0,46.0,19.0,19.0,2.0,3.0,4.0,5.0,12.0,13.0,18.0,19.0,25.0,14.0,47.0,31.0,37.0,36.0,26.0,6.0,13.0,22.0,29.0,42.0,5.0,7.0,9.0,14.0,35.0,55.0,40.0,1.0,2.0,2.0,3.0,47.0,48.0,46.0,41.0,43.0,29.0,70.0,65.0,37.0,29.0,16.0,11.0,22.0,28.0,37.0,31.0,14.0,21.0,28.0,41.0,103.0,28.0,28.0,13.0,19.0,25.0,38.0,33.0,34.0,33.0,29.0,34.0,37.0,39.0,48.0]
+},
+"mapping":{
+},
+"data_meta":{
+},
+"coord":{
+"name":"flip",
+"flip":true
+},
+"caption":{
+"text":"Data: TidyTuesday 2018-09-04\nMade by: www.ddanieltan.com"
+},
+"theme":{
+"name":"minimal2",
+"legend_position":"bottom",
+"plot_caption":{
+"color":"grey",
+"size":12.0,
+"blank":false
+},
+"plot_margin":[20.0,50.0,10.0,0.0]
+},
+"kind":"plot",
+"scales":[{
+"name":"",
+"aesthetic":"x"
+},{
+"name":"Nutrients (g)",
+"aesthetic":"y"
+},{
+"name":"",
+"aesthetic":"fill"
+},{
+"aesthetic":"fill",
+"breaks":["Protein","Carbohydrates","Fat"],
+"values":["#3b3561","#E51636","#ffc759"]
+}],
+"layers":[{
+"geom":"bar",
+"stat":"identity",
+"mapping":{
+"x":"item",
+"y":"value",
+"fill":"Nutrients"
+},
+"data_meta":{
+"mapping_annotations":[{
+"aes":"x",
+"annotation":"as_discrete",
+"parameters":{
+"label":"item",
+"order_by":"value",
+"order":1.0
+}
+}]
+},
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("OfxBiF");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();    
+   </script>
+</div>
+</div>
 </section>
-<section id="why-did-i-choose-causal-inference" class="level2">
-<h2 class="anchored" data-anchor-id="why-did-i-choose-causal-inference">Why did I choose Causal Inference?</h2>
-<section id="causal-inference-can-answer-questions-classic-experimentation-theory-cannot" class="level3">
-<h3 class="anchored" data-anchor-id="causal-inference-can-answer-questions-classic-experimentation-theory-cannot">Causal Inference can answer questions classic Experimentation theory cannot</h3>
-<p>At work, I’m often involved in designing online experiments using randomized control trials (also known as A/B tests), which are considered the gold standard for gathering causal inferences. But RCTs aren’t always feasible – sometimes the question we’re trying to answer requires a longer timeline, or it might be unethical to test (like the effects of smoking).</p>
-<p>Outside of the clean data we get from RCTs, there’s a wealth of observational data from field experiments, surveys, and logs that we can use to draw causal inferences. There are so many interesting questions that we can generate looking at these data and causal inference could provide me new tools to my statistical toolkit to answer them.</p>
-</section>
-<section id="causal-inference-is-relatable-to-everyone" class="level3">
-<h3 class="anchored" data-anchor-id="causal-inference-is-relatable-to-everyone">Causal Inference is relatable to everyone</h3>
-<p>Second, causal inference is something that’s relevant to everyone. We all make a ton of decisions every day – from what to have for breakfast to whether we need to take an umbrella with us. A lot of these decisions are influenced by our understanding of the causal forces at play in our lives. I believe that, with the right set of skills, we can “play the hand we’re dealt” as best we can, even if we can’t change the circumstances we were born into.</p>
-</section>
-<section id="there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference" class="level3">
-<h3 class="anchored" data-anchor-id="there-is-a-resurgence-of-materials-to-help-one-learn-causal-inference">There is a resurgence of materials to help one learn Causal Inference</h3>
-<p>Finally, there’s been a resurgence of materials on causal inference lately, starting with the <a href="https://www.nature.com/articles/d41586-021-02799-7#:~:text=13%20October%202021-,Nobel%2Dwinning%20'natural%20experiments'%20approach%20made%20economics%20more%20robust,and%20effect%20in%20social%20science">Nobel Prize in Economics awarded to proponents of the field in 2021</a>. There are more resources available now than ever before to help people learn about causal inference, which makes it a great time to dive in.</p>
-</section>
-</section>
-<section id="plan-for-the-year" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="plan-for-the-year">Plan for the Year</h2>
-<p>Here is my collection of study materials that I plan on using this year:</p>
-<section id="structured-courses" class="level3">
-<h3 class="anchored" data-anchor-id="structured-courses">Structured Courses</h3>
-<p>Structured or semi-structured courses with assignments and projects are my favourite format for learning. I found <a href="https://www.coursera.org/projects/essential-causal-inference-for-data-science">Coursera’s Essential Causal Inference Techniques for Data Science</a> . This looks to be a straight-forward, short introduction to causal inference techniques to survey the landscape.</p>
-</section>
-<section id="materials-that-come-with-a-community" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="materials-that-come-with-a-community">Materials that come with a community</h3>
-<p>These are the primary resources I plan to use, particularly because these are all resources that facilitate a community of learners either by providing a study group or video lectures. This is important to me because I enjoy have this community to learn with and learn from.</p>
-<p><a href="https://mixtape.scunning.com/">Scott Cunningham’s Causal Inference Mixtape</a> is the single most recommended material on Causal Inference. You can read the free online copy or support the Prof.&nbsp;Cunningham by purchasing a print copy (links on the home page). Last year, <a href="https://community.intuitivebayes.com/c/book-club/21">Ravin Kumar organised a Causal Inference Book Club</a>, so there is a lively community of online discussions and youtube videos to study along side with.</p>
-<p><a href="https://xcelab.net/rm/statistical-rethinking/">Richard McElreath’s Statistical Rethinking</a> is perhaps my favourite textbook of all time. While this material is more often billed as an introduction to Bayesian statistics, I have always found a lot of the central themes align with the pursuit of causality. The printed copy needs to be purchased but Prof.&nbsp;McElreath provides free recordings of his lectures on youtube. <a href="https://www.youtube.com/watch?v=FdnMWdICdRs&amp;list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus&amp;ab_channel=RichardMcElreath">2023’s lectures</a> just began this month.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>What do you mean it’s not a thing to have a “favourite textbook”?! Everyone has one, right? Right?</p>
-</div></div><p><a href="https://matheusfacure.github.io/python-causality-handbook/landing-page.html">Matheus Facure’s Causal Inference for the Brave and True</a> is another material that is on the top of many recommendations. The above 2 recommendations primarily have their code examples in R, so Matheus’s alternative with Python examples fits a nice gap. Matheus is also working on an O’Reilly book <a href="https://www.oreilly.com/library/view/causal-inference-in/9781098140243/">Causal Inference in Python</a> which I am eagerly waiting for.</p>
-<p><a href="https://theeffectbook.net/">Nick Huntington-Klien’s The Effect Book</a> rounds up my list of recommended materials. The Effect Book is a comprehensive dive into causal inference paired with research design, and Dr.&nbsp;Huntington-Klien even includes an accompanying <a href="https://www.youtube.com/playlist?list=PLcTBLulJV_AK1hKtnO0-kYrU0D09K-kj8">free Youtube video series</a> along with homework assignments and source code to learn from. The online version of the book is free and you can purchase the print copy from links on its home page.</p>
-</section>
-<section id="materials-for-solo-studying-and-referencing" class="level3">
-<h3 class="anchored" data-anchor-id="materials-for-solo-studying-and-referencing">Materials for solo studying and referencing</h3>
-<p>This is a shorter list of materials that do not come with a ready online community. These are more traditional academic textbooks that I plan to peruse occasionally when referencing a gnarly topic.</p>
+<section id="things-i-learnt" class="level1">
+<h1>Things I Learnt</h1>
 <ul>
-<li><a href="https://mitpress.mit.edu/9780262037310/elements-of-causal-inference/#:~:text=Elements%20of%20Causal%20Inference%20is,data%20to%20understand%20the%20world.">Elements of Causal Inference</a></li>
-<li><a href="https://www.amazon.com/Field-Experiments-Design-Analysis-Interpretation/dp/0393979954">Field Experiments: Design, Analysis, and Interpretation</a></li>
-<li><a href="https://economics.ut.ac.ir/documents/3030266/14100645/Jeffrey_M._Wooldridge_Introductory_Econometrics_A_Modern_Approach__2012.pdf">Introductory Econometrics A Modern Approach</a></li>
+<li>Lets-plot has a unique method <code>as_discrete()</code> to reorder categorical values, analogous to <code>reorder()</code> in <code>ggplot2</code> <a href="https://lets-plot.org/python/pages/as_discrete.html">Docs</a></li>
+<li>It’s really difficult to move my plot title to the left-margin of the plot instead of the axis due to the lack of a parameter like <code>ggplot2</code>’s <code>plot.title.position</code> but it’s coming soon https://github.com/JetBrains/lets-plot/issues/1027</li>
 </ul>
-</section>
-</section>
-<section id="learning-by-doing" class="level2">
-<h2 class="anchored" data-anchor-id="learning-by-doing">Learning by doing</h2>
-<p>This is a rough draft of the type of projects I can do during this year to complement my learning.</p>
-<section id="causal-inference-projects" class="level3">
-<h3 class="anchored" data-anchor-id="causal-inference-projects">Causal Inference Projects</h3>
-<p>I plan to work my way up from simple notebooks and exercises illustrating the usage of one of the many causal inference libraries. Eventually, being able to complete a larger analysis more akin to the type of problems I hope to address at work. I would like the opportunity to try out several different libraries from a variety of programming languages, if applicable. I bookmarked <a href="https://emilyriederer.netlify.app/post/causal-design-patterns/">Emily Riederer’s blog on Causal Design Patterns for Data Analysts</a> for reference, and I hope to be able to implement each of the patterns she describes by the end of the year.</p>
-</section>
-<section id="learning-about-the-causal-inference-landscape" class="level3">
-<h3 class="anchored" data-anchor-id="learning-about-the-causal-inference-landscape">Learning about the Causal Inference landscape</h3>
-<p>Causal Inference is a broad umbrella comprising of many professionals from a wide swathe of disciplines. Besides learning the technical methodologies, I would like to learn more about the academics, educators and practitioners that make up its global community. Prof.&nbsp;Cunningham also records a <a href="https://podcasts.apple.com/us/podcast/the-mixtape-with-scott/id1615110472">podcast interviewing several causal inference experts</a>. It might be a nice break from studying to allocate some time to listen to their stories and write a few summary posts on my blog.</p>
-</section>
-<section id="blogging" class="level3">
-<h3 class="anchored" data-anchor-id="blogging">Blogging</h3>
-<p>Which brings me to this blog! Last year, I started this blog and published 8 blog articles. I aim to publish 12 this year (mostly about Causal Inference) and share with you the learnings along my journey.</p>
-</section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Ok, so that’s the plan! Thank you to everyone who reached out to give me suggestions on what to focus on this year. I’m brimming with excitement, onward!</p>
-<!--
-Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
--->
+
+
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
-
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand for Session Info
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>─ Session info ───────────────────────────────────────────────────────────────
- setting  value
- version  R version 4.3.1 (2023-06-16)
- os       macOS Ventura 13.5
- system   x86_64, darwin20
- ui       X11
- language (EN)
- collate  en_US.UTF-8
- ctype    en_US.UTF-8
- tz       Asia/Singapore
- date     2023-08-10
- pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
- quarto   1.3.433
-
-─ Packages ───────────────────────────────────────────────────────────────────
- package     * version date (UTC) lib source
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
-
- [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
- [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
-
-──────────────────────────────────────────────────────────────────────────────</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-There is no such thing as informational overload, just bad design. If something is cluttered or confusing, fix your design – Edward Tufte
-</blockquote>
-
-
-</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
   author = {Tan, Daniel},
-  title = {2023 {Year} of {Causal} {Inference}},
-  date = {2023-01-06},
-  url = {https://www.ddanieltan.com/posts/2023-causal-inference},
+  title = {Part-to-Whole {Chick-Fil-A} {Menu} {Items}},
+  date = {2024-04-01},
+  url = {https://www.ddanieltan.com/posts/30-day-chart-1},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-Tan, Daniel. 2023. <span>“2023 Year of Causal Inference.”</span> January
-6, 2023. <a href="https://www.ddanieltan.com/posts/2023-causal-inference">https://www.ddanieltan.com/posts/2023-causal-inference</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Tan, Daniel. 2024. <span>“Part-to-Whole Chick-Fil-A Menu Items.”</span>
+April 1, 2024. <a href="https://www.ddanieltan.com/posts/30-day-chart-1">https://www.ddanieltan.com/posts/30-day-chart-1</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -1,0 +1,70 @@
+---
+title: "30 Day Chart Scratchpad"
+description: "#30DayChartChallenge 2024 Day 1"
+date: "2024-04-01"
+categories: [dataviz, chart-challenge, TIL]
+draft: True
+---
+```{python}
+import polars as pl
+from plotnine import (
+    ggplot,
+    aes,
+    labs,
+    after_stat,
+    stage,
+    geom_bar,
+    geom_text,
+    geom_label,
+    position_dodge2,
+    facet_wrap,
+    coord_flip,
+    theme_minimal,
+    theme_void,
+    theme,
+    element_text,
+    element_blank,
+    element_rect,
+    guides,
+    annotate,
+    scale_fill_manual
+)
+import matplotlib.pyplot as plt
+```
+
+```{python}
+eggs =  pl.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-04-11/egg-production.csv')
+
+(eggs
+    .with_columns(
+        year=pl.col('observed_month').str.to_date("%Y-%m-%d").dt.year(),
+        )
+    .group_by(["year","prod_type"])
+    .count()
+    .sort("year")
+)
+```
+
+
+```
+    ggplot(mtcars, aes("factor(cyl)", fill="factor(cyl)"))
+    + geom_bar()
+    + geom_text(
+        aes(label=after_stat("count")), stat="count", nudge_y=0.125, va="bottom"
+    )
+)
+```
+
+
+```{python}
+
+mutants = pl.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-19/mutant_moneyball.csv')
+
+mutants
+```
+
+
+## Things I Learnt
+- pl.melt: https://docs.pola.rs/py-polars/html/reference/dataframe/api/polars.DataFrame.melt.html 
+- Sorting a stacked bar chart by one of its constituent portions (length of the Protein bar). It took me rather long to figure out what I suspect to be a suboptimal solution. But along the way, I refreshed my memory of `pl.col().rank` and the `reorder()` plotting helper.
+- You can obtain the matplotlib object by calling `plotnine.draw()`
