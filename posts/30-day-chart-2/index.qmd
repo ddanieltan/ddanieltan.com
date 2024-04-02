@@ -1,0 +1,76 @@
+---
+title: "Neo"
+description: "#30DayChartChallenge Day 2"
+date: "2024-04-02"
+categories: [dataviz, chart-challenge, TIL]
+image: "./lets-plot-images/day2.svg"
+---
+
+::: {.callout-note}
+This post is my contribution to this year's #30DayChartChallenge. Please see my [Day 1 post](https://www.ddanieltan.com/posts/30-day-chart-1/) to learn more.
+:::
+
+# Neo
+Today's theme is Neo, and since I couldn't immediately think of an associated chart, I decided to go with my first instinct: create something related to the groundbreaking 1999 movie, [The Matrix](https://en.wikipedia.org/wiki/The_Matrix). I remember watching The Matrix as a kid and being amazed by its mind-bending plot, cool 90s fashion, and fluid action scenes.
+
+
+```{python}
+import numpy as np
+import pandas as pd
+import polars as pl
+from PIL import Image
+
+from lets_plot import *
+LetsPlot.setup_html()
+```
+
+
+# geom_spoke()
+Another interpretation of "Neo" is the concept of "new." While browsing the Lets-Plot gallery, I came across a unique geom - [geom_spoke()](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_spoke.ipynb). This is quite a rare geom that I rarely see used outside of weather maps showing wind fields. It occurred to me that this geom also resembles bullets, which inspired me to create the following...
+
+
+```{python}
+
+image = Image.open('./neo.jpeg').resize((1000,600))
+img = np.asarray(image)
+
+np.random.seed(43546)
+
+bullets = pl.DataFrame({
+    "x": np.random.uniform(low=0.0, high=1000, size=(100,)),
+    "y": np.random.uniform(low=0.5, high=600, size=(100,)),
+    "col": np.random.uniform(low=-3.0, high=3.0, size=(100,)),
+    "radius": np.random.uniform(low=-100, high=100, size=(100,)),
+    "angle": np.random.uniform(low=-3.14, high=3.14, size=(100,))
+})
+
+p = (
+    ggplot(bullets, aes('x','y'))
+    + geom_imshow(img, alpha=0.8)
+    + geom_point(size=3, shape=19, color='#db3069')
+    + geom_spoke(aes(angle='angle',radius='radius', color='col'), pivot='tip')
+    + theme_minimal()
+    + scale_color_continuous(low='#db3069', high='#f5d547', guide='none')
+    + labs(
+        title = "Neo: What are you trying to tell me? That I can dodge bullets?",subtitle= "Morpheus: No, Neo. I'm trying to tell you that when you're ready\n you won't have to. 😎",
+        caption = "#30DayChartChallenge Day 2 | Neo\n Made by: www.ddanieltan.com"
+    )
+    + theme(
+        plot_caption=element_text(size=12, color='grey'),
+        plot_margin=[20,90,10,0],
+    )
+    + ggsize(900,600)
+)
+
+p
+
+```
+
+
+```{python}
+#| output: False
+ggsave(p, 'day2.svg')
+```
+
+# TIL
+- Made my very 1st plot with `geom_spoke()` today, who knows when I'll get a chance to use this unique geom again
