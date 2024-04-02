@@ -123,11 +123,15 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 
 <meta property="og:title" content="ddanieltan.com - Neo">
 <meta property="og:description" content="#30DayChartChallenge Day 2">
-<meta property="og:image" content="https://www.ddanieltan.com/posts/30-day-chart-2/lets-plot-images/day2.svg">
+<meta property="og:image" content="https://www.ddanieltan.com/posts/30-day-chart-2/lets-plot-images/day2.png">
 <meta property="og:site_name" content="ddanieltan.com">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:width" content="1800">
 <meta name="twitter:title" content="ddanieltan.com - Neo">
 <meta name="twitter:description" content="#30DayChartChallenge Day 2">
-<meta name="twitter:image" content="https://www.ddanieltan.com/posts/30-day-chart-2/lets-plot-images/day2.svg">
+<meta name="twitter:image" content="https://www.ddanieltan.com/posts/30-day-chart-2/lets-plot-images/day2.png">
+<meta name="twitter:image-height" content="1200">
+<meta name="twitter:image-width" content="1800">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -251,7 +255,7 @@ Note
 <section id="neo" class="level1">
 <h1>Neo</h1>
 <p>Today’s theme is Neo, and since I couldn’t immediately think of an associated chart, I decided to go with my first instinct: create something related to the groundbreaking 1999 movie, <a href="https://en.wikipedia.org/wiki/The_Matrix">The Matrix</a>. I remember watching The Matrix as a kid and being amazed by its mind-bending plot, cool 90s fashion, and fluid action scenes.</p>
-<div id="549486bb" class="cell" data-execution_count="1">
+<div id="34190cdf" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -264,7 +268,7 @@ Note
 </details>
 <div class="cell-output cell-output-display">
 
-            <div id="1vzdFA"></div>
+            <div id="heBT1s"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -288,9 +292,9 @@ Note
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("1vzdFA").appendChild(div);
+                        document.getElementById("heBT1s").appendChild(div);
                     };
-                    var e = document.getElementById("1vzdFA");
+                    var e = document.getElementById("heBT1s");
                     e.appendChild(script);
                 })()
             </script>
@@ -301,7 +305,7 @@ Note
 <section id="geom_spoke" class="level1">
 <h1>geom_spoke()</h1>
 <p>Another interpretation of “Neo” is the concept of “new.” While browsing the Lets-Plot gallery, I came across a unique geom - <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_spoke.ipynb">geom_spoke()</a>. This is quite a rare geom that I rarely see used outside of weather maps showing wind fields. It occurred to me that this geom also resembles bullets, which inspired me to create the following…</p>
-<div id="3bcc1c50" class="cell" data-execution_count="2">
+<div id="bf6e9b1e" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>image <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'./neo.jpeg'</span>).resize((<span class="dv">1000</span>,<span class="dv">600</span>))</span>
@@ -338,7 +342,7 @@ Note
 <span id="cb2-32"><a href="#cb2-32"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
-   <div id="k3LkG6"></div>
+   <div id="i9Co6l"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -423,7 +427,7 @@ Note
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("k3LkG6");
+           var plotContainer = document.getElementById("i9Co6l");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -431,10 +435,10 @@ Note
    </script>
 </div>
 </div>
-<div id="46484299" class="cell" data-execution_count="3">
+<div id="4e6ba3f6" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>ggsave(p, <span class="st">'day2.svg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>ggsave(p, <span class="st">'day2.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>

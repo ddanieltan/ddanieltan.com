@@ -36,7 +36,7 @@ Note
 <section id="neo" class="level1">
 <h1>Neo</h1>
 <p>Today’s theme is Neo, and since I couldn’t immediately think of an associated chart, I decided to go with my first instinct: create something related to the groundbreaking 1999 movie, <a href="https://en.wikipedia.org/wiki/The_Matrix">The Matrix</a>. I remember watching The Matrix as a kid and being amazed by its mind-bending plot, cool 90s fashion, and fluid action scenes.</p>
-<div id="549486bb" class="cell" data-execution_count="1">
+<div id="34190cdf" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -71,7 +71,7 @@ font-style: inherit;">*</span></span>
 </details>
 <div class="cell-output cell-output-display">
 
-            <div id="1vzdFA"></div>
+            <div id="heBT1s"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -95,9 +95,9 @@ font-style: inherit;">*</span></span>
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("1vzdFA").appendChild(div);
+                        document.getElementById("heBT1s").appendChild(div);
                     };
-                    var e = document.getElementById("1vzdFA");
+                    var e = document.getElementById("heBT1s");
                     e.appendChild(script);
                 })()
             </script>
@@ -108,7 +108,7 @@ font-style: inherit;">*</span></span>
 <section id="geom_spoke" class="level1">
 <h1>geom_spoke()</h1>
 <p>Another interpretation of “Neo” is the concept of “new.” While browsing the Lets-Plot gallery, I came across a unique geom - <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_spoke.ipynb">geom_spoke()</a>. This is quite a rare geom that I rarely see used outside of weather maps showing wind fields. It occurred to me that this geom also resembles bullets, which inspired me to create the following…</p>
-<div id="3bcc1c50" class="cell" data-execution_count="2">
+<div id="bf6e9b1e" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">image <span class="op" style="color: #5E5E5E;
@@ -341,7 +341,7 @@ font-style: inherit;">600</span>)</span>
 <span id="cb2-32">p</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
-   <div id="k3LkG6"></div>
+   <div id="i9Co6l"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -426,7 +426,7 @@ font-style: inherit;">600</span>)</span>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("k3LkG6");
+           var plotContainer = document.getElementById("i9Co6l");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -434,12 +434,12 @@ font-style: inherit;">600</span>)</span>
    </script>
 </div>
 </div>
-<div id="46484299" class="cell" data-execution_count="3">
+<div id="4e6ba3f6" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">ggsave(p, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'day2.svg'</span>)</span></code></pre></div>
+font-style: inherit;">'day2.png'</span>)</span></code></pre></div>
 </details>
 </div>
 </section>
@@ -467,7 +467,7 @@ Tan, Daniel. 2024. <span>“Neo.”</span> April 2, 2024. <a href="https://www.d
   <category>TIL</category>
   <guid>https://www.ddanieltan.com/posts/30-day-chart-2/</guid>
   <pubDate>Mon, 01 Apr 2024 16:00:00 GMT</pubDate>
-  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-2/lets-plot-images/day2.svg" medium="image" type="image/svg+xml"/>
+  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-2/lets-plot-images/day2.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 <item>
   <title>Part-to-whole Chick-Fil-A Menu Items</title>

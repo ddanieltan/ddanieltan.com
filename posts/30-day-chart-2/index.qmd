@@ -3,7 +3,7 @@ title: "Neo"
 description: "#30DayChartChallenge Day 2"
 date: "2024-04-02"
 categories: [dataviz, chart-challenge, TIL]
-image: "./lets-plot-images/day2.svg"
+image: "./lets-plot-images/day2.png"
 ---
 
 ::: {.callout-note}
@@ -69,7 +69,7 @@ p
 
 ```{python}
 #| output: False
-ggsave(p, 'day2.svg')
+ggsave(p, 'day2.png')
 ```
 
 # TIL
