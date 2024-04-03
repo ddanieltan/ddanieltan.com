@@ -3,18 +3,83 @@ title: "Makeover"
 description: "#30DayChartChallenge Day 3"
 date: "2024-04-03"
 categories: [dataviz, chart-challenge, TIL]
-draft: True
+image: "makeover.gif"
 ---
 
+::: {.callout-note}
+This post is my contribution to this year's #30DayChartChallenge. Check out my [Day 1 post](https://www.ddanieltan.com/posts/30-day-chart-1/) to learn more.
+:::
+
+# Makeover
+Makeover day has arrived, folks! Time to dust off those old relics from the ancient data catacombs and give them a fresh coat of paint. Today's lucky candidate? A vintage scatter matrix plot taken from an introductory Data Science course I took many years ago.
+
+The original scatter matrix plot, seen in the "Before" image, uses both histograms and scatter plots in a 4 panel chart to highlight the relationship between pairs of numerical variables. I would like to have a go at sprucing this chart up to make the insight the chart wants to share clearer.
+
+::: {.panel-tabset}
+## Before
 ```{python}
+#| code-fold: true
 import pandas as pd
-import polars as pl
-from lets_plot import *
+import matplotlib.pyplot as plt
+drinks = pd.read_csv('https://raw.githubusercontent.com/justmarkham/DAT5/master/data/drinks.csv')
+
+pd.plotting.scatter_matrix(drinks[['beer_servings', 'spirit_servings']])
+plt.show()
 ```
-
-
+## After
 ```{python}
-drink_cols = ['country', 'beer', 'spirit', 'wine', 'liters', 'continent']
-url = 'https://raw.githubusercontent.com/justmarkham/DAT8/master/data/drinks.csv'
-drinks = pd.read_csv(url, header=0, names=drink_cols, na_filter=False)
+#| code-fold: true
+from lets_plot import *
+from lets_plot.bistro.joint import *
+LetsPlot.setup_html()
+
+drinks['continent'] = drinks['continent'].replace({
+    'AS' : 'Asia',
+    'EU' : 'Europe',
+    'AF' : 'Africa',
+    'NAm' : "North America",
+    "SA" : "South America",
+    "OC": "Oceania"
+})
+
+(
+    joint_plot(
+        data=drinks, 
+        x='beer_servings', 
+        y='spirit_servings', 
+        color_by='continent',
+        reg_line = False
+        )
+    + theme_minimal2()
+    + labs(
+        title = 'Distribution of average Beer vs Spirit servings across Continents',
+        x = 'Beer Servings',
+        y = 'Spirit Servings',
+        caption = '#30DayChartChallenge #Day3 Makeover\nData: General Assembly DS Course\nMade by: www.ddanieltan.com'
+
+    )
+    + theme(
+        legend_position='top',
+        plot_caption=element_text(size=12, color='grey'),
+        plot_title=element_text(size=18,),
+    )
+    + scale_color_brewer(palette='Dark2', guide=guide_legend(nrow=2))
+    + ggsize(width=700,height=600)
+)
+
 ```
+
+:::
+
+# Improvements made
+
+1. Graphics are sharper courtesy of Lets-Plot's more modern rendering engine
+2. I like the use of a single panel instead of 4 for clarity
+3. The line distributions in the margin of the chart mirror the relationship shown in the scatter plot, where we see most countries have low beer and spirit servings
+4. The additional layer of mapping colour to continent adds more insights to the chart
+5. Proper titles, axis labels and legends make a dramatic difference to readability 
+
+# TIL
+- I learnt the updated syntax to call Panda's scatter matrix via its [documentation](https://pandas.pydata.org/docs/reference/api/pandas.plotting.scatter_matrix.html)
+- I had the chance to explore Lets-Plot's bistro plots [documentation](https://lets-plot.org/python/pages/bistro.html)
+- I discovered the `guides` layer for Lets-Plot, although for today's plot, I decided to pass my guide param into the scale layer for brevity [documentation](https://lets-plot.org/python/pages/api/lets_plot.guides.html)

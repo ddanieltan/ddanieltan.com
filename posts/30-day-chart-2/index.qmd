@@ -7,7 +7,7 @@ image: "./lets-plot-images/day2.png"
 ---
 
 ::: {.callout-note}
-This post is my contribution to this year's #30DayChartChallenge. Please see my [Day 1 post](https://www.ddanieltan.com/posts/30-day-chart-1/) to learn more.
+This post is my contribution to this year's #30DayChartChallenge. Check out my [Day 1 post](https://www.ddanieltan.com/posts/30-day-chart-1/) to learn more.
 :::
 
 # Neo
