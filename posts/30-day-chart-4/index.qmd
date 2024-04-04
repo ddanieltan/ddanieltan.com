@@ -1,0 +1,119 @@
+---
+title: "Waffle"
+description: "#30DayChartChallenge Day 4"
+date: "2024-04-04"
+categories: [dataviz, chart-challenge, TIL]
+image: "day4.png"
+---
+Today's theme is Waffle and I would like to create a [waffle chart](https://datavizproject.com/data-type/percentage-grid/). Waffle charts are excellent for displaying and comparing proportions or part-to-whole relationships within a dataset. They are particularly useful when you want to show how a whole is divided among different categories or segments.
+
+However, my visualisation library of choice [lets-plot](https://lets-plot.org/python/index.html) does not have a pre-made "geom" or layer specifically for waffle charts. This means that I have got to get a bit more hands-on to make one today. My plan is to piece it together myself using lets-plot's building block shapes and layers.
+
+
+# Singapore Population Census Data
+For today's dataset, I opted to use Singapore's population census data from 2000 to 2020 ([Source](https://www.singstat.gov.sg/publications/reference/cop2020/cop2020-sr1/census20_stat_release1
+)).
+
+This dataset tracks our population growth of Singapore residents (split either as Singapore citizens or Permanent residents) and our non residents. I believe a waffle chart is a good visualisation for this type of data to show both the growth of the overall population, as well as, its component groups.
+
+To condense the population information, I decided that every square on my waffle chart would represent about 50,000 population.
+```{python}
+import numpy as np
+import polars as pl
+from lets_plot import *
+LetsPlot.setup_html()
+
+pop = (pl.DataFrame({
+        "year" : [2000,2010,2015,2016,2017,2018,2019,2020],
+        "total_population" : [4_027_900, 5_076_700, 5_535_000, 5_607_300, 5_612_300, 5_638_700, 5_703_600, 5_685_800],
+        "singapore_citizens": [2_985_900, 3_230_700, 3_375_000, 3_408_900, 3_439_200, 3_471_900, 3_500_900, 3_523_200],
+        "permanent_residents" : [287_500, 541_000, 527_700, 524_600, 526_600, 522_300, 525_300, 521_000],
+        "non_residents" : [754_500, 1_305_000, 1_632_300, 1_673_700, 1_646_500, 1_644_400, 1_677_400, 1_641_600]
+    }).with_columns(
+        sg = pl.col('singapore_citizens') // 50_000,
+        pr = pl.col('permanent_residents') // 50_000,
+        nr = pl.col('non_residents') // 50_000,
+    )
+)
+
+pop
+```
+
+# Creating a Waffle
+The main way I will create my waffle chart is by manipulating the `geom_tile` layer. This allows me to draw equally spaced rectangular squares. This stage took the longest time as I experimented with many combinations of width, height and colours to implement what I envisioned. With more than 1 waffle to draw, I created a helper function.
+
+```{python}
+def create_waffle(x:int, y:int, data:tuple, year:int):
+    Xlin = np.linspace(0,1,x)
+    Ylin = np.linspace(0,4,y)
+    X,Y = np.meshgrid(Xlin, Ylin)
+
+    sg, pr, nr = data
+    padding = (x*y) - (sg+pr+nr)
+    status = sg*['Singapore Citizens'] + pr*['Permanent Residents'] + nr*['Non Residents'] + padding*['']
+
+    df = pl.DataFrame({
+        'x': X.flatten(),
+        'y': Y.flatten(),
+        'Status': status
+    })
+
+    p = (ggplot(df, aes(x='x',y='y'))
+        + geom_tile(aes(fill='Status'), width=.8, height=.8, color='white', size=.5)
+        + scale_fill_manual(["#b80c09","#0b4f6c","#01baef","#FFFFFF"])
+        + theme_classic()
+        + theme(
+            axis_title_y = element_blank(),
+            axis_ticks_y = element_blank(),
+            axis_line_y = element_blank(),
+            axis_text_y= element_blank(),
+            axis_ticks_x = element_blank(),
+            axis_text_x = element_blank(),
+            legend_position='none'
+        )
+        + labs(
+            x= f"{year}"
+        )
+    )
+
+    return p
+```
+
+Here's an example of 1 waffle.
+
+```{python}
+X = 6
+Y = 20
+create_waffle(x=6,y=20, data=(59, 5, 15), year=2000)
+```
+
+# Composition with gggrid()
+Once the waffles were ready, I also had the chance to use `gggrid()` for the 1st time in this challenge as I had a simple composition of lining each waffle horizontally.
+
+```{python}
+waffles = []
+
+for row in pop.select(['year','sg','pr','nr']).rows():
+    year, sg, pr, nr = row
+    waffles.append(create_waffle(x=X, y=Y, data=(sg,pr,nr), year=year))
+
+w = (gggrid(waffles)
+    + ggsize(width=1000, height=500)
+)
+
+w
+```
+
+Unfortunately, I ran into a limitation of `gggrid()` here. I was unable to insert a title, caption or legend on my final composition of multiple charts. This was slightly frustrating and I sorely missed the equivalent functionality that is available in R's ggplot ecosystem e.g. [patchwork](https://patchwork.data-imaginist.com/index.html).
+
+# Finishing up on Canva
+So, I moved my chart over to [Canva](https://www.canva.com/) for few final touches, and here's the end product!
+
+![](./day4.png)
+
+# TIL
+
+1. Polars has a convenient `rows()` method that returns rows of selected columns as a List of Tuples. Useful if your collected data fits in memory.
+2. [Let-plot geom_tile](https://lets-plot.org/python/pages/api/lets_plot.geom_tile.html#lets_plot.geom_tile) works really well with `np.linspace` to control width and height. 
+3. I cannot apply titles, captions or legends on a composition of plots using gggrid(). So in the future, I need to draw those elements on the component graphs instead.
+4. Attempting to build up a visualisation from base parts is a challenging task, but being able to achieve your original vision is a great feeling! 😁

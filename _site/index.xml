@@ -10,7 +10,1195 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Tue, 02 Apr 2024 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 03 Apr 2024 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Waffle</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/30-day-chart-4/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Today’s theme is Waffle and I would like to create a <a href="https://datavizproject.com/data-type/percentage-grid/">waffle chart</a>. Waffle charts are excellent for displaying and comparing proportions or part-to-whole relationships within a dataset. They are particularly useful when you want to show how a whole is divided among different categories or segments.</p>
+<p>However, my visualisation library of choice <a href="https://lets-plot.org/python/index.html">lets-plot</a> does not have a pre-made “geom” or layer specifically for waffle charts. This means that I have got to get a bit more hands-on to make one today. My plan is to piece it together myself using lets-plot’s building block shapes and layers.</p>
+<section id="singapore-population-census-data" class="level1">
+<h1>Singapore Population Census Data</h1>
+<p>For today’s dataset, I opted to use Singapore’s population census data from 2000 to 2020 (<a href="https://www.singstat.gov.sg/publications/reference/cop2020/cop2020-sr1/census20_stat_release1">Source</a>).</p>
+<p>This dataset tracks our population growth of Singapore residents (split either as Singapore citizens or Permanent residents) and our non residents. I believe a waffle chart is a good visualisation for this type of data to show both the growth of the overall population, as well as, its component groups.</p>
+<p>To condense the population information, I decided that every square on my waffle chart would represent about 50,000 population.</p>
+<div id="ccc5e94c" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pl</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> lets_plot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb1-4">LetsPlot.setup_html()</span>
+<span id="cb1-5"></span>
+<span id="cb1-6">pop <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (pl.DataFrame({</span>
+<span id="cb1-7">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span> : [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2000</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2010</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2015</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2016</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2017</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2018</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2020</span>],</span>
+<span id="cb1-8">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"total_population"</span> : [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4_027_900</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_076_700</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_535_000</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_607_300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_612_300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_638_700</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_703_600</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5_685_800</span>],</span>
+<span id="cb1-9">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"singapore_citizens"</span>: [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2_985_900</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_230_700</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_375_000</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_408_900</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_439_200</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_471_900</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_500_900</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3_523_200</span>],</span>
+<span id="cb1-10">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"permanent_residents"</span> : [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">287_500</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">541_000</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">527_700</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">524_600</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">526_600</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">522_300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">525_300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">521_000</span>],</span>
+<span id="cb1-11">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"non_residents"</span> : [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">754_500</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_305_000</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_632_300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_673_700</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_646_500</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_644_400</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_677_400</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_641_600</span>]</span>
+<span id="cb1-12">    }).with_columns(</span>
+<span id="cb1-13">        sg <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'singapore_citizens'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50_000</span>,</span>
+<span id="cb1-14">        pr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'permanent_residents'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50_000</span>,</span>
+<span id="cb1-15">        nr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'non_residents'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50_000</span>,</span>
+<span id="cb1-16">    )</span>
+<span id="cb1-17">)</span>
+<span id="cb1-18"></span>
+<span id="cb1-19">pop</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+
+            <div id="MI2EeP"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.2.0/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("MI2EeP").appendChild(div);
+                    };
+                    var e = document.getElementById("MI2EeP");
+                    e.appendChild(script);
+                })()
+            </script>
+            
+</div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 8)</small>
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">total_population</th>
+<th data-quarto-table-cell-role="th">singapore_citizens</th>
+<th data-quarto-table-cell-role="th">permanent_residents</th>
+<th data-quarto-table-cell-role="th">non_residents</th>
+<th data-quarto-table-cell-role="th">sg</th>
+<th data-quarto-table-cell-role="th">pr</th>
+<th data-quarto-table-cell-role="th">nr</th>
+</tr>
+<tr class="odd">
+<th>i64</th>
+<th>i64</th>
+<th>i64</th>
+<th>i64</th>
+<th>i64</th>
+<th>i64</th>
+<th>i64</th>
+<th>i64</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2000</td>
+<td>4027900</td>
+<td>2985900</td>
+<td>287500</td>
+<td>754500</td>
+<td>59</td>
+<td>5</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>2010</td>
+<td>5076700</td>
+<td>3230700</td>
+<td>541000</td>
+<td>1305000</td>
+<td>64</td>
+<td>10</td>
+<td>26</td>
+</tr>
+<tr class="odd">
+<td>2015</td>
+<td>5535000</td>
+<td>3375000</td>
+<td>527700</td>
+<td>1632300</td>
+<td>67</td>
+<td>10</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td>2016</td>
+<td>5607300</td>
+<td>3408900</td>
+<td>524600</td>
+<td>1673700</td>
+<td>68</td>
+<td>10</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td>2017</td>
+<td>5612300</td>
+<td>3439200</td>
+<td>526600</td>
+<td>1646500</td>
+<td>68</td>
+<td>10</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td>2018</td>
+<td>5638700</td>
+<td>3471900</td>
+<td>522300</td>
+<td>1644400</td>
+<td>69</td>
+<td>10</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td>2019</td>
+<td>5703600</td>
+<td>3500900</td>
+<td>525300</td>
+<td>1677400</td>
+<td>70</td>
+<td>10</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>2020</td>
+<td>5685800</td>
+<td>3523200</td>
+<td>521000</td>
+<td>1641600</td>
+<td>70</td>
+<td>10</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-waffle" class="level1">
+<h1>Creating a Waffle</h1>
+<p>The main way I will create my waffle chart is by manipulating the <code>geom_tile</code> layer. This allows me to draw equally spaced rectangular squares. This stage took the longest time as I experimented with many combinations of width, height and colours to implement what I envisioned. With more than 1 waffle to draw, I created a helper function.</p>
+<div id="4ed73e64" class="cell" data-execution_count="2">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> create_waffle(x:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>, y:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>, data:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">tuple</span>, year:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>):</span>
+<span id="cb2-2">    Xlin <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,x)</span>
+<span id="cb2-3">    Ylin <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,y)</span>
+<span id="cb2-4">    X,Y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.meshgrid(Xlin, Ylin)</span>
+<span id="cb2-5"></span>
+<span id="cb2-6">    sg, pr, nr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data</span>
+<span id="cb2-7">    padding <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>y) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> (sg<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>pr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>nr)</span>
+<span id="cb2-8">    status <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sg<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Singapore Citizens'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> pr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Permanent Residents'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> nr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Non Residents'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> padding<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">''</span>]</span>
+<span id="cb2-9"></span>
+<span id="cb2-10">    df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pl.DataFrame({</span>
+<span id="cb2-11">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x'</span>: X.flatten(),</span>
+<span id="cb2-12">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'y'</span>: Y.flatten(),</span>
+<span id="cb2-13">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Status'</span>: status</span>
+<span id="cb2-14">    })</span>
+<span id="cb2-15"></span>
+<span id="cb2-16">    p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (ggplot(df, aes(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x'</span>,y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'y'</span>))</span>
+<span id="cb2-17">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_tile(aes(fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Status'</span>), width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.8</span>, height<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.8</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span>)</span>
+<span id="cb2-18">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_fill_manual([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#b80c09"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#0b4f6c"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#01baef"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#FFFFFF"</span>])</span>
+<span id="cb2-19">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme_classic()</span>
+<span id="cb2-20">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme(</span>
+<span id="cb2-21">            axis_title_y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> element_blank(),</span>
+<span id="cb2-22">            axis_ticks_y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> element_blank(),</span>
+<span id="cb2-23">            axis_line_y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> element_blank(),</span>
+<span id="cb2-24">            axis_text_y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> element_blank(),</span>
+<span id="cb2-25">            axis_ticks_x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> element_blank(),</span>
+<span id="cb2-26">            axis_text_x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> element_blank(),</span>
+<span id="cb2-27">            legend_position<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'none'</span></span>
+<span id="cb2-28">        )</span>
+<span id="cb2-29">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> labs(</span>
+<span id="cb2-30">            x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-31">        )</span>
+<span id="cb2-32">    )</span>
+<span id="cb2-33"></span>
+<span id="cb2-34">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> p</span></code></pre></div>
+</details>
+</div>
+<p>Here’s an example of 1 waffle.</p>
+<div id="4b3e929c" class="cell" data-execution_count="3">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">X <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span></span>
+<span id="cb3-2">Y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span></span>
+<span id="cb3-3">create_waffle(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">59</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>), year<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2000</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="23">
+   <div id="qanCjP"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2000",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("qanCjP");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();    
+   </script>
+</div>
+</div>
+</section>
+<section id="composition-with-gggrid" class="level1">
+<h1>Composition with gggrid()</h1>
+<p>Once the waffles were ready, I also had the chance to use <code>gggrid()</code> for the 1st time in this challenge as I had a simple composition of lining each waffle horizontally.</p>
+<div id="6d8147ea" class="cell" data-execution_count="4">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">waffles <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> row <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> pop.select([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'year'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sg'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'pr'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'nr'</span>]).rows():</span>
+<span id="cb4-4">    year, sg, pr, nr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> row</span>
+<span id="cb4-5">    waffles.append(create_waffle(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>X, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>Y, data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(sg,pr,nr), year<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>year))</span>
+<span id="cb4-6"></span>
+<span id="cb4-7">w <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (gggrid(waffles)</span>
+<span id="cb4-8">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> ggsize(width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>, height<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span>)</span>
+<span id="cb4-9">)</span>
+<span id="cb4-10"></span>
+<span id="cb4-11">w</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="24">
+   <div id="uM9jRi"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"ggsize":{
+"width":1000.0,
+"height":500.0
+},
+"kind":"subplots",
+"layout":{
+"ncol":8.0,
+"nrow":1.0,
+"name":"grid"
+},
+"figures":[{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2000",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","","","","","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2010",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2015",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2016",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2017",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2018",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2019",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+},{
+"data":{
+"x":[0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0,0.0,0.2,0.4,0.6000000000000001,0.8,1.0],
+"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.21052631578947367,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.42105263157894735,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.631578947368421,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,0.8421052631578947,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.0526315789473684,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.263157894736842,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.4736842105263157,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.6842105263157894,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,1.894736842105263,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.1052631578947367,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.3157894736842106,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.526315789473684,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.7368421052631575,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,2.9473684210526314,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.1578947368421053,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.3684210526315788,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.578947368421052,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,3.789473684210526,4.0,4.0,4.0,4.0,4.0,4.0],
+"Status":["Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Singapore Citizens","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Permanent Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","Non Residents","","","","","","","",""]
+},
+"mapping":{
+"x":"x",
+"y":"y"
+},
+"data_meta":{
+},
+"theme":{
+"name":"classic",
+"axis_title_y":{
+"blank":true
+},
+"axis_text_x":{
+"blank":true
+},
+"axis_text_y":{
+"blank":true
+},
+"axis_ticks_x":{
+"blank":true
+},
+"axis_ticks_y":{
+"blank":true
+},
+"axis_line_y":{
+"blank":true
+},
+"legend_position":"none"
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"fill",
+"values":["#b80c09","#0b4f6c","#01baef","#FFFFFF"]
+},{
+"name":"2020",
+"aesthetic":"x"
+}],
+"layers":[{
+"geom":"tile",
+"mapping":{
+"fill":"Status"
+},
+"data_meta":{
+},
+"width":0.8,
+"height":0.8,
+"color":"white",
+"size":0.5,
+"data":{
+}
+}],
+"metainfo_list":[]
+}]
+};
+           var plotContainer = document.getElementById("uM9jRi");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();    
+   </script>
+</div>
+</div>
+<p>Unfortunately, I ran into a limitation of <code>gggrid()</code> here. I was unable to insert a title, caption or legend on my final composition of multiple charts. This was slightly frustrating and I sorely missed the equivalent functionality that is available in R’s ggplot ecosystem e.g.&nbsp;<a href="https://patchwork.data-imaginist.com/index.html">patchwork</a>.</p>
+</section>
+<section id="finishing-up-on-canva" class="level1">
+<h1>Finishing up on Canva</h1>
+<p>So, I moved my chart over to <a href="https://www.canva.com/">Canva</a> for few final touches, and here’s the end product!</p>
+<p><img src="https://www.ddanieltan.com/posts/30-day-chart-4/day4.png" class="img-fluid"></p>
+</section>
+<section id="til" class="level1">
+<h1>TIL</h1>
+<ol type="1">
+<li>Polars has a convenient <code>rows()</code> method that returns rows of selected columns as a List of Tuples. Useful if your collected data fits in memory.</li>
+<li><a href="https://lets-plot.org/python/pages/api/lets_plot.geom_tile.html#lets_plot.geom_tile">Let-plot geom_tile</a> works really well with <code>np.linspace</code> to control width and height.</li>
+<li>I cannot apply titles, captions or legends on a composition of plots using gggrid(). So in the future, I need to draw those elements on the component graphs instead.</li>
+<li>Attempting to build up a visualisation from base parts is a challenging task, but being able to achieve your original vision is a great feeling! 😁</li>
+</ol>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
+  author = {Tan, Daniel},
+  title = {Waffle},
+  date = {2024-04-04},
+  url = {https://www.ddanieltan.com/posts/30-day-chart-4},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas">
+Tan, Daniel. 2024. <span>“Waffle.”</span> April 4, 2024. <a href="https://www.ddanieltan.com/posts/30-day-chart-4">https://www.ddanieltan.com/posts/30-day-chart-4</a>.
+</div></div></section></div> ]]></description>
+  <category>dataviz</category>
+  <category>chart-challenge</category>
+  <category>TIL</category>
+  <guid>https://www.ddanieltan.com/posts/30-day-chart-4/</guid>
+  <pubDate>Wed, 03 Apr 2024 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-4/day4.png" medium="image" type="image/png" height="88" width="144"/>
+</item>
 <item>
   <title>Makeover</title>
   <dc:creator>Daniel Tan</dc:creator>
