@@ -18,7 +18,6 @@ I was excited to attempt to mimic this chart because I was very keen on learning
 ## My attempt
 ```{python}
 #| code-fold: true
-#| echo: false
 import pandas as pd
 import geopandas as gpd
 from lets_plot import *

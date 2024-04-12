@@ -245,10 +245,57 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <p><img src="./reuters_original.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="85fc5842" class="cell" data-execution_count="1">
+<div id="eca9fff2" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> lets_plot <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> lets_plot.geo_data <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>LetsPlot.setup_html()</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>states <span class="op">=</span> geocode_states().countries(<span class="st">'US-48'</span>).inc_res().get_boundaries()</span>
+<span id="cb1-9"><a href="#cb1-9"></a>reuters <span class="op">=</span> pd.read_csv(<span class="st">'./reuters_abortion_access.csv'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>df <span class="op">=</span> states.merge(reuters, on<span class="op">=</span><span class="st">'state'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Adding abortion access data based from https://www.reuters.com/graphics/USA-ABORTION/DISTANCE/jnvwxorwkpw/</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>p <span class="op">=</span> (ggplot()</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    <span class="op">+</span> geom_map(aes(fill<span class="op">=</span><span class="st">'access'</span>), data<span class="op">=</span>df, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="op">+</span> scale_fill_manual(</span>
+<span id="cb1-20"><a href="#cb1-20"></a>        values <span class="op">=</span> [<span class="st">'#e3dfdf'</span>,<span class="st">'#c96448'</span>,<span class="st">'#321f6a'</span>,<span class="st">'#b695bf'</span>],</span>
+<span id="cb1-21"><a href="#cb1-21"></a>        labels <span class="op">=</span> [<span class="st">'Protective'</span>,<span class="st">'Some restrictions/protections'</span>,<span class="st">'Most restrictive'</span>,<span class="st">'Restrictive or very restrictive'</span>]</span>
+<span id="cb1-22"><a href="#cb1-22"></a>    )</span>
+<span id="cb1-23"><a href="#cb1-23"></a>    <span class="op">+</span> ggsize(width<span class="op">=</span><span class="dv">700</span>,height<span class="op">=</span><span class="dv">600</span>)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="op">+</span> labs(</span>
+<span id="cb1-25"><a href="#cb1-25"></a>        title <span class="op">=</span> <span class="st">'Abortion access when Florida, Arizona limits take effect'</span>,</span>
+<span id="cb1-26"><a href="#cb1-26"></a>        subtitle <span class="op">=</span> <span class="st">'U.S. states and the District of Columbia by the restrictiveness of their abortion policies'</span>,</span>
+<span id="cb1-27"><a href="#cb1-27"></a>        caption <span class="op">=</span> <span class="st">'#30DayChartChallenge #Day12 Reuters</span><span class="ch">\n</span><span class="st">Data: Reuters Graphics</span><span class="ch">\n</span><span class="st">Made by: www.ddanieltan.com'</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    ) </span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="op">+</span> theme_minimal()</span>
+<span id="cb1-30"><a href="#cb1-30"></a>    <span class="op">+</span> theme(</span>
+<span id="cb1-31"><a href="#cb1-31"></a>        legend_position<span class="op">=</span><span class="st">'top'</span>,</span>
+<span id="cb1-32"><a href="#cb1-32"></a>        legend_text <span class="op">=</span> element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb1-33"><a href="#cb1-33"></a>        legend_title <span class="op">=</span> element_blank(),</span>
+<span id="cb1-34"><a href="#cb1-34"></a>        plot_caption<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">'grey'</span>),</span>
+<span id="cb1-35"><a href="#cb1-35"></a>        plot_title<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">20</span>, face<span class="op">=</span><span class="st">'bold'</span>),</span>
+<span id="cb1-36"><a href="#cb1-36"></a>        axis<span class="op">=</span>element_blank(),</span>
+<span id="cb1-37"><a href="#cb1-37"></a>        panel_grid <span class="op">=</span> element_blank(),</span>
+<span id="cb1-38"><a href="#cb1-38"></a>    )</span>
+<span id="cb1-39"><a href="#cb1-39"></a>)</span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The geodata is provided by © OpenStreetMap contributors and is made available here under the Open Database License (ODbL).</code></pre>
+</div>
 <div class="cell-output cell-output-display">
 
-            <div id="u0m94M"></div>
+            <div id="bfTHog"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -272,16 +319,16 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("u0m94M").appendChild(div);
+                        document.getElementById("bfTHog").appendChild(div);
                     };
-                    var e = document.getElementById("u0m94M");
+                    var e = document.getElementById("bfTHog");
                     e.appendChild(script);
                 })()
             </script>
             
 </div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-   <div id="Ps6FPk"></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+   <div id="cJIQMp"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -351,7 +398,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("Ps6FPk");
+           var plotContainer = document.getElementById("cJIQMp");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -362,10 +409,10 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div id="e965b06e" class="cell" data-execution_count="2">
+<div id="73a0c34c" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>ggsave(p, <span class="st">'day12.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>ggsave(p, <span class="st">'day12.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>I am really happy with how my attempt came out, even though it’s not a perfect replica. Going through this process, I am more aware of subtleties such as the choice of projection, the availability of text labels and usefulness of annotations that go into making a good map. Looking forward for more practise in the future!</p>
