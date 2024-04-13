@@ -14,7 +14,7 @@
 <item>
   <title>Reuters</title>
   <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/3-day-chart-12/</link>
+  <link>https://www.ddanieltan.com/posts/30-day-chart-12/</link>
   <description><![CDATA[ 
 
 
@@ -28,10 +28,10 @@
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Reuters Original</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">My attempt</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p><img src="https://www.ddanieltan.com/posts/3-day-chart-12/reuters_original.png" class="img-fluid"></p>
+<p><img src="https://www.ddanieltan.com/posts/30-day-chart-12/reuters_original.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<div id="eca9fff2" class="cell" data-execution_count="1">
+<div id="742e123e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -225,7 +225,7 @@ font-style: inherit;">=</span> element_blank(),</span>
 </div>
 <div class="cell-output cell-output-display">
 
-            <div id="bfTHog"></div>
+            <div id="DG2BC9"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -249,16 +249,16 @@ font-style: inherit;">=</span> element_blank(),</span>
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("bfTHog").appendChild(div);
+                        document.getElementById("DG2BC9").appendChild(div);
                     };
-                    var e = document.getElementById("bfTHog");
+                    var e = document.getElementById("DG2BC9");
                     e.appendChild(script);
                 })()
             </script>
             
 </div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-   <div id="cJIQMp"></div>
+   <div id="W55ri1"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -328,7 +328,7 @@ font-style: inherit;">=</span> element_blank(),</span>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("cJIQMp");
+           var plotContainer = document.getElementById("W55ri1");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -339,7 +339,7 @@ font-style: inherit;">=</span> element_blank(),</span>
 </div>
 </div>
 </div>
-<div id="73a0c34c" class="cell" data-execution_count="2">
+<div id="7f86f45a" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">ggsave(p, <span class="st" style="color: #20794D;
@@ -363,18 +363,18 @@ font-style: inherit;">'day12.png'</span>)</span></code></pre></div>
   author = {Tan, Daniel},
   title = {Reuters},
   date = {2024-04-12},
-  url = {https://www.ddanieltan.com/posts/3-day-chart-12},
+  url = {https://www.ddanieltan.com/posts/30-day-chart-12},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas">
-Tan, Daniel. 2024. <span>“Reuters.”</span> April 12, 2024. <a href="https://www.ddanieltan.com/posts/3-day-chart-12">https://www.ddanieltan.com/posts/3-day-chart-12</a>.
+Tan, Daniel. 2024. <span>“Reuters.”</span> April 12, 2024. <a href="https://www.ddanieltan.com/posts/30-day-chart-12">https://www.ddanieltan.com/posts/30-day-chart-12</a>.
 </div></div></section></div> ]]></description>
   <category>dataviz</category>
   <category>chart-challenge</category>
   <category>TIL</category>
-  <guid>https://www.ddanieltan.com/posts/3-day-chart-12/</guid>
+  <guid>https://www.ddanieltan.com/posts/30-day-chart-12/</guid>
   <pubDate>Thu, 11 Apr 2024 16:00:00 GMT</pubDate>
-  <media:content url="https://www.ddanieltan.com/posts/3-day-chart-12/reuters.gif" medium="image" type="image/gif"/>
+  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-12/reuters.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>Waffle</title>
