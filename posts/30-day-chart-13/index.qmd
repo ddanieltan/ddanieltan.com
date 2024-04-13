@@ -1,0 +1,67 @@
+---
+title: "Family"
+description: "#30DayChartChallenge Day 13"
+date: "2024-04-13"
+categories: [dataviz, chart-challenge, TIL]
+image: "day13.png"
+---
+
+# Family
+For today's #30DayChartChallenge, the theme is "Family." I must admit, my mind initially wandered to the Kardashians – but let's move on from that little embarrassment! I've been eager to experiment with Sunburst charts during this challenge. In my opinion, these visually striking charts have a unique ability to convey hierarchical relationships in a captivating way. 
+
+Fortunately for me, the [Python Plotly library](https://plotly.com/python/) comes equipped with a pre-built sunburst module, making my task a whole lot easier!
+
+```{python}
+#| code-fold: true
+import plotly.express as px
+
+data = dict(
+    character=["Kris Jenner","Robert Kardashian", "Caitlyn Jenner","Kourtney Kardashian", "Kim Kardashian","Khloe Kardashian", "Kendall Jenner", "Kylie Jenner","Brandon Jenner", "Brody Jenner","Mason Disick", "Penelope Disick", "Reign Disick","North West","Saint West","Chicago West","Psalm West","True Thompson","Tatum Thompson","Rob Kardashian","Dream Kardashian","Stormi Webster","Aire Webster","Honey Raye Jenner"],
+    parent=["","Kris Jenner","Kris Jenner","Robert Kardashian","Robert Kardashian","Robert Kardashian","Caitlyn Jenner","Caitlyn Jenner","Caitlyn Jenner","Caitlyn Jenner","Kourtney Kardashian", "Kourtney Kardashian", "Kourtney Kardashian", "Kim Kardashian","Kim Kardashian","Kim Kardashian","Kim Kardashian","Khloe Kardashian","Khloe Kardashian","Robert Kardashian", "Rob Kardashian","Kylie Jenner","Kylie Jenner","Brody Jenner"],
+    value=[0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])
+
+fig = px.sunburst(
+    data,
+    names='character',
+    parents='parent',
+    values='value',
+    color_discrete_sequence=px.colors.qualitative.Light24,
+    title = '<b>Keeping up with the Kardashians</b><br><sup>It\'s harder than you would think 😅</sup><br><sup>#30DayChartChallenge #Day13 | Family</sup>'
+)
+
+fig.update_layout(
+    margin = dict(l=0, r=0, b=45),
+    annotations = [dict(
+        x=1,
+        y=-0.1, 
+        xref='paper',
+        yref='paper',
+        text='Source: <a href="https://pagesix.com/article/kardashian-jenner-family-tree/">https://pagesix.com/article/kardashian-jenner-family-tree/</a><br>                                                    Made by: www.ddanieltan.com',
+        showarrow = False,
+        font = dict(size=10, color='grey')
+    )]
+)
+
+fig
+```
+Initially, I had planned to entirely map children -> parent relationships so every concentric circle would represent 1 generation. However, I ran into an issue representing both parents in the same layer.
+
+::: {.column-margin}
+The intricate web of multiple marriages among various members of the Kardashian family further convoluted the hierarchical relationships, making the task more complex...
+:::
+
+So I eventually, figured to keep the Kardashian Matriarch (Kris Jenner) in the centre of the chart as she is the common denominator between all households and compromised by starting with mapping spousal relationships in the inner circle, followed by children -> parent mappings as we expand outwards.
+
+So the end product is not semantically consistent but I think the chart still manages to summarise the family tree which was what I was going for. 
+
+```{python}
+fig.write_image("day13.png")
+```
+
+# TIL
+
+1. I find the `branchvalues` parameter that controls the width of each segment of [Plotly's sunburst chart](https://plotly.com/python/sunburst-charts/) quite difficult to grok. But I discovered that on the default `branchvalues='remainder'` setting, setting the value of parents to 0 is a nice trick to ensure segments have no gaps.
+
+2. Seeing that Plotly accepted HTML tags when configuring it's title, I was pleasantly surprised to see that it accepted Emoji unicodes! 😁
+
+3. In order to add captions to a Plotly chart, one has to use annotations which requires a lot of manual tweaking.
