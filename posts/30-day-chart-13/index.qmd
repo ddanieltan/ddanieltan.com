@@ -54,10 +54,6 @@ So I eventually, figured to keep the Kardashian Matriarch (Kris Jenner) in the c
 
 So the end product is not semantically consistent but I think the chart still manages to summarise the family tree which was what I was going for. 
 
-```{python}
-fig.write_image("day13.png")
-```
-
 # TIL
 
 1. I find the `branchvalues` parameter that controls the width of each segment of [Plotly's sunburst chart](https://plotly.com/python/sunburst-charts/) quite difficult to grok. But I discovered that on the default `branchvalues='remainder'` setting, setting the value of parents to 0 is a nice trick to ensure segments have no gaps.
