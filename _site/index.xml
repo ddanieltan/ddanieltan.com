@@ -20,123 +20,147 @@
 
 
 
-<p>Today’s theme is Historical and I opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a <a href="https://github.com/nshahpazov/fpp-in-python">Python version</a> going through what I consider the best time series textbook, <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practise</a>.</p>
-<div id="a23fa34b" class="cell" data-execution_count="1">
+<section id="weather" class="level1">
+<h1>Weather</h1>
+<p>Today’s theme is Weather and I while searching for inspiration I came across these beautiful wind rose charts from the <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/wind_rose.ipynb">Lets-Plot gallery</a>.opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a <a href="https://github.com/nshahpazov/fpp-in-python">Python version</a> going through what I consider the best time series textbook, <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practise</a>.</p>
+<p>As always, I like to adapt the examples to my home country of Singapore and data for Singapore’s wind readings was provided by Iowa State University’s <a href="https://mesonet.agron.iastate.edu/sites/windrose.phtml?station=WSSS&amp;network=SG__ASOS">Iowa Environmental Mesonet site</a>.</p>
+<div id="6aa6019a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb1-2"></span>
-<span id="cb1-3"><span class="im" style="color: #00769E;
+font-style: inherit;">as</span> pl</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> lets_plot <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span></span>
-<span id="cb1-4"><span class="im" style="color: #00769E;
+<span id="cb1-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> lets_plot.mapping <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> as_discrete</span>
-<span id="cb1-5">LetsPlot.setup_html()</span>
-<span id="cb1-6"></span>
-<span id="cb1-7">wind_df <span class="op" style="color: #5E5E5E;
+<span id="cb1-4">LetsPlot.setup_html()</span>
+<span id="cb1-5"></span>
+<span id="cb1-6">raw <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+font-style: inherit;">=</span> pl.read_csv(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"https://raw.githubusercontent.com/JetBrains/lets-plot-docs/master/data/pea_wind.csv"</span>)</span>
-<span id="cb1-8">records_count <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'./sg_wind.csv'</span>)</span>
+<span id="cb1-7"></span>
+<span id="cb1-8">CALM <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> wind_df.shape[<span class="dv" style="color: #AD0000;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0</span>]</span>
-<span id="cb1-9"><span class="kw" style="color: #003B4F;
+font-style: inherit;">15.59</span></span>
+<span id="cb1-9"></span>
+<span id="cb1-10">df <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">def</span> is_float(x):</span>
-<span id="cb1-10">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">=</span> (raw</span>
+<span id="cb1-11">    .with_columns(</span>
+<span id="cb1-12">        pl.Series(name<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">try</span>:</span>
-<span id="cb1-11">        <span class="bu" style="color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">float</span>(x)</span>
-<span id="cb1-12">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">"Direction"</span>,values<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
+font-style: inherit;">=</span><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">ValueError</span>:</span>
-<span id="cb1-13">        <span class="cf" style="color: #003B4F;
+font-style: inherit;">list</span>(<span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">return</span> <span class="va" style="color: #111111;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">False</span></span>
-<span id="cb1-14">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">return</span> <span class="va" style="color: #111111;
+font-style: inherit;">360</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">True</span></span>
-<span id="cb1-15"></span>
-<span id="cb1-16"></span>
-<span id="cb1-17">wind_df <span class="op" style="color: #5E5E5E;
+font-style: inherit;">10</span>)))</span>
+<span id="cb1-13">    )</span>
+<span id="cb1-14">    .drop(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> wind_df[wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">'Calm     '</span>)</span>
+<span id="cb1-15">    .rename({</span>
+<span id="cb1-16">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'sped'</span>].<span class="bu" style="color: null;
+font-style: inherit;">' 2.0  4.9'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
+font-style: inherit;">'2.0 - 4.9'</span>,</span>
+<span id="cb1-17">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">lambda</span> x: is_float(x))]</span>
-<span id="cb1-18">wind_df <span class="op" style="color: #5E5E5E;
+font-style: inherit;">' 5.0  6.9'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> wind_df[wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">'5.0 - 6.9'</span>,</span>
+<span id="cb1-18">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'drct'</span>].<span class="bu" style="color: null;
+font-style: inherit;">' 7.0  9.9'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
+font-style: inherit;">'7.0 - 9.9'</span>,</span>
+<span id="cb1-19">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">lambda</span> x: is_float(x))]</span>
-<span id="cb1-19"></span>
-<span id="cb1-20">wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">'10.0 14.9'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'sped'</span>] <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'10.0 - 14.9'</span>,</span>
+<span id="cb1-20">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">'15.0 19.9'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'sped'</span>].astype(<span class="bu" style="color: null;
+font-style: inherit;">'15.0 - 19.9'</span>,</span>
+<span id="cb1-21">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">float</span>)</span>
-<span id="cb1-21">wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">'20.0+    '</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'drct'</span>] <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'20.0+'</span></span>
+<span id="cb1-22">    })</span>
+<span id="cb1-23">    .melt(id_vars<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'drct'</span>].astype(<span class="bu" style="color: null;
+font-style: inherit;">'Direction'</span>)</span>
+<span id="cb1-24">    .with_columns(pl.col(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">float</span>)</span>
-<span id="cb1-22"></span>
-<span id="cb1-23">wind_df <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'variable'</span>).replace(</span>
+<span id="cb1-25">        old<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> wind_df[wind_df[<span class="st" style="color: #20794D;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'sped'</span>].<span class="bu" style="color: null;
+font-style: inherit;">'2.0 - 4.9'</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
+font-style: inherit;">'5.0 - 6.9'</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">lambda</span> x: x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'7.0 - 9.9'</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">&gt;=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">'10.0 - 14.9'</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">2.0</span>)]</span>
-<span id="cb1-24"></span>
-<span id="cb1-25">wind_df.head()</span></code></pre></div>
+font-style: inherit;">'15.0 - 19.9'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'20.0+'</span>],</span>
+<span id="cb1-26">        new <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]).cast(pl.Int32).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Speed Group'</span>)</span>
+<span id="cb1-27">    )</span>
+<span id="cb1-28">)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 
-            <div id="NLmQDd"></div>
+            <div id="BsXJho"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -160,210 +184,146 @@ font-style: inherit;">2.0</span>)]</span>
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("NLmQDd").appendChild(div);
+                        document.getElementById("BsXJho").appendChild(div);
                     };
-                    var e = document.getElementById("NLmQDd");
+                    var e = document.getElementById("BsXJho");
                     e.appendChild(script);
                 })()
             </script>
             
 </div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">station</th>
-<th data-quarto-table-cell-role="th">valid</th>
-<th data-quarto-table-cell-role="th">drct</th>
-<th data-quarto-table-cell-role="th">sped</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>PEA</td>
-<td>2002-05-17 00:14</td>
-<td>330.0</td>
-<td>8.05</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>PEA</td>
-<td>2002-05-17 00:20</td>
-<td>330.0</td>
-<td>8.05</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>PEA</td>
-<td>2002-05-17 00:34</td>
-<td>340.0</td>
-<td>10.35</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>PEA</td>
-<td>2002-05-17 00:40</td>
-<td>340.0</td>
-<td>10.35</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>PEA</td>
-<td>2002-05-17 00:54</td>
-<td>340.0</td>
-<td>14.95</td>
-</tr>
-</tbody>
-</table>
-
 </div>
-</div>
-</div>
-</div>
-<div id="f83a620f" class="cell" data-execution_count="2">
-<details open="" class="code-fold">
+</section>
+<section id="creativity-on-display" class="level1">
+<h1>Creativity on display</h1>
+<p>One thing that really fascinated me was how easily different component geoms came together to create the final chart. A true testament to the power of <a href="https://books.google.com.sg/books/about/The_Grammar_of_Graphics.html?id=_kRX4LoFfGQC&amp;redir_esc=y">The Grammer of Graphics</a>.</p>
+<p>We start first with a simple stacked bar chart of wind readings for every direction (0 to 360 degrees).</p>
+<div id="c25fb947" class="cell" data-execution_count="2">
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">(ggplot(df)</span>
+<span id="cb2-2">    <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Compute calm</span></span>
-<span id="cb2-2">calm <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span> geom_bar(</span>
+<span id="cb2-3">        aes(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+font-style: inherit;">'Direction'</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">100</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> wind_df.shape[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> records_count <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span></span>
-<span id="cb2-3"></span>
-<span id="cb2-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Define the speed bins</span></span>
-<span id="cb2-5">bins <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>, <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'inf'</span>)]</span>
-<span id="cb2-6">bin_ids <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">list</span>(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>))</span>
-<span id="cb2-7"></span>
-<span id="cb2-8">wind_df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'speed_group'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.cut(wind_df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'sped'</span>], bins<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>bins, labels<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>bin_ids, right<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>)</span>
-<span id="cb2-9"></span>
-<span id="cb2-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Group by 'drct' and 'speed_group', and count the occurrences</span></span>
-<span id="cb2-11">grouped_counts <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> wind_df.groupby([<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'drct'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'speed_group'</span>], observed<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>).size().reset_index(name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'count'</span>)</span>
-<span id="cb2-12"></span>
-<span id="cb2-13"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Calculate the total number of observations in the dataset</span></span>
-<span id="cb2-14">total_observations <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> wind_df.shape[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>]</span>
-<span id="cb2-15"></span>
-<span id="cb2-16"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Calculate the percentage of each speed group within each direction relative to the total number of observations</span></span>
-<span id="cb2-17">grouped_counts[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'percentage_of_total'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> (grouped_counts[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'count'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> total_observations) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span></span></code></pre></div>
-</details>
-</div>
-<div id="12f0ed6b" class="cell" data-execution_count="3">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">ggplot(grouped_counts) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb3-2">    geom_bar(</span>
-<span id="cb3-3">        aes(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'drct'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'percentage_of_total'</span>, fill<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'value'</span>, fill<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>as_discrete(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'speed_group'</span>, order<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'Speed Group'</span>)), </span>
+<span id="cb2-4">        size<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>)), </span>
+font-style: inherit;">0</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.8</span>,</span>
+<span id="cb2-5">        stat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'identity'</span>,</span>
+<span id="cb2-6">        tooltips<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>layer_tooltips().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^y'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'{.2g}%'</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^x'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">°'</span>)</span>
+<span id="cb2-7">    ) </span>
+<span id="cb2-8">)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="7">
+   <div id="rbTkq6"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"Direction":[0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0],
+"value":[2.056,1.782,1.628,1.499,1.022,0.531,0.373,0.399,0.384,0.33,0.307,0.34,0.392,0.58,0.666,0.708,0.758,0.903,0.95,1.128,1.279,1.45,1.012,0.551,0.308,0.256,0.304,0.436,0.551,0.701,0.873,1.128,1.533,1.933,1.765,1.73,0.649,0.863,1.173,1.389,1.252,0.668,0.366,0.288,0.303,0.371,0.383,0.443,0.556,0.793,1.034,1.062,1.071,1.391,1.148,1.046,1.251,0.893,0.371,0.189,0.121,0.117,0.143,0.226,0.223,0.223,0.208,0.212,0.304,0.508,0.755,0.636,0.379,0.421,0.879,1.361,1.195,0.544,0.221,0.173,0.187,0.222,0.246,0.332,0.547,0.715,0.839,0.914,0.912,1.235,0.965,0.829,0.802,0.325,0.112,0.068,0.038,0.038,0.062,0.093,0.097,0.089,0.064,0.046,0.057,0.099,0.288,0.381,0.67,0.574,0.92,1.356,1.729,0.651,0.286,0.112,0.104,0.124,0.129,0.2,0.37,0.523,0.577,0.596,0.647,0.835,0.641,0.484,0.308,0.095,0.037,0.02,0.015,0.025,0.026,0.042,0.034,0.041,0.016,0.015,0.012,0.03,0.091,0.291,0.169,0.135,0.072,0.091,0.055,0.021,0.018,0.001,0.005,0.003,0.006,0.009,0.021,0.018,0.023,0.021,0.024,0.027,0.021,0.014,0.009,0.005,0.003,0.002,0.002,0.002,0.006,0.004,0.002,0.002,0.001,0.0,0.0,0.001,0.0,0.007,0.01,0.007,0.002,0.001,0.001,0.0,0.0,0.0,0.001,0.0,0.001,0.002,0.0,0.0,0.002,0.001,0.002,0.002,0.001,0.002,0.002,0.0,0.0,0.0,0.0,0.001,0.001,0.001,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+"Speed Group":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0]
+},
+"mapping":{
+},
+"data_meta":{
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"bar",
+"stat":"identity",
+"mapping":{
+"x":"Direction",
+"y":"value",
+"fill":"Speed Group"
+},
+"tooltips":{
+"formats":[{
+"field":"^y",
+"format":"{.2g}%"
+},{
+"field":"^x",
+"format":"{}°"
+}]
+},
+"data_meta":{
+"mapping_annotations":[{
+"aes":"fill",
+"annotation":"as_discrete",
+"parameters":{
+"label":"Speed Group"
+}
+}]
+},
+"size":0.0,
+"width":0.8,
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("rbTkq6");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();
+   </script>
+</div>
+</div>
+<p>Then we shift the chart up by inserting a blank rectangle underneath the chart. At this point, a seemingly strange decision.</p>
+<div id="1d980e90" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">(ggplot(df)</span>
+<span id="cb3-2">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_bar(</span>
+<span id="cb3-3">        aes(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Direction'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'value'</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>as_discrete(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Speed Group'</span>)), </span>
 <span id="cb3-4">        size<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
@@ -397,12 +357,10 @@ background-color: null;
 font-style: inherit;">{}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">°'</span>)</span>
-<span id="cb3-7">    ) <span class="op" style="color: #5E5E5E;
+<span id="cb3-7">    ) </span>
+<span id="cb3-8">    <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">+</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb3-8">    geom_rect(</span>
+font-style: inherit;">+</span> geom_rect(</span>
 <span id="cb3-9">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Visually align the width of the rectangle with the bars - widen it by 5 (half a bar width)</span></span>
@@ -432,66 +390,22 @@ background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span></span>
-<span id="cb3-12">    ) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb3-13">    coord_polar(</span>
-<span id="cb3-14">        ylim<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">None</span>], <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># -1 is to make inner circle</span></span>
-<span id="cb3-15">        start<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3.14</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">36</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make the N-S axis perpendicular</span></span>
-<span id="cb3-16">    )</span></code></pre></div>
+<span id="cb3-12">    )</span>
+<span id="cb3-13">)</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
-   <div id="xgko6U"></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+   <div id="ZC0OTR"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
 "data":{
-"drct":[10.0,10.0,10.0,10.0,10.0,10.0,20.0,20.0,20.0,20.0,20.0,20.0,30.0,30.0,30.0,30.0,30.0,30.0,40.0,40.0,40.0,40.0,40.0,40.0,50.0,50.0,50.0,50.0,50.0,50.0,60.0,60.0,60.0,60.0,60.0,60.0,70.0,70.0,70.0,70.0,70.0,70.0,80.0,80.0,80.0,80.0,80.0,80.0,90.0,90.0,90.0,90.0,90.0,90.0,100.0,100.0,100.0,100.0,100.0,100.0,110.0,110.0,110.0,110.0,110.0,110.0,120.0,120.0,120.0,120.0,120.0,120.0,130.0,130.0,130.0,130.0,130.0,130.0,140.0,140.0,140.0,140.0,140.0,140.0,150.0,150.0,150.0,150.0,150.0,150.0,160.0,160.0,160.0,160.0,160.0,160.0,170.0,170.0,170.0,170.0,170.0,170.0,180.0,180.0,180.0,180.0,180.0,180.0,190.0,190.0,190.0,190.0,190.0,190.0,200.0,200.0,200.0,200.0,200.0,200.0,210.0,210.0,210.0,210.0,210.0,210.0,220.0,220.0,220.0,220.0,220.0,220.0,230.0,230.0,230.0,230.0,230.0,230.0,240.0,240.0,240.0,240.0,240.0,240.0,250.0,250.0,250.0,250.0,250.0,250.0,260.0,260.0,260.0,260.0,260.0,260.0,270.0,270.0,270.0,270.0,270.0,270.0,280.0,280.0,280.0,280.0,280.0,280.0,290.0,290.0,290.0,290.0,290.0,290.0,300.0,300.0,300.0,300.0,300.0,300.0,310.0,310.0,310.0,310.0,310.0,310.0,320.0,320.0,320.0,320.0,320.0,320.0,330.0,330.0,330.0,330.0,330.0,330.0,340.0,340.0,340.0,340.0,340.0,340.0,350.0,350.0,350.0,350.0,350.0,350.0,360.0,360.0,360.0,360.0,360.0,360.0],
-"speed_group":[0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0],
-"percentage_of_total":[0.5965102522656505,0.4400585524047074,0.3258223632344609,0.3340620171283077,0.062153438631362974,0.010477584581064462,0.5673154292096747,0.37149649407813023,0.2370172046007786,0.23467754979141467,0.0353999945068974,0.008341378015993066,0.5413757780623794,0.35735684109980054,0.22867582658478552,0.22094479330167002,0.03438275328543484,0.00722241267238424,0.4857326832483767,0.30822409010315843,0.1560448033723581,0.1170844645903417,0.009155170993163122,0.0015258618321938536,0.4170689007996533,0.2196223797137687,0.09389136474099513,0.0434362001564517,0.0012206894657550828,2.034482442925138E-4,0.46986372019356065,0.26458444170241424,0.11108274138371253,0.07853102229691034,0.007832757405261782,5.086206107312845E-4,0.5644671537895796,0.4002844206455209,0.2020241065824662,0.15278963146367788,0.022175858627884005,0.004170689007996533,0.6440154173079524,0.5069930247769444,0.3290775351431411,0.2933723682698049,0.036010339239774945,0.008341378015993066,0.6419809348650274,0.534153365389995,0.36529132262720854,0.3211430536157331,0.03621378748406746,0.0032551719086802208,0.794668842206559,0.6189912832599733,0.42866545072432666,0.37261545942173907,0.04302930366786667,0.0068155161837992135,1.2473411857574022,1.0193774280276406,0.6783981705933874,0.6424895554757586,0.10396205283347455,0.028177581834513164,1.32485496683285,1.2287256714046373,0.8278309060262387,0.9216205466450876,0.17669480016804825,0.04770861328659449,1.1301549970449143,1.1293412040677442,0.8770653811450271,0.9836722611543043,0.17883100673311964,0.03570516687333618,1.0685101790242826,1.1418532710917337,0.8434964208367624,0.8846946903059963,0.1482120459670963,0.018005169619887473,0.9714653664967534,1.1221187913953599,0.8957826196199383,0.9759412278711888,0.1539085968072867,0.020853445039982668,0.8215240104531708,1.0114429465002324,0.8482774545776364,0.9810274339785017,0.19297065971144936,0.04770861328659449,0.7422809193012366,0.851329178242024,0.674329205707537,0.9866222606965458,0.26682237238963186,0.09592584718392026,0.6292654195967452,0.6701585166995405,0.5507343972998349,0.9384050267992199,0.26855168246611827,0.09256895115309378,0.6545947260111632,0.6408619695214186,0.5761654278363991,0.9266050286302542,0.2540051329992035,0.08321033191563815,0.610548181121834,0.5902033566925826,0.5068913006547981,0.7640498814405356,0.19775169345232343,0.05411723298180867,0.5885757707382424,0.5414775021845255,0.4777982017209687,0.6552050707440408,0.16509825024337496,0.0434362001564517,0.5325257794356549,0.5162499198922538,0.3989620070576196,0.5517516385212975,0.13142756581296391,0.03489137389616612,0.5002792327152915,0.45185855057367313,0.3564413240004842,0.45440165362732965,0.08738102092363469,0.026956892368758083,0.5413757780623794,0.5176740576023015,0.3922482149959667,0.4445344137791427,0.07466550565535257,0.02237930687217652,0.5599912924151443,0.5789119791343481,0.4089309710279528,0.3961137316375244,0.0781241258083253,0.03316206381967975,0.5374085372986752,0.6445240379186837,0.5168602646251313,0.580844737455127,0.13569997894310673,0.06886723069301592,0.49651544019588,0.5751481866149366,0.5099430243191858,0.7366860925831925,0.21067065696489806,0.10986205191795746,0.4378206217174897,0.5476826736354472,0.4687447548499518,0.7909050496871475,0.31788788170705284,0.16957411161781027,0.4875637174470093,0.5890843913489737,0.5524637073763212,1.027922254287926,0.47037234080429197,0.26377064872524414,0.5098413001970397,0.6265188682987963,0.677482653494071,1.403691161496199,0.6302826608182077,0.39641890400396324,0.5548033621856852,0.7358722996060224,0.7975171176266541,1.663799741824178,0.7029136840306353,0.4067947644628814,0.5127912997392811,0.7268188527350056,0.8001619448024568,1.6351135393789333,0.7783929826631578,0.44667062034421406,0.5039413011125567,0.6574430014312584,0.6443205896743912,1.1178463782652173,0.49427750950866234,0.26844995834397195,0.604241285548766,0.7059654076950229,0.6235688687565548,1.0018808790184843,0.30344305636228436,0.1284775662707225,0.6898929963959143,0.6288585231081602,0.5067895765326519,0.7156291992989174,0.17109997345000413,0.053913784737516166,0.7376016096825089,0.5689430151640149,0.4003861447676672,0.47179647851433953,0.08514309023641703,0.015360342444084794]
+"Direction":[0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0],
+"value":[2.056,1.782,1.628,1.499,1.022,0.531,0.373,0.399,0.384,0.33,0.307,0.34,0.392,0.58,0.666,0.708,0.758,0.903,0.95,1.128,1.279,1.45,1.012,0.551,0.308,0.256,0.304,0.436,0.551,0.701,0.873,1.128,1.533,1.933,1.765,1.73,0.649,0.863,1.173,1.389,1.252,0.668,0.366,0.288,0.303,0.371,0.383,0.443,0.556,0.793,1.034,1.062,1.071,1.391,1.148,1.046,1.251,0.893,0.371,0.189,0.121,0.117,0.143,0.226,0.223,0.223,0.208,0.212,0.304,0.508,0.755,0.636,0.379,0.421,0.879,1.361,1.195,0.544,0.221,0.173,0.187,0.222,0.246,0.332,0.547,0.715,0.839,0.914,0.912,1.235,0.965,0.829,0.802,0.325,0.112,0.068,0.038,0.038,0.062,0.093,0.097,0.089,0.064,0.046,0.057,0.099,0.288,0.381,0.67,0.574,0.92,1.356,1.729,0.651,0.286,0.112,0.104,0.124,0.129,0.2,0.37,0.523,0.577,0.596,0.647,0.835,0.641,0.484,0.308,0.095,0.037,0.02,0.015,0.025,0.026,0.042,0.034,0.041,0.016,0.015,0.012,0.03,0.091,0.291,0.169,0.135,0.072,0.091,0.055,0.021,0.018,0.001,0.005,0.003,0.006,0.009,0.021,0.018,0.023,0.021,0.024,0.027,0.021,0.014,0.009,0.005,0.003,0.002,0.002,0.002,0.006,0.004,0.002,0.002,0.001,0.0,0.0,0.001,0.0,0.007,0.01,0.007,0.002,0.001,0.001,0.0,0.0,0.0,0.001,0.0,0.001,0.002,0.0,0.0,0.002,0.001,0.002,0.002,0.001,0.002,0.002,0.0,0.0,0.0,0.0,0.001,0.001,0.001,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+"Speed Group":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0]
 },
 "mapping":{
 },
 "data_meta":{
-"series_annotations":[{
-"column":"speed_group",
-"factor_levels":[0.0,1.0,2.0,3.0,4.0,5.0]
-}]
-},
-"coord":{
-"name":"polar",
-"ylim":[-1.0,null],
-"start":0.08722222222222223
 },
 "kind":"plot",
 "scales":[],
@@ -499,9 +413,9 @@ font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make th
 "geom":"bar",
 "stat":"identity",
 "mapping":{
-"x":"drct",
-"y":"percentage_of_total",
-"fill":"speed_group"
+"x":"Direction",
+"y":"value",
+"fill":"Speed Group"
 },
 "tooltips":{
 "formats":[{
@@ -517,13 +431,8 @@ font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make th
 "aes":"fill",
 "annotation":"as_discrete",
 "parameters":{
-"label":"speed_group",
-"order":1.0
+"label":"Speed Group"
 }
-}],
-"series_annotations":[{
-"column":"speed_group",
-"factor_levels":[0.0,1.0,2.0,3.0,4.0,5.0]
 }]
 },
 "size":0.0,
@@ -547,7 +456,7 @@ font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make th
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("xgko6U");
+           var plotContainer = document.getElementById("ZC0OTR");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -555,12 +464,767 @@ font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make th
    </script>
 </div>
 </div>
+<p>But it all comes together when we convert the y axis to polar coordinates. Our bar chart is now a compass. And that blank rectangle is wrapped into a perfect blank circle, for us to add annotations!</p>
+<div id="fe6a8fa7" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">(ggplot(df)</span>
+<span id="cb4-2">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_bar(</span>
+<span id="cb4-3">        aes(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Direction'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'value'</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>as_discrete(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Speed Group'</span>)), </span>
+<span id="cb4-4">        size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.8</span>,</span>
+<span id="cb4-5">        stat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'identity'</span>,</span>
+<span id="cb4-6">        tooltips<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>layer_tooltips().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^y'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'{.2g}%'</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^x'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">°'</span>)</span>
+<span id="cb4-7">    ) </span>
+<span id="cb4-8">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_rect(</span>
+<span id="cb4-9">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visually align the width of the rectangle with the bars - widen it by 5 (half a bar width)</span></span>
+<span id="cb4-10">        xmin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, xmax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>, </span>
+<span id="cb4-11">        ymin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, ymax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb4-12">    )<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> coord_polar(</span>
+<span id="cb4-13">        ylim<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>], <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># -1 is to make inner circle</span></span>
+<span id="cb4-14">        start<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.14</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make the N-S axis perpendicular</span></span>
+<span id="cb4-15">    )</span>
+<span id="cb4-16">)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+   <div id="wk1ojS"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"Direction":[0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0],
+"value":[2.056,1.782,1.628,1.499,1.022,0.531,0.373,0.399,0.384,0.33,0.307,0.34,0.392,0.58,0.666,0.708,0.758,0.903,0.95,1.128,1.279,1.45,1.012,0.551,0.308,0.256,0.304,0.436,0.551,0.701,0.873,1.128,1.533,1.933,1.765,1.73,0.649,0.863,1.173,1.389,1.252,0.668,0.366,0.288,0.303,0.371,0.383,0.443,0.556,0.793,1.034,1.062,1.071,1.391,1.148,1.046,1.251,0.893,0.371,0.189,0.121,0.117,0.143,0.226,0.223,0.223,0.208,0.212,0.304,0.508,0.755,0.636,0.379,0.421,0.879,1.361,1.195,0.544,0.221,0.173,0.187,0.222,0.246,0.332,0.547,0.715,0.839,0.914,0.912,1.235,0.965,0.829,0.802,0.325,0.112,0.068,0.038,0.038,0.062,0.093,0.097,0.089,0.064,0.046,0.057,0.099,0.288,0.381,0.67,0.574,0.92,1.356,1.729,0.651,0.286,0.112,0.104,0.124,0.129,0.2,0.37,0.523,0.577,0.596,0.647,0.835,0.641,0.484,0.308,0.095,0.037,0.02,0.015,0.025,0.026,0.042,0.034,0.041,0.016,0.015,0.012,0.03,0.091,0.291,0.169,0.135,0.072,0.091,0.055,0.021,0.018,0.001,0.005,0.003,0.006,0.009,0.021,0.018,0.023,0.021,0.024,0.027,0.021,0.014,0.009,0.005,0.003,0.002,0.002,0.002,0.006,0.004,0.002,0.002,0.001,0.0,0.0,0.001,0.0,0.007,0.01,0.007,0.002,0.001,0.001,0.0,0.0,0.0,0.001,0.0,0.001,0.002,0.0,0.0,0.002,0.001,0.002,0.002,0.001,0.002,0.002,0.0,0.0,0.0,0.0,0.001,0.001,0.001,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+"Speed Group":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0]
+},
+"mapping":{
+},
+"data_meta":{
+},
+"coord":{
+"name":"polar",
+"ylim":[-1.0,null],
+"start":0.08722222222222223
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"bar",
+"stat":"identity",
+"mapping":{
+"x":"Direction",
+"y":"value",
+"fill":"Speed Group"
+},
+"tooltips":{
+"formats":[{
+"field":"^y",
+"format":"{.2g}%"
+},{
+"field":"^x",
+"format":"{}°"
+}]
+},
+"data_meta":{
+"mapping_annotations":[{
+"aes":"fill",
+"annotation":"as_discrete",
+"parameters":{
+"label":"Speed Group"
+}
+}]
+},
+"size":0.0,
+"width":0.8,
+"data":{
+}
+},{
+"geom":"rect",
+"mapping":{
+},
+"data_meta":{
+},
+"xmin":5.0,
+"xmax":365.0,
+"ymin":-1.0,
+"ymax":0.0,
+"fill":"white",
+"size":0.0,
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("wk1ojS");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();
+   </script>
+</div>
+</div>
+</section>
+<section id="final-chart" class="level1">
+<h1>Final Chart</h1>
+<p>And with some finishing touches, we get a very professional looking final product.</p>
+<div id="d625f62a" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">(ggplot(df)</span>
+<span id="cb5-2">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_bar(</span>
+<span id="cb5-3">        aes(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Direction'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'value'</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>as_discrete(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Speed Group'</span>)), </span>
+<span id="cb5-4">        size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.8</span>,</span>
+<span id="cb5-5">        stat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'identity'</span>,</span>
+<span id="cb5-6">        tooltips<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>layer_tooltips().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^y'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'{.2g}%'</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^x'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">°'</span>)</span>
+<span id="cb5-7">    ) </span>
+<span id="cb5-8">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_rect(</span>
+<span id="cb5-9">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visually align the width of the rectangle with the bars - widen it by 5 (half a bar width)</span></span>
+<span id="cb5-10">        xmin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, xmax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>, </span>
+<span id="cb5-11">        ymin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, ymax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-12">    )</span>
+<span id="cb5-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> coord_polar(</span>
+<span id="cb5-14">        ylim<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>], <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># -1 is to make inner circle</span></span>
+<span id="cb5-15">        start<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.14</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Divide by 2 (i.e. rotate by half a bar width) to make the N-S axis perpendicular</span></span>
+<span id="cb5-16">    )</span>
+<span id="cb5-17">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_hline(yintercept<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) </span>
+<span id="cb5-18">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_text(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f'Calm</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>CALM<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:.1f}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">%'</span>, </span>
+<span id="cb5-19">        hjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'middle'</span>, vjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'center'</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>)</span>
+<span id="cb5-20">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_fill_manual(</span>
+<span id="cb5-21">        name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Wind Speed (mph):'</span>, </span>
+<span id="cb5-22">        values<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#002bff'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#03d3f8'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#7afe81'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#fde609'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#ff4404'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#780200'</span>], </span>
+<span id="cb5-23">        labels<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{</span>
+<span id="cb5-24">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2 - 4.9'</span>, </span>
+<span id="cb5-25">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'5 - 6.9'</span>, </span>
+<span id="cb5-26">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'7 - 9.9'</span>, </span>
+<span id="cb5-27">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'10 - 14.9'</span>, </span>
+<span id="cb5-28">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'15 - 19.9'</span>, </span>
+<span id="cb5-29">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'20+'</span></span>
+<span id="cb5-30">        }</span>
+<span id="cb5-31">    )</span>
+<span id="cb5-32">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_y_continuous(</span>
+<span id="cb5-33">        breaks<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>], <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># To not add automatically generated ticks for values outside of the data range</span></span>
+<span id="cb5-34">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">%'</span></span>
+<span id="cb5-35">    )</span>
+<span id="cb5-36">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_x_continuous(</span>
+<span id="cb5-37">        labels<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{</span>
+<span id="cb5-38">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>:  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'NE'</span>, </span>
+<span id="cb5-39">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span>:  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'E'</span>, </span>
+<span id="cb5-40">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">135</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SE'</span>, </span>
+<span id="cb5-41">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'S'</span>, </span>
+<span id="cb5-42">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">225</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SW'</span>,</span>
+<span id="cb5-43">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">270</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'W'</span>,</span>
+<span id="cb5-44">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">315</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'NW'</span>,</span>
+<span id="cb5-45">            <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'N'</span>, </span>
+<span id="cb5-46">        },</span>
+<span id="cb5-47">    ) </span>
+<span id="cb5-48">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> labs(</span>
+<span id="cb5-49">        title <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Wind Rose for Singapore'</span>,</span>
+<span id="cb5-50">        subtitle <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Observations from 2001 to 2023'</span>,</span>
+<span id="cb5-51">        caption <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#30DayChartChallenge #Day16 Weather</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Data: Iowa Environmental Mesonet</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Made by: www.ddanieltan.com'</span></span>
+<span id="cb5-52">    )</span>
+<span id="cb5-53">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> ggsize(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">800</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">800</span>)</span>
+<span id="cb5-54">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme_minimal2()</span>
+<span id="cb5-55">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme(</span>
+<span id="cb5-56">        plot_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, face<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'bold'</span>),</span>
+<span id="cb5-57">        plot_subtitle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>),</span>
+<span id="cb5-58">        plot_caption<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'grey'</span>),</span>
+<span id="cb5-59">        panel_grid_minor_x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_line(),</span>
+<span id="cb5-60">        panel_grid<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_line(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#A0A0A0'</span>),</span>
+<span id="cb5-61">        axis_ticks_y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_line(),</span>
+<span id="cb5-62">        axis_text_x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>),</span>
+<span id="cb5-63">        axis_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_blank(),</span>
+<span id="cb5-64">    )</span>
+<span id="cb5-65">)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+   <div id="hhoCAX"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"Direction":[0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0,0.0,10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0,120.0,130.0,140.0,150.0,160.0,170.0,180.0,190.0,200.0,210.0,220.0,230.0,240.0,250.0,260.0,270.0,280.0,290.0,300.0,310.0,320.0,330.0,340.0,350.0],
+"value":[2.056,1.782,1.628,1.499,1.022,0.531,0.373,0.399,0.384,0.33,0.307,0.34,0.392,0.58,0.666,0.708,0.758,0.903,0.95,1.128,1.279,1.45,1.012,0.551,0.308,0.256,0.304,0.436,0.551,0.701,0.873,1.128,1.533,1.933,1.765,1.73,0.649,0.863,1.173,1.389,1.252,0.668,0.366,0.288,0.303,0.371,0.383,0.443,0.556,0.793,1.034,1.062,1.071,1.391,1.148,1.046,1.251,0.893,0.371,0.189,0.121,0.117,0.143,0.226,0.223,0.223,0.208,0.212,0.304,0.508,0.755,0.636,0.379,0.421,0.879,1.361,1.195,0.544,0.221,0.173,0.187,0.222,0.246,0.332,0.547,0.715,0.839,0.914,0.912,1.235,0.965,0.829,0.802,0.325,0.112,0.068,0.038,0.038,0.062,0.093,0.097,0.089,0.064,0.046,0.057,0.099,0.288,0.381,0.67,0.574,0.92,1.356,1.729,0.651,0.286,0.112,0.104,0.124,0.129,0.2,0.37,0.523,0.577,0.596,0.647,0.835,0.641,0.484,0.308,0.095,0.037,0.02,0.015,0.025,0.026,0.042,0.034,0.041,0.016,0.015,0.012,0.03,0.091,0.291,0.169,0.135,0.072,0.091,0.055,0.021,0.018,0.001,0.005,0.003,0.006,0.009,0.021,0.018,0.023,0.021,0.024,0.027,0.021,0.014,0.009,0.005,0.003,0.002,0.002,0.002,0.006,0.004,0.002,0.002,0.001,0.0,0.0,0.001,0.0,0.007,0.01,0.007,0.002,0.001,0.001,0.0,0.0,0.0,0.001,0.0,0.001,0.002,0.0,0.0,0.002,0.001,0.002,0.002,0.001,0.002,0.002,0.0,0.0,0.0,0.0,0.001,0.001,0.001,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+"Speed Group":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0]
+},
+"mapping":{
+},
+"data_meta":{
+},
+"coord":{
+"name":"polar",
+"ylim":[-1.0,null],
+"start":0.08722222222222223
+},
+"ggtitle":{
+"text":"Wind Rose for Singapore",
+"subtitle":"Observations from 2001 to 2023"
+},
+"caption":{
+"text":"#30DayChartChallenge #Day16 Weather\nData: Iowa Environmental Mesonet\nMade by: www.ddanieltan.com"
+},
+"ggsize":{
+"width":800.0,
+"height":800.0
+},
+"theme":{
+"name":"minimal2",
+"axis_title":{
+"blank":true
+},
+"axis_text_x":{
+"size":18.0,
+"blank":false
+},
+"axis_ticks_y":{
+"blank":false
+},
+"panel_grid":{
+"color":"#A0A0A0",
+"blank":false
+},
+"panel_grid_minor_x":{
+"blank":false
+},
+"plot_title":{
+"face":"bold",
+"size":24.0,
+"blank":false
+},
+"plot_subtitle":{
+"size":18.0,
+"blank":false
+},
+"plot_caption":{
+"color":"grey",
+"size":12.0,
+"blank":false
+}
+},
+"kind":"plot",
+"scales":[{
+"name":"Wind Speed (mph):",
+"aesthetic":"fill",
+"breaks":[0.0,1.0,2.0,3.0,4.0,5.0],
+"labels":["2 - 4.9","5 - 6.9","7 - 9.9","10 - 14.9","15 - 19.9","20+"],
+"values":["#002bff","#03d3f8","#7afe81","#fde609","#ff4404","#780200"]
+},{
+"aesthetic":"y",
+"breaks":[0.0,1.0,2.0,3.0,4.0,5.0],
+"format":"{}%"
+},{
+"aesthetic":"x",
+"breaks":[45.0,90.0,135.0,180.0,225.0,270.0,315.0,360.0],
+"labels":["NE","E","SE","S","SW","W","NW","N"]
+}],
+"layers":[{
+"geom":"bar",
+"stat":"identity",
+"mapping":{
+"x":"Direction",
+"y":"value",
+"fill":"Speed Group"
+},
+"tooltips":{
+"formats":[{
+"field":"^y",
+"format":"{.2g}%"
+},{
+"field":"^x",
+"format":"{}°"
+}]
+},
+"data_meta":{
+"mapping_annotations":[{
+"aes":"fill",
+"annotation":"as_discrete",
+"parameters":{
+"label":"Speed Group"
+}
+}]
+},
+"size":0.0,
+"width":0.8,
+"data":{
+}
+},{
+"geom":"rect",
+"mapping":{
+},
+"data_meta":{
+},
+"xmin":5.0,
+"xmax":365.0,
+"ymin":-1.0,
+"ymax":0.0,
+"fill":"white",
+"size":0.0,
+"data":{
+}
+},{
+"geom":"hline",
+"mapping":{
+},
+"data_meta":{
+},
+"yintercept":0.0,
+"size":2.0,
+"data":{
+}
+},{
+"geom":"text",
+"mapping":{
+},
+"data_meta":{
+},
+"x":180.0,
+"y":-1.0,
+"label":"Calm\n15.6%",
+"hjust":"middle",
+"vjust":"center",
+"size":6.0,
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("hhoCAX");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();
+   </script>
+</div>
+</div>
+</section>
 <section id="til" class="level1">
 <h1>TIL</h1>
 <ol type="1">
-<li><p><code>scale_y_continuous</code> is the method that allows one to have fine grain control over the range of axis values and labels. I use it here to force my y axis to stay within 1-12 and to rename labels to more recognisable months.</p></li>
-<li><p>If the chart is direct enough, one can omit the title without losing any information! I realised this right before I published, and feel that removing the title takes nothing away from the message and adds more whitespace.</p></li>
-<li><p>Learnt what format the df should be when using <code>geom_area_ridges()</code> by consulting <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/post-punk_remake.ipynb">this example page</a>.</p></li>
+<li><p>To add a list as a column to a Polars DataFrame use `df.with_columns(pl.Series(…)). Akin to df[<new_col>] = list(…) in Pandas.</new_col></p></li>
+<li><p>There’s a treasure chest of learnings to be gathered from the reference <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/wind_rose.ipynb">Lets-Plot notebook</a>. So many little tweaks to add more polish to the final chart.</p></li>
 </ol>
 
 
@@ -581,6 +1245,7 @@ Tan, Daniel. 2024. <span>“Weather.”</span> April 16, 2024. <a href="https://
   <category>TIL</category>
   <guid>https://www.ddanieltan.com/posts/30-day-chart-16/</guid>
   <pubDate>Mon, 15 Apr 2024 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-16/day16.png" medium="image" type="image/png" height="127" width="144"/>
 </item>
 <item>
   <title>Historical</title>
