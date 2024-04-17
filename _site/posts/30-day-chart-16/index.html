@@ -242,9 +242,9 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 
 <section id="weather" class="level1">
 <h1>Weather</h1>
-<p>Today’s theme is Weather and I while searching for inspiration I came across these beautiful wind rose charts from the <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/wind_rose.ipynb">Lets-Plot gallery</a>.opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a <a href="https://github.com/nshahpazov/fpp-in-python">Python version</a> going through what I consider the best time series textbook, <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practise</a>.</p>
+<p>Today’s theme is Weather and I while searching for inspiration I came across these beautiful wind rose charts from the <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/wind_rose.ipynb">Lets-Plot gallery</a>.opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a <a href="https://github.com/nshahpazov/fpp-in-python">Python version</a> of <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practise</a>.</p>
 <p>As always, I like to adapt the examples to my home country of Singapore and data for Singapore’s wind readings was provided by Iowa State University’s <a href="https://mesonet.agron.iastate.edu/sites/windrose.phtml?station=WSSS&amp;network=SG__ASOS">Iowa Environmental Mesonet site</a>.</p>
-<div id="6aa6019a" class="cell" data-execution_count="1">
+<div id="2dd37085" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -278,7 +278,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </details>
 <div class="cell-output cell-output-display">
 
-            <div id="BsXJho"></div>
+            <div id="aOsgST"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -302,9 +302,9 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("BsXJho").appendChild(div);
+                        document.getElementById("aOsgST").appendChild(div);
                     };
-                    var e = document.getElementById("BsXJho");
+                    var e = document.getElementById("aOsgST");
                     e.appendChild(script);
                 })()
             </script>
@@ -316,7 +316,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <h1>Creativity on display</h1>
 <p>One thing that really fascinated me was how easily different component geoms came together to create the final chart. A true testament to the power of <a href="https://books.google.com.sg/books/about/The_Grammar_of_Graphics.html?id=_kRX4LoFfGQC&amp;redir_esc=y">The Grammer of Graphics</a>.</p>
 <p>We start first with a simple stacked bar chart of wind readings for every direction (0 to 360 degrees).</p>
-<div id="c25fb947" class="cell" data-execution_count="2">
+<div id="ce4cf54f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>(ggplot(df)</span>
@@ -328,8 +328,8 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <span id="cb2-7"><a href="#cb2-7"></a>    ) </span>
 <span id="cb2-8"><a href="#cb2-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="7">
-   <div id="rbTkq6"></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+   <div id="Bs8dr7"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -377,7 +377,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("rbTkq6");
+           var plotContainer = document.getElementById("Bs8dr7");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -386,7 +386,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Then we shift the chart up by inserting a blank rectangle underneath the chart. At this point, a seemingly strange decision.</p>
-<div id="1d980e90" class="cell" data-execution_count="3">
+<div id="a63eec74" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>(ggplot(df)</span>
@@ -403,8 +403,8 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <span id="cb3-12"><a href="#cb3-12"></a>    )</span>
 <span id="cb3-13"><a href="#cb3-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
-   <div id="ZC0OTR"></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+   <div id="D48PsI"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -466,7 +466,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("ZC0OTR");
+           var plotContainer = document.getElementById("D48PsI");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -475,7 +475,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 </div>
 </div>
 <p>But it all comes together when we convert the y axis to polar coordinates. Our bar chart is now a compass. And that blank rectangle is wrapped into a perfect blank circle, for us to add annotations!</p>
-<div id="fe6a8fa7" class="cell" data-execution_count="4">
+<div id="6907fdd4" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>(ggplot(df)</span>
@@ -495,8 +495,8 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <span id="cb4-15"><a href="#cb4-15"></a>    )</span>
 <span id="cb4-16"><a href="#cb4-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
-   <div id="wk1ojS"></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+   <div id="QHXGC6"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -563,7 +563,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("wk1ojS");
+           var plotContainer = document.getElementById("QHXGC6");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -575,7 +575,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <section id="final-chart" class="level1">
 <h1>Final Chart</h1>
 <p>And with some finishing touches, we get a very professional looking final product.</p>
-<div id="d625f62a" class="cell" data-execution_count="5">
+<div id="b44973ad" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>(ggplot(df)</span>
@@ -644,8 +644,8 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 <span id="cb5-64"><a href="#cb5-64"></a>    )</span>
 <span id="cb5-65"><a href="#cb5-65"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
-   <div id="hhoCAX"></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+   <div id="GEovrR"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -795,7 +795,7 @@ gtag('config', 'G-BQGXLNCBHY', { 'anonymize_ip': true});
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("hhoCAX");
+           var plotContainer = document.getElementById("GEovrR");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});

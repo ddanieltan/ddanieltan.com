@@ -7,7 +7,7 @@ image : "day16.png"
 ---
 
 # Weather
-Today's theme is Weather and I while searching for inspiration I came across these beautiful wind rose charts from the [Lets-Plot gallery](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/wind_rose.ipynb).opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a [Python version](https://github.com/nshahpazov/fpp-in-python) going through what I consider the best time series textbook, [Forecasting: Principles and Practise](https://otexts.com/fpp3/).
+Today's theme is Weather and I while searching for inspiration I came across these beautiful wind rose charts from the [Lets-Plot gallery](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/wind_rose.ipynb).opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a [Python version](https://github.com/nshahpazov/fpp-in-python) of [Forecasting: Principles and Practise](https://otexts.com/fpp3/).
 
 As always, I like to adapt the examples to my home country of Singapore and data for Singapore's wind readings was provided by Iowa State University's [Iowa Environmental Mesonet site](https://mesonet.agron.iastate.edu/sites/windrose.phtml?station=WSSS&network=SG__ASOS).
 
