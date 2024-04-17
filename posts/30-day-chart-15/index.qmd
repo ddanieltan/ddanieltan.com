@@ -3,7 +3,7 @@ title: "Historical"
 description: "#30DayChartChallenge Day 15"
 date: "2024-04-15"
 categories: [dataviz, chart-challenge, TIL]
-image: "day15.gif"
+image: "day15.png"
 ---
 
 Today's theme is Historical and I opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a [Python version](https://github.com/nshahpazov/fpp-in-python) going through what I consider the best time series textbook, [Forecasting: Principles and Practise](https://otexts.com/fpp3/).
