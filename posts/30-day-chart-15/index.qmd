@@ -1,7 +1,7 @@
 ---
 title: "Historical"
 description: "#30DayChartChallenge Day 15"
-date: "2024-04-03"
+date: "2024-04-15"
 categories: [dataviz, chart-challenge, TIL]
 image: "day15.gif"
 ---
