@@ -1,0 +1,56 @@
+---
+title: "Historical"
+description: "#30DayChartChallenge Day 15"
+date: "2024-04-03"
+categories: [dataviz, chart-challenge, TIL]
+image: "day15.gif"
+---
+
+Today's theme is Historical and I opted for a simple interpretation of showing the changing monthly temperature distribution over a year. Data is taken from a [Python version](https://github.com/nshahpazov/fpp-in-python) going through what I consider the best time series textbook, [Forecasting: Principles and Practise](https://otexts.com/fpp3/).
+
+
+```{python}
+#| code-fold: true
+import polars as pl
+from lets_plot import *
+LetsPlot.setup_html()
+
+bikes = pl.read_csv('https://raw.githubusercontent.com/nshahpazov/fpp-in-python/master/data/bikes/day.csv')
+
+daily_temp = (bikes
+    .filter(pl.col("yr") == 1) # 2012
+    .with_columns(temperature = pl.col("temp")*41)
+    .select("temperature","mnth")
+)
+
+monthly_averages = daily_temp.group_by('mnth').agg(pl.col('temperature').mean().alias('mean_temp'))
+
+df = daily_temp.join(monthly_averages, on='mnth', how='left')
+
+(ggplot(df, aes("temperature","mnth"))
+    + geom_area_ridges(aes(group="mnth",fill="mean_temp"))
+    + scale_y_continuous(
+        breaks=[1,2,3,4,5,6,7,8,9,10,11,12], 
+        labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+    )
+    + scale_fill_viridis(name="Mean Temperature", option="turbo")
+    + ggsize(width=600, height=620)
+    + labs(
+        x = "Temperature (°C)",
+        y = "Month",
+        caption = '#30DayChartChallenge #Day15 Historical\nData: https://github.com/nshahpazov/fpp-in-python/tree/master/data/bikes\nMade by: www.ddanieltan.com'
+    )  
+    + theme(
+        legend_position='top',
+        plot_caption=element_text(size=12, color='grey'),
+        plot_title=element_text(size=20,),
+    )
+)
+```
+
+# TIL
+1. `scale_y_continuous` is the method that allows one to have fine grain control over the range of axis values and labels. I use it here to force my y axis to stay within 1-12 and to rename labels to more recognisable months.
+
+2. If the chart is direct enough, one can omit the title without losing any information! I realised this right before I published, and feel that removing the title takes nothing away from the message and adds more whitespace.
+
+3. Learnt what format the df should be when using `geom_area_ridges()` by consulting [this example page](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/post-punk_remake.ipynb).
