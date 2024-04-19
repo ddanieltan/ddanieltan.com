@@ -1,0 +1,59 @@
+---
+title: "Asian Development Bank (Data Day)"
+description: "#30DayChartChallenge Day 18"
+date: "2024-04-18"
+categories: [dataviz, chart-challenge, TIL]
+image: "day18.png"
+---
+
+Today's theme is a data day, so I went over to browse the interesting datasets available from the Asian Development Bank. I found this [dataset](ttps://data.adb.org/dataset/inflation-rate-asia-and-pacific-asian-development-outlook) that shows the inflation levels for Asian countries from 2019 to 2023, with forecasted numbers for 2024 and 2025.
+
+As always, I enjoy analysing data from my home region as it's less widely covered on a global news. So I thought to focus my chart on Southeast asia, in particular, I wanted to highlight the volatile inflation levels experienced by countries such as Myanmar and Laos in recent years due to political instability.
+
+```{python}
+#| code-fold: true
+
+import polars as pl
+from lets_plot import *
+LetsPlot.setup_html()
+
+inflation = pl.read_csv('./inflation.csv')
+
+
+df = (inflation
+    .filter(pl.col(' Subregion')=="Southeast Asia")
+    .filter(pl.col('RegionalMember')!="Southeast Asia")
+    .with_columns(pl.when(pl.col('RegionalMember')=='Myanmar').then(1)
+        .when(pl.col('RegionalMember')=='Laos').then(2)
+        .otherwise(0).alias('highlight')
+    )
+)
+
+
+(ggplot(df)
+    + geom_line(aes(x='Year', y='Inflation', group='RegionalMember',color='highlight'))
+    + scale_color_manual(values=['#808080','#1380A1','#FAAB18',])
+    + geom_label(x=2.4,y=25, label='Myanmar', fill='white', hjust=0, vjust=3, label_size=0, color='#1380A1')
+    + geom_label(x=3.4,y=28, label='Laos', fill='white', hjust=0, vjust=3, label_size=0, color='#FAAB18')
+    + geom_label(x=2.7,y=9, label='Rest of SEA', fill='white', hjust=0, vjust=3, label_size=0, color='#808080')
+    + labs(
+        y= 'Inflation (%)',
+        title="Inflation levels in Southeast Asia (2019 - 2025)",
+        subtitle="Myanmar and Laos have experienced the most volatile inflation levels",
+        caption = '#30DayChartChallenge #Day18 Asian Development Bank\nData: Asian Development Bank\nMade by: www.ddanieltan.com'
+    )
+    + theme(
+        plot_title=element_text(size=24, face='bold'),
+        plot_subtitle=element_text(size=18),
+        plot_caption=element_text(size=12, color='grey'),
+        legend_position='none',
+        axis_title_x=element_blank(),
+    )
+    +ggsize(900,700)
+)
+```
+
+# TIL
+1. For geom_lines, I can use `group` to separate by category and `color` to highlight only the lines I want to draw attention to.
+
+2. `geom_labels` are very useful at replacing legends and providing easy to read labels directly on the areas of interest. I originally wanted to put the labels right at the end of the chart but I had difficulty working with the right margin.

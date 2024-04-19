@@ -10,7 +10,495 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Mon, 15 Apr 2024 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 17 Apr 2024 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Asian Development Bank (Data Day)</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/30-day-chart-18/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Today’s theme is a data day, so I went over to browse the interesting datasets available from the Asian Development Bank. I found this <a href="ttps://data.adb.org/dataset/inflation-rate-asia-and-pacific-asian-development-outlook">dataset</a> that shows the inflation levels for Asian countries from 2019 to 2023, with forecasted numbers for 2024 and 2025.</p>
+<p>As always, I enjoy analysing data from my home region as it’s less widely covered on a global news. So I thought to focus my chart on Southeast asia, in particular, I wanted to highlight the volatile inflation levels experienced by countries such as Myanmar and Laos in recent years due to political instability.</p>
+<div id="ebb799ae" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pl</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> lets_plot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb1-3">LetsPlot.setup_html()</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">inflation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pl.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'./inflation.csv'</span>)</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"></span>
+<span id="cb1-8">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (inflation</span>
+<span id="cb1-9">    .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' Subregion'</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Southeast Asia"</span>)</span>
+<span id="cb1-10">    .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'RegionalMember'</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Southeast Asia"</span>)</span>
+<span id="cb1-11">    .with_columns(pl.when(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'RegionalMember'</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Myanmar'</span>).then(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-12">        .when(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'RegionalMember'</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Laos'</span>).then(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb1-13">        .otherwise(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'highlight'</span>)</span>
+<span id="cb1-14">    )</span>
+<span id="cb1-15">)</span>
+<span id="cb1-16"></span>
+<span id="cb1-17"></span>
+<span id="cb1-18">(ggplot(df)</span>
+<span id="cb1-19">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_line(aes(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Year'</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Inflation'</span>, group<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'RegionalMember'</span>,color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'highlight'</span>))</span>
+<span id="cb1-20">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_color_manual(values<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#808080'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#1380A1'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#FAAB18'</span>,])</span>
+<span id="cb1-21">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_label(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.4</span>,y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Myanmar'</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>, hjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, vjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, label_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#1380A1'</span>)</span>
+<span id="cb1-22">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_label(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.4</span>,y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Laos'</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>, hjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, vjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, label_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#FAAB18'</span>)</span>
+<span id="cb1-23">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_label(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.7</span>,y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Rest of SEA'</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>, hjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, vjust<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, label_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#808080'</span>)</span>
+<span id="cb1-24">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> labs(</span>
+<span id="cb1-25">        y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Inflation (%)'</span>,</span>
+<span id="cb1-26">        title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Inflation levels in Southeast Asia (2019 - 2025)"</span>,</span>
+<span id="cb1-27">        subtitle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Myanmar and Laos have experienced the most volatile inflation levels"</span>,</span>
+<span id="cb1-28">        caption <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#30DayChartChallenge #Day18 Asian Development Bank</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Data: Asian Development Bank</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Made by: www.ddanieltan.com'</span></span>
+<span id="cb1-29">    )</span>
+<span id="cb1-30">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme(</span>
+<span id="cb1-31">        plot_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, face<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'bold'</span>),</span>
+<span id="cb1-32">        plot_subtitle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>),</span>
+<span id="cb1-33">        plot_caption<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'grey'</span>),</span>
+<span id="cb1-34">        legend_position<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'none'</span>,</span>
+<span id="cb1-35">        axis_title_x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_blank(),</span>
+<span id="cb1-36">    )</span>
+<span id="cb1-37">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>ggsize(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">900</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">700</span>)</span>
+<span id="cb1-38">)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+
+            <div id="zkct01"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.3.1/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("zkct01").appendChild(div);
+                    };
+                    var e = document.getElementById("zkct01");
+                    e.appendChild(script);
+                })()
+            </script>
+            
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+   <div id="uW6Pgn"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+       (function() {
+           var plotSpec={
+"data":{
+"RegionalMember":["Brunei Darussalam","Brunei Darussalam","Brunei Darussalam","Brunei Darussalam","Brunei Darussalam","Brunei Darussalam","Brunei Darussalam","Cambodia","Cambodia","Cambodia","Cambodia","Cambodia","Cambodia","Cambodia","Indonesia","Indonesia","Indonesia","Indonesia","Indonesia","Indonesia","Indonesia","Laos","Laos","Laos","Laos","Laos","Laos","Laos","Malaysia","Malaysia","Malaysia","Malaysia","Malaysia","Malaysia","Malaysia","Myanmar","Myanmar","Myanmar","Myanmar","Myanmar","Myanmar","Myanmar","Philippines","Philippines","Philippines","Philippines","Philippines","Philippines","Philippines","Singapore","Singapore","Singapore","Singapore","Singapore","Singapore","Singapore","Thailand","Thailand","Thailand","Thailand","Thailand","Thailand","Thailand","Timor-Leste","Timor-Leste","Timor-Leste","Timor-Leste","Timor-Leste","Timor-Leste","Timor-Leste","Viet Nam","Viet Nam","Viet Nam","Viet Nam","Viet Nam","Viet Nam","Viet Nam"],
+"Year":["2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast","2019","2020","2021","2022","2023","2024 forecast","2025 forecast"],
+"Inflation":[-0.4,1.9,1.7,3.7,0.4,1.1,1.0,1.9,2.9,2.9,5.3,2.1,2.0,2.0,2.8,2.0,1.6,4.1,3.7,2.8,2.8,3.3,5.1,3.8,23.0,31.2,20.0,7.0,0.7,-1.1,2.5,3.4,2.5,2.6,2.6,8.6,5.7,3.7,27.2,22.0,15.5,10.2,2.4,2.4,3.9,5.8,6.0,3.8,3.4,0.6,-0.2,2.3,6.1,4.8,3.0,2.2,0.7,-0.8,1.2,6.1,1.2,1.0,1.5,0.9,0.5,3.8,7.0,8.4,3.5,2.9,2.8,3.2,1.8,3.2,3.3,4.0,4.0],
+"highlight":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+},
+"mapping":{
+},
+"data_meta":{
+},
+"ggtitle":{
+"text":"Inflation levels in Southeast Asia (2019 - 2025)",
+"subtitle":"Myanmar and Laos have experienced the most volatile inflation levels"
+},
+"caption":{
+"text":"#30DayChartChallenge #Day18 Asian Development Bank\nData: Asian Development Bank\nMade by: www.ddanieltan.com"
+},
+"theme":{
+"axis_title_x":{
+"blank":true
+},
+"legend_position":"none",
+"plot_title":{
+"face":"bold",
+"size":24.0,
+"blank":false
+},
+"plot_subtitle":{
+"size":18.0,
+"blank":false
+},
+"plot_caption":{
+"color":"grey",
+"size":12.0,
+"blank":false
+}
+},
+"ggsize":{
+"width":900.0,
+"height":700.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"color",
+"values":["#808080","#1380A1","#FAAB18"]
+},{
+"name":"Inflation (%)",
+"aesthetic":"y"
+}],
+"layers":[{
+"geom":"line",
+"mapping":{
+"x":"Year",
+"y":"Inflation",
+"group":"RegionalMember",
+"color":"highlight"
+},
+"data_meta":{
+},
+"data":{
+}
+},{
+"geom":"label",
+"mapping":{
+},
+"data_meta":{
+},
+"label_size":0.0,
+"x":2.4,
+"y":25.0,
+"label":"Myanmar",
+"fill":"white",
+"hjust":0.0,
+"vjust":3.0,
+"color":"#1380A1",
+"data":{
+}
+},{
+"geom":"label",
+"mapping":{
+},
+"data_meta":{
+},
+"label_size":0.0,
+"x":3.4,
+"y":28.0,
+"label":"Laos",
+"fill":"white",
+"hjust":0.0,
+"vjust":3.0,
+"color":"#FAAB18",
+"data":{
+}
+},{
+"geom":"label",
+"mapping":{
+},
+"data_meta":{
+},
+"label_size":0.0,
+"x":2.7,
+"y":9.0,
+"label":"Rest of SEA",
+"fill":"white",
+"hjust":0.0,
+"vjust":3.0,
+"color":"#808080",
+"data":{
+}
+}],
+"metainfo_list":[]
+};
+           var plotContainer = document.getElementById("uW6Pgn");
+           window.letsPlotCall(function() {{
+               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
+           }});
+       })();
+   </script>
+</div>
+</div>
+<section id="til" class="level1">
+<h1>TIL</h1>
+<ol type="1">
+<li><p>For geom_lines, I can use <code>group</code> to separate by category and <code>color</code> to highlight only the lines I want to draw attention to.</p></li>
+<li><p><code>geom_labels</code> are very useful at replacing legends and providing easy to read labels directly on the areas of interest. I originally wanted to put the labels right at the end of the chart but I had difficulty working with the right margin.</p></li>
+</ol>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
+  author = {Tan, Daniel},
+  title = {Asian {Development} {Bank} {(Data} {Day)}},
+  date = {2024-04-18},
+  url = {https://www.ddanieltan.com/posts/30-day-chart-18},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas">
+Tan, Daniel. 2024. <span>“Asian Development Bank (Data Day).”</span>
+April 18, 2024. <a href="https://www.ddanieltan.com/posts/30-day-chart-18">https://www.ddanieltan.com/posts/30-day-chart-18</a>.
+</div></div></section></div> ]]></description>
+  <category>dataviz</category>
+  <category>chart-challenge</category>
+  <category>TIL</category>
+  <guid>https://www.ddanieltan.com/posts/30-day-chart-18/</guid>
+  <pubDate>Wed, 17 Apr 2024 16:00:00 GMT</pubDate>
+  <media:content url="https://www.ddanieltan.com/posts/30-day-chart-18/day18.png" medium="image" type="image/png" height="110" width="144"/>
+</item>
 <item>
   <title>Weather</title>
   <dc:creator>Daniel Tan</dc:creator>
@@ -9438,179 +9926,6 @@ Tan, Daniel. 2022. <span>“2022: My Year of Scala.”</span> September 15,
   <guid>https://www.ddanieltan.com/posts/2022scala/</guid>
   <pubDate>Wed, 14 Sep 2022 16:00:00 GMT</pubDate>
   <media:content url="https://www.ddanieltan.com/posts/2022scala/scalaLogo.png" medium="image" type="image/png" height="193" width="144"/>
-</item>
-<item>
-  <title>How I sync my config files with Stow</title>
-  <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/stow/</link>
-  <description><![CDATA[ 
-
-
-
-<section id="an-organisational-nightmare" class="level1">
-<h1>An organisational nightmare</h1>
-<p>I have one machine for work, one machine for personal stuff and a bunch of servers for projects and school work. As I hop in and out of these separate computing systems, it gets pretty difficult to synchronise all my config files, settings, scripts and shortcuts.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/stow/organized.png" class="img-fluid figure-img" width="512"></p>
-<figcaption class="figure-caption"><a href="https://openai.com/dall-e-2/">DallE2</a> art with prompt: ‘Keeping things organized across multiple machines, digital art’</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>1As this is a common problem that plagues many programmers, it is unsurprising that there is a clever piece of software written to solve this problem - <a href="https://www.gnu.org/software/stow/">Stow</a>. Stow is a symlink manager that when coupled with any version control software (ie. git) can create a simple and effective config sync system. I have used such a system for the last couple of months and is something I can no longer live without.</p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-When you’ve written the same code 3 times, write a function<br><br>When you’ve given the same in-person advice 3 times, write a blog post
-</p>
-— David Robinson (<span class="citation" data-cites="drob">@drob</span>) <a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw">November 9, 2017</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>I find myself bringing up Stow pretty often in conversations so I wanted to take <span class="citation" data-cites="drob">@drob</span>’s advice. However, as there are <a href="https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/">many</a> <a href="https://alexpearce.me/2016/02/managing-dotfiles-with-stow/">excellent</a> <a href="https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html">blogs</a> that already do a great job explaining what Stow is, I think I can’t add much value to that conversation. Instead, I’m going to shift my energy toward creating a straightforward how-to recipe.</p>
-</section>
-<section id="the-big-picture" class="level1">
-<h1>The Big Picture</h1>
-<p>Here is the big picture of how a Stow-enabled config synchronisation system is set up.</p>
-<ol type="1">
-<li><p>You will need a <code>dotfiles</code> version-controlled repository. The simplest approach here would be to create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">Github repository</a></p></li>
-<li><p>In <code>dotfiles</code>, you will create separate folders for each application’s config file you wish to keep in sync. What you name these folders is totally up to you, but conventionally most people name the folder after the application</p></li>
-</ol>
-<p>For example, a simple <code>dotfiles</code> repo might look like this.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">.</span></span>
-<span id="cb1-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> aliases</span>
-<span id="cb1-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> kitty</span>
-<span id="cb1-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">└──</span> nvim</span></code></pre></div>
-<p>Here, I intend to sync my shell aliases, terminal configs (<a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>) and editor configs (<a href="https://neovim.io/">NeoVim</a>), so I create a separate folder for each.</p>
-<ol start="3" type="1">
-<li><p>Within each folder, you can create the config files that we want to be kept in-sync</p></li>
-<li><p>Using Stow, you can then create a symlink of these config files which would be placed in the right locations on your file system for the respective applications to read from</p></li>
-<li><p>Once this is set up, the day-to-day usage of this system is incredibly simple. Any time you make make edits to your config files on 1 machine, you simply need to commit and push the changes made in your <code>dotfiles</code> repo. Your config files are symlink-ed to the files in your <code>dotfiles</code> repo, and any edit you make will be updated. Next time you hop into a different machine, just pull down the latest changes in the <code>dotfiles</code> repo and all your configs will be updated</p></li>
-</ol>
-<p>Steps 3 and 4 are the tricky bits and I provide a more detailed example of them below.</p>
-</section>
-<section id="syncing-a-config-file-for-the-1st-time" class="level1 page-columns page-full">
-<h1>Syncing a config file for the 1st time</h1>
-<p>Here is an example scenario. I have 2 machines (A and B), and I want to sync the configurations for the terminal application, e.g.&nbsp;the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a> terminal. To configure this terminal, you would edit a config file <code>kitty.conf</code> whose default location is <code>~/.config/kitty/kitty.conf</code>. Here is what you would do:</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>Yes, I see the irony in using Kitty because it is a GPU-accelerated application whose primary function is to print out text…</p>
-</div></div><ol type="1">
-<li><p>We start from machine A. Firstly, you will need to delete the existing <code>kitty.conf</code> file</p></li>
-<li><p>In your <code>dotfiles</code> repo, within the <code>kitty</code> folder, create a new <code>kitty.conf</code> file but make sure this file is in the same folder structure of the default config location. I.e. your new config file should sit in the <code>dotfiles</code> repo like this</p></li>
-</ol>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">.</span></span>
-<span id="cb2-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> aliases</span>
-<span id="cb2-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> kitty</span>
-<span id="cb2-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>   └── .config</span>
-<span id="cb2-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>       └── kitty</span>
-<span id="cb2-6"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>           └── kitty.conf</span>
-<span id="cb2-7"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">└──</span> nvim</span></code></pre></div>
-<ol start="3" type="1">
-<li><p>Fill up <code>kitty.conf</code> with your desired settings</p></li>
-<li><p>Navigate back up to the <code>dotfiles</code> repo and run <code>stow kitty</code>. This command will create a symlink of the contents of the kitty folder, which will create a <code>kitty.conf</code> in the <code>~/.config/kitty/kitty.conf</code> location</p></li>
-<li><p>We are done setting up on Machine A. Commit and push the changes to your <code>dotfiles</code> repo</p></li>
-<li><p>Finally, log into Machine B. Pull down the changes and because we have not run stow in this machine, you will need to run <code>stow kitty</code> here too to create the symlinks.</p></li>
-</ol>
-<p>Stow is something you only need to run the 1st time you add a config file. You do not have to run <code>stow</code> for any subsequent edits.</p>
-</section>
-<section id="limitations" class="level1">
-<h1>Limitations</h1>
-<p>This config sync system is pretty sweet but it is not without some limitations. Here is a couple for you to be aware of.</p>
-<p>Stowing too many config files can also get out of hand pretty quickly. You probably want to consider which applications you are genuinely using often enough across multiple machines, just so you avoid creating obsolete symlinks.</p>
-<p>Additionally, there are some situations where you do not want config files synced. For example, I do not use this system to sync my shell configs because my shell configs might contain sensitive environment variables or have settings unique to the type of hardware the software is running on.</p>
-<!--
-Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
--->
-
-</section>
-
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
-
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand for Session Info
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>─ Session info ───────────────────────────────────────────────────────────────
- setting  value
- version  R version 4.3.1 (2023-06-16)
- os       macOS Ventura 13.5
- system   x86_64, darwin20
- ui       X11
- language (EN)
- collate  en_US.UTF-8
- ctype    en_US.UTF-8
- tz       Asia/Singapore
- date     2023-08-10
- pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
- quarto   1.3.433
-
-─ Packages ───────────────────────────────────────────────────────────────────
- package     * version date (UTC) lib source
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
-
- [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
- [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
-
-──────────────────────────────────────────────────────────────────────────────</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-Study hard what interests you the most in the most undisciplined, irreverent and original manner possible – Richard Feynman
-</blockquote>
-
-
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
-  author = {Tan, Daniel},
-  title = {How {I} Sync My Config Files with {Stow}},
-  date = {2022-08-27},
-  url = {https://www.ddanieltan.com/posts/stow},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
-Tan, Daniel. 2022. <span>“How I Sync My Config Files with Stow.”</span>
-August 27, 2022. <a href="https://www.ddanieltan.com/posts/stow">https://www.ddanieltan.com/posts/stow</a>.
-</div></div></section></div> ]]></description>
-  <category>tooling</category>
-  <guid>https://www.ddanieltan.com/posts/stow/</guid>
-  <pubDate>Fri, 26 Aug 2022 16:00:00 GMT</pubDate>
-  <media:content url="https://www.ddanieltan.com/posts/stow/organized.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
