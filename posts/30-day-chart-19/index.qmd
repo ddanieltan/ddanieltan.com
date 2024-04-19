@@ -1,0 +1,58 @@
+---
+title: "Dinosaurs"
+description: "#30DayChartChallenge Day 19"
+date: "2024-04-19"
+categories: [dataviz, chart-challenge, TIL]
+image: "day19.gif"
+---
+
+Today, our team is dinosaurs, which made me think about the [Datasaurus Dozen](https://www.research.autodesk.com/publications/same-stats-different-graphs/)! This wild set of datasets is an extension of the famous [Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet). Despite having completely different-looking distributions when plotted, every single one of the Datasaurus Dozen datasets has the exact same summary statistics.
+
+The Datasaurus Dozen is a great reminder for all us data folks to always look beyond summary statistics like the mean and standard deviation to truly understand what's going on with your data.
+```{python}
+#| code-fold: true
+
+import polars as pl
+import plotly.express as px
+
+df = pl.read_csv('./datasaurus.csv')
+
+fig = px.scatter(df, 
+    x='x', y='y', color='x',
+    animation_frame='dataset', 
+    range_x=[df['x'].min(), df['x'].max()], 
+    range_y=[df['y'].min(), df['y'].max()],
+    template='simple_white',
+    width=500, height=500,
+)
+
+fig.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 1000
+fig.update_coloraxes(showscale=False)
+fig.update_layout(
+    title= 'The Datasaurus Dozen<br><sup>Each of these datasets share the same summary statistics</sup>',
+    xaxis_title=None,
+    yaxis_title=None,
+    margin = dict(l=0, r=0, b=45),
+    showlegend=False,
+    annotations = [dict(
+        x=1,
+        y=-0.22, 
+        xref='paper',
+        yref='paper',
+        text='Source: <a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/">https://www.research.autodesk.com/publications/same-stats-different-graphs/</a><br>                                                                                   Made by: www.ddanieltan.com',
+        showarrow = False,
+        font = dict(size=10, color='grey')
+    )]
+)
+fig
+```
+
+
+
+# TIL
+
+1. In general, I find Plotly's configurations quite unintuitive and a lot of the answers that I look for end up in a forum/StackOverflow post somewhere online:
+
+- [Configuration to slow down animation was found nested in this community post] (https://community.plotly.com/t/how-to-slow-down-animation-in-plotly-express/31309/5)
+
+- [Configuration to remove the colorbar was found in this Stack Overflow](https://stackoverflow.com/questions/58630928/how-to-hide-the-colorbar-and-legend-in-plotly-express-bar-graph)
