@@ -6,7 +6,7 @@ categories: [dataviz, chart-challenge, TIL]
 image: "day19.gif"
 ---
 
-Today, our team is dinosaurs, which made me think about the [Datasaurus Dozen](https://www.research.autodesk.com/publications/same-stats-different-graphs/)! This wild set of datasets is an extension of the famous [Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet). Despite having completely different-looking distributions when plotted, every single one of the Datasaurus Dozen datasets has the exact same summary statistics.
+Today, our theme is dinosaurs, which made me think about the [Datasaurus Dozen](https://www.research.autodesk.com/publications/same-stats-different-graphs/)! This wild set of datasets is an extension of the famous [Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet). Despite having completely different-looking distributions when plotted, every single one of the Datasaurus Dozen datasets has the exact same summary statistics.
 
 The Datasaurus Dozen is a great reminder for all us data folks to always look beyond summary statistics like the mean and standard deviation to truly understand what's going on with your data.
 ```{python}
