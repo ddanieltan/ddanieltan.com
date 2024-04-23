@@ -1,0 +1,71 @@
+---
+title: "Reuters"
+description: "#30DayChartChallenge Day 23"
+date: "2024-04-23"
+categories: [dataviz, chart-challenge, TIL]
+image: "day23.png"
+---
+In today's blog post, we'll explore the concept of "Tiles" under the broader category of "Timeseries." I wanted to revisit the usage of geom_tiles, which often creates heatmap-like charts. One interesting aspect of heatmaps is that they provide valuable insights, especially when one of the axes is ordinal, and even more so if it's a time axis. 
+
+I was very inspired by this [guide that depicted the declining incidence of measles in the US over the years](https://www.royfrancis.com/a-guide-to-elegant-tiled-heatmaps-in-r-2019/).
+
+After a bit of a search, I found a [dataset from data.gov.sg that covered a wide time period tracking Singapore's average resale housing prices](https://beta.data.gov.sg/datasets/d_8b84c4ee58e3cfc0ece0d773c8ca6abc/view). Unsurprisingly, the data revealed an increasing trend in housing prices over time. However, there are still a few intriguing insights to be gleaned regarding which neighbourhoods have always had higher resale prices, and which neighbourhoods only saw a more recent rise.
+
+```{python}
+#| code-fold: true
+
+import polars as pl
+import polars.selectors as cs
+import datetime
+from lets_plot import *
+
+LetsPlot.setup_html()
+
+# Data Cleaning
+raw = (pl.read_csv('Resale_Flat_prices.csv',ignore_errors=True)
+    .with_columns(
+        pl.col('month').str.to_date('%Y-%m').alias('date'),
+        pl.col('month').str.to_date('%Y-%m').dt.year().alias('year'),
+    )
+)
+
+df = (raw
+    .group_by(['month','date','town'])
+    .agg(pl.col('resale_price').mean())
+    .sort(by=['date','town'], descending=[False, True])
+)
+
+
+(ggplot(df, aes(x='date',y='town',fill='resale_price'))
+    +geom_tile(size=0.8)
+    +scale_x_discrete(
+        labels=[str(date.year) if date.month == 1 else " " for date in df["date"].unique().to_list()]
+    )
+    +labs(
+        x="",
+        y="",
+        title="The rise of Singapore Housing's Average Resale Prices",
+        subtitle="From 2017 to 2024, across major neighbourhoods",
+        caption = '#30DayChartChallenge #Day23 Tiles\nData: data.gov.sg\nMade by: www.ddanieltan.com',
+        fill='Resale Price (SGD)'
+    )
+    + theme(
+        axis_text_x = element_text(angle=1, size=10),
+        axis_text_y = element_text(size=5),
+        legend_position = 'right',
+        legend_text= element_text(size=8),
+        legend_title= element_text(size=10),
+        plot_subtitle = element_text(size=10),
+        plot_caption=element_text(size=12, color='grey'),
+    )
+    + scale_fill_brewer(palette='YlGnBu')
+    + ggsize(1000,800)
+)
+```
+
+
+# TIL
+
+1. In polars, when selecting a column using `df.select(<col>)` a Polars DataFrame is returned, and the DataFrame does not have a to_list() method. However, when selecting a column using `df["<col>"]` a Polars Series is returned that does have a to_list() method.
+
+2. I faced a lot of difficulty in specifying which ticks I want to appear on the chart for my x axis of type `datetime.date`. My eventual solution seemed a little hacky but I'm satisfied I got close to what I wanted to visualise.
