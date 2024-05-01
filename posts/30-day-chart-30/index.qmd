@@ -1,0 +1,69 @@
+---
+title: "538 Theme Day"
+description: "#30DayChartChallenge Day 30"
+date: "2024-04-30"
+categories: [dataviz, chart-challenge, TIL]
+image: "day30.png"
+---
+
+# Day 30
+Here we are at the final day of the **#30DayChartChallenge**! Today's theme is 538 and browsing through the archives, I found this fun prediction they made for the 2015 NBA draft class. [538's predictions](https://fivethirtyeight.com/features/projecting-the-top-50-players-in-the-2015-nba-draft-class/) weren't very far off but I felt that the table that presented the results could be spruced up a little. 
+
+I also saw this as a great opportunity to use [great_tables](https://posit-dev.github.io/great-tables/articles/intro.html), a Python package that makes it easy to make beautiful HTML tables. For certain types of messages, a table might be more effective than a chart and it's really cool to be able to elevate tables into proper data visualisations too!
+
+```{python}
+#| code-fold: true
+
+import polars as pl
+from great_tables import GT, md
+
+# Data prep
+draft = (pl.read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/nba-draft-2015/historical_projections.csv')
+    .insert_column(index=0, column=pl.Series(name="Rank", values=range(1, 1091)))
+    .filter(pl.col('Draft Year')==2015)
+    .filter(pl.col('Rank')<=16)
+    .drop(['ID','Draft Year'])
+)
+
+
+# Great Table
+table = (
+    GT(draft)
+    .tab_header(
+        title = md("# Top College Prospects for the 2015 NBA Draft"),
+        subtitle= "Ranked by 538's projected Statistical Plus/Minus (SPM)"
+    )
+    .tab_spanner(
+        label="Probability of becoming", 
+        columns=['Projected SPM',
+        'Superstar',
+        'Starter',
+        'Role Player',
+        'Bust']
+    )
+    .tab_source_note(md(
+        '<br><div style="text-align: left;">'
+        "**#30DayChartChallenge** | Day 30 | 538" 
+        "<br> **Source**: https://fivethirtyeight.com/features/projecting-the-top-50-players-in-the-2015-nba-draft-class/" 
+        "<br> **Made by**: www.ddanieltan.com"
+        "</div>"
+        "<br>"
+    ))
+    .fmt_number(columns='Projected SPM', decimals=2, pattern='+{x}')
+    .fmt_percent(columns=['Superstar','Starter','Role Player','Bust'])
+    .data_color(columns="Superstar",palette=["lightblue", "darkgreen"]
+    )
+    .data_color(columns="Bust", palette=["lightyellow","pink",]
+    )
+    .fmt_nanoplot(columns="Projected SPM", plot_type="bar")
+)
+
+table
+```
+
+
+## TIL
+
+1. Polars has a very useful `df.insert_column(index, column)` that can specify the precise index to insert a new column at.
+
+2. Great Tables provides `md()` method that can allow one to style any text using common markdown, this includes HTML tags.
