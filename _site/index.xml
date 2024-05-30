@@ -10,7 +10,91 @@
 <atom:link href="https://www.ddanieltan.com/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Mon, 29 Apr 2024 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 21 May 2024 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>My Georgia Tech OMSCS Review</title>
+  <dc:creator>Daniel Tan</dc:creator>
+  <link>https://www.ddanieltan.com/posts/omscs-review/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="i-got-out" class="level1">
+<h1>I got out!</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ddanieltan.com/posts/omscs-review/diploma.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>After a challenging 3+ year journey, I am finally proud graduate of the Georgia Tech Online Masters of Computer Science (OMSCS) program (Go Jackets!). I could not have completed this programme without the support of my amazing wife, family, and fantastic colleagues, mentors and managers. It is an ongoing tradition that <a href="https://www.reddit.com/r/OMSCS/?f=flair_name%3A%22I%20GOT%20OUT%20%3Ajoyner-shocked%3A%22">graduates of this programme share their reflections and tips</a>, so as I bask in the post-graduation glow, here’s mine to pay it forward.</p>
+</section>
+<section id="georgia-tech-online-masters-of-computer-science-omscs" class="level1">
+<h1><a href="https://omscs.gatech.edu/">Georgia Tech Online Masters of Computer Science (OMSCS)</a></h1>
+<p>If this is the 1st time you have heard of the OMSCS, here’s a quick primer. The landscape for online Computer Science Masters programs is very competitive. There is a large market of potential students, many of which are already mid career professionals who are attracted to furthering their education without committing to an in-person programme, and from my observation, this market has only gotten larger since COVID. There are many institutions of higher learning that offer online masters programmes, but Georgia Tech was one of the pioneer programmes. More importantly, I strongly believe that Georgia Tech remains one of the top choices for students from all walks of life.</p>
+<p>When I first applied back in June 2020, I was primarily drawn to the program’s rigorous yet structured curriculum. Like many data scientists of my generation, I had transitioned into this field from an adjacent domain (Operations Research was my thing). Back in those days, Data Science as a job didn’t even exist – at least not in the way we know it now, thanks to that <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">famous HBR article</a>. Like many Data Scientists from my generation, learning the tools of the trade was primarily fueled by constant self-learning from a hodgepodge of resources such as papers, textbooks, blog posts, and good ol’ StackOverflow threads. This environment gave me a lot of confidence in my ability to keep scrappily learn and apply new concepts on my own.</p>
+<p>But I couldn’t shake the feeling that a structured, proper Master’s program could take my knowledge to new heights. Yet as a busy professional myself, a full in-person learning programme was not very attractive to me. So like thousands of other students in my position, the OMSCS was the perfect option that checked all my boxes.</p>
+</section>
+<section id="things-that-really-surprised-me-about-the-course" class="level1 page-columns page-full">
+<h1>Things that really surprised me about the course</h1>
+<p>When I enrolled in Georgia Tech’s Online Master’s in Computer Science (OMSCS) program, I knew I was in for a challenging but rewarding experience. However, there were a few things that genuinely surprised me along the way.</p>
+<section id="how-applicable-some-courses-are" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="how-applicable-some-courses-are">1. How applicable some courses are</h2>
+<p>I took the most common specialisation - Machine Learning, and as you can imagine, there were many courses that covered technologies that are directly related to my day-to-day. However, there were also many courses that proved to be incredibly valuable.</p>
+<p>The biggest surprise? <a href="https://omscs.gatech.edu/cs-6750-human-computer-interaction">Human-Computer Interaction (HCI)</a> ended up being my favourite course in the entire program. Going into HCI, I thought the course would simply help me understand what all the fuss with UX and product design was about. Little did I know, I’d gain practical skills for guiding a product from prototype to final form.</p>
+<p>The course changed the way I approach design decisions with a user-centred mindset. The course equipped me to be more purposeful about when to create a low or high fidelity prototype and much more aware of the affordances that each design decision adds and takes away from my final product.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>🙂 I’m still a work-in-progress but I feel a lot less inclined to create apps with 5 drop downs and 10 radio buttons.</p>
+</div></div></section>
+<section id="the-rigour" class="level2">
+<h2 class="anchored" data-anchor-id="the-rigour">2. The rigour</h2>
+<p>With 10 courses required for the degree, you expected varying levels of quality and depth. More often than not, I was surprised by the depth of the preparation and challenging nature of the materials.</p>
+<p>One course that stood out was <a href="https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science">Simulation and Modeling for Engineering and Science</a>. I have a good foundation and personal interest in Calculus, Probability and Statistics, but I was taken aback when I found myself having to relearn how to derive proofs by hand – a steep but rewarding learning curve. This course pushed me beyond my comfort zone in a way that I know my previous path of self-study would not have. Before I knew it, I started to get really into the topics and was even inspired me to write an explainer on the <a href="https://www.ddanieltan.com/posts/some2/">Inverse Transform Theorem</a>that received some recognition in the Summer of Math Exposition(SoME) contest!</p>
+</section>
+<section id="the-price" class="level2">
+<h2 class="anchored" data-anchor-id="the-price">3. The price</h2>
+<p>I’ll keep this point short. One of OMSCS’s most attractive features is its price point and somehow in the middle of 2022, <a href="https://www.reddit.com/r/OMSCS/comments/ugzs3g/omscs_just_became_more_affordable_announced_by/">it got even more affordable</a>. It truly is incredible how OMSCS continues to deliver a quality experience while bringing down financial barriers to entry.</p>
+</section>
+</section>
+<section id="what-i-think-can-be-improved" class="level1">
+<h1>What I Think Can Be Improved</h1>
+<p>I am a big proponent of balancing the good and the bad. Here are the things that I think the programme can improve upon.</p>
+<section id="variance-between-courses-for-workload" class="level2">
+<h2 class="anchored" data-anchor-id="variance-between-courses-for-workload">1. Variance between courses for workload</h2>
+<p>Naturally, there is variation between courses but I can’t help but feel that variance is too large. <a href="https://www.omscentral.com/">OMSCentral</a> is a platform that crowd sources reviews from students who have completed the various courses in the programme, and the distribution of average number of hours per week (Workload) ranges between 2 to 50+ hours. That is an incredibly wide range and realistically, given that most students are taking the course as mid career professionals, there is a big challenge in taking courses that require a lot of time investment.</p>
+</section>
+<section id="interaction-with-professors-who-built-the-curriculum" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-with-professors-who-built-the-curriculum">2. Interaction with Professors who built the curriculum</h2>
+<p>One jarring thing that I learnt to get used to was that for many courses, the Professor and team that built the curriculum, which includes lecture videos and class assignments, is not the same teaching team that conducts the course. Understandably, given the logistics of scaling a global education programme, it is not possible to expect a single Professor to be available for every subsequent class but I always found myself slightly disappointed that whenever I did not get to interact and pick the brains of the Professor who prepared the lectures. That said, my interaction with TAs and other Professors were always excellent.</p>
+</section>
+<section id="course-diversity" class="level2">
+<h2 class="anchored" data-anchor-id="course-diversity">3. Course Diversity</h2>
+<p>While I know this is something the programme continues to improve, I wished there were more courses to choose from. Once you pick a specialisation, there are a smaller set of compulsary electives to fulfil that specialization. On top of that, there is a smaller range of courses offered for online students. This means that in combination, you often find that you are only really choosing your courses from a small subset.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Overall, I am really satisfied with the OMSCS programme. It was a fair, challenging but rewarding endeavour that took me a good 3 years to complete! I am deeply thankful to the amazing educators from Georgia Tech (especially Prof.&nbsp;Joyner) who make this programme a reality. Now the only remaining problem I have is to figure out what to busy myself with now that I am going to get back my weekday nights and weekends. 😄</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2024,
+  author = {Tan, Daniel},
+  title = {My {Georgia} {Tech} {OMSCS} {Review}},
+  date = {2024-05-22},
+  url = {https://www.ddanieltan.com/posts/omscs-review},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2024" class="csl-entry quarto-appendix-citeas">
+Tan, Daniel. 2024. <span>“My Georgia Tech OMSCS Review.”</span> May 22,
+2024. <a href="https://www.ddanieltan.com/posts/omscs-review">https://www.ddanieltan.com/posts/omscs-review</a>.
+</div></div></section></div> ]]></description>
+  <category>learning</category>
+  <guid>https://www.ddanieltan.com/posts/omscs-review/</guid>
+  <pubDate>Tue, 21 May 2024 16:00:00 GMT</pubDate>
+</item>
 <item>
   <title>538 Theme Day</title>
   <dc:creator>Daniel Tan</dc:creator>
@@ -7544,555 +7628,6 @@ December 20, 2022. <a href="https://www.ddanieltan.com/posts/2022-normconf">http
   <category>simulation</category>
   <guid>https://www.ddanieltan.com/posts/2022-normconf/</guid>
   <pubDate>Mon, 19 Dec 2022 16:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Scala tips for Advent of Code 2022</title>
-  <dc:creator>Daniel Tan</dc:creator>
-  <link>https://www.ddanieltan.com/posts/aocScala/</link>
-  <description><![CDATA[ 
-
-
-
-<section id="december-is-upon-us" class="level1 page-columns page-full">
-<h1>December is upon us 🎄🎅🏻🎄</h1>
-<section id="the-advent-of-code" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="the-advent-of-code">The Advent of Code</h2>
-<p>Every December, I get excited about a project called the <a href="https://adventofcode.com/">Advent of Code (AOC)</a>. Advent of code is a free-to-join daily coding puzzle project that starts on 1 Dec and concludes on the 25th. Each day a two-part question is released on the site to test your problem-solving skills. Many programmers all around the world enjoy solving these puzzles together in a variety of programming languages. This year, being my <a href="https://www.ddanieltan.com/2022scala">Year of Scala</a>, it should come as no surprise that I plan on using Scala as my language of choice!</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>Amongst the many different programming languages used for AOC, I am always impressed by the mavericks who choose to use <a href="https://detrang1301.github.io/adventofcode-2021-excel/">Excel</a> 🤯</p>
-</div></div><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.ddanieltan.com/posts/aocScala/aocLogo.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Source: https://thenewstack.io/advent-of-codes-programming-puzzles-set-new-global-record/</figcaption>
-</figure>
-</div>
-</section>
-<section id="scala-centers-solutions-for-2021" class="level2">
-<h2 class="anchored" data-anchor-id="scala-centers-solutions-for-2021">Scala Center’s Solutions for 2021</h2>
-<p>An amazing resource we have to prepare for this year’s AOC are the examples and solutions provided by Scala Center for last year’s AOC - <a href="https://scalacenter.github.io/scala-advent-of-code/">Scala Center Solutions to 2021 Advent of Code</a>. Here you can find a variety of solutions using solely Scala’s standard library and showcasing how to best use idiomatic Scala to solve common problems. In this post, I am going to share is a summary of my tips and takeaways.</p>
-</section>
-</section>
-<section id="scala-cli-more-time-coding-less-time-fiddling" class="level1">
-<h1>1. Scala-cli: More time coding, less time fiddling</h1>
-<p>Among the many build tools available for Scala projects, my recommendation is <a href="https://scala-cli.virtuslab.org/">scala-cli</a>. Scala-cli is by far, the simplest tool that allows you to start solving the actual puzzles you will encounter and minimizes the time you fiddle with your project setup. You will find an easy-to-follow project structure here: https://github.com/scalacenter/scala-advent-of-code. You can install scala-cli via brew (see instructions on their website) or I typically rely on the default <a href="https://get-coursier.io/docs/cli-installation">Coursier</a> setup whose default bundle of packages includes scala-cli.</p>
-</section>
-<section id="case-class---the-swiss-army-knife-of-modelling-a-problem" class="level1">
-<h1>2. Case class - The swiss army knife of modelling a problem</h1>
-<p>How are AOC puzzles different from Leetcode? A: AOC puzzles are A LOT more verbose. Puzzles are usually described in a cute story incorporating a lot of storytelling elements which gives AOC its distinct Christmas-y flavour. But, this also means there’s just so much information to parse. One of my favourite features of Scala is the <code>case class</code> because it lends itself so well to converting the information from the question into clear and concise code.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb1-1"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">case</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">class</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Elf</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">String</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> age<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Int</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb1-2">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> isOldEnough<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Boolean</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span> age <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb1-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb1-4"></span>
-<span id="cb1-5"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> e1 <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Elf</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Alice"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb1-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> e2 <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Elf</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Bob"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">19</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb1-7"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> e3 <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">Elf</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Alice"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb1-8"></span>
-<span id="cb1-9"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// Comparison operators check for equality of data instead of the instance's memory location</span></span>
-<span id="cb1-10">e1 <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> e3 <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// True</span></span>
-<span id="cb1-11"></span>
-<span id="cb1-12"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// Case classes can hold methods just like a regular class</span></span>
-<span id="cb1-13">e2<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>isOldEnough <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// True</span></span></code></pre></div>
-</section>
-<section id="be-explicit-when-using-mutability" class="level1">
-<h1>3. Be explicit when using Mutability</h1>
-<p>Scala has a strong sense of pragmatism. Scala encourages immutability as a default, which makes sense as it reduces a lot of unexpected side effects. But, Scala also does not force immutability on you in every circumstance. To use a mutable data structure, you can import like so.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb2-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">import</span> scala<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>collection<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>mutable</span>
-<span id="cb2-2"></span>
-<span id="cb2-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// A mutable map with key (x,y) --&gt; value</span></span>
-<span id="cb2-4"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">var</span> map <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> mutable<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span>Tuple2<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Int</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Int</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">],</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Int</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]()</span></span>
-<span id="cb2-5"></span>
-<span id="cb2-6"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// Initialising the map</span></span>
-<span id="cb2-7"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">((</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">))</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span></span>
-<span id="cb2-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">((</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">))</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span></span>
-<span id="cb2-9"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">((</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">))</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span></span>
-<span id="cb2-10">map <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// HashMap((0, 0) -&gt; 0, (1, 0) -&gt; 0, (0, 1) -&gt; 0)</span></span>
-<span id="cb2-11"></span>
-<span id="cb2-12"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// Updating values in the Map</span></span>
-<span id="cb2-13"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">((</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">))</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="cb2-14">map <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// HashMap((0, 0) -&gt; 1, (1, 0) -&gt; 0, (0, 1) -&gt; 0)</span></span></code></pre></div>
-<p>Keeping track of a map of (x,y) coordinates that correspond to a value that can change as the problem progresses is a rather common problem you will encounter. While I am sure you can still solve this problem using immutable data structures, I am glad that an option to use mutability exists. I also enjoy explicitly declaring which data structures are mutable because it reminds me to keep mutability to a minimum.</p>
-</section>
-<section id="use-recursion-in-place-of-repetition" class="level1">
-<h1>4. Use Recursion in place of repetition</h1>
-<p>In Scala, the recommendation is to use recursion in places where we need repetition. However, refactoring while loops to a recursive function used to be unintuitive for me, until I came across <a href="https://www.youtube.com/@TheAtomicmoose"><span class="citation" data-cites="Kit">@Kit</span> Langton</a>’s video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E8rwsxn1iTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<p>Once you get a hang of recursion, a lot of solutions that require you to repeat actions while waiting for a condition get a lot simpler to understand. A classic example is a search algorithm which comes up fairly often in AOC.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb3-1"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">case</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">class</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Point</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>row<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Int</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> col<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Int</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb3-2"></span>
-<span id="cb3-3">@scala<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>annotation<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>tailrec</span>
-<span id="cb3-4"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">search</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span id="cb3-5">    visited<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Point</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">],</span></span>
-<span id="cb3-6">    toVisit<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> mutable<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Queue</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Point</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">],</span></span>
-<span id="cb3-7">    qualifiedPoints<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Point</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span></span>
-<span id="cb3-8"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb3-9">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> toVisit<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>isEmpty then qualifiedPoints</span>
-<span id="cb3-10">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">else</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb3-11">        <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> nextPoint <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> toVisit<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>dequeue</span>
-<span id="cb3-12">        <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> newPointsToVisit <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">...</span></span>
-<span id="cb3-13"></span>
-<span id="cb3-14">        <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">search</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span id="cb3-15">            visited <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">++</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>nextPoint<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">),</span></span>
-<span id="cb3-16">            toVisit <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">++</span> newPointsToVisit<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-17">            qualifiedPoints <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">++</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>nextPoint<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">))</span></span>
-<span id="cb3-18">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb3-19"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div>
-</section>
-<section id="pattern-matching---exhaustively-check-for-all-paths-your-code-can-take" class="level1">
-<h1>5. Pattern matching - Exhaustively check for all paths your code can take</h1>
-<p>Pattern matching in Scala is incredibly expressive and I can’t do justice to this amazing feature in a single paragraph. If you are new to Scala, be sure to learn the various ways you can pattern match from the <a href="https://docs.scala-lang.org/tour/pattern-matching.html">Scala official website</a>. Specific to the puzzles in AOC, 1 thing I love about pattern matching is that the compiler will exhaustively check for every path my code execution can take and alert me if I missed something (which happens rather often). <img src="https://www.ddanieltan.com/posts/aocScala/diagnostic.png" class="img-fluid" alt="Compiler checking for exhaustiveness"></p>
-</section>
-<section id="use-try-for-elegant-error-handling" class="level1">
-<h1>6. Use Try for elegant error handling</h1>
-<p>If you have many actions to run and some of which might throw an error, you can handle this situation elegantly by wrapping the actions in a <code>Try</code>. This converts the output to either a <code>Success</code> or <code>Failure</code> type that you can simply filter on.</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb4-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> actions <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Seq</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span id="cb4-2">    Try <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">},</span></span>
-<span id="cb4-3">    Try <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb4-4"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// List(Success(value = 2), Failure(exception = java.lang.ArithmeticException: / by zero))</span></span>
-<span id="cb4-5"></span>
-<span id="cb4-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">val</span> successfulActions <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> actions<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>_<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>isSuccess<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// List(Success(value = 2))</span></span></code></pre></div>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>And, there you go! Hope these were useful tips and that I got you excited to try them out for 2022’s Advent of Code. Happy coding!</p>
-<!--
-Adapted from Tom Mock's blog: https://github.com/jthomasmock/themockup-blog/blob/master/_R/footer.qmd
--->
-
-</section>
-
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
-
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand for Session Info
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>─ Session info ───────────────────────────────────────────────────────────────
- setting  value
- version  R version 4.3.1 (2023-06-16)
- os       macOS Ventura 13.5
- system   x86_64, darwin20
- ui       X11
- language (EN)
- collate  en_US.UTF-8
- ctype    en_US.UTF-8
- tz       Asia/Singapore
- date     2023-08-10
- pandoc   3.1.6 @ /usr/local/bin/ (via rmarkdown)
- quarto   1.3.433
-
-─ Packages ───────────────────────────────────────────────────────────────────
- package     * version date (UTC) lib source
- sessioninfo * 1.2.2   2021-12-06 [1] CRAN (R 4.3.0)
-
- [1] /Users/ddanieltan/Code/ddanieltan.com/renv/library/R-4.3/x86_64-apple-darwin20
- [2] /Users/ddanieltan/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/x86_64-apple-darwin20/84ba8b13
-
-──────────────────────────────────────────────────────────────────────────────</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-I am convinced the best learning takes place when the learner takes charge – Seymour Papert
-</blockquote>
-
-
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{tan2022,
-  author = {Tan, Daniel},
-  title = {Scala Tips for {Advent} of {Code} 2022},
-  date = {2022-11-30},
-  url = {https://www.ddanieltan.com/posts/aocScala},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-tan2022" class="csl-entry quarto-appendix-citeas">
-Tan, Daniel. 2022. <span>“Scala Tips for Advent of Code 2022.”</span>
-November 30, 2022. <a href="https://www.ddanieltan.com/posts/aocScala">https://www.ddanieltan.com/posts/aocScala</a>.
-</div></div></section></div> ]]></description>
-  <category>scala</category>
-  <category>adventofcode</category>
-  <guid>https://www.ddanieltan.com/posts/aocScala/</guid>
-  <pubDate>Tue, 29 Nov 2022 16:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
