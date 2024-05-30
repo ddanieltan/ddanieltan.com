@@ -9,45 +9,69 @@ Links - I got out https://www.reddit.com/r/OMSCS/?f=flair_name%3A%22I%20GOT%20OU
 [Georgia Tech Online Masters of Computer Science (OMSCS)](https://omscs.gatech.edu/) 
 https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century
 
-# I'm done!
+# I got out!
 
 ![](./diploma.png){fig-align='center'}
 
-I applied to Georgia Tech Online Masters of Computer Science programme in Jun 2020 and started the programme in that Fall. A little over 3 years later, I am finally a proud graduate! I could not have completed this journey without the support of my wife, my family family as well as my work family. In keeping with the tradition of many alumni before me and to do my part in paying it forward, here are some of my reflections about this programme.
-Hey there, fellow techies and lifelong learners! After an exhilarating 3+ year journey, I can finally call myself a proud graduate of the Georgia Tech Online Masters of Computer Science (OMSCS) program. Let me tell you, it's been quite the adventure, and I couldn't have made it without the unwavering support of my amazing wife, family, and fantastic work crew. As I bask in the post-graduation glow, I want to share some thoughts and insights about this remarkable program – a little something to pay it forward, just like the awesome OMSCS alumni before me.
+After a challenging 3+ year journey, I am finally proud graduate of the Georgia Tech Online Masters of Computer Science (OMSCS) program (Go Jackets!). I could not have completed this programme without the support of my amazing wife, family, and fantastic colleagues, mentors and managers. It is an ongoing tradition that graduates of this programm share their reflections and tips, so as I bask in the post-graduation glow, here's my way to pay it forward.
 
 # OMSCS
+If this is the 1st time you have heard of the OMSCS, here's a quick primer. The landscape for online Computer Science Masters programs is very competitive. There is a large market of potential students, many of which are already mid career professionals who are attracted to furthering their education without committing to an in-person programme, and from my observation, this market has only gotten larger since COVID. Georgia Tech's was one of the pioneer programmes and remains today, one of the top choices for students from all walks of life. 
 
-As a quick primer, in the increasingly competitive landscape of fully online-based Masters programmes for Computer Science, Georgia Tech's OMSCS is not only one of the pioneer programmes in this space, but also rather undisputedly the top option for many students that come from all walks of life. When I applied for this programme, I was primarily looking for rigour and structure. Like many data scientists in my generation, I came into this career from an adjacent field (Operations Research was mine). There weren't any Data Science master programmes during my time as that job simply did not exist before HBR's famous article. And like many who came from adjacent fields into this wild west, there was a lot of self-learning required. So very early into my career, I had plenty of experience learning on my own time from materials ranging from papers, textbooks to blog posts and stackoverflow posts. And while I was confident that I could continue to scrappily learn a lot of things on my own, I also began to wonder if I could learn more with something more structured like a proper masters programme curriculum. Of course, like many other busy professionals, I needed a programme that could accomodate my time, finances and learning goals. And just as thousands of others, I could not find a programme better than OMSCS that checked all those boxes. 
+When I first applied back in June 2020, I was primarily drawn to the program's rigorous yet structured curriculum. Like many data scientists of my generation, I had transitioned into this field from an adjacent domain (Operations Research was my thing). Back in those days, Data Science as a job didn't even exist – at least not in the way we know it now, thanks to that famous HBR article. Like many Data Scientists from my generation, learning the tools of the trade was primarily fueled by constant self-learning from a hodgepodge of resources such as papers, textbooks, blog posts, and good ol' StackOverflow threads. This environment gave me a lot of confidence in my ability to keep scrappily learn and apply new concepts on my own. 
+
+But I couldn't shake the feeling that a structured, proper Master's program could take my knowledge to new heights. Yet as a busy professional myself, a full in-person learning programme was not very attractive to me. So like thousands of other students in my position, the OMSCS was the perfect option that checked all my boxes.
+
+# Things that really surprised me about the course
+
+1. How applicable some courses are 
+
+I took the most common specialisation - Machine Learning, and as you can expects, there are many courses that cover technologies that are directly applied to my day-to-day work. However, there are also many courses that totally surprised me in how applicable they were to my overall effectiveness as a professional. For example, I bet this would be a surprise to many but Human-Computer Interaction (HCI) is my No. 1 course that I took in the whole programme. I went into this course thinking that this course basically helps computer science students understand what the fuss over UX and product design is about, and considered it an easier module because there was no coding involved. I was so pleasantly surprised to find out that  
+
+2. The rigour
+
+The OMSCS programme will require you to take 10 courses. Of course, each course has a different quality of lecture materials, teaching staff and assessments but more often that not, I found myself surprised by the depth of preparation in the materials. I struggled a lot with Simulation, a course that has light prerequisites (basic Calculus, Probability and Statistics) but ramps up to 
+
+3. The price
+
+## rewrite
+please rewrite the following in the style of a clear and concise blog post
+
+# Things that really surprised me about the course
+
+1. How applicable some courses are 
+
+I took the most common specialisation - Machine Learning, and as you can expects, there are many courses that cover technologies that are directly applied to my day-to-day work. However, there are also many courses that totally surprised me in how applicable they were to my overall effectiveness as a professional. For example, I bet this would be a surprise to many but Human-Computer Interaction (HCI) is my No. 1 course that I took in the whole programme. I went into this course thinking that this course basically helps computer science students understand what the fuss over UX and product design is about, and considered it an easier module because there was no coding involved. I was so pleasantly surprised to learn about the various ways hardware and software all around us are so deeply influenced by user centred design, and be equipped with a mix of practical skills to guide a product from prototype to its final form. Thanks to this course, I have become so much more purposeful about when to create a low or high fidelity prototype, and be much more aware of the affordances that each design decision adds to your product. It's a work in progress but I feel a lot less inclined to create apps with 5 drop downs and 10 radio buttons.
+
+2. The rigour
+
+The OMSCS programme will require you to take 10 courses. Of course, each course has a different quality of lecture materials, teaching staff and assessments but more often that not, I found myself surprised by the depth of preparation in the materials. ISYE Simulation was one of those courses that took me by surprise. I have a good foundation of Calculus and Probability, but it's been a long time since I had to write out derivations and proofs by hand, so it was a steep learning curve to be able to keep up with the material. But this is precisely the kind of challenge I knew I would naturally avoid, had I left my learning entirely up to self study. Through this course, I was also so inspired once I grokked the Inverse Transform Theorem that I wrote a little explainer that got a nice mention during the SoME contest!
+
+3. The price
+
+One of the reasons I took OMSCS was because of its attractive price. There is a big gulf between what it costs to get your diploma from OMSCS from alternatives. And somehow, midway through the course, it got even cheaper. I'm glad that the barriers to entry for education is so attainable but I have absolutely no idea how the programme does it.
+
+## claude
+
+3 Things That Really Surprised Me About Georgia Tech's Online Master's in Computer Science
+When I enrolled in Georgia Tech's Online Master's in Computer Science (OMSCS) program, I knew I was in for a challenging but rewarding experience. However, there were a few things that genuinely surprised me along the way. Here are the top three:
+1. The Applicability of Unexpected Courses
+While courses like Machine Learning were directly relevant to my work, some unexpected ones proved to be incredibly valuable. The biggest surprise? Human-Computer Interaction (HCI) ended up being my favorite course in the entire program.
+Going into HCI, I thought it would simply give me a basic understanding of UX and product design. Little did I know, I'd gain practical skills for guiding a product from prototype to final form. Thanks to HCI, I now approach design decisions with a user-centered mindset, thinking carefully about affordances and avoiding cluttered interfaces.
+2. The Depth and Rigor
+With 10 courses required for the degree, I expected varying levels of quality and depth. However, I was often surprised by the meticulous preparation and challenging nature of the materials.
+One course that stood out was ISYE Simulation. Despite my strong calculus and probability background, I found myself relearning how to derive proofs by hand – a steep but rewarding learning curve. This course pushed me beyond my comfort zone in a way self-study likely wouldn't have, and even inspired me to write an explainer that received recognition in the SoME contest.
+3. The Affordable Price
+One of the main reasons I chose OMSCS was its attractive price point, significantly lower than many alternative programs. Surprisingly, the cost became even more affordable midway through my studies.
+While I'm thrilled that education is becoming more accessible, I'll admit I'm puzzled by how Georgia Tech manages to offer such a high-quality program at such a low cost. Regardless, it's a testament to their commitment to making world-class education attainable for all.
+Overall, OMSCS has been an incredible experience filled with unexpected surprises and valuable lessons. If you're considering the program, keep an open mind – you never know which courses or aspects might end up surprising you the most.
+
+# What I Think Can Be Improved
+
+1.
+
+2.
+
+3.
 
 
-Hey there, fellow techies and lifelong learners! After an exhilarating 3+ year journey, I can finally call myself a proud graduate of the Georgia Tech Online Masters of Computer Science (OMSCS) program. Let me tell you, it's been quite the adventure, and I couldn't have made it without the unwavering support of my amazing wife, family, and fantastic work crew. As I bask in the post-graduation glow, I want to share some thoughts and insights about this remarkable program – a little something to pay it forward, just like the awesome OMSCS alumni before me.
-Now, for those not in the know, let me give you a quick rundown on OMSCS. In the increasingly competitive landscape of fully online Computer Science Master's programs, Georgia Tech's offering stands as one of the true pioneers and, undisputedly, one of the top choices for students from all walks of life. When I first applied back in June 2020, I was primarily drawn to the program's rigorous yet structured curriculum.
-You see, like many data scientists of my generation, I had transitioned into this field from an adjacent domain (Operations Research was my thing). Back in those days, Data Science as a job didn't even exist – at least not in the way we know it now, thanks to that famous HBR article. We were the wild west pioneers, constantly self-learning from a hodgepodge of papers, textbooks, blog posts, and good ol' StackOverflow threads. While I was confident in my ability to keep scrappily learning on my own, I couldn't shake the feeling that a structured, proper Master's program could take my knowledge to new heights.
-Of course, being a busy professional, I needed a program that could accommodate my time, finances, and learning goals. And you guessed it – OMSCS ticked all those boxes and then some, just like it has for thousands of others in my position.
-
-# The Exercism CLI
-
-
-## Setup
-
-1. Create an account on Exercism, navigate to your settings page and copy your authentication token to the clipboard.
-2. Install the Exercism CLI with `brew install exercism`
-3. Specify which workspace directory you want the CLI to download problems to with `exercism configure -w <directory>`
-
-## Solving and Submitting Exercises
-
-Now that we've covered the overall approach, you're ready to start tackling some exercises. On Exercism, programming languages are organized into what they call [Tracks](https://exercism.org/tracks). Each track contains a series of coding exercises arranged from easiest to hardest. You'll find a great selection of tracks for both popular languages and some more obscure ones. No matter how familiar I think I am with a language, I always end up learning something new from the exercises. And it's been really cool to get exposed to languages I'd never even heard of before. The variety ensures there's something engaging for everyone to explore.
-
-1. Find an exercise from a Track
-2. Copy the exercism cli command to download the problem. E.g. `exercism download --track=python --exercise=chaitanas-colossal-coaster`
-3. Navigate to your configured workspace directory and start solving! Use the provided unit tests to see if your implementation is correct. `pytest -v`
-4. Once all tests are passed, submit your solution with `exercism submit`
-
-## Learning and getting feedback
-
-Your learning doesn't stop after you submit an exercise solution. You can navigate back to the problem page and check out how other Exercism users approached the same exercise. I've lost count of how many times I've picked up a clever new technique or a more idiomatic way of writing code just by exploring the top-rated solutions from others.
-
-But in my opinion, the **killer feature** of Exercism is the ability to request a code review from an actual human mentor - not a bot. Code reviews are a huge part of real software development jobs, so it's fantastic that this platform exposes you to that process in a supportive, low-stress environment. Getting that experience early on is invaluable!
-
-Hope you found this short write up useful and you give Exercism a try!
