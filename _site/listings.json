@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/plotnine-mondrian/index.html",
       "/posts/omscs-review/index.html",
       "/posts/30-day-chart-30/index.html",
       "/posts/30-day-chart-23/index.html",

@@ -1,0 +1,290 @@
+---
+title: "Plotnine Mondrian"
+description: "2024 Plotnine Contest submission"
+date: "2024-07-22"
+categories: [dataviz, art, TIL]
+image : "42.png"
+---
+
+:::{.callout-note}
+This post is a submission to the [2024 Plotnine Contest](https://posit.co/blog/announcing-the-2024-plotnine-contest/), a global contest to encourage interesting plots created with [Plotnine](https://plotnine.org/), a visualization library that brings the Layered Grammar of Graphics to Python!
+:::
+
+# The Inspiration
+As always, I find that inspiration can come from the most unexpected places. I was browsing Linkedin on a Saturday morning and saw this post from [Michael Chow](https://mchow.com/):
+
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7220067406264610816" height="850" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
+Michael's post is a great example that visualisation libraries such as Plotnine, can not only be used for insights and analytics but also for art and recreation! I was reminded of the time where I was inspired to make some [modern art as I was learning d3.js](https://www.ddanieltan.com/posts/boogiewoogie/). Naturally, I found myself curious if I could do the same using Plotnine.
+
+# Piet Mondrian
+
+I am neither an art expert nor _aficionado_ 👨‍🎨, but I have always enjoyed [Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian)'s art. His art work has a distinctive style—characterized by bold lines, primary colours, and geometric shapes—has and is usually used in pop culture as the iconic example of the Modernism movement. 
+
+For me, his art has always been unique, beautiful and approachable.I think that's why I find myself always drawn to recreating his artwork with the tools that I'm more familiar with!
+
+# Submission Code
+
+```{python}
+#| code-fold: true
+
+import polars as pl
+import numpy as np
+from plotnine import ggplot, aes, geom_rect, theme_minimal, scale_fill_manual, theme, element_blank
+from typing import List, Tuple
+from enum import Enum
+
+class MondrianColour(Enum):
+    BLACK = "#000000"
+    YELLOW = "#FDDE06"
+    BLUE = "#0300AD"
+    RED = "#E70503"
+    WHITE = "#ffffff"
+
+class Node:
+    def __init__(self, depth: int, x_range: Tuple[float, float], y_range: Tuple[float, float]):
+        self.depth = depth
+        self.x_range = x_range
+        self.y_range = y_range
+        self.left = None
+        self.right = None
+        self.split_value = None
+        self.is_vertical = np.random.choice([True, False])
+
+def generate_tree(node: Node, max_depth: int, min_size: float, force_split: bool = False) -> None:
+    width = node.x_range[1] - node.x_range[0]
+    height = node.y_range[1] - node.y_range[0]
+
+    if not force_split:
+        if node.depth >= max_depth or (np.random.random() < 0.1 and node.depth > 1):
+            return
+
+        if width < min_size and height < min_size:
+            return
+
+    if node.is_vertical and width >= min_size:
+        node.split_value = np.random.uniform(node.x_range[0] + min_size, node.x_range[1] - min_size)
+        node.left = Node(node.depth + 1, (node.x_range[0], node.split_value), node.y_range)
+        node.right = Node(node.depth + 1, (node.split_value, node.x_range[1]), node.y_range)
+    elif not node.is_vertical and height >= min_size:
+        node.split_value = np.random.uniform(node.y_range[0] + min_size, node.y_range[1] - min_size)
+        node.left = Node(node.depth + 1, node.x_range, (node.y_range[0], node.split_value))
+        node.right = Node(node.depth + 1, node.x_range, (node.split_value, node.y_range[1]))
+    else:
+        return
+
+    generate_tree(node.left, max_depth, min_size)
+    generate_tree(node.right, max_depth, min_size)
+
+def initial_splits(root: Node, min_size: float) -> None:
+    # Vertical split
+    root.is_vertical = True
+    root.split_value = np.random.uniform(root.x_range[0] + min_size, root.x_range[1] - min_size)
+    root.left = Node(1, (root.x_range[0], root.split_value), root.y_range)
+    root.right = Node(1, (root.split_value, root.x_range[1]), root.y_range)
+
+    # Horizontal splits
+    root.left.is_vertical = False
+    root.left.split_value = np.random.uniform(root.left.y_range[0] + min_size, root.left.y_range[1] - min_size)
+    root.left.left = Node(2, root.left.x_range, (root.left.y_range[0], root.left.split_value))
+    root.left.right = Node(2, root.left.x_range, (root.left.split_value, root.left.y_range[1]))
+
+    root.right.is_vertical = False
+    root.right.split_value = np.random.uniform(root.right.y_range[0] + min_size, root.right.y_range[1] - min_size)
+    root.right.left = Node(2, root.right.x_range, (root.right.y_range[0], root.right.split_value))
+    root.right.right = Node(2, root.right.x_range, (root.right.split_value, root.right.y_range[1]))
+
+def tree_to_rectangles(node: Node, rectangles: List[dict]) -> None:
+    if node.left is None and node.right is None:
+        rectangles.append({
+            'xmin': node.x_range[0],
+            'xmax': node.x_range[1],
+            'ymin': node.y_range[0],
+            'ymax': node.y_range[1],
+            'depth': node.depth
+        })
+    else:
+        tree_to_rectangles(node.left, rectangles)
+        tree_to_rectangles(node.right, rectangles)
+
+def draw(seed: int):
+    np.random.seed(seed)
+
+    root = Node(0, (0, 1), (0, 1))
+    min_size = 0.05
+    max_depth = 12
+
+    # Perform initial splits
+    initial_splits(root, min_size)
+
+    # Continue generating the tree
+    generate_tree(root.left.left, max_depth, min_size)
+    generate_tree(root.left.right, max_depth, min_size)
+    generate_tree(root.right.left, max_depth, min_size)
+    generate_tree(root.right.right, max_depth, min_size)
+
+    rectangles = []
+    tree_to_rectangles(root, rectangles)
+
+    colours = pl.Series(name="colour",values=np.random.choice([colour.value for colour in MondrianColour], size= len(rectangles)))
+
+    df = pl.DataFrame(rectangles).with_columns(colours)
+
+    plot = (ggplot(df, aes(xmin='xmin', xmax='xmax', ymin='ymin', ymax='ymax', fill='colour'))
+            + geom_rect(color='black', size=2)
+            + scale_fill_manual(values=[colour.value for colour in MondrianColour])
+            + theme_minimal()
+            + theme(legend_position = "none",
+                    aspect_ratio=1,
+                    axis_text=element_blank(),
+                    axis_ticks=element_blank(),
+                    panel_grid=element_blank(),
+                    figure_size=(10,10))
+    )
+
+    plot.show()
+    plot.save(f'{seed}.png', verbose=False)
+
+draw(seed=42)
+```
+
+# Explanation
+
+## The "Art" of partitioning
+The Decision Tree is a well-known tool in the Machine Learning toolbox and in many textbooks, the prediction space that is partitioned by a decision tree is visualised this way. ([Source](https://www.researchgate.net/publication/323141646_Predicting_University_Students'_Academic_Success_and_Choice_of_Major_using_Random_Forests))
+
+![](decision-tree.png)
+
+I find that the parallels between decision tree partitions and Mondrian's geometric abstractions are striking. Both divide a space into rectangles of varying sizes, creating a visually compelling arrangement that conveys information—whether it's a machine learning model's decision boundaries or an artist's abstract representation of reality.
+
+And so, my approach to building a Mondrian-inspired artwork begins with representing the rectangles as a Tree data structure:
+
+```python
+class Node:
+    def __init__(self, depth: int, x_range: Tuple[float, float], y_range: Tuple[float, float]):
+        self.depth = depth
+        self.x_range = x_range
+        self.y_range = y_range
+        self.left = None
+        self.right = None
+        self.split_value = None
+        self.is_vertical = np.random.choice([True, False])
+
+```
+Our `Node` class is the building block of our Mondrian tree. Each node represents a rectangular region in our canvas, defined by its `x_range` and `y_range`. The `depth` attribute helps us control the complexity of our "painting," while `left` and `right` keeps track of its children Nodes in a Tree-like structure.
+
+We turn our creation into [Generative Art](https://en.wikipedia.org/wiki/Generative_art) with `is_vertical` and `split_value`. These introduce the element of randomness that gives our visualizations their Mondrian-like quality. `is_vertical` determines whether we'll split our rectangle vertically or horizontally, while `split_value` determines where that split occurs.
+
+```python
+def generate_tree(node: Node, max_depth: int, min_size: float, force_split: bool = False) -> None:
+    width = node.x_range[1] - node.x_range[0]
+    height = node.y_range[1] - node.y_range[0]
+
+    if not force_split:
+        if node.depth >= max_depth or (np.random.random() < 0.1 and node.depth > 1):
+            return
+
+        if width < min_size and height < min_size:
+            return
+
+    if node.is_vertical and width >= min_size:
+        node.split_value = np.random.uniform(node.x_range[0] + min_size, node.x_range[1] - min_size)
+        node.left = Node(node.depth + 1, (node.x_range[0], node.split_value), node.y_range)
+        node.right = Node(node.depth + 1, (node.split_value, node.x_range[1]), node.y_range)
+    elif not node.is_vertical and height >= min_size:
+        node.split_value = np.random.uniform(node.y_range[0] + min_size, node.y_range[1] - min_size)
+        node.left = Node(node.depth + 1, node.x_range, (node.y_range[0], node.split_value))
+        node.right = Node(node.depth + 1, node.x_range, (node.split_value, node.y_range[1]))
+    else:
+        return
+
+    generate_tree(node.left, max_depth, min_size)
+    generate_tree(node.right, max_depth, min_size)
+```
+
+The `generate_tree()` function is where add elements of generative art. It recursively builds our tree, making decisions about splitting at each step. Here's how it works:
+
+1. We start with a single rectangle (our canvas).
+2. At each node, we decide whether to split vertically or horizontally (is_vertical).
+3. We then choose a random point along that axis to make the split (split_value).
+4. This process continues until we reach our max_depth or our rectangles become too small (min_size).
+5. To add more variety, we've included a 10% chance of early termination for any branch.
+
+This approach ensures that our final visualization will have the characteristic Mondrian look: a mix of larger and smaller rectangles, some split vertically, others horizontally, all arranged in a seemingly random yet aesthetically pleasing manner.
+
+## Perceiving Randomness
+
+In some of my early attempts, I churned out pieces that looked like this.
+
+![Too many large rectangles for my liking](62.png)
+
+At first glance, this image might seem like a failed attempt at recreating Mondrian's style. We see a few large rectangles that haven't been split into smaller ones, creating an imbalance that doesn't quite capture the essence of Mondrian's work.
+
+But there is nothing wrong with the code that generated this artwork. Our algorithm uses a probabilistic approach to decide whether to split a rectangle further. In this particular instance, several large rectangles weren't chosen for splitting. From a purely statistical standpoint, this outcome is entirely possible and, indeed, **random**.
+
+As human observers, we tend to perceive this result as "not random enough." This discrepancy highlights a crucial concept in both data science and cognitive psychology: [humans have an inherent bias in perceiving randomness](https://behavioralscientist.org/yates-expect-unexpected-why-randomness-doesnt-feel-random-sense-patterns/)!
+
+```python
+def initial_splits(root: Node, min_size: float) -> None:
+    # Vertical split
+    root.is_vertical = True
+    root.split_value = np.random.uniform(root.x_range[0] + min_size, root.x_range[1] - min_size)
+    root.left = Node(1, (root.x_range[0], root.split_value), root.y_range)
+    root.right = Node(1, (root.split_value, root.x_range[1]), root.y_range)
+
+    # Horizontal splits
+    root.left.is_vertical = False
+    root.left.split_value = np.random.uniform(root.left.y_range[0] + min_size, root.left.y_range[1] - min_size)
+    root.left.left = Node(2, root.left.x_range, (root.left.y_range[0], root.left.split_value))
+    root.left.right = Node(2, root.left.x_range, (root.left.split_value, root.left.y_range[1]))
+
+    root.right.is_vertical = False
+    root.right.split_value = np.random.uniform(root.right.y_range[0] + min_size, root.right.y_range[1] - min_size)
+    root.right.left = Node(2, root.right.x_range, (root.right.y_range[0], root.right.split_value))
+    root.right.right = Node(2, root.right.x_range, (root.right.split_value, root.right.y_range[1]))
+```
+
+In my case, I'd like to side step this perception paradox and create an art piece that looks "justifiably random" for most people. Therefore, this `initial_splits()` function was introduced to force our tree to always start with this initial, balanced tree.
+
+```
+      Root
+      /    \
+    L      R
+   / \    / \
+ LL  LR  RL RR
+```
+
+This initial structure ensures that we always start with at least four rectangles, and while it does not eliminate the type of large-rectangle pieces we wanted to provide, it does make it more likely that our final piece has a more interesting Mondrian-style composition.
+
+## Plotnine Specifics
+
+The final product is produced by the `draw()` function and here's the most important snippet - using Plotnine to visualise!
+
+```python
+ colours = pl.Series(name="colour",values=np.random.choice([colour.value for colour in MondrianColour], size= len(rectangles)))
+
+df = pl.DataFrame(rectangles).with_columns(colours)
+
+plot = (ggplot(df, aes(xmin='xmin', xmax='xmax', ymin='ymin', ymax='ymax', fill='colour'))
+        + geom_rect(color='black', size=2)
+        + scale_fill_manual(values=[colour.value for colour in MondrianColour])
+        + theme_minimal()
+        + theme(legend_position = "none",
+                aspect_ratio=1,
+                axis_text=element_blank(),
+                axis_ticks=element_blank(),
+                panel_grid=element_blank(),
+                figure_size=(10,10))
+)
+```
+
+The most critical piece of code of the entire art piece is Plotnine's `geom_rect()` method. This geom takes in the coordinates of a rectangle (`xmin`,`xmax`,`ymin`,`ymax`) which our graph data structure provides. Every rectangle on the final art piece is rendered as a `geom_rect` on the canvas.
+
+Earlier in the code block, I created a palette of Mondrian colours `MondrianColour` and using
+`scale_fill_manual()` I can ensure my art piece to uses these fill values from that palette. Finally, the `color` and `size` parameter controls the thick bold outlines for each rectangle.
+
+Using the minimal theme template and with additional tweaks in `theme()`, I removed the legend, axis text, ticks, and grid lines. I also set the aspect ratio to 1 and the figure size to 10x10, ensuring a perfect square canvas reminiscent of many of Mondrian's works.
+
+# Conclusion
+
+I really enjoyed the simplicity and flexibility of the Plotnine library. I felt that it's straight-forwardness (especially if you are familiar with `ggplot2`) really helped me focus on the creative aspects of the visualization. I am already looking forward to see what other visualisations will be submitted to this year's competition. 
